@@ -142,9 +142,11 @@
     const svg = el('svg', { viewBox: '0 0 900 330', role: 'img', 'aria-label': metro.dataset.label }, metro);
     const Y = 170, X = { specify: 80, implement: 290, validate: 500, review: 710, done: 850 };
     const roleOf = { specify: 'specifier', implement: 'developer', validate: 'validator', review: 'reviewer', done: '' };
+    const runtimes = ['codex', 'opencode', 'pi', 'claude-code', 'jcode'], roleTags = [], rtHead = document.getElementById('metro-rt');
+    let runNo = 0;
     for (const s in X) {
       const label = el('text', { x: X[s], y: 40, 'text-anchor': 'middle', fill: '#f0eee6', 'font-size': 13, 'letter-spacing': 1 }, svg); label.textContent = s.toUpperCase();
-      if (roleOf[s]) { const r = el('text', { x: X[s], y: 60, 'text-anchor': 'middle', fill: '#9b988f', 'font-size': 11 }, svg); r.textContent = `${roleOf[s]} · codex`; }
+      if (roleOf[s]) { const r = el('text', { x: X[s], y: 60, 'text-anchor': 'middle', fill: '#9b988f', 'font-size': 11 }, svg); roleTags.push([r, roleOf[s]]); }
       el('line', { x1: X[s], y1: 74, x2: X[s], y2: Y - 16, stroke: '#3a3935', 'stroke-width': 1, 'stroke-dasharray': '2 4' }, svg);
     }
     const shortcut = el('path', { d: `M${X.implement} ${Y} C${X.implement + 60} 96,${X.done - 60} 96,${X.done} ${Y}`, fill: 'none', stroke: '#e0352b', 'stroke-width': 2, 'stroke-dasharray': '5 6', opacity: .22 }, svg);
@@ -179,10 +181,13 @@
     const budget = n => { lk('lk-budget').querySelector('b').textContent = `${n}/3`; };
 
     async function cycle() {
+      const rt = runtimes[runNo++ % runtimes.length]; // one runtime per Run, a different one each Run
+      roleTags.forEach(([t, role]) => { t.textContent = `${role} · ${rt}`; });
+      rtHead.textContent = `runtime: ${rt}`;
       seq = 0; logEl.innerHTML = ''; ['lk-trans', 'lk-valid', 'lk-review', 'lk-budget'].forEach(i => setLock(i));
       budget(0); for (const s in X) light(s, false);
       at(X.specify, Y); train.setAttribute('opacity', 1);
-      log('run.created'); await sleep(350); log('run.plan_frozen <span class="seq">feature@1 · codex</span>'); setLock('lk-trans', 'g'); setLock('lk-budget', 'g');
+      log('run.created'); await sleep(350); log(`run.plan_frozen <span class="seq">feature@1 · ${rt}</span>`); setLock('lk-trans', 'g'); setLock('lk-budget', 'g');
       light('specify', true); log('attempt.started specify'); await sleep(700); log('handoff.created spec.md', 'good');
       await run(X.specify, X.implement); light('implement', true);
       log('attempt.started implement'); await sleep(700); log('attempt.completed');
