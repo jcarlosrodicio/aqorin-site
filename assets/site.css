@@ -26,7 +26,7 @@ nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);background:rgba(
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
 .logo{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:700;letter-spacing:.02em;text-decoration:none}
 .logo svg{width:26px;height:26px}
-nav ul{display:flex;gap:26px;list-style:none;font-size:14px;color:var(--muted)}
+nav ul{display:flex;align-items:center;gap:26px;list-style:none;font-size:14px;color:var(--muted)}
 nav ul a{text-decoration:none;transition:color .2s}
 nav ul a:hover{color:var(--teal)}
 @media(max-width:720px){nav ul li:not(:last-child){display:none}}
