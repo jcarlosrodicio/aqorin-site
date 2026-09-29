@@ -192,8 +192,8 @@ specify → implement
           <div class="fb-row h"><span>Track</span><span>Destination</span><span>Status</span></div>
           <div class="fb-row"><span class="flap" data-text="TV0"></span><span class="fb-dest">Reality baseline</span><span class="flap st s-ok" data-text="CLOSED" data-len="11"></span></div>
           <div class="fb-row"><span class="flap" data-text="TV1"></span><span class="fb-dest">Runtime parity baseline</span><span class="flap st s-ok" data-text="CLOSED" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TV4"></span><span class="fb-dest">Deterministic validation</span><span class="flap st s-next" data-text="NEXT" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TV2"></span><span class="fb-dest">Unified execution path</span><span class="flap st s-plan" data-text="PLANNED" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TV4"></span><span class="fb-dest">Deterministic validation</span><span class="flap st s-ok" data-text="CLOSED" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TV2"></span><span class="fb-dest">Unified execution path</span><span class="flap st s-next" data-text="NEXT" data-len="11"></span></div>
           <div class="fb-row"><span class="flap" data-text="TV3"></span><span class="fb-dest">User-defined workflows</span><span class="flap st s-plan" data-text="PLANNED" data-len="11"></span></div>
           <div class="fb-row"><span class="flap" data-text="TV5"></span><span class="fb-dest">Multi-runtime, multi-model Run</span><span class="flap st s-plan" data-text="PLANNED" data-len="11"></span></div>
           <div class="fb-row"><span class="flap" data-text="TV6"></span><span class="fb-dest">Recovery and explicit replanning</span><span class="flap st s-plan" data-text="PLANNED" data-len="11"></span></div>
@@ -202,14 +202,14 @@ specify → implement
 
         <div>
           <div class="report rv">
-            <h4><span>Field notes · TV1 runtime parity</span><span>2026-09-29</span></h4>
+            <h4><span>Field notes · TV4 deterministic validation</span><span>2026-09-29</span></h4>
             <span class="stamp wip">Work in progress</span>
-            <p class="lead-note">The current workflow was measured on OpenCode, Pi and Codex with the same task. It is not there yet: the gaps are in Aqorin's shared code, not in the runtimes.</p>
-            <p class="foot">Next: Aqorin runs validation itself, then one execution path for every runtime. That is what the rest of the track is for.</p>
+            <p class="lead-note">A model no longer approves its own work. Give the Run an Acceptance Plan and Aqorin runs the checks itself: only their exit status decides.</p>
+            <p class="foot">Shown live on Codex; on main, not yet in the npm package. Next: one execution path for every runtime.</p>
           </div>
           <div class="ledger rv">
-            <div class="yes"><h4>Exists today</h4><ul><li>Durable Run and event core</li><li>Five Runtime Adapters</li><li>Built-in <code>feature</code> workflow, live once per runtime, separately, on macOS arm64</li><li><code>@aqorin/cli</code> 0.2.0 on npm, MIT — behind main</li></ul></div>
-            <div class="no"><h4>Next on the track</h4><ul><li>User-defined workflows</li><li>Mixed runtimes and models in one Run</li><li>Validation run by Aqorin itself</li><li>More platforms beyond macOS arm64</li></ul></div>
+            <div class="yes"><h4>Exists today</h4><ul><li>Durable Run and event core</li><li>Five Runtime Adapters</li><li>Built-in <code>feature</code> workflow, live once per runtime, separately, on macOS arm64</li><li>Validation decided by Aqorin from an Acceptance Plan — on main</li><li><code>@aqorin/cli</code> 0.2.0 on npm, MIT — behind main</li></ul></div>
+            <div class="no"><h4>Next on the track</h4><ul><li>User-defined workflows</li><li>Mixed runtimes and models in one Run</li><li>One execution path for every runtime</li><li>More platforms beyond macOS arm64</li></ul></div>
           </div>
         </div>
       </div>
