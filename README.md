@@ -22,8 +22,10 @@ language switch.
 
 The page follows the product repository's rule: never claim a capability or a
 platform that has not been demonstrated. Anything that is a goal is labelled
-(`target · TV5`), anything illustrative says so, and the status section mirrors the
-product's `docs/exits/README.md`. Update it when that file changes.
+(`target · TV5`), anything illustrative says so, and the principles are presented as
+design rules, not as guarantees. The status section says where the project is
+heading at the level of the Thesis Validation Track, without per-runtime detail;
+keep it in step with the product's `docs/exits/README.md`.
 
 ## Local preview
 
