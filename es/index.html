@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aqorin — Un workflow. Cualquier agente de código.</title>
+<meta name="description" content="Aqorin es una capa de orquestación para agentes de código, independiente del runtime. Define un workflow de ingeniería una vez y ejecútalo con OpenCode, Pi, Codex, Claude Code o jcode, sin sustituir tu configuración. Construido en público.">
+<link rel="canonical" href="https://aqorin.rcuadrado.es/es/">
+<link rel="alternate" hreflang="en" href="https://aqorin.rcuadrado.es/">
+<link rel="alternate" hreflang="es" href="https://aqorin.rcuadrado.es/es/">
+<link rel="alternate" hreflang="x-default" href="https://aqorin.rcuadrado.es/">
+<meta name="theme-color" content="#0a0e10">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aqorin">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:title" content="Aqorin — Un workflow. Cualquier agente de código.">
+<meta property="og:description" content="Una capa de orquestación para agentes de código, independiente del runtime. La tesis se está validando en público: esto es lo que funciona y lo que todavía no.">
+<meta property="og:url" content="https://aqorin.rcuadrado.es/es/">
+<meta property="og:image" content="https://aqorin.rcuadrado.es/es/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Aqorin — un workflow, cualquier agente de código. Un workflow canónico enrutado a OpenCode, Pi, Codex, Claude Code y jcode.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@JuancaRodicio">
+<meta name="twitter:creator" content="@JuancaRodicio">
+<meta name="twitter:title" content="Aqorin — Un workflow. Cualquier agente de código.">
+<meta name="twitter:description" content="Los workflows son tuyos. Los runtimes, intercambiables. Construido en público.">
+<meta name="twitter:image" content="https://aqorin.rcuadrado.es/es/og.png">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Aqorin",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "macOS",
+  "description": "Capa de orquestación para agentes de código, independiente del runtime. Define workflows de ingeniería una vez y ejecútalos con distintos runtimes de agentes de código.",
+  "softwareVersion": "0.2.0",
+  "license": "https://opensource.org/licenses/MIT",
+  "url": "https://aqorin.rcuadrado.es/es/",
+  "inLanguage": "es",
+  "author": { "@type": "Person", "name": "Juan Carlos Rodicio", "url": "https://x.com/JuancaRodicio" },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+}
+</script>
+</head>
+<body>
+<div class="grid-bg"></div><div class="glow"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="/es/" aria-label="Inicio de Aqorin">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#11191c" stroke="#2a3a3f"/><path d="M9 23 16 8l7 15M11.8 17.5h8.4" stroke="#5fd4c0" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      aqorin
+    </a>
+    <div class="nav-r">
+      <ul>
+        <li><a href="#problem">Por qué</a></li>
+        <li><a href="#how">Cómo</a></li>
+        <li><a href="#principles">Principios</a></li>
+        <li><a href="#status">Estado</a></li>
+        <li><a class="btn" style="padding:7px 14px" href="#feedback">Dar feedback</a></li>
+      </ul>
+      <div class="lang" aria-label="Idioma"><a href="/" hreflang="en" lang="en">EN</a><a href="/es/" hreflang="es" lang="es" aria-current="page">ES</a></div>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <span class="pill"><span class="dot"></span>tesis en validación · construido en público</span>
+      <h1>Un workflow.<br><span class="grad">Cualquier agente de código.</span></h1>
+      <p class="lead">Aqorin es una <b>capa de orquestación independiente del runtime</b> para agentes de código. Defines <b>una vez</b> cómo se especifica, implementa, valida y revisa el trabajo. OpenCode, Pi, Codex, Claude Code o jcode lo ejecutan. Tu configuración sigue siendo tuya.</p>
+      <div class="cta">
+        <a class="btn primary" href="#feedback">Ayuda a darle forma →</a>
+        <button class="btn" id="copy" type="button" aria-label="Copiar el comando de instalación">
+          <span>$ npm i -g @aqorin/cli</span><span class="copy" id="copy-l" data-done="copiado" data-fail="selecciona y copia">copiar</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="term" role="img" aria-label="Terminal con un Run feature de Aqorin: specify, implement, validate, review, succeeded">
+      <div class="term-bar"><i></i><i></i><i></i><span>~/project — aqorin</span></div>
+      <div class="term-body" id="term"></div>
+      <div class="term-note">ilustrativo · basado en un Run real de TV1 con Codex 0.153.4, darwin-arm64</div>
+    </div>
+  </div>
+
+  <section id="problem">
+    <div class="wrap">
+      <div class="rv">
+        <p class="eyebrow">// el problema</p>
+        <h2>Tu proceso de ingeniería está atrapado en la carpeta de configuración de un agente.</h2>
+        <p class="sub">Cada agente de código trae sus propios agentes, comandos, skills, hooks y modelo de permisos. En cuanto escribes un workflow real —especificar, implementar, revisar, corregir— solo existe en un runtime, y lo sostiene un prompt que le pide al modelo que se acuerde.</p>
+      </div>
+      <div class="split">
+        <div class="card bad rv">
+          <h3>✕ hoy</h3>
+          <ul>
+            <li>"Pide siempre una revisión antes de terminar" vive en un prompt</li>
+            <li>Cambiar de runtime obliga a reescribir el workflow</li>
+            <li>Una sesión que se cae se lleva consigo el estado</li>
+            <li>"¿Esto está en sandbox?" — nadie sabe decir dónde se aplica</li>
+          </ul>
+          <div class="tree">
+            <b>.opencode/</b>agents  commands  skills<br>
+            <b>.pi/</b>extensions  prompts<br>
+            <b>.codex/</b>config.toml  AGENTS.md<br>
+            <b>.claude/</b>agents  skills  hooks
+          </div>
+        </div>
+        <div class="card good rv">
+          <h3>◆ con aqorin</h3>
+          <ul>
+            <li>Revisión, presupuestos y aprobaciones son estado del engine, no sugerencias</li>
+            <li>El mismo workflow canónico sirve para cualquier adapter</li>
+            <li>El Run es durable; una sesión del runtime es solo un intento</li>
+            <li>Cada garantía dice dónde se aplica, o que no se puede aplicar</li>
+          </ul>
+          <div class="tree">
+            <b>workflow</b>   pasos · roles · transiciones · presupuestos<br>
+            <b>assignment</b> runtime + modelo por rol<br>
+            <b>task</b>       petición + plan de aceptación<br>
+            <span class="t-ok">→ tres documentos, nunca mezclados</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="rv">
+        <p class="eyebrow">// cómo funciona</p>
+        <h2>Aqorin es dueño de la semántica. Los runtimes, de la ejecución.</h2>
+        <p class="sub">El Orchestration Engine custodia el Run: su estado, sus políticas y su evidencia. Los Runtime Adapters traducen cada paso a lo que el runtime hace de forma nativa. Un runtime nunca es la fuente de verdad.</p>
+      </div>
+
+      <div class="arch rv">
+        <svg viewBox="0 0 1000 470" role="img" aria-label="Arquitectura: el workflow canónico entra en el orchestration engine con estado, políticas y evidencia; después un router de runtimes lo reparte entre cinco runtime adapters">
+          <defs>
+            <linearGradient id="gE" x1="0" x2="1"><stop offset="0" stop-color="#5fd4c0" stop-opacity=".16"/><stop offset="1" stop-color="#5fd4c0" stop-opacity=".04"/></linearGradient>
+            <filter id="blur"><feGaussianBlur stdDeviation="3"/></filter>
+          </defs>
+          <rect x="360" y="14" width="280" height="54" rx="10" fill="#11191c" stroke="#2a3a3f"/>
+          <text x="500" y="38" text-anchor="middle" fill="#e3ecea" font-size="15">workflow canónico</text>
+          <text x="500" y="57" text-anchor="middle" fill="#5b6b69" font-size="11">specify → implement → validate → review</text>
+          <path d="M500 68 V110" stroke="#5fd4c0" stroke-width="1.5" class="flow"/>
+          <rect x="170" y="110" width="660" height="150" rx="14" fill="url(#gE)" stroke="#2e8f80"/>
+          <text x="500" y="138" text-anchor="middle" fill="#5fd4c0" font-size="14" letter-spacing="2">ORCHESTRATION ENGINE</text>
+          <g font-size="13">
+            <rect x="205" y="158" width="180" height="78" rx="9" fill="#0e1417" stroke="#1f2b2f"/>
+            <text x="295" y="186" text-anchor="middle" fill="#e3ecea">estado</text>
+            <text x="295" y="208" text-anchor="middle" fill="#5b6b69" font-size="10.5">eventos append-only</text>
+            <text x="295" y="224" text-anchor="middle" fill="#5b6b69" font-size="10.5">Run durable</text>
+            <rect x="410" y="158" width="180" height="78" rx="9" fill="#0e1417" stroke="#1f2b2f"/>
+            <text x="500" y="186" text-anchor="middle" fill="#e3ecea">políticas</text>
+            <text x="500" y="208" text-anchor="middle" fill="#5b6b69" font-size="10.5">presupuestos · aprobaciones</text>
+            <text x="500" y="224" text-anchor="middle" fill="#5b6b69" font-size="10.5">transiciones legales</text>
+            <rect x="615" y="158" width="180" height="78" rx="9" fill="#0e1417" stroke="#1f2b2f"/>
+            <text x="705" y="186" text-anchor="middle" fill="#e3ecea">evidencia</text>
+            <text x="705" y="208" text-anchor="middle" fill="#5b6b69" font-size="10.5">handoffs · validación</text>
+            <text x="705" y="224" text-anchor="middle" fill="#5b6b69" font-size="10.5">decisiones de revisión</text>
+          </g>
+          <path d="M500 260 V300" stroke="#5fd4c0" stroke-width="1.5" class="flow"/>
+          <rect x="390" y="300" width="220" height="42" rx="21" fill="#11191c" stroke="#2a3a3f"/>
+          <text x="500" y="326" text-anchor="middle" fill="#e3ecea" font-size="13">router · capacidades</text>
+          <g id="links" stroke="#2a3a3f" stroke-width="1.4" fill="none">
+            <path id="l0" d="M500 342 C500 372,100 372,100 400"/>
+            <path id="l1" d="M500 342 C500 372,300 372,300 400"/>
+            <path id="l2" d="M500 342 V400"/>
+            <path id="l3" d="M500 342 C500 372,700 372,700 400"/>
+            <path id="l4" d="M500 342 C500 372,900 372,900 400"/>
+          </g>
+          <g id="adapters" font-size="13">
+            <g data-i="0"><rect x="30" y="400" width="140" height="50" rx="9" fill="#0e1417" stroke="#1f2b2f"/><text x="100" y="424" text-anchor="middle" fill="#e3ecea">OpenCode</text><text x="100" y="440" text-anchor="middle" fill="#5b6b69" font-size="10">adapter</text></g>
+            <g data-i="1"><rect x="230" y="400" width="140" height="50" rx="9" fill="#0e1417" stroke="#1f2b2f"/><text x="300" y="424" text-anchor="middle" fill="#e3ecea">Pi</text><text x="300" y="440" text-anchor="middle" fill="#5b6b69" font-size="10">adapter</text></g>
+            <g data-i="2"><rect x="430" y="400" width="140" height="50" rx="9" fill="#0e1417" stroke="#1f2b2f"/><text x="500" y="424" text-anchor="middle" fill="#e3ecea">Codex</text><text x="500" y="440" text-anchor="middle" fill="#5b6b69" font-size="10">adapter</text></g>
+            <g data-i="3"><rect x="630" y="400" width="140" height="50" rx="9" fill="#0e1417" stroke="#1f2b2f"/><text x="700" y="424" text-anchor="middle" fill="#e3ecea">Claude Code</text><text x="700" y="440" text-anchor="middle" fill="#5b6b69" font-size="10">adapter</text></g>
+            <g data-i="4"><rect x="830" y="400" width="140" height="50" rx="9" fill="#0e1417" stroke="#1f2b2f"/><text x="900" y="424" text-anchor="middle" fill="#e3ecea">jcode</text><text x="900" y="440" text-anchor="middle" fill="#5b6b69" font-size="10">adapter</text></g>
+          </g>
+          <circle id="packet" r="5" fill="#5fd4c0"/>
+          <circle id="packet-g" r="11" fill="#5fd4c0" opacity=".35" filter="url(#blur)"/>
+        </svg>
+        <div class="legend">
+          <span style="--c:#5fd4c0">un Run, una única fuente de verdad</span>
+          <span style="--c:#2a3a3f">adapters: añade un runtime sin tocar el Core</span>
+        </div>
+      </div>
+
+      <div class="rv" style="margin-top:88px">
+        <p class="eyebrow">// la identidad central</p>
+        <h2>Un reviewer es un rol. No un runtime. No un modelo.<span class="flag">objetivo · TV5</span></h2>
+        <p class="sub">Rol, runtime y modelo son conceptos independientes. El objetivo: especificar con un runtime, implementar con otro y revisar con un tercer modelo, dentro del mismo Run y con las mismas reglas. Hoy un Run usa un único runtime y un único modelo para todos los roles; mezclarlos es justo lo que está probando el track de validación.</p>
+      </div>
+      <div class="identity rv" id="identity">
+        <div class="col"><h4>rol <em>canónico</em></h4>
+          <div class="slot">specifier</div><div class="slot">developer</div><div class="slot">validator</div><div class="slot">reviewer</div>
+        </div>
+        <div class="col"><h4>runtime <em>asignado</em></h4>
+          <div class="slot" data-r><span>opencode</span><span class="k">rt</span></div><div class="slot" data-r><span>codex</span><span class="k">rt</span></div><div class="slot" data-r><span>pi</span><span class="k">rt</span></div><div class="slot" data-r><span>claude-code</span><span class="k">rt</span></div>
+        </div>
+        <div class="col"><h4>modelo <em>asignado</em></h4>
+          <div class="slot" data-m><span>model-a</span><span class="k">m</span></div><div class="slot" data-m><span>model-b</span><span class="k">m</span></div><div class="slot" data-m><span>model-c</span><span class="k">m</span></div><div class="slot" data-m><span>model-d</span><span class="k">m</span></div>
+        </div>
+      </div>
+      <p class="neq rv"><b>rol</b><i>≠</i><b>runtime</b><i>≠</i><b>modelo</b></p>
+    </div>
+  </section>
+
+  <section id="principles">
+    <div class="wrap">
+      <div class="rv">
+        <p class="eyebrow">// innegociables</p>
+        <h2>Reglas que aplica el engine, no reglas que el modelo debería recordar.</h2>
+      </div>
+      <div class="principles">
+        <div class="pr rv"><span class="n">01</span><h3>No toca tu configuración</h3><p>Aqorin proyecta un Configuration Overlay aislado y con espacio de nombres propio. Tus agentes, comandos, skills y MCP nunca se sobrescriben ni se borran.</p></div>
+        <div class="pr rv"><span class="n">02</span><h3>Conservas tu UX nativa</h3><p>Sigue usando <code>opencode</code>, <code>pi</code> o <code>codex</code> como hoy. Recurre a Aqorin solo cuando quieras orquestación.</p></div>
+        <div class="pr rv"><span class="n">03</span><h3>Invariantes en código</h3><p>Orden de fases, presupuestos de iteración, revisión obligatoria, puertas de aprobación y transiciones legales viven en un reducer, no en un system prompt.</p></div>
+        <div class="pr rv"><span class="n">04</span><h3>El estado es del Run</h3><p>Una sesión del runtime es un intento, no el Run. Los eventos son durables: si el runtime se cae, lo ocurrido no se pierde.</p></div>
+        <div class="pr rv"><span class="n">05</span><h3>Garantías honestas</h3><p>Cada permiso lleva etiqueta: nativo del runtime, aplicado por Aqorin, sandbox del SO, externo… o no aplicable. Nunca se elevan permisos en silencio.</p></div>
+        <div class="pr rv"><span class="n">06</span><h3>Sin mínimo común denominador</h3><p>Usa de forma nativa la mejor primitiva de cada runtime; emula con seguridad; degrada de forma visible; o se niega a ejecutar. No se quitan funciones por simetría.</p></div>
+      </div>
+
+      <div class="rv" style="margin-top:88px">
+        <p class="eyebrow">// negociación de capacidades</p>
+        <h2>Cuatro respuestas. Ninguna en silencio.</h2>
+        <p class="sub">Cuando un workflow necesita algo, el adapter declara lo que puede hacer el runtime y el engine decide. La tabla recorre una negociación ilustrativa.</p>
+      </div>
+      <div class="caps rv" id="caps">
+        <div class="row head"><div>capacidad</div><div>native</div><div>emulated</div><div>degraded</div><div>rejected</div></div>
+      </div>
+      <p class="caps-note rv">ilustrativo · los resultados reales por runtime están en la guía y la matriz de versiones de cada adapter</p>
+    </div>
+  </section>
+
+  <section id="status">
+    <div class="wrap">
+      <div class="rv">
+        <p class="eyebrow">// dónde está de verdad</p>
+        <h2>La tesis aún no está demostrada. Este es el experimento.</h2>
+        <p class="sub">Aqorin solo merece la pena si un usuario puede definir una vez un workflow independiente del runtime y Aqorin lo ejecuta de forma durable con distintos runtimes y modelos —mezclados en un mismo Run— sin casos especiales en el workflow. Antes de hacer crecer el producto, un Thesis Validation Track prueba exactamente eso, en macOS (Apple Silicon) con OpenCode, Pi y Codex.</p>
+      </div>
+
+      <div class="track rv">
+        <div class="tv"><span class="id">TV0</span><div><h3>Línea base de realidad</h3><p>Código, documentación, paquete publicado y roadmap describen el mismo Aqorin.</p></div><span class="badge done">cerrado</span></div>
+        <div class="tv cur"><span class="id">TV1</span><div><h3>Paridad entre runtimes</h3><p>Misma tarea, mismo workflow, tres runtimes, dos ejecuciones cada uno. Medido… y no aprobado. Para eso se mide.</p></div><span class="badge cond">cerrado con condiciones</span></div>
+        <div class="tv"><span class="id">TV4</span><div><h3>Validación determinista</h3><p>Aqorin ejecuta él mismo la comprobación de aceptación en lugar de fiarse de lo que atestigua el runtime.</p></div><span class="badge">siguiente</span></div>
+        <div class="tv"><span class="id">TV2</span><div><h3>Ruta de ejecución unificada</h3><p>Todos los runtimes pasan por la misma ruta de adapter, sin ramas por runtime en la composición.</p></div><span class="badge block">bloqueado por TV1</span></div>
+        <div class="tv"><span class="id">TV3</span><div><h3>Workflows definidos por el usuario</h3><p>Tú escribes el workflow. Hoy solo existe el <code>feature</code> integrado.</p></div><span class="badge">planificado</span></div>
+        <div class="tv"><span class="id">TV5</span><div><h3>Run multi-runtime y multi-modelo</h3><p>Distintos runtimes y modelos por rol, un solo Run, la misma semántica.</p></div><span class="badge">planificado</span></div>
+        <div class="tv"><span class="id">TV6</span><div><h3>Recuperación y replanificación explícita</h3><p>Un paso fallido se convierte en un punto donde una persona puede replanificar, no en un fallo terminal.</p></div><span class="badge">planificado</span></div>
+        <div class="tv"><span class="id">TV7</span><div><h3>Benchmark de la tesis → Thesis Review</h3><p>Un veredicto sobre la tesis en sí, no sobre la cobertura de runtimes.</p></div><span class="badge">planificado</span></div>
+        <div class="bar"><i id="bar"></i></div>
+        <div class="bar-l"><span>TV0</span><span>2 de 8 cerrados</span><span>Thesis Review</span></div>
+      </div>
+
+      <div class="facts">
+        <div class="card rv">
+          <h3 style="color:var(--amber)">TV1 · qué mostró la prueba de paridad</h3>
+          <div class="results">
+            <div class="r"><span class="t-ok">codex</span><span class="t-m">2/2 Runs con éxito, pero su validación no lee el veredicto del validador</span></div>
+            <div class="r"><span class="t-w">pi</span><span class="t-m">2/2 Runs fallaron en la validación</span></div>
+            <div class="r"><span style="color:var(--red)">opencode</span><span class="t-m">0/2 Runs arrancaron: un bug de Aqorin, no del runtime</span></div>
+          </div>
+          <p style="color:var(--muted);font-size:14px;margin-top:14px">Los fallos están en el código compartido de Aqorin, no en los runtimes. Publicarlos es la forma de mejorarlo.</p>
+        </div>
+        <div class="card rv">
+          <h3>qué existe hoy</h3>
+          <ul>
+            <li>Un core durable de Runs y eventos, con un reducer que rechaza el éxito sin validaciones superadas</li>
+            <li>Cinco Runtime Adapters; el workflow <code>feature</code> integrado se ejecutó en vivo una vez en cada uno, por separado, en macOS arm64</li>
+            <li><code>@aqorin/cli@0.2.0</code> en npm (MIT); va por detrás de la rama principal</li>
+            <li>No se afirma: workflows de usuario, runtimes mezclados en un Run, soporte para Linux o Windows</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="feedback">
+    <div class="wrap">
+      <div class="rv">
+        <p class="eyebrow">// ayuda a darle forma</p>
+        <h2>Si usas más de un agente de código, quiero saber de ti.</h2>
+        <p class="sub">Esta página existe para poner la idea delante de desarrolladores pronto, mientras todavía puede cambiar. Las respuestas más útiles son las incómodas.</p>
+      </div>
+      <div class="ask">
+        <div class="q rv"><span>?01</span>¿Qué workflow definirías una vez y no volverías a reescribir por agente?</div>
+        <div class="q rv"><span>?02</span>¿Mezclarías runtimes en una misma tarea? Por ejemplo, implementar con uno y revisar con otro.</div>
+        <div class="q rv"><span>?03</span>¿Dónde pondrías la frontera entre lo que aplica el engine y lo que decide el modelo?</div>
+        <div class="q rv"><span>?04</span>¿Qué te haría confiar en un orquestador que trabaja junto a tu repo y tus credenciales?</div>
+      </div>
+    </div>
+    <div class="wrap final">
+      <h2 class="rv">Los workflows son tuyos.<br>Los runtimes, intercambiables.</h2>
+      <div class="cta rv">
+        <a class="btn primary" href="https://x.com/JuancaRodicio" rel="noopener">Responde en X →</a>
+        <a class="btn" href="https://www.npmjs.com/package/@aqorin/cli" rel="noopener">@aqorin/cli en npm</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Aqorin — se pronuncia “A-cor-in”. Hecho por <a href="https://x.com/JuancaRodicio" rel="noopener">@JuancaRodicio</a>.</span>
+    <span><code>MIT</code> · proyecto independiente, sin afiliación con ningún proveedor de runtimes</span>
+  </div>
+</footer>
+
+<script src="/assets/site.js" defer></script>
+</body>
+</html>

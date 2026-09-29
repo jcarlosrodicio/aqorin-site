@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aqorin.rcuadrado.es/sitemap.xml
