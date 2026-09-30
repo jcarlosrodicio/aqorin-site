@@ -69,7 +69,7 @@
 <div class="spec">
   <div class="wrap">
     <span><i class="lamp"></i>Tesis en validación</span>
-    <span><em>Rev</em> 2026-09-29</span>
+    <span><em>Rev</em> 2026-09-30</span>
     <span><em>Plataforma</em> darwin-arm64</span>
     <span><em>Paquete</em> @aqorin/cli 0.2.0</span>
     <span><em>Licencia</em> MIT</span>
@@ -194,8 +194,8 @@ specify → implement
           <div class="fb-row"><span class="flap" data-text="TV0"></span><span class="fb-dest">Línea base de realidad</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
           <div class="fb-row"><span class="flap" data-text="TV1"></span><span class="fb-dest">Paridad entre runtimes</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
           <div class="fb-row"><span class="flap" data-text="TV4"></span><span class="fb-dest">Validación determinista</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TV2"></span><span class="fb-dest">Ruta de ejecución unificada</span><span class="flap st s-next" data-text="SIGUIENTE" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TV3"></span><span class="fb-dest">Workflows del usuario</span><span class="flap st s-plan" data-text="PLANIFICADO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TV2"></span><span class="fb-dest">Ruta de ejecución unificada</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TV3"></span><span class="fb-dest">Workflows del usuario</span><span class="flap st s-next" data-text="SIGUIENTE" data-len="11"></span></div>
           <div class="fb-row"><span class="flap" data-text="TV5"></span><span class="fb-dest">Run multi-runtime y multi-modelo</span><span class="flap st s-plan" data-text="PLANIFICADO" data-len="11"></span></div>
           <div class="fb-row"><span class="flap" data-text="TV6"></span><span class="fb-dest">Recuperación y replanificación</span><span class="flap st s-plan" data-text="PLANIFICADO" data-len="11"></span></div>
           <div class="fb-row"><span class="flap" data-text="TV7"></span><span class="fb-dest">Benchmark de la tesis → revisión</span><span class="flap st s-plan" data-text="PLANIFICADO" data-len="11"></span></div>
@@ -203,14 +203,14 @@ specify → implement
 
         <div>
           <div class="report rv">
-            <h4><span>Notas de campo · TV4 validación determinista</span><span>2026-09-29</span></h4>
+            <h4><span>Notas de campo · TV2 ruta unificada</span><span>2026-09-30</span></h4>
             <span class="stamp wip">En construcción</span>
-            <p class="lead-note">Un modelo ya no aprueba su propio trabajo. Dale al Run un plan de aceptación y Aqorin ejecuta él mismo las comprobaciones: solo decide su código de salida.</p>
-            <p class="foot">Demostrado en vivo con Codex; está en main, todavía no en el paquete de npm. Lo siguiente: una única ruta de ejecución para todos los runtimes.</p>
+            <p class="lead-note">Los runtimes ahora se enchufan, ya no son casos especiales. OpenCode, Pi, Codex y Claude Code se ejecutan por la misma ruta, y el runner no decide nada según el runtime.</p>
+            <p class="foot">Demostrado en vivo con la misma tarea en OpenCode, Pi y Codex; está en main, todavía no en el paquete de npm. jcode sigue por la ruta antigua. Lo siguiente: workflows que escribes tú.</p>
           </div>
           <div class="ledger rv">
-            <div class="yes"><h4>Existe hoy</h4><ul><li>Core durable de Runs y eventos</li><li>Cinco Runtime Adapters</li><li>Workflow <code>feature</code> integrado, en vivo una vez por runtime, por separado, en macOS arm64</li><li>Validación decidida por Aqorin a partir de un plan de aceptación, en main</li><li><code>@aqorin/cli</code> 0.2.0 en npm, MIT, por detrás de main</li></ul></div>
-            <div class="no"><h4>Lo siguiente</h4><ul><li>Workflows definidos por el usuario</li><li>Runtimes y modelos mezclados en un Run</li><li>Una única ruta de ejecución para todos los runtimes</li><li>Más plataformas además de macOS arm64</li></ul></div>
+            <div class="yes"><h4>Existe hoy</h4><ul><li>Core durable de Runs y eventos</li><li>Cinco Runtime Adapters</li><li>Workflow <code>feature</code> integrado, en vivo una vez por runtime, por separado, en macOS arm64</li><li>Validación decidida por Aqorin a partir de un plan de aceptación, en main</li><li>Una única ruta de ejecución para OpenCode, Pi, Codex y Claude Code, en main</li><li><code>@aqorin/cli</code> 0.2.0 en npm, MIT, por detrás de main</li></ul></div>
+            <div class="no"><h4>Lo siguiente</h4><ul><li>Workflows definidos por el usuario</li><li>Runtimes y modelos mezclados en un Run</li><li>Recuperación y replanificación explícita</li><li>Más plataformas además de macOS arm64</li></ul></div>
           </div>
         </div>
       </div>
@@ -238,7 +238,7 @@ specify → implement
 <footer>
   <div class="wrap">
     <dl><dt>Aqorin</dt><dd>Orquestación independiente del runtime para agentes de código</dd></dl>
-    <dl><dt>Estado</dt><dd>Tesis en validación · rev 2026-09-29</dd></dl>
+    <dl><dt>Estado</dt><dd>Tesis en validación · rev 2026-09-30</dd></dl>
     <dl><dt>Autor</dt><dd><a href="https://x.com/JuancaRodicio" rel="noopener">@JuancaRodicio</a> · <a href="https://www.npmjs.com/package/@aqorin/cli" rel="noopener">npm</a></dd></dl>
     <dl><dt>Colofón</dt><dd>Compuesto en Archivo e IBM Plex Mono. MIT. Sin afiliación con ningún proveedor de runtimes.<br>Las visitas se cuentan con PostHog (UE) sin cookies; no se guarda nada en tu dispositivo.</dd></dl>
   </div>
