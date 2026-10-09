@@ -15,7 +15,7 @@
 <meta property="og:locale" content="es_ES">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:title" content="Aqorin — Un workflow. Cualquier agente de código.">
-<meta property="og:description" content="Una capa de orquestación para agentes de código, independiente del runtime. La tesis se está validando en público: sigue hacia dónde va.">
+<meta property="og:description" content="Una capa de orquestación para agentes de código, independiente del runtime. Construido en público: sigue hacia dónde va.">
 <meta property="og:url" content="https://aqorin.rcuadrado.es/es/">
 <meta property="og:image" content="https://aqorin.rcuadrado.es/es/og.png">
 <meta property="og:image:width" content="1200">
@@ -68,7 +68,7 @@
 
 <div class="spec">
   <div class="wrap">
-    <span><i class="lamp"></i>Tesis v1 · parcialmente validada</span>
+    <span><i class="lamp"></i>Terminal Alpha · en curso</span>
     <span><em>Rev</em> 2026-10-06</span>
     <span><em>Plataforma</em> darwin-arm64</span>
     <span><em>Paquete</em> @aqorin/cli 0.2.0</span>
@@ -181,38 +181,42 @@ specify → implement
 
   <section id="status">
     <div class="wrap">
-      <div class="sh rv"><span class="n">§04</span><span>Hacia dónde va</span><span class="ref">ref · docs/exits/README.md · ADR-0046</span></div>
+      <div class="sh rv"><span class="n">§04</span><span>Hacia dónde va</span><span class="ref">ref · docs/exits/README.md · ADR-0049</span></div>
       <div class="cols">
-        <h2 class="h2 rv">Primer veredicto: <em>parcialmente validada</em>.</h2>
-        <p class="lede rv">Aqorin solo merece la pena si puedes definir una vez un workflow independiente del runtime y Aqorin lo ejecuta de forma durable con distintos runtimes y modelos —mezclados en un mismo Run— sin casos especiales en el workflow. Un Thesis Validation Track lo ha probado de principio a fin antes de hacer crecer el producto.</p>
+        <h2 class="h2 rv">Tesis parcialmente validada. Ahora: <em>una alfa que se pueda usar</em>.</h2>
+        <p class="lede rv">El Thesis Validation Track preguntaba si un mismo workflow puede ejecutarse de forma durable con distintos runtimes y modelos, mezclados en un mismo Run. La respuesta fue parcialmente validada, y ese veredicto queda tal como se registró. Ahora el track Terminal Alpha construye la primera versión que una persona puede usar: una interfaz de terminal y un CLI, en macOS arm64, sobre Claude Code, Codex, OpenCode y Pi.</p>
       </div>
 
       <div class="status-grid">
         <div class="module flapboard rv" id="flapboard">
-          <div class="board-head"><span><b>Salidas</b> · Thesis Validation Track</span><span>darwin-arm64 · opencode · pi · codex</span></div>
+          <div class="board-head"><span><b>Salidas</b> · Terminal Alpha</span><span>darwin-arm64 · 4 runtimes</span></div>
           <div class="fb-row h"><span>Vía</span><span>Destino</span><span>Estado</span></div>
-          <div class="fb-row"><span class="flap" data-text="TV0"></span><span class="fb-dest">Línea base de realidad</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TV1"></span><span class="fb-dest">Paridad entre runtimes</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TV4"></span><span class="fb-dest">Validación determinista</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TV2"></span><span class="fb-dest">Ruta de ejecución unificada</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TV3"></span><span class="fb-dest">Workflows del usuario</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TV5"></span><span class="fb-dest">Run multi-runtime y multi-modelo</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TV6"></span><span class="fb-dest">Recuperación y replanificación</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TV7"></span><span class="fb-dest">Benchmark de la tesis</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TR" data-len="3"></span><span class="fb-dest">Revisión de la tesis · veredicto v1</span><span class="flap st s-cond" data-text="PARCIAL" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="RV2"></span><span class="fb-dest">Remediación y veredicto v2</span><span class="flap st s-plan" data-text="PLANIFICADO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TV" data-len="4"></span><span class="fb-dest">Validación de la tesis · TV0–TV7</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="V1" data-len="4"></span><span class="fb-dest">Veredicto de la tesis v1</span><span class="flap st s-cond" data-text="PARCIAL" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TA1" data-len="4"></span><span class="fb-dest">Inventario de runtimes</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TA2" data-len="4"></span><span class="fb-dest">Feed del Run en vivo</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TA9" data-len="4"></span><span class="fb-dest">Base de la TUI</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TA3" data-len="4"></span><span class="fb-dest">Sesiones durables</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TA4" data-len="4"></span><span class="fb-dest">Chat libre en cuatro runtimes</span><span class="flap st s-next" data-text="EN CURSO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TA5" data-len="4"></span><span class="fb-dest">Agentes y workflows propios</span><span class="flap st s-plan" data-text="PLANIFICADO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TA6" data-len="4"></span><span class="fb-dest">Skills y MCP</span><span class="flap st s-plan" data-text="PLANIFICADO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TA7" data-len="4"></span><span class="fb-dest">Un Run con los cuatro runtimes</span><span class="flap st s-plan" data-text="PLANIFICADO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TA8" data-len="4"></span><span class="fb-dest">Roles restringidos: refresco y ampliación</span><span class="flap st s-plan" data-text="PLANIFICADO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TA10" data-len="4"></span><span class="fb-dest">Edición desde la TUI</span><span class="flap st s-plan" data-text="PLANIFICADO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TA11" data-len="4"></span><span class="fb-dest">Supervisión de Runs en la TUI</span><span class="flap st s-plan" data-text="PLANIFICADO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TA12" data-len="4"></span><span class="fb-dest">Empaquetado y aceptación de la alfa</span><span class="flap st s-plan" data-text="PLANIFICADO" data-len="11"></span></div>
         </div>
 
         <div>
           <div class="report rv">
-            <h4><span>Notas de campo · Thesis Review</span><span>2026-10-05</span></h4>
-            <span class="stamp wip">Parcialmente validada</span>
-            <p class="lead-note">Primer veredicto: parcialmente validada. Un workflow escrito por ti se ha ejecutado en vivo con distintos runtimes y modelos —mezclados en un mismo Run, con una replanificación humana cuando un runtime falló— y no se demostró ningún fallo estructural.</p>
-            <p class="foot">Lo que queda son huecos conocidos, sobre todo qué runtimes pueden demostrar que hacen cumplir un rol restringido. Demostrado en macOS arm64; está en main, todavía no en el paquete de npm. Lo siguiente: cerrarlos y ganar un segundo veredicto, versionado; el v1 queda tal como se registró.</p>
+            <h4><span>Notas de campo · Terminal Alpha</span><span>2026-10-09</span></h4>
+            <span class="stamp wip">En curso</span>
+            <p class="lead-note">La base está puesta. Aqorin lista los cuatro runtimes con su versión, su login y sus modelos; sigues un Run en vivo desde otra terminal; un Run continúa aunque cierres la terminal, y un paso atascado espera tu decisión. Al escribir <code>aqorin</code> se abre la interfaz de terminal.</p>
+            <p class="foot">Ahora: chat libre con cada runtime a través de Aqorin; Codex ya está, Claude Code es el siguiente. Después, tus propios agentes, skills y MCP, y ejecutar y supervisar todo desde la TUI. Demostrado en macOS arm64; está en main, todavía no en el paquete de npm.</p>
           </div>
           <div class="ledger rv">
-            <div class="yes"><h4>Existe hoy · en main</h4><ul><li>Core durable de Runs y eventos</li><li>Workflows y roles que escribes tú, ejecutados con <code>aqorin run</code></li><li>Un runtime y un modelo por rol, dentro de un mismo Run</li><li>Rechazo del plan cuando no puede hacer cumplir los límites de un rol</li><li>Validación decidida por Aqorin, no por el modelo</li><li>Replanificación humana cuando falla un runtime</li><li><code>@aqorin/cli</code> 0.2.0 en npm, MIT, por detrás de main</li></ul></div>
-            <div class="no"><h4>Lo siguiente</h4><ul><li>Roles restringidos en Codex y Pi</li><li>Un segundo veredicto de la tesis, versionado</li><li>Más plataformas además de macOS arm64</li></ul></div>
+            <div class="yes"><h4>Existe hoy · en main</h4><ul><li>Workflows y roles que escribes tú, ejecutados con <code>aqorin run</code></li><li>Un runtime y un modelo por rol, dentro de un mismo Run</li><li>Rechazo del plan cuando no puede hacer cumplir los límites de un rol</li><li>Validación decidida por Aqorin, no por el modelo</li><li>Inventario de cuatro runtimes: versión, login y modelos</li><li>Runs que sobreviven a la terminal y te esperan si un paso falla</li><li><code>aqorin</code> abre una interfaz de terminal que sigue un Run en vivo</li><li><code>@aqorin/cli</code> 0.2.0 en npm, MIT, por detrás de main</li></ul></div>
+            <div class="no"><h4>Lo siguiente</h4><ul><li>Chat libre con Claude Code, Codex, OpenCode y Pi</li><li>Tus propios agentes, skills y MCP</li><li>Un Run con los cuatro runtimes, con revisión</li><li>Editar y supervisar desde la TUI</li></ul></div>
           </div>
         </div>
       </div>
@@ -240,7 +244,7 @@ specify → implement
 <footer>
   <div class="wrap">
     <dl><dt>Aqorin</dt><dd>Orquestación independiente del runtime para agentes de código</dd></dl>
-    <dl><dt>Estado</dt><dd>Tesis v1 · parcialmente validada · rev 2026-10-06</dd></dl>
+    <dl><dt>Estado</dt><dd>Tesis v1 · parcialmente validada · Terminal Alpha en curso · rev 2026-10-09</dd></dl>
     <dl><dt>Autor</dt><dd><a href="https://x.com/JuancaRodicio" rel="noopener">@JuancaRodicio</a> · <a href="https://www.npmjs.com/package/@aqorin/cli" rel="noopener">npm</a></dd></dl>
     <dl><dt>Colofón</dt><dd>Compuesto en Archivo e IBM Plex Mono. MIT. Sin afiliación con ningún proveedor de runtimes.<br>Las visitas se cuentan con PostHog (UE) sin cookies; no se guarda nada en tu dispositivo.</dd></dl>
   </div>

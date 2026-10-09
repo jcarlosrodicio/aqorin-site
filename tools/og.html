@@ -62,8 +62,8 @@ h1 span{color:#ff4f1a}
 <div class="tape"></div>
 <script>
 const t = {
-  en: { meta: '<i></i>Thesis v1 · partially validated · built in public', h1: 'One<br>workflow<span>.</span><br>Any coding<br>agent<span>.</span>', sub: 'Runtime-agnostic orchestration for coding agents. Your workflow, your setup — any runtime executes it.', bh: '<b>Patch bay</b> · assignment', br: 'role → runtime' },
-  es: { meta: '<i></i>Tesis v1 · parcialmente validada · en público', h1: 'Un<br>workflow<span>.</span><br>Cualquier<br>agente<span>.</span>', sub: 'Orquestación para agentes de código, independiente del runtime. Tu workflow y tu configuración, con cualquier runtime.', bh: '<b>Centralita</b> · asignación', br: 'rol → runtime' },
+  en: { meta: '<i></i>Terminal Alpha in progress · built in public', h1: 'One<br>workflow<span>.</span><br>Any coding<br>agent<span>.</span>', sub: 'Runtime-agnostic orchestration for coding agents. Your workflow, your setup — any runtime executes it.', bh: '<b>Patch bay</b> · assignment', br: 'role → runtime' },
+  es: { meta: '<i></i>Terminal Alpha en curso · en público', h1: 'Un<br>workflow<span>.</span><br>Cualquier<br>agente<span>.</span>', sub: 'Orquestación para agentes de código, independiente del runtime. Tu workflow y tu configuración, con cualquier runtime.', bh: '<b>Centralita</b> · asignación', br: 'rol → runtime' },
 }[new URLSearchParams(location.search).get('lang') || 'en'];
 for (const k in t) document.getElementById(k).innerHTML = t[k];
 </script>
