@@ -22,6 +22,17 @@
       if (e.isIntersecting) film.play().catch(() => {}); else film.pause();
     }), { threshold: .5 }).observe(film);
   }
+  const sound = document.getElementById('film-sound');
+  if (film && sound) {
+    const sync = () => { sound.setAttribute('aria-pressed', String(!film.muted)); sound.textContent = film.muted ? sound.dataset.off : sound.dataset.on; };
+    let heard = false;
+    sound.addEventListener('click', () => {
+      film.muted = !film.muted;
+      if (!film.muted && !heard) { heard = true; film.currentTime = 0; }
+      if (!film.muted) film.play().catch(() => {});
+    });
+    film.addEventListener('volumechange', sync);
+  }
 
   /* ── copy install ── */
   const copy = document.getElementById('copy');

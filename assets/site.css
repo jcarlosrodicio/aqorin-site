@@ -75,6 +75,9 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 .board-head b{color:var(--chalk);font-weight:500}
 .film{margin-top:36px}
 .film video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:var(--board)}
+.film .sound{margin-left:14px;font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--chalk);background:none;border:1px solid var(--board-line);padding:3px 9px;cursor:pointer}
+.film .sound:hover,.film .sound[aria-pressed="true"]{background:var(--signal);border-color:var(--signal);color:var(--ink)}
+@media(max-width:900px){.film .board-head .note{display:none}.film .sound{margin-left:0}}
 .board-foot{font-family:var(--mono);font-size:11px;color:var(--chalk-2);padding:12px 26px;border-top:1px solid var(--board-line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .tag{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;border:1px solid currentColor;padding:1px 6px;white-space:nowrap}
 .tag.warn{color:var(--caution)}
