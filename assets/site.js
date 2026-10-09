@@ -15,6 +15,14 @@
     io.observe(node);
   };
 
+  /* ── film: plays muted while in view, unless reduced motion ── */
+  const film = document.getElementById('film-video');
+  if (film && !reduce) {
+    new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) film.play().catch(() => {}); else film.pause();
+    }), { threshold: .5 }).observe(film);
+  }
+
   /* ── copy install ── */
   const copy = document.getElementById('copy');
   if (copy) {
