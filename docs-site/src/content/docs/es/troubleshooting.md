@@ -4,7 +4,8 @@ description: Las situaciones que es más probable que encuentres, qué dice Aqor
 ---
 
 Empieza con `aqorin doctor`. Ejecuta comprobaciones de solo lectura, incluida la instalación de cada
-runtime. Cada rechazo nombra el siguiente paso, en la TUI y en `--json` (`safe_next`).
+runtime. La mayoría de los rechazos nombran el siguiente paso, en la TUI y en `--json`
+(`safe_next`).
 
 ## No se encuentra un runtime
 
@@ -16,7 +17,7 @@ aqorin runtimes                          # what Aqorin sees
 aqorin runtimes select pi /path/to/pi    # choose an installation
 ```
 
-## "Several installations" o "choose again"
+## Varias instalaciones, o hay que volver a elegir
 
 Aqorin encontró más de una instalación, o la que elegiste cambió o desapareció. No adivina. Usa
 **Choose installation** en Home o en Runtimes, o `aqorin runtimes select`. Mira
@@ -42,7 +43,7 @@ El plan dice quién no puede ejecutarse dónde, y por qué. Las causas habituale
   asigna el paso a otro sitio.
 - **Una versión de runtime nueva para Aqorin.** `v` la valida, con una llamada a un modelo.
 
-## "Another Run is unfinished"
+## Un Run cada vez
 
 Hay un Run a la vez por árbol de trabajo. Termina, cancela o reanuda el Run abierto (`2` Runs). Un
 Run cuyo driver murió aparece como **stale**. Ábrelo, y luego reanúdalo o cancélalo.

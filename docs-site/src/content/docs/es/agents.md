@@ -10,8 +10,9 @@ Un **agente** es un rol:
 - lo que recibe y lo que entrega;
 - sus skills y servidores MCP.
 
-Un agente no nombra ningún runtime ni ningún modelo. Eso pertenece a una asignación, o a la
-ejecución por defecto del agente.
+La definición de un agente no nombra ningún runtime ni ningún modelo. Eso pertenece a una
+asignación, o a la ejecución por defecto del agente: una preferencia opcional, y una asignación
+prevalece sobre ella.
 
 ## Clases de acceso
 

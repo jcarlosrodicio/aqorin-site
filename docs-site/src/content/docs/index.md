@@ -34,7 +34,7 @@ the TUI does.
 |---|---|
 | **Runtime** | A coding agent you have installed: Claude Code, Codex, OpenCode or Pi. |
 | **Connection** | How a runtime reaches a model: its own login, or a provider you add to Aqorin, with the key by reference. |
-| **Agent** | A role, such as specifier, developer or reviewer: what it does and what it may do. An agent names no runtime and no model. |
+| **Agent** | A role, such as specifier, developer or reviewer: what it does and what it may do. Its definition names no runtime and no model. |
 | **Workflow** | Which agents run, in what order, which step runs your checks and which step reviews. |
 | **Assignment** | Where each step of a workflow runs: a runtime, a connection and a model. |
 | **Run** | One execution of a workflow, durable and recorded, that you can follow, answer and resume. |

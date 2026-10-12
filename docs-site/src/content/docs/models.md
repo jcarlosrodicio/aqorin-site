@@ -3,8 +3,9 @@ title: Models
 description: Where Aqorin's model choices come from, and where each one is made.
 ---
 
-In Aqorin, a model is always chosen together with a runtime and a connection — never by the agent
-or the workflow. An agent says *what* is done, and the assignment says *where*.
+In Aqorin, a model is always chosen together with a runtime and a connection: in an assignment, or
+as an agent's optional default execution. An agent's definition and a workflow name none. An agent
+says *what* is done; the assignment, or failing it the default execution, says *where*.
 
 ## Where the models come from
 

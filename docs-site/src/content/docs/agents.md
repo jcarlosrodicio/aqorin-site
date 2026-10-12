@@ -10,8 +10,8 @@ An **agent** is a role:
 - what it is handed and what it delivers;
 - its skills and MCP servers.
 
-An agent names no runtime and no model. Those belong to an assignment, or to the agent's default
-execution.
+An agent's definition names no runtime and no model. Those belong to an assignment, or to the
+agent's default execution — an optional preference that an assignment overrides.
 
 ## Access classes
 

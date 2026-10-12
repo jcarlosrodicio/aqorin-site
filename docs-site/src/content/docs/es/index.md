@@ -35,7 +35,7 @@ todo lo que hace la TUI.
 |---|---|
 | **Runtime** | Un agente de programación que tienes instalado: Claude Code, Codex, OpenCode o Pi. |
 | **Conexión** | Cómo un runtime llega a un modelo: su propio inicio de sesión, o un proveedor que añades a Aqorin, con la clave por referencia. |
-| **Agente** | Un rol, como especificador, desarrollador o revisor: lo que hace y lo que puede hacer. Un agente no nombra ningún runtime ni ningún modelo. |
+| **Agente** | Un rol, como especificador, desarrollador o revisor: lo que hace y lo que puede hacer. Su definición no nombra ningún runtime ni ningún modelo. |
 | **Workflow** | Qué agentes se ejecutan, en qué orden, qué paso ejecuta tus comprobaciones y qué paso revisa. |
 | **Asignación** | Dónde se ejecuta cada paso de un workflow: un runtime, una conexión y un modelo. |
 | **Run** | Una ejecución de un workflow, duradera y registrada, que puedes seguir, responder y reanudar. |

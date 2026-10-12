@@ -3,8 +3,8 @@ title: Troubleshooting
 description: The situations you are most likely to meet, what Aqorin says, and what to do.
 ---
 
-Start with `aqorin doctor`. It runs read-only checks, including every runtime's installation. Every
-refusal names the next step, in the TUI and in `--json` (`safe_next`).
+Start with `aqorin doctor`. It runs read-only checks, including every runtime's installation. Most
+refusals name the next step, in the TUI and in `--json` (`safe_next`).
 
 ## A runtime is not found
 
@@ -16,7 +16,7 @@ aqorin runtimes                          # what Aqorin sees
 aqorin runtimes select pi /path/to/pi    # choose an installation
 ```
 
-## "Several installations" or "choose again"
+## Several installations, or a choice to make again
 
 Aqorin found more than one installation, or the one you chose changed or disappeared. It does not
 guess. Use **Choose installation** on Home or Runtimes, or `aqorin runtimes select`. See
@@ -42,7 +42,7 @@ The plan says who cannot run where, and why. The common causes:
   elsewhere.
 - **A runtime version new to Aqorin.** `v` validates it, with one model call.
 
-## "Another Run is unfinished"
+## One Run at a time
 
 There is one Run at a time per working tree. Finish, cancel or resume the open Run (`2` Runs). A
 Run whose driver died is shown as **stale**. Open it, then resume or cancel it.

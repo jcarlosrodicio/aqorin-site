@@ -3,8 +3,9 @@ title: Modelos
 description: De dónde vienen las opciones de modelo de Aqorin y dónde se elige cada una.
 ---
 
-En Aqorin, un modelo se elige siempre junto con un runtime y una conexión, nunca por el agente ni
-por el workflow. Un agente dice *qué* se hace, y la asignación dice *dónde*.
+En Aqorin, un modelo se elige siempre junto con un runtime y una conexión: en una asignación, o como
+ejecución por defecto opcional de un agente. La definición de un agente y un workflow no nombran
+ninguno. Un agente dice *qué* se hace; la asignación, o si no la ejecución por defecto, dice *dónde*.
 
 ## De dónde vienen los modelos
 
