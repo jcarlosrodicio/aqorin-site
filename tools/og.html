@@ -10,8 +10,7 @@ html,body{width:1200px;height:630px;overflow:hidden}
 body{background:#ecebe5;color:#121211;font-family:Archivo,sans-serif;position:relative;
   background-image:radial-gradient(rgba(18,18,17,.07) 1px,transparent 1.2px);background-size:6px 6px}
 .bar{position:absolute;left:0;right:0;top:0;height:64px;border-bottom:2px solid #121211;display:flex;align-items:center;justify-content:space-between;padding:0 56px}
-.mark{font-stretch:125%;font-weight:800;font-size:30px;letter-spacing:-.02em}
-.mark b{color:#ff4f1a}
+.mark{height:32px;width:auto;display:block}
 .meta{font-family:"IBM Plex Mono";font-size:15px;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
 .meta i{width:11px;height:11px;border-radius:50%;background:#ff4f1a}
 h1{position:absolute;left:52px;top:96px;font-weight:900;font-stretch:66%;text-transform:uppercase;line-height:.84;font-size:110px;letter-spacing:-.01em;width:640px}
@@ -28,7 +27,7 @@ h1 span{color:#ff4f1a}
 </style>
 </head>
 <body>
-<div class="bar"><div class="mark">a<b>q</b>orin</div><div class="meta" id="meta"></div></div>
+<div class="bar"><img class="mark" src="../assets/brand/aqorin-lockup-light.svg" alt="Aqorin"><div class="meta" id="meta"></div></div>
 <h1 id="h1"></h1>
 <p class="sub" id="sub"></p>
 <div class="board">
@@ -40,11 +39,11 @@ h1 span{color:#ff4f1a}
       <text x="84" y="76">specifier</text><text x="84" y="146">developer</text><text x="84" y="216">validator</text><text x="84" y="286">reviewer</text>
     </g>
     <g font-size="13" fill="#f0eee6">
-      <text x="396" y="56">opencode</text><text x="396" y="120">pi</text><text x="396" y="184">codex</text><text x="396" y="248">claude</text><text x="396" y="312">jcode</text>
+      <text x="396" y="56">opencode</text><text x="396" y="120">pi</text><text x="396" y="184">codex</text><text x="396" y="248">claude</text>
     </g>
     <g fill="none" stroke-linecap="round">
-      <path d="M130 72 C230 160,250 330,346 308" stroke="#000" stroke-width="9" opacity=".45" transform="translate(0 5)"/>
-      <path d="M130 72 C230 160,250 330,346 308" stroke="#ff4f1a" stroke-width="5"/>
+      <path d="M130 72 C230 160,250 300,346 244" stroke="#000" stroke-width="9" opacity=".45" transform="translate(0 5)"/>
+      <path d="M130 72 C230 160,250 300,346 244" stroke="#ff4f1a" stroke-width="5"/>
       <path d="M130 142 C230 200,250 200,346 180" stroke="#000" stroke-width="9" opacity=".45" transform="translate(0 5)"/>
       <path d="M130 142 C230 200,250 200,346 180" stroke="#f0eee6" stroke-width="5"/>
       <path d="M130 212 C230 280,250 150,346 116" stroke="#000" stroke-width="9" opacity=".45" transform="translate(0 5)"/>
@@ -54,7 +53,7 @@ h1 span{color:#ff4f1a}
     </g>
     <g fill="#0b0b0a" stroke="#4a4944" stroke-width="2">
       <circle cx="120" cy="72" r="12"/><circle cx="120" cy="142" r="12"/><circle cx="120" cy="212" r="12"/><circle cx="120" cy="282" r="12"/>
-      <circle cx="360" cy="52" r="12"/><circle cx="360" cy="116" r="12"/><circle cx="360" cy="180" r="12"/><circle cx="360" cy="244" r="12"/><circle cx="360" cy="308" r="12"/>
+      <circle cx="360" cy="52" r="12"/><circle cx="360" cy="116" r="12"/><circle cx="360" cy="180" r="12"/><circle cx="360" cy="244" r="12"/>
     </g>
   </svg>
 </div>
@@ -62,8 +61,8 @@ h1 span{color:#ff4f1a}
 <div class="tape"></div>
 <script>
 const t = {
-  en: { meta: '<i></i>Terminal Alpha in progress · built in public', h1: 'One<br>workflow<span>.</span><br>Any coding<br>agent<span>.</span>', sub: 'Runtime-agnostic orchestration for coding agents. Your workflow, your setup — any runtime executes it.', bh: '<b>Patch bay</b> · assignment', br: 'role → runtime' },
-  es: { meta: '<i></i>Terminal Alpha en curso · en público', h1: 'Un<br>workflow<span>.</span><br>Cualquier<br>agente<span>.</span>', sub: 'Orquestación para agentes de código, independiente del runtime. Tu workflow y tu configuración, con cualquier runtime.', bh: '<b>Centralita</b> · asignación', br: 'rol → runtime' },
+  en: { meta: '<i></i>Terminal Alpha built · made in public', h1: 'One<br>workflow<span>.</span><br>Any coding<br>agent<span>.</span>', sub: 'Runtime-agnostic orchestration for coding agents. Your workflow, your setup — any runtime executes it.', bh: '<b>Patch bay</b> · assignment', br: 'role → runtime' },
+  es: { meta: '<i></i>Terminal Alpha construida · en público', h1: 'Un<br>workflow<span>.</span><br>Cualquier<br>agente<span>.</span>', sub: 'Orquestación para agentes de código, independiente del runtime. Tu workflow y tu configuración, con cualquier runtime.', bh: '<b>Centralita</b> · asignación', br: 'rol → runtime' },
 }[new URLSearchParams(location.search).get('lang') || 'en'];
 for (const k in t) document.getElementById(k).innerHTML = t[k];
 </script>

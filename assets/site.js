@@ -66,9 +66,9 @@
   const sw = document.getElementById('switchboard');
   if (sw) {
     const roles = ['specifier', 'developer', 'validator', 'reviewer'];
-    const rts = ['opencode', 'pi', 'codex', 'claude-code', 'jcode'];
+    const rts = ['opencode', 'pi', 'codex', 'claude-code'];
     const colors = ['#ff4f1a', '#f0eee6', '#23a55a', '#f2b21b'];
-    const RX = 150, TX = 548, ry = i => 62 + i * 70, ty = i => 40 + i * 64;
+    const RX = 150, TX = 548, ry = i => 62 + i * 70, ty = i => 62 + i * 70;
     const svg = el('svg', { viewBox: '0 0 700 340', role: 'group', 'aria-label': sw.dataset.label }, sw);
     el('rect', { x: 118, y: 22, width: 64, height: 296, rx: 6, fill: '#1b1b19', stroke: '#2c2c29' }, svg);
     el('rect', { x: 516, y: 16, width: 64, height: 308, rx: 6, fill: '#1b1b19', stroke: '#2c2c29' }, svg);
@@ -144,7 +144,7 @@
         roleJacks[sel].classList.remove('sel'); sel = null;
       }
     }
-    const demo = [[1, 1], [3, 3], [2, 0], [0, 4], [1, 2], [3, 1], [2, 2], [0, 2], [3, 2], [1, 1], [0, 3]];
+    const demo = [[1, 1], [3, 3], [2, 0], [0, 3], [1, 2], [3, 1], [2, 2], [0, 2], [3, 2], [1, 1], [0, 1]];
     let k = 0;
     onView(sw, () => {
       if (reduce) return;
@@ -161,7 +161,7 @@
     const svg = el('svg', { viewBox: '0 0 900 330', role: 'img', 'aria-label': metro.dataset.label }, metro);
     const Y = 170, X = { specify: 80, implement: 290, validate: 500, review: 710, done: 850 };
     const roleOf = { specify: 'specifier', implement: 'developer', validate: 'validator', review: 'reviewer', done: '' };
-    const runtimes = ['codex', 'opencode', 'pi', 'claude-code', 'jcode'], roleTags = [], rtHead = document.getElementById('metro-rt');
+    const runtimes = ['codex', 'opencode', 'pi', 'claude-code'], roleTags = [], rtHead = document.getElementById('metro-rt');
     let runNo = 0;
     for (const s in X) {
       const label = el('text', { x: X[s], y: 40, 'text-anchor': 'middle', fill: '#f0eee6', 'font-size': 13, 'letter-spacing': 1 }, svg); label.textContent = s.toUpperCase();

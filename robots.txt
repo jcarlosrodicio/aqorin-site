@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://aqorin.rcuadrado.es/sitemap.xml
+Sitemap: https://aqorin.rcuadrado.es/docs/sitemap-index.xml

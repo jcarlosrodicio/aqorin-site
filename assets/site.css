@@ -255,3 +255,5 @@ footer a:hover{color:var(--signal);border-color:var(--signal)}
   .rv{opacity:1;transform:none}
   .h1 .l>span{transform:none}
 }
+.stamp.ok{color:#1b7f45;border-color:#1b7f45;font-size:19px;top:-24px}
+.mark img{display:block;height:24px;width:auto}

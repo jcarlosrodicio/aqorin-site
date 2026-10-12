@@ -1,0 +1,19 @@
+/* Aqorin's brand (docs/brand.md in the product): teal on dark, deep teal on light — never teal on white. */
+:root {
+  --sl-color-accent-low: #0b3a32;
+  --sl-color-accent: #19c7a5;
+  --sl-color-accent-high: #b4f1e3;
+  --sl-color-black: #0f1216;
+}
+
+:root[data-theme="light"] {
+  --sl-color-accent-low: #cdeee6;
+  --sl-color-accent: #087a66;
+  --sl-color-accent-high: #04463b;
+  --sl-color-black: #ffffff;
+}
+
+.site-title img {
+  height: 1.6rem;
+  width: auto;
+}
