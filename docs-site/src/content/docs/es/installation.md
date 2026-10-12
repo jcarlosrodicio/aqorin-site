@@ -27,7 +27,8 @@ anterior, sin nada de la TUI que describen estas páginas. Ambos muestran la ver
 compilaciones distintas.
 :::
 
-La Alpha se instala desde su tarball empaquetado, en un prefijo propio:
+La Alpha todavía no se distribuye públicamente: no hay descarga pública. Quien tenga su tarball
+empaquetado lo instala en un prefijo propio:
 
 ```bash
 npm install -g --prefix ~/.aqorin-alpha ./aqorin-cli-<version>.tgz

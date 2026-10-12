@@ -33,11 +33,11 @@ independently reviewed.
 
 ## Your configuration and your keys
 
-- Aqorin never writes your runtimes' configuration. What it gives a runtime is an isolated,
-  namespaced environment of its own, for one attempt.
+- Aqorin never writes your runtimes' configuration. What it gives a runtime in a workflow step is an
+  isolated, namespaced environment of its own, for one attempt.
 - Keys are kept **by reference only**: a variable's name or a keychain item. A key's value is
   resolved when an attempt runs, given to that attempt alone, and scrubbed from everything Aqorin
-  shows or records. Aqorin never stores, prints or reads a key's value.
+  shows or records. Aqorin never stores or prints a key's value.
 - Aqorin never signs in for you, and never reads a runtime's credential files.
 
 ## Where each guarantee is enforced

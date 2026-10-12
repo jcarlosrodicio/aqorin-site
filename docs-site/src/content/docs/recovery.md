@@ -40,7 +40,8 @@ work the failed attempt already did may be done twice.
 ## Resume
 
 `aqorin resume <run>` — or `R` — continues a Run that was interrupted, or whose decision is
-recorded, from where it stopped. The Run keeps the runtime it was on.
+recorded, from where it stopped, on the runtime of its current assignment — the one a replan chose,
+if there was one.
 
 ## From the CLI
 

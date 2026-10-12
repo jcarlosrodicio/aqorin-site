@@ -41,7 +41,8 @@ anterior, así que el trabajo que el intento fallido ya hizo puede hacerse dos v
 ## Reanudar
 
 `aqorin resume <run>`, o `R`, continúa desde donde se detuvo un Run que fue interrumpido, o cuya
-decisión está registrada. El Run conserva el runtime en el que estaba.
+decisión está registrada, en el runtime de su asignación actual: el que eligió un replan, si lo
+hubo.
 
 ## Desde la CLI
 

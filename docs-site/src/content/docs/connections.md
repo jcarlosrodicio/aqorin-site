@@ -33,7 +33,8 @@ and nothing is saved until the last one:
 
 The connection appears under its runtime. Its inspector shows:
 
-- where its key lives, and whether it is set now — by its name only; Aqorin never reads the value;
+- where its key lives, and whether it is set now — checked by its name; the check does not read the
+  value;
 - its models and its default model;
 - **who uses it**.
 

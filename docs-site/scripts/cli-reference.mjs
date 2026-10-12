@@ -6,8 +6,9 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-const [checkout, flag] = process.argv.slice(2);
-if (!checkout) {
+const [checkout, flag, ...rest] = process.argv.slice(2);
+// review 1: anything but --check is refused, so a mistyped check never overwrites the page
+if (!checkout || (flag !== undefined && flag !== "--check") || rest.length > 0) {
   console.error("usage: node scripts/cli-reference.mjs <aqorin checkout> [--check]");
   process.exit(2);
 }

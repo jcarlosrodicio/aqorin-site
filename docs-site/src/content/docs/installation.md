@@ -27,7 +27,8 @@ CLI, with none of the TUI these pages describe. Both print version 0.2.0, but th
 builds.
 :::
 
-The Alpha installs from its packed tarball, into a prefix of its own:
+The Alpha is not distributed publicly yet: there is no public download. Whoever has its packed
+tarball installs it into a prefix of its own:
 
 ```bash
 npm install -g --prefix ~/.aqorin-alpha ./aqorin-cli-<version>.tgz

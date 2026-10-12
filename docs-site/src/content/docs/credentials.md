@@ -3,8 +3,8 @@ title: Credentials
 description: Aqorin keeps references to your keys — a variable's name or a keychain item — never their values.
 ---
 
-Aqorin never stores, prints or reads the value of a key. It keeps a **reference** to where the key
-lives:
+Aqorin never stores or prints the value of a key. It keeps a **reference** to where the key lives,
+and reads the value only when an attempt runs, to hand it to that attempt:
 
 | Reference | Means |
 |---|---|

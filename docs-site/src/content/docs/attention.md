@@ -11,7 +11,7 @@ where it is, why it needs you, and which keys resolve it there.
 An approval shows what is asked, its scope, its risk and its consequence.
 
 - `y` approves, after a confirmation.
-- `x` rejects, with a reason.
+- `x` rejects, with an optional reason.
 
 ## Questions
 

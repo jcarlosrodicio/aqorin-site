@@ -34,7 +34,8 @@ cuatro pasos, y no se guarda nada hasta el último:
 
 La conexión aparece bajo su runtime. Su inspector muestra:
 
-- dónde está su clave, y si está definida ahora, solo por su nombre; Aqorin nunca lee el valor;
+- dónde está su clave, y si está definida ahora, comprobado por su nombre; la comprobación no lee el
+  valor;
 - sus modelos y su modelo por defecto;
 - **who uses it** (quién la usa).
 

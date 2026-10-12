@@ -37,12 +37,12 @@ nunca se presenta como revisado de forma independiente.
 
 ## Tu configuración y tus claves
 
-- Aqorin nunca escribe la configuración de tus runtimes. Lo que le da a un runtime es un entorno
-  aislado, con espacio de nombres propio, para un intento.
+- Aqorin nunca escribe la configuración de tus runtimes. Lo que le da a un runtime en un paso de
+  workflow es un entorno aislado, con espacio de nombres propio, para un intento.
 - Las claves se guardan **solo por referencia**: el nombre de una variable o un elemento del llavero
   de macOS. El valor de una clave se resuelve cuando se ejecuta un intento, se le da únicamente a
-  ese intento, y se borra de todo lo que Aqorin muestra o registra. Aqorin nunca almacena, imprime
-  ni lee el valor de una clave.
+  ese intento, y se borra de todo lo que Aqorin muestra o registra. Aqorin nunca almacena ni
+  imprime el valor de una clave.
 - Aqorin nunca inicia sesión por ti, y nunca lee los archivos de credenciales de un runtime.
 
 ## Dónde se aplica cada garantía

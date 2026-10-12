@@ -3,8 +3,8 @@ title: Credenciales
 description: Aqorin guarda referencias a tus claves, el nombre de una variable o un elemento del llavero, nunca sus valores.
 ---
 
-Aqorin nunca almacena, imprime ni lee el valor de una clave. Guarda una **referencia** a dónde está
-la clave:
+Aqorin nunca almacena ni imprime el valor de una clave. Guarda una **referencia** a dónde está la
+clave, y lee el valor solo cuando se ejecuta un intento, para dárselo a ese intento:
 
 | Referencia | Significa |
 |---|---|

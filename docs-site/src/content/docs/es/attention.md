@@ -12,7 +12,7 @@ Una aprobación humana (*Human Approval*) muestra lo que se pide, su alcance, su
 consecuencia.
 
 - `y` aprueba, tras una confirmación.
-- `x` rechaza, con un motivo.
+- `x` rechaza, con un motivo opcional.
 
 ## Preguntas
 
