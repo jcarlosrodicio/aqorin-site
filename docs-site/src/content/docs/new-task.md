@@ -26,11 +26,16 @@ The plan shows whether the task can run, and where each step runs. Nothing runs 
 - `w` changes where the task runs.
 - When a step cannot run where it is assigned, the plan says which agent, why, and where it can
   run instead — for example, a review or read-only step on a runtime that no check on this machine
-  covers. `a` assigns the step there; it asks first, then plans again.
+  covers, or one with no model named. `a` assigns the step there; it asks first, then plans again.
+  When the step's own runtime is validated with another model, that comes first: on Claude Code, `a`
+  keeps the step there with a validated model, and the Run's other steps on Claude Code take the
+  same model (Claude Code runs one model per Run).
 - When a runtime's version is new to Aqorin, the plan says so too. `v` validates it with one model
   call, and asks first.
 
-A refused plan creates no Run. If a task file was written, it is kept for next time.
+While the summary says why a plan is refused, the plan's full text — what `--plan-only` prints — is
+folded; `d` shows it. A refused plan creates no Run. If a task file was written, it is kept for next
+time.
 
 Home also warns you ahead of time when your default runtime cannot run review and read-only steps
 here, and says which runtimes can.

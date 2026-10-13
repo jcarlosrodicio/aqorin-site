@@ -20,8 +20,9 @@ description: What the Terminal Alpha does not do, and what it does not claim.
 ## What it does not claim
 
 - **Restricted roles** are admitted only where a mechanism is validated for that runtime, version,
-  model and platform. Elsewhere they are refused, not relaxed. Today few combinations are
-  validated, and `aqorin eligibility refresh` refreshes OpenCode's only.
+  model and platform. Elsewhere they are refused, not relaxed. Today a few combinations are
+  validated (OpenCode and Claude Code, each with named models), and `aqorin eligibility refresh`
+  refreshes those two runtimes only.
 - **An agent's `inputs` and `outputs`** are added to its instructions, not checked.
 - **The model that served a request** is not observed on every runtime.
 - **A retried step** starts over. It is at least once, not a resumed conversation.

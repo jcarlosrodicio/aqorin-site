@@ -4,7 +4,8 @@ description: Aqorin guarda referencias a tus claves, el nombre de una variable o
 ---
 
 Aqorin nunca almacena ni imprime el valor de una clave. Guarda una **referencia** a dónde está la
-clave, y lee el valor solo cuando se ejecuta un intento, para dárselo a ese intento:
+clave, y lee el valor solo cuando se usa: cuando se ejecuta un intento, para dárselo a ese intento, o
+para una comprobación que pides, como **Discover** o **Validate**:
 
 | Referencia | Significa |
 |---|---|
@@ -30,7 +31,9 @@ De cada una muestra si la clave está definida ahora y qué la usa.
 - Una referencia que pertenece a una conexión o a un servidor MCP se cambia allí. **Open** te lleva
   hasta ella.
 
-Si escribes un valor donde va un nombre, el formulario lo oculta y te lo dice.
+El campo del formulario es **Name of the variable that holds it**, con un ejemplo. Si escribes o
+pegas un valor donde va un nombre, el formulario lo oculta, no guarda nada y te lo dice en un solo
+aviso.
 
 ## Inicios de sesión de los runtimes
 

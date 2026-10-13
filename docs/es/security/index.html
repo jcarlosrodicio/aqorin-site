@@ -94,6 +94,33 @@ arranque ningún runtime.</li>
 restringe, para ese runtime, versión, modelo y plataforma. En cualquier otro sitio, el plan se
 rechaza (<code dir="auto">policy_unenforceable</code>), nunca se relaja. Aqorin nunca amplía la clase de acceso de un rol
 para que un runtime encaje.</p>
+<p>Validado hoy, en macOS arm64:</p>
+<table>
+<thead>
+<tr>
+<th>Runtime</th>
+<th>Versión</th>
+<th>Modelos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenCode</td>
+<td>1.18.32</td>
+<td><code dir="auto">nan/glm5.3-flash</code></td>
+</tr>
+<tr>
+<td>Claude Code</td>
+<td>2.1.296</td>
+<td><code dir="auto">claude-opus-5-5</code>, <code dir="auto">claude-sonnet-5-5</code></td>
+</tr>
+</tbody>
+</table>
+<p>El modelo debe indicarse en la asignación: el modelo por defecto de un runtime no lo cubre ninguna
+comprobación. En Claude Code, un paso de solo lectura o de revisión solo tiene Read, Glob y Grep: ni
+comandos, ni escritura, ni skills, ni servidores MCP. Cuando un runtime se actualiza,
+<code dir="auto">aqorin eligibility refresh &lt;runtime&gt; --model &lt;modelo&gt;</code> comprueba la nueva versión en esta máquina
+(OpenCode y Claude Code; una llamada al modelo por control, preguntando antes).</p>
 <p>Un workflow que no puede cumplir esto se etiqueta como <strong>advisory</strong> (orientativo), y su resultado
 nunca se presenta como revisado de forma independiente.</p>
 <div class="sl-heading-wrapper level-h2"><h2 id="tu-configuración-y-tus-claves">Tu configuración y tus claves</h2><a class="sl-anchor-link" href="#tu-configuración-y-tus-claves"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Sección titulada «Tu configuración y tus claves»</span></a></div>

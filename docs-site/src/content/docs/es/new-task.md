@@ -27,13 +27,16 @@ pulsas `Enter`.
 - `w` cambia dónde se ejecuta la tarea.
 - Cuando un paso no puede ejecutarse donde está asignado, el plan dice qué agente, por qué y dónde
   puede ejecutarse en su lugar, por ejemplo un paso de revisión o de solo lectura en un runtime que
-  ninguna comprobación de esta máquina cubre. `a` asigna el paso allí; pregunta primero y vuelve a
-  planificar.
+  ninguna comprobación de esta máquina cubre, o uno sin modelo indicado. `a` asigna el paso allí;
+  pregunta primero y vuelve a planificar. Si el propio runtime del paso está validado con otro
+  modelo, esa opción va primero: en Claude Code, `a` deja el paso allí con un modelo validado, y los
+  demás pasos del Run en Claude Code usan ese mismo modelo (Claude Code usa un modelo por Run).
 - Cuando la versión de un runtime es nueva para Aqorin, el plan también lo dice. `v` la valida con
   una llamada a un modelo, y pregunta primero.
 
-Un plan rechazado no crea ningún Run. Si se escribió un archivo de tarea, se conserva para la
-próxima vez.
+Mientras el resumen dice por qué se rechaza un plan, el texto completo del plan (lo que imprime
+`--plan-only`) queda plegado; `d` lo muestra. Un plan rechazado no crea ningún Run. Si se escribió un
+archivo de tarea, se conserva para la próxima vez.
 
 Home también te avisa con antelación cuando tu runtime por defecto no puede ejecutar aquí pasos de
 revisión y de solo lectura, y dice qué runtimes sí pueden.

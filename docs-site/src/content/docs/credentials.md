@@ -4,7 +4,8 @@ description: Aqorin keeps references to your keys — a variable's name or a key
 ---
 
 Aqorin never stores or prints the value of a key. It keeps a **reference** to where the key lives,
-and reads the value only when an attempt runs, to hand it to that attempt:
+and reads the value only when it is used — when an attempt runs, to hand it to that attempt, or for a
+check you ask for, such as **Discover** or **Validate**:
 
 | Reference | Means |
 |---|---|
@@ -30,7 +31,8 @@ For each one, it shows whether the key is set now, and what uses it.
 - A reference that belongs to a connection or an MCP server is changed there. **Open** takes you to
   it.
 
-If you type a value where a name belongs, the form hides it and says so.
+The form's field is **Name of the variable that holds it**, with an example. If you type or paste a
+value where a name belongs, the form hides it, stores nothing, and says so in one warning.
 
 ## Runtime logins
 

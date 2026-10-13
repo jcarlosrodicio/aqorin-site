@@ -24,7 +24,9 @@ cuatro pasos, y no se guarda nada hasta el último:
    - **Codex y Claude Code** piden un inicio de sesión: tu login existente, o una clave de API por
      referencia. En Codex, la referencia es el nombre de la variable que contiene la clave.
 
-   Si escribes el valor de una clave donde va un nombre, el formulario lo oculta y te lo dice.
+   El campo pide el **nombre** de la variable —por ejemplo `NAN_API_KEY`, exportada en la terminal
+   desde la que abres `aqorin`—, nunca la clave. Si pegas ahí el valor de una clave, el formulario lo
+   oculta, no guarda nada y te lo dice en un solo aviso.
 3. **Models:** **Discover** los descubre (una llamada al `/models` del proveedor, hecha solo porque
    lo pediste), escríbelos, o añádelos más tarde.
 4. **Default model:** el modelo que recibe un paso cuando no nombra ninguno. Este paso muestra lo que

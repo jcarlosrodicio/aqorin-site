@@ -23,7 +23,9 @@ and nothing is saved until the last one:
    - **Codex and Claude Code** take a sign-in: your existing login, or an API key by reference.
      For Codex, the reference is the name of the variable that holds the key.
 
-   If you type a key's value where a name belongs, the form hides it and says so.
+   The field asks for the variable's **name** — for example `NAN_API_KEY`, exported in the shell you
+   start `aqorin` from — never the key itself. If you paste a key's value there, the form hides it,
+   stores nothing, and says so in one warning.
 3. **Models:** **Discover** them (one call to the provider's `/models`, made only because you
    asked), type them, or add them later.
 4. **Default model:** the model a step gets when it names none. This step shows what will be

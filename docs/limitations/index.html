@@ -87,8 +87,9 @@ context it uses.</li>
 <div class="sl-heading-wrapper level-h2"><h2 id="what-it-does-not-claim">What it does not claim</h2><a class="sl-anchor-link" href="#what-it-does-not-claim"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “What it does not claim”</span></a></div>
 <ul>
 <li><strong>Restricted roles</strong> are admitted only where a mechanism is validated for that runtime, version,
-model and platform. Elsewhere they are refused, not relaxed. Today few combinations are
-validated, and <code dir="auto">aqorin eligibility refresh</code> refreshes OpenCode’s only.</li>
+model and platform. Elsewhere they are refused, not relaxed. Today a few combinations are
+validated (OpenCode and Claude Code, each with named models), and <code dir="auto">aqorin eligibility refresh</code>
+refreshes those two runtimes only.</li>
 <li><strong>An agent’s <code dir="auto">inputs</code> and <code dir="auto">outputs</code></strong> are added to its instructions, not checked.</li>
 <li><strong>The model that served a request</strong> is not observed on every runtime.</li>
 <li><strong>A retried step</strong> starts over. It is at least once, not a resumed conversation.</li>

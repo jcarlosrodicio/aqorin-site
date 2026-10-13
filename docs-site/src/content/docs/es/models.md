@@ -27,8 +27,10 @@ ninguno. Un agente dice *qué* se hace; la asignación, o si no la ejecución po
 
 Un paso de solo lectura o de revisión necesita algo más que un modelo que responda. Aqorin lo admite
 solo donde ha validado el mecanismo que restringe ese rol, para ese **runtime, versión y modelo**.
-Un modelo sin esa validación se rechaza para esos pasos, y el plan lo dice. Los pasos que editan
-archivos no se restringen de esta manera.
+Un modelo sin esa validación se rechaza para esos pasos, y el plan lo dice: indica el modelo en la
+asignación. En Claude Code todos los pasos de un Run usan un mismo modelo, así que uno validado sirve
+para todos. Los pasos que editan archivos no se restringen de esta manera. Qué runtimes y modelos
+están validados: [Modelo de seguridad](../security/#roles-restringidos).
 
 ```bash
 aqorin eligibility list        # the validation records for this machine

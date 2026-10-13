@@ -32,6 +32,19 @@ restringe, para ese runtime, versión, modelo y plataforma. En cualquier otro si
 rechaza (`policy_unenforceable`), nunca se relaja. Aqorin nunca amplía la clase de acceso de un rol
 para que un runtime encaje.
 
+Validado hoy, en macOS arm64:
+
+| Runtime | Versión | Modelos |
+|---|---|---|
+| OpenCode | 1.18.32 | `nan/glm5.3-flash` |
+| Claude Code | 2.1.296 | `claude-opus-5-5`, `claude-sonnet-5-5` |
+
+El modelo debe indicarse en la asignación: el modelo por defecto de un runtime no lo cubre ninguna
+comprobación. En Claude Code, un paso de solo lectura o de revisión solo tiene Read, Glob y Grep: ni
+comandos, ni escritura, ni skills, ni servidores MCP. Cuando un runtime se actualiza,
+`aqorin eligibility refresh <runtime> --model <modelo>` comprueba la nueva versión en esta máquina
+(OpenCode y Claude Code; una llamada al modelo por control, preguntando antes).
+
 Un workflow que no puede cumplir esto se etiqueta como **advisory** (orientativo), y su resultado
 nunca se presenta como revisado de forma independiente.
 

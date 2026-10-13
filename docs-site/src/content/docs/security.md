@@ -28,6 +28,18 @@ restricts it — for that runtime, version, model and platform. Anywhere else, t
 (`policy_unenforceable`), never relaxed. Aqorin never widens a role's access class to make a
 runtime fit.
 
+Validated today, on macOS arm64:
+
+| Runtime | Version | Models |
+|---|---|---|
+| OpenCode | 1.18.32 | `nan/glm5.3-flash` |
+| Claude Code | 2.1.296 | `claude-opus-5-5`, `claude-sonnet-5-5` |
+
+The model must be named in the assignment: a runtime's own default is not one a check covered. On
+Claude Code, a read-only or review step has only Read, Glob and Grep — no command, no write, no skill,
+no MCP server. After a runtime updates, `aqorin eligibility refresh <runtime> --model <model>` checks
+the new version on this machine (OpenCode and Claude Code; one model call per control, asked first).
+
 A workflow that cannot meet this is labelled **advisory**, and its result is never presented as
 independently reviewed.
 

@@ -91,7 +91,9 @@ an environment variable’s <strong>name</strong>, or as a macOS keychain item.<
 <li><strong>Codex and Claude Code</strong> take a sign-in: your existing login, or an API key by reference.
 For Codex, the reference is the name of the variable that holds the key.</li>
 </ul>
-<p>If you type a key’s value where a name belongs, the form hides it and says so.</p>
+<p>The field asks for the variable’s <strong>name</strong> — for example <code dir="auto">NAN_API_KEY</code>, exported in the shell you
+start <code dir="auto">aqorin</code> from — never the key itself. If you paste a key’s value there, the form hides it,
+stores nothing, and says so in one warning.</p>
 </li>
 <li>
 <p><strong>Models:</strong> <strong>Discover</strong> them (one call to the provider’s <code dir="auto">/models</code>, made only because you
