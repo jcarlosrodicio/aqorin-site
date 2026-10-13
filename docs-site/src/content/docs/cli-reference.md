@@ -29,7 +29,7 @@ aqorin config explain [path]
 aqorin config diff --runtime <id>
 aqorin open <opencode|jcode|pi|codex|claude-code> [--project <path>] [--runtime-path <executable>]
 aqorin feature <request> [--project <path>] [--runtime opencode|jcode|pi|codex|claude-code] [--attempt-timeout <duration>]
-aqorin feature --task-file <file> [--project <path>] [--runtime <id>]
+aqorin feature --task-file <file> [--project <path>] [--runtime <id>] [--agent-check]
 aqorin tasks new <request> --check-command <command>… [--project <path>]
 aqorin feature <request> --runtime codex [--model <id>] [--project <path>]
 aqorin feature <request> --runtime claude-code [--model <id>] [--project <path>]
