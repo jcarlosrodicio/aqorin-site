@@ -34,7 +34,7 @@ aqorin tasks new <request> --check-command <command>… [--project <path>]
 aqorin feature <request> --runtime codex [--model <id>] [--project <path>]
 aqorin feature <request> --runtime claude-code [--model <id>] [--project <path>]
 aqorin run <workflow> --task-file <file> [--project <path>] [--runtime <id>] [--attempt-timeout <duration>] [--agent-check]
-aqorin run <workflow> <request> [--project <path>] [--runtime <id>]   (no Acceptance Plan: the runtime's attestation)
+aqorin run <workflow> <request> [--project <path>] [--runtime <id>]   (no Acceptance Plan: nothing checks the work unless --agent-check)
 aqorin run <workflow> --task-file <file> --assign <name> [--plan-only] [--project <path>]
 aqorin feature <request> [--runtime <id>] --plan-only [--project <path>]
 aqorin feature --task-file <file> --assign <name> [--plan-only] [--project <path>]
@@ -223,7 +223,7 @@ Codex or Claude Code feature, or runtimes inspect claude-code (where an explicit
 
 ### `--task-file`
 
-feature and run: an aqorin.task file (YAML or JSON) with the request and its Acceptance Plan. Aqorin runs the plan's commands itself (your permissions, no shell) and only their exit status decides validation; without one, validation is the runtime's attestation. Not accepted by resume
+feature and run: an aqorin.task file (YAML or JSON) with the request and its Acceptance Plan. Aqorin runs the plan's commands itself (your permissions, no shell) and only their exit status decides validation; without one, nothing checks the work unless --agent-check asks the runtime to (its word, advisory). Not accepted by resume
 
 ### `--check-command`
 
