@@ -101,8 +101,10 @@ esta máquina cubre se ejecuta igualmente, con la restricción <strong>advisory<
 dice <code dir="auto">Ready, advisory</code>, marca el paso como <code dir="auto">advisory</code> e indica dónde la restricción sería
 efectiva. El resultado del Run es orientativo. Mira
 <a href="../security/#roles-restringidos">Modelo de seguridad</a>.</li>
-<li>Cuando la versión de un runtime es nueva para Aqorin, el plan también lo dice. <code dir="auto">v</code> la valida con
-una llamada a un modelo, y pregunta primero.</li>
+<li>Cuando la versión de un runtime es una versión mayor nueva para Aqorin (de Pi 0.x a 1.x, por
+ejemplo), el plan también lo dice. Se ejecuta igualmente: su primer paso comprueba lo que solo una
+ejecución real muestra, y en cuanto un paso termina en ella queda registrada como verificada. <code dir="auto">v</code>
+la comprueba ya, con una llamada a un modelo, y pregunta primero.</li>
 </ul>
 <p>Mientras el resumen dice por qué se rechaza un plan, el texto completo del plan (lo que imprime
 <code dir="auto">--plan-only</code>) queda plegado; <code dir="auto">d</code> lo muestra. Un plan rechazado no crea ningún Run. Si se escribió un

@@ -68,10 +68,16 @@ real a un modelo. Es la misma comprobación que `aqorin doctor --live`. Antes de
 un runtime que tiene conexiones, Validate pregunta primero por dónde: su propia configuración o una de
 las conexiones, porque su modelo por defecto puede ser justo el que no tiene una clave que funcione.
 
-Una versión de runtime nueva para Aqorin se señala, y Home la pone en **Still to do**. Valídala antes
-de fiarte de ella. Si la comprobación acaba con un error del proveedor, no se registra nada:
-valídala a través de una conexión cuya clave funcione o, si ya pasó por una, revisa la clave y el
-modelo por defecto de esa conexión.
+Actualizar un runtime dentro de una versión mayor que Aqorin ya ha ejecutado no requiere nada: Aqorin
+lee en local las opciones de la versión nueva, sin llamar a ningún modelo. Una versión mayor nueva (de
+Pi 0.x a 1.x, por ejemplo) se señala como nueva para Aqorin en el plan, en Runtimes y en Home, pero no
+cuenta como algo pendiente: se ejecuta, su primer paso comprueba lo que solo una ejecución real
+muestra (el protocolo, los eventos, el final del turno) y, en cuanto un paso termina en ella, queda
+registrada como verificada. Si rompe algo que Aqorin necesita, ese primer paso falla diciendo qué
+falta, y el fallo se registra. Validate la comprueba ya. Si esa comprobación acaba con un error del
+proveedor, no se registra nada: valídala a través de una conexión cuya clave funcione o, si ya pasó
+por una, revisa la clave y el modelo por defecto de esa conexión. Una versión cuya ayuda no se puede
+leer en absoluto se sigue rechazando hasta validarla.
 
 ## Cómo se ejecuta cada runtime bajo Aqorin
 

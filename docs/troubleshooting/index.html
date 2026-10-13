@@ -92,10 +92,12 @@ keychain item, then check again on <a href="../credentials/">Credentials</a> (<c
 <li><strong>A connection that is not configured.</strong> <code dir="auto">c</code> opens the runtime’s configuration.</li>
 <li><strong>A required skill or MCP server the runtime cannot load.</strong> Make it optional, or assign the step
 elsewhere.</li>
-<li><strong>A runtime version new to Aqorin.</strong> <code dir="auto">v</code> validates it, with one model call.</li>
+<li><strong>A runtime version Aqorin cannot check at all</strong> (its help cannot be read). <code dir="auto">v</code> validates it, with
+one model call. A new major whose help lists what Aqorin needs is not refused: it runs, and its
+first step checks it.</li>
 <li><strong>A resume after a runtime update.</strong> A Run planned with a step’s restriction enforced is not
 resumed on a version no check covers. Refresh the check (<code dir="auto">aqorin eligibility refresh &lt;runtime&gt;</code>),
-or replan the step.</li>
+or start a new Run.</li>
 </ul>
 <div class="sl-heading-wrapper level-h2"><h2 id="the-plan-says-a-step-is-advisory">The plan says a step is advisory</h2><a class="sl-anchor-link" href="#the-plan-says-a-step-is-advisory"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “The plan says a step is advisory”</span></a></div>
 <p>A read-only or review step on a runtime, version or model no check on this machine covers runs

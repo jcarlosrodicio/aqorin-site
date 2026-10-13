@@ -63,10 +63,15 @@ It is the same check as `aqorin doctor --live`. Before the call, it says:
 runtime that has connections, Validate first asks which way: its own configuration, or one of the
 connections — its own default may be the one route whose key does not work.
 
-A runtime version new to Aqorin is flagged, and Home lists it under **Still to do**. Validate it
-before you rely on it. If the check ends in the provider's error, nothing is recorded: validate it
-through a connection whose key works — or, if it went through one, check that connection's key and
-default model.
+Updating a runtime within a major version Aqorin has already run needs nothing: Aqorin reads the
+new version's options locally, with no model call. A new major (Pi 0.x → 1.x, say) is flagged as new
+to Aqorin, on the plan, on Runtimes and on Home, but it is not something left to do: it runs, its
+first step checks what only a real run shows (the protocol, the events, the end of the turn), and
+once a step completes on it, it is recorded as verified. If it breaks what Aqorin needs, that first
+step fails and names what is missing, and the failure is recorded. Validate checks it now instead.
+If that check ends in the provider's error, nothing is recorded: validate it through a connection
+whose key works — or, if it went through one, check that connection's key and default model. A
+version whose help cannot be read at all is still refused until it is validated.
 
 ## How each runtime runs under Aqorin
 

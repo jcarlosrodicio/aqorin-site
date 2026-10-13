@@ -39,10 +39,12 @@ El plan dice quién no puede ejecutarse dónde, y por qué. Las causas habituale
 - **Una conexión que no está configurada.** `c` abre la configuración del runtime.
 - **Una skill o un servidor MCP requeridos que el runtime no puede cargar.** Hazlo opcional, o
   asigna el paso a otro sitio.
-- **Una versión de runtime nueva para Aqorin.** `v` la valida, con una llamada a un modelo.
+- **Una versión de runtime que Aqorin no puede comprobar en absoluto** (no se puede leer su ayuda).
+  `v` la valida, con una llamada a un modelo. Una versión mayor nueva cuya ayuda lista lo que Aqorin
+  necesita no se rechaza: se ejecuta, y su primer paso la comprueba.
 - **Una reanudación tras actualizar un runtime.** Un Run planificado con la restricción de un paso
   efectiva no se reanuda en una versión que ninguna comprobación cubre. Refresca la comprobación
-  (`aqorin eligibility refresh <runtime>`), o replanifica el paso.
+  (`aqorin eligibility refresh <runtime>`), o crea un Run nuevo.
 
 ## El plan dice que un paso es advisory
 

@@ -113,10 +113,15 @@ It is the same check as <code dir="auto">aqorin doctor --live</code>. Before the
 <p><strong>Cancel</strong> calls nothing. On a Pi connection, Validate checks Pi through that connection. On a
 runtime that has connections, Validate first asks which way: its own configuration, or one of the
 connections — its own default may be the one route whose key does not work.</p>
-<p>A runtime version new to Aqorin is flagged, and Home lists it under <strong>Still to do</strong>. Validate it
-before you rely on it. If the check ends in the provider’s error, nothing is recorded: validate it
-through a connection whose key works — or, if it went through one, check that connection’s key and
-default model.</p>
+<p>Updating a runtime within a major version Aqorin has already run needs nothing: Aqorin reads the
+new version’s options locally, with no model call. A new major (Pi 0.x → 1.x, say) is flagged as new
+to Aqorin, on the plan, on Runtimes and on Home, but it is not something left to do: it runs, its
+first step checks what only a real run shows (the protocol, the events, the end of the turn), and
+once a step completes on it, it is recorded as verified. If it breaks what Aqorin needs, that first
+step fails and names what is missing, and the failure is recorded. Validate checks it now instead.
+If that check ends in the provider’s error, nothing is recorded: validate it through a connection
+whose key works — or, if it went through one, check that connection’s key and default model. A
+version whose help cannot be read at all is still refused until it is validated.</p>
 <div class="sl-heading-wrapper level-h2"><h2 id="how-each-runtime-runs-under-aqorin">How each runtime runs under Aqorin</h2><a class="sl-anchor-link" href="#how-each-runtime-runs-under-aqorin"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “How each runtime runs under Aqorin”</span></a></div>
 <table>
 <thead>

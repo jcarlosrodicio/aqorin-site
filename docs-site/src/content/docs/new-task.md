@@ -33,8 +33,9 @@ The plan shows whether the task can run, and where each step runs. Nothing runs 
   runs anyway, with its restriction **advisory**: the plan says `Ready, advisory`, marks the step
   `advisory`, and names where the restriction would be enforced. The Run's result is advisory. See
   [Security model](../security/#restricted-roles).
-- When a runtime's version is new to Aqorin, the plan says so too. `v` validates it with one model
-  call, and asks first.
+- When a runtime's version is a new major to Aqorin (Pi 0.x → 1.x, say), the plan says so too. It
+  still runs: its first step checks what only a real run shows, and once a step completes on it,
+  it is recorded as verified. `v` checks it now instead, with one model call, and asks first.
 
 While the summary says why a plan is refused, the plan's full text — what `--plan-only` prints — is
 folded; `d` shows it. A refused plan creates no Run. If a task file was written, it is kept for next

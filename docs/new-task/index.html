@@ -99,8 +99,9 @@ first, then plans again.</li>
 runs anyway, with its restriction <strong>advisory</strong>: the plan says <code dir="auto">Ready, advisory</code>, marks the step
 <code dir="auto">advisory</code>, and names where the restriction would be enforced. The Run’s result is advisory. See
 <a href="../security/#restricted-roles">Security model</a>.</li>
-<li>When a runtime’s version is new to Aqorin, the plan says so too. <code dir="auto">v</code> validates it with one model
-call, and asks first.</li>
+<li>When a runtime’s version is a new major to Aqorin (Pi 0.x → 1.x, say), the plan says so too. It
+still runs: its first step checks what only a real run shows, and once a step completes on it,
+it is recorded as verified. <code dir="auto">v</code> checks it now instead, with one model call, and asks first.</li>
 </ul>
 <p>While the summary says why a plan is refused, the plan’s full text — what <code dir="auto">--plan-only</code> prints — is
 folded; <code dir="auto">d</code> shows it. A refused plan creates no Run. If a task file was written, it is kept for next

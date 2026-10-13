@@ -35,8 +35,10 @@ pulsas `Enter`.
   dice `Ready, advisory`, marca el paso como `advisory` e indica dónde la restricción sería
   efectiva. El resultado del Run es orientativo. Mira
   [Modelo de seguridad](../security/#roles-restringidos).
-- Cuando la versión de un runtime es nueva para Aqorin, el plan también lo dice. `v` la valida con
-  una llamada a un modelo, y pregunta primero.
+- Cuando la versión de un runtime es una versión mayor nueva para Aqorin (de Pi 0.x a 1.x, por
+  ejemplo), el plan también lo dice. Se ejecuta igualmente: su primer paso comprueba lo que solo una
+  ejecución real muestra, y en cuanto un paso termina en ella queda registrada como verificada. `v`
+  la comprueba ya, con una llamada a un modelo, y pregunta primero.
 
 Mientras el resumen dice por qué se rechaza un plan, el texto completo del plan (lo que imprime
 `--plan-only`) queda plegado; `d` lo muestra. Un plan rechazado no crea ningún Run. Si se escribió un

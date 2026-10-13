@@ -38,10 +38,12 @@ The plan says who cannot run where, and why. The common causes:
 - **A connection that is not configured.** `c` opens the runtime's configuration.
 - **A required skill or MCP server the runtime cannot load.** Make it optional, or assign the step
   elsewhere.
-- **A runtime version new to Aqorin.** `v` validates it, with one model call.
+- **A runtime version Aqorin cannot check at all** (its help cannot be read). `v` validates it, with
+  one model call. A new major whose help lists what Aqorin needs is not refused: it runs, and its
+  first step checks it.
 - **A resume after a runtime update.** A Run planned with a step's restriction enforced is not
   resumed on a version no check covers. Refresh the check (`aqorin eligibility refresh <runtime>`),
-  or replan the step.
+  or start a new Run.
 
 ## The plan says a step is advisory
 
