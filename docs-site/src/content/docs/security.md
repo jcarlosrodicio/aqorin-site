@@ -56,8 +56,15 @@ advisory: never presented as validated or independently reviewed. Aqorin never w
 class to make a runtime fit.
 
 A Run planned with the restriction enforced is never resumed with it advisory: on a runtime version
-no check covers, the resume is refused (`policy_unenforceable`). Refresh the check, or replan the
-step, which records the change.
+no check covers, the resume is refused (`policy_unenforceable`). Refresh the check, or start a new
+Run, whose plan says the restriction advisory.
+
+## Commands a step can run
+
+A step that edits files may also run commands where its runtime lets it. On Claude Code, the
+developer — any agent of the *edits files* class — gets the shell: it can run the project's tests,
+linters and scripts, with your permissions, as you would running Claude Code yourself. Aqorin does not
+limit which commands it runs. A read-only or review step never gets it.
 
 ## Your configuration and your keys
 

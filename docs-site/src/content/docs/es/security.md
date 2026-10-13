@@ -64,7 +64,14 @@ nunca amplía la clase de acceso de un rol para que un runtime encaje.
 
 Un Run planificado con la restricción efectiva nunca se reanuda con ella orientativa: en una versión
 del runtime que ninguna comprobación cubre, la reanudación se rechaza (`policy_unenforceable`).
-Refresca la comprobación, o replanifica el paso, lo que deja constancia del cambio.
+Refresca la comprobación, o empieza un Run nuevo, cuyo plan indicará la restricción como orientativa.
+
+## Comandos que puede ejecutar un paso
+
+Un paso que edita archivos puede también ejecutar comandos, donde su runtime lo permite. En Claude
+Code, el developer —cualquier agente de la clase *edita archivos*— tiene la shell: puede ejecutar los
+tests, linters y scripts del proyecto, con tus permisos, como harías tú al usar Claude Code. Aqorin no
+limita qué comandos ejecuta. Un paso de solo lectura o de revisión nunca la tiene.
 
 ## Tu configuración y tus claves
 

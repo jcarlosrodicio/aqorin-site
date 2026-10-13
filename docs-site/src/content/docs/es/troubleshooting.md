@@ -59,6 +59,14 @@ lo haya respetado. El resultado del Run es orientativo. Para que la restricción
 el paso a un runtime y un modelo validados; el plan los indica. Mira
 [Modelo de seguridad](../security/#roles-restringidos).
 
+## El paso siguiente no empieza
+
+Tras un paso cuyo trabajo se comprueba, el Run ejecuta sus comprobaciones antes de seguir, y los
+pasos muestran **checking**. Si la tarea trae comprobaciones, las ejecuta Aqorin; si no trae
+ninguna, el propio runtime del paso comprueba el trabajo, y ejecutar los tests del proyecto puede
+llevar minutos. El paso siguiente (el revisor, por ejemplo) empieza cuando responden. Mira
+[Runs](../runs/#la-vista-de-un-run).
+
 ## Un Run cada vez
 
 Hay un Run a la vez por árbol de trabajo. Termina, cancela o reanuda el Run abierto (`2` Runs). Un

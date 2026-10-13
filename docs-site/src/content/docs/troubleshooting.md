@@ -56,6 +56,13 @@ read-only setting, and nothing shows it held to that. The Run's result is adviso
 restriction enforced, assign the step to a validated runtime and model — the plan names them. See
 [Security model](../security/#restricted-roles).
 
+## The next step does not start
+
+After a step whose work is checked, the Run runs its checks before moving on, and the steps show
+**checking**. With checks in the task, Aqorin runs them; with none, the step's runtime checks the work
+itself — running the project's tests can take minutes. The next step (the reviewer, say) starts when
+they report. See [Runs](../runs/#a-runs-view).
+
 ## One Run at a time
 
 There is one Run at a time per working tree. Finish, cancel or resume the open Run (`2` Runs). A

@@ -27,11 +27,20 @@ A Run's view is a dashboard:
 - **On the left**, the steps: each one's state, its time, which agent runs it and where (agent ·
   runtime), and its attempt.
 - **In the middle**, the selected step's work. One line says what it is doing now — *Thinking…*,
-  *Running tool… npm test*, *Waiting for you* — then come its messages, with a row per tool.
-- **On the right**, the Run in a few lines.
+  *Running tool… npm test*, *Waiting for you* — and the next who runs it, with the model the runtime
+  reports and the context it has used (Claude Code: of its window; Codex: the tokens of its turn).
+  Then come its messages. The tool calls between two messages are folded into one muted line, with
+  their count and any that failed: `t` shows each one.
+- **On the right**, the Run in a few lines. An advisory Run says there, once, what that means and
+  why, in a few words; the full reasons are in its Result.
 
-`Tab` to the steps, then `↑` `↓` picks one. `c` `c` cancels the Run. Ctrl+T opens the
-[Trace](../trace/).
+After a step whose work is checked, the steps show **checking** until the checks report: Aqorin runs
+the task's checks, or — when the task declares none — the step's runtime checks the work itself. The
+next step waits for them, so a reviewer that has not started yet is usually waiting on these checks.
+
+`Tab` to the steps, then `↑` `↓` picks one. `y` copies the selected step's messages to the
+clipboard, where your terminal allows it: a mouse selection takes whole lines across every pane.
+`c` `c` cancels the Run. Ctrl+T opens the [Trace](../trace/).
 
 ## The result
 
