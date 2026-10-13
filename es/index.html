@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aqorin — Un workflow. Cualquier agente de código.</title>
-<meta name="description" content="Aqorin es una capa de orquestación para agentes de código, independiente del runtime. Define un workflow de ingeniería una vez y ejecútalo con OpenCode, Pi, Codex, Claude Code o jcode, sin sustituir tu configuración. Construido en público.">
+<meta name="description" content="Aqorin es una capa de orquestación para agentes de código, independiente del runtime. Define un workflow de ingeniería una vez y ejecútalo con Claude Code, Codex, OpenCode o Pi, sin sustituir tu configuración. Construido en público.">
 <link rel="canonical" href="https://aqorin.rcuadrado.es/es/">
 <link rel="alternate" hreflang="en" href="https://aqorin.rcuadrado.es/">
 <link rel="alternate" hreflang="es" href="https://aqorin.rcuadrado.es/es/">
@@ -54,13 +54,14 @@
 
 <header class="top">
   <div class="wrap">
-    <a class="mark" href="/es/" aria-label="Inicio de Aqorin">a<b>q</b>orin</a>
+    <a class="mark" href="/es/" aria-label="Inicio de Aqorin"><img src="/assets/brand/aqorin-lockup-light.svg" alt="Aqorin" width="92" height="24"></a>
     <ul class="links">
       <li><a href="#why"><span>01</span>Por qué</a></li>
       <li><a href="#how"><span>02</span>Cómo</a></li>
       <li><a href="#rules"><span>03</span>Reglas</a></li>
       <li><a href="#status"><span>04</span>Estado</a></li>
       <li><a href="#feedback"><span>05</span>Feedback</a></li>
+      <li><a href="/docs/es/"><span>→</span>Docs</a></li>
     </ul>
     <nav class="lang" aria-label="Idioma"><a href="/" hreflang="en" lang="en">EN</a><a href="/es/" hreflang="es" lang="es" aria-current="page">ES</a></nav>
   </div>
@@ -68,8 +69,8 @@
 
 <div class="spec">
   <div class="wrap">
-    <span><i class="lamp"></i>Terminal Alpha · en curso</span>
-    <span><em>Rev</em> 2026-10-09</span>
+    <span><i class="lamp"></i>Terminal Alpha · construida</span>
+    <span><em>Rev</em> 2026-10-12</span>
     <span><em>Plataforma</em> darwin-arm64</span>
     <span><em>Paquete</em> @aqorin/cli 0.2.0</span>
     <span><em>Licencia</em> MIT</span>
@@ -82,7 +83,7 @@
 
     <div class="hero-grid">
       <div class="hero-copy">
-        <p>Aqorin es una <b>capa de orquestación independiente del runtime</b> para agentes de código. Defines <b>una vez</b> cómo se especifica, implementa, valida y revisa el trabajo. OpenCode, Pi, Codex, Claude Code o jcode lo ejecutan. Tu configuración sigue siendo tuya.</p>
+        <p>Aqorin es una <b>capa de orquestación independiente del runtime</b> para agentes de código. Defines <b>una vez</b> cómo se especifica, implementa, valida y revisa el trabajo. Claude Code, Codex, OpenCode o Pi lo ejecutan. Tu configuración sigue siendo tuya.</p>
         <div class="install"><code>npm i -g @aqorin/cli</code><button id="copy" type="button" data-done="copiado" data-fail="selecciónalo">copiar</button></div>
         <a class="go" href="#feedback">Ayuda a darle forma ↓</a>
         <p class="hero-note">Se pronuncia “A-cor-in”. Un experimento construido en público: esta página cuenta la idea y hacia dónde va.</p>
@@ -98,7 +99,7 @@ specify → implement
 <span class="k">ningún runtime dentro</span></pre></div>
           <div><h5><span>asignación</span><span class="k">por rol</span></h5><pre id="assign"></pre></div>
         </div>
-        <div class="board-foot"><span>Pulsa un rol y después un runtime.</span><span class="tag warn">ilustrativo · rechaza lo que no puede hacer cumplir</span></div>
+        <div class="board-foot"><span>Pulsa un rol y después un runtime.</span><span class="tag warn">ilustrativo · lo que no puede hacer cumplir lo marca como orientativo</span></div>
       </div>
     </div>
   </div>
@@ -158,7 +159,7 @@ specify → implement
       </div>
 
       <p class="neq rv">Rol <span>≠</span> Runtime <span>≠</span> Modelo</p>
-      <p class="neq-note rv">Tres conceptos independientes: ningún rol canónico implica un runtime o un modelo. Un Run puede asignar un runtime y un modelo por rol, y Aqorin rechaza el plan cuando no puede hacer cumplir los límites de un rol en su runtime.</p>
+      <p class="neq-note rv">Tres conceptos independientes: ningún rol canónico implica un runtime o un modelo. Un Run puede asignar un runtime y un modelo por rol, y cuando Aqorin no puede hacer cumplir los límites de un rol en su runtime, el plan y el resultado dicen que solo son orientativos.</p>
     </div>
   </section>
 
@@ -193,8 +194,8 @@ specify → implement
     <div class="wrap">
       <div class="sh rv"><span class="n">§04</span><span>Hacia dónde va</span><span class="ref">ref · docs/exits/README.md · ADR-0049</span></div>
       <div class="cols">
-        <h2 class="h2 rv">Tesis parcialmente validada. Ahora: <em>una alfa que se pueda usar</em>.</h2>
-        <p class="lede rv">El Thesis Validation Track preguntaba si un mismo workflow puede ejecutarse de forma durable con distintos runtimes y modelos, mezclados en un mismo Run. La respuesta fue parcialmente validada, y ese veredicto queda tal como se registró. Ahora el track Terminal Alpha construye la primera versión que una persona puede usar: una interfaz de terminal y un CLI, en macOS arm64, sobre Claude Code, Codex, OpenCode y Pi.</p>
+        <h2 class="h2 rv">Tesis parcialmente validada. Alfa construida. Ahora: <em>cómoda</em>.</h2>
+        <p class="lede rv">El Thesis Validation Track preguntaba si un mismo workflow puede ejecutarse de forma durable con distintos runtimes y modelos, mezclados en un mismo Run. La respuesta fue parcialmente validada, y ese veredicto queda tal como se registró. Después, el track Terminal Alpha construyó la primera versión que una persona puede usar —una interfaz de terminal y un CLI, en macOS arm64, sobre Claude Code, Codex, OpenCode y Pi— y su aceptación técnica pasó. Ahora el track post-alfa la hace cómoda: una TUI rediseñada, una identidad visual y documentación.</p>
       </div>
 
       <div class="status-grid">
@@ -207,26 +208,27 @@ specify → implement
           <div class="fb-row"><span class="flap" data-text="TA2" data-len="4"></span><span class="fb-dest">Feed del Run en vivo</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
           <div class="fb-row"><span class="flap" data-text="TA9" data-len="4"></span><span class="fb-dest">Base de la TUI</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
           <div class="fb-row"><span class="flap" data-text="TA3" data-len="4"></span><span class="fb-dest">Sesiones durables</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TA4" data-len="4"></span><span class="fb-dest">Chat libre en cuatro runtimes</span><span class="flap st s-next" data-text="EN CURSO" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TA5" data-len="4"></span><span class="fb-dest">Agentes y workflows propios</span><span class="flap st s-plan" data-text="PLANIFICADO" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TA6" data-len="4"></span><span class="fb-dest">Skills y MCP</span><span class="flap st s-plan" data-text="PLANIFICADO" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TA7" data-len="4"></span><span class="fb-dest">Un Run con los cuatro runtimes</span><span class="flap st s-plan" data-text="PLANIFICADO" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TA8" data-len="4"></span><span class="fb-dest">Roles restringidos: refresco y ampliación</span><span class="flap st s-plan" data-text="PLANIFICADO" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TA10" data-len="4"></span><span class="fb-dest">Edición desde la TUI</span><span class="flap st s-plan" data-text="PLANIFICADO" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TA11" data-len="4"></span><span class="fb-dest">Supervisión de Runs en la TUI</span><span class="flap st s-plan" data-text="PLANIFICADO" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TA12" data-len="4"></span><span class="fb-dest">Empaquetado y aceptación de la alfa</span><span class="flap st s-plan" data-text="PLANIFICADO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TA4" data-len="4"></span><span class="fb-dest">Chat libre en cuatro runtimes</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TA5" data-len="4"></span><span class="fb-dest">Agentes y workflows propios</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TA6" data-len="4"></span><span class="fb-dest">Skills y MCP</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TA7" data-len="4"></span><span class="fb-dest">Un Run con los cuatro runtimes</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TA8a" data-len="4"></span><span class="fb-dest">Roles restringidos: refresco local</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TA10" data-len="4"></span><span class="fb-dest">Edición desde la TUI</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TA11" data-len="4"></span><span class="fb-dest">Supervisión de Runs en la TUI</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="TA12" data-len="4"></span><span class="fb-dest">Empaquetado y aceptación de la alfa</span><span class="flap st s-ok" data-text="CERRADO" data-len="11"></span></div>
+          <div class="fb-row"><span class="flap" data-text="PA" data-len="4"></span><span class="fb-dest">UX de producto: rediseño, marca, docs</span><span class="flap st s-next" data-text="EN CURSO" data-len="11"></span></div>
         </div>
 
         <div>
           <div class="report rv">
-            <h4><span>Notas de campo · Terminal Alpha</span><span>2026-10-09</span></h4>
-            <span class="stamp wip">En curso</span>
-            <p class="lead-note">La base está puesta. Aqorin lista los cuatro runtimes con su versión, su login y sus modelos; sigues un Run en vivo desde otra terminal; un Run continúa aunque cierres la terminal, y un paso atascado espera tu decisión. Al escribir <code>aqorin</code> se abre la interfaz de terminal.</p>
-            <p class="foot">Ahora: chat libre con cada runtime a través de Aqorin; Codex ya está, Claude Code es el siguiente. Después, tus propios agentes, skills y MCP, y ejecutar y supervisar todo desde la TUI. Demostrado en macOS arm64; está en main, todavía no en el paquete de npm.</p>
+            <h4><span>Notas de campo · Terminal Alpha</span><span>2026-10-12</span></h4>
+            <span class="stamp ok">Construida</span>
+            <p class="lead-note">La alfa está construida. Desde <code>aqorin</code> configuras los cuatro runtimes, sus conexiones y modelos; escribes tus agentes y workflows; añades skills y servidores MCP; chateas con cualquier runtime; lanzas un Run, lo sigues, le respondes y lo recuperas cuando un paso falla. Cada acción es también un verbo del CLI. Su aceptación técnica pasó, recorrida como lo haría alguien nuevo.</p>
+            <p class="foot">Ahora: una prueba a fondo de la TUI rediseñada, y la <a href="/docs/es/">documentación</a>. Demostrado solo en macOS arm64; está en main, todavía no en el paquete de npm.</p>
           </div>
           <div class="ledger rv">
-            <div class="yes"><h4>Existe hoy · en main</h4><ul><li>Workflows y roles que escribes tú, ejecutados con <code>aqorin run</code></li><li>Un runtime y un modelo por rol, dentro de un mismo Run</li><li>Rechazo del plan cuando no puede hacer cumplir los límites de un rol</li><li>Validación decidida por Aqorin, no por el modelo</li><li>Inventario de cuatro runtimes: versión, login y modelos</li><li>Runs que sobreviven a la terminal y te esperan si un paso falla</li><li><code>aqorin</code> abre una interfaz de terminal que sigue un Run en vivo</li><li><code>@aqorin/cli</code> 0.2.0 en npm, MIT, por detrás de main</li></ul></div>
-            <div class="no"><h4>Lo siguiente</h4><ul><li>Chat libre con Claude Code, Codex, OpenCode y Pi</li><li>Tus propios agentes, skills y MCP</li><li>Un Run con los cuatro runtimes, con revisión</li><li>Editar y supervisar desde la TUI</li></ul></div>
+            <div class="yes"><h4>Existe hoy · en main</h4><ul><li>Una interfaz de terminal, y un CLI que hace todo lo que hace ella</li><li>Cuatro runtimes: Claude Code, Codex, OpenCode y Pi</li><li>Tus propios agentes y workflows, en la TUI o a mano</li><li>Un runtime, una conexión y un modelo por rol, dentro de un mismo Run</li><li>Cualquier agente en cualquier runtime: los límites de un rol, efectivos donde están verificados y orientativos donde no</li><li>Con comprobaciones, la validación la deciden ellas, no el modelo</li><li>Chat libre con los cuatro runtimes, con los permisos a la vista donde el runtime pregunta</li><li>Runs que sobreviven a la terminal; reintentar, replanificar o cancelar si un paso falla</li><li><code>@aqorin/cli</code> 0.2.0 en npm, MIT, por detrás de main</li></ul></div>
+            <div class="no"><h4>Lo siguiente</h4><ul><li>Una prueba a fondo de la TUI rediseñada</li><li>Publicar la alfa: aún sin decidir</li><li>Límites de solo lectura verificados en Codex y Pi: aplazado</li></ul></div>
           </div>
         </div>
       </div>
@@ -254,7 +256,7 @@ specify → implement
 <footer>
   <div class="wrap">
     <dl><dt>Aqorin</dt><dd>Orquestación independiente del runtime para agentes de código</dd></dl>
-    <dl><dt>Estado</dt><dd>Tesis v1 · parcialmente validada · Terminal Alpha en curso · rev 2026-10-09</dd></dl>
+    <dl><dt>Estado</dt><dd>Tesis v1 · parcialmente validada · Terminal Alpha construida · rev 2026-10-12</dd></dl>
     <dl><dt>Autor</dt><dd><a href="https://x.com/JuancaRodicio" rel="noopener">@JuancaRodicio</a> · <a href="https://www.npmjs.com/package/@aqorin/cli" rel="noopener">npm</a></dd></dl>
     <dl><dt>Colofón</dt><dd>Compuesto en Archivo e IBM Plex Mono. MIT. Sin afiliación con ningún proveedor de runtimes.<br>Las visitas se cuentan con PostHog (UE) sin cookies; no se guarda nada en tu dispositivo.</dd></dl>
   </div>
