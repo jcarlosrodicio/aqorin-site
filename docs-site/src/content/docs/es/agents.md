@@ -23,8 +23,10 @@ prevalece sobre ella.
 | `review` | *reviews* | Leer el trabajo y decidir: aprobado, o cambios necesarios. |
 
 Aqorin nunca amplía una clase de acceso para que un runtime encaje. Un agente de solo lectura o de
-revisión se ejecuta solo donde Aqorin puede aplicar su restricción. Si no, el plan lo rechaza, o el
-workflow se etiqueta como *advisory* (orientativo). Mira [Modelo de seguridad](../security/).
+revisión se ejecuta en cualquier runtime: donde Aqorin puede aplicar su restricción, es *efectiva*;
+en cualquier otro sitio se ejecuta con el modo de solo lectura de su runtime y se le indica que no
+escriba ni ejecute comandos, y la restricción se presenta como *advisory* (orientativa), igual que el
+resultado del Run. Mira [Modelo de seguridad](../security/#roles-restringidos).
 
 ## La pantalla Agents (`4`)
 

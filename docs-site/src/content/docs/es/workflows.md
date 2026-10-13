@@ -63,13 +63,20 @@ pasos de solo lectura y de revisión, para ese runtime, versión y modelo. Si no
 (orientativo), y lo dice. Un resultado advisory nunca se presenta como revisado de forma
 independiente.
 
+Cualquier paso puede ejecutarse en cualquier runtime. Un paso de solo lectura o de revisión en un
+runtime, versión o modelo que ninguna comprobación cubre se ejecuta igualmente, con el modo de solo
+lectura de su runtime y la indicación de no escribir ni ejecutar comandos, y su restricción es
+**advisory**: el plan marca el paso como `advisory`, y el resultado del Run es orientativo. Mira
+[Modelo de seguridad](../security/#roles-restringidos).
+
 <a id="assignments-where-each-step-runs"></a>
 
 ## Asignaciones: dónde se ejecuta cada paso
 
 En Workflows, **Where it runs** (`g`) abre una **asignación**. Para cada paso, `Enter` elige:
 
-1. su runtime, juzgado según la clase de acceso del paso;
+1. su runtime, juzgado según la clase de acceso del paso (`restriction enforced` o
+   `restriction advisory` en un paso de solo lectura o de revisión);
 2. la conexión;
 3. un modelo que se le pueda dar al runtime para esa clase.
 
@@ -93,7 +100,6 @@ roles:
 
 Antes de que se ejecute nada, el preflight rechaza lo que no se puede cumplir:
 
-- un runtime que no puede aplicar la restricción de un rol;
 - una skill requerida que el runtime no puede cargar;
 - una conexión que no está configurada.
 

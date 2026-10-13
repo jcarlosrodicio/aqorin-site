@@ -18,17 +18,18 @@ These rules are code in Aqorin's engine, not instructions a model is asked to re
 - **Review and budgets.** A Run succeeds only when its required review is approved, its checks have
   passed, its approvals are resolved and no budget is exceeded.
 - **Human Approval.** What needs your approval waits for it. `--yes` never approves anything.
-- **Admission before anything runs.** A plan that cannot be honoured is refused before any runtime
-  starts.
+- **Admission before anything runs.** A plan that cannot be honoured — a connection that is not
+  configured, a required skill a runtime cannot take — is refused before any runtime starts. A
+  read-only or review step's restriction is judged before anything runs too, and said as enforced or
+  advisory.
 
 ## Restricted roles
 
-A `read_only` or `review` agent is admitted only where Aqorin has validated the mechanism that
-restricts it — for that runtime, version, model and platform. Anywhere else, the plan is refused
-(`policy_unenforceable`), never relaxed. Aqorin never widens a role's access class to make a
-runtime fit.
+Any agent can run on any runtime, read-only and review agents included. What differs is whether
+their restriction — no writes, no commands — is **enforced** or **advisory**.
 
-Validated today, on macOS arm64:
+It is **enforced** where Aqorin has validated the mechanism that restricts it — for that runtime,
+version, model and platform. Validated today, on macOS arm64:
 
 | Runtime | Version | Models |
 |---|---|---|
@@ -40,8 +41,23 @@ Claude Code, a read-only or review step has only Read, Glob and Grep — no comm
 no MCP server. After a runtime updates, `aqorin eligibility refresh <runtime> --model <model>` checks
 the new version on this machine (OpenCode and Claude Code; one model call per control, asked first).
 
-A workflow that cannot meet this is labelled **advisory**, and its result is never presented as
-independently reviewed.
+Anywhere else — Codex, Pi, another model or version — the restriction is **advisory**. The step runs
+with its runtime's own read-only setting, and is told not to write or run commands:
+
+| Runtime | Its read-only setting |
+|---|---|
+| Codex | the read-only sandbox, with its shell, exec and multi-agent features off |
+| Pi | only the read, grep, find and ls tools; no extensions, no MCP server |
+| OpenCode, Claude Code | their read-only permissions |
+
+Nothing shows the step holds to it, so Aqorin never says it does. The plan marks the step
+`advisory`, the pickers say `restriction enforced` or `restriction advisory`, and the Run's result is
+advisory: never presented as validated or independently reviewed. Aqorin never widens a role's access
+class to make a runtime fit.
+
+A Run planned with the restriction enforced is never resumed with it advisory: on a runtime version
+no check covers, the resume is refused (`policy_unenforceable`). Refresh the check, or replan the
+step, which records the change.
 
 ## Your configuration and your keys
 

@@ -21,9 +21,10 @@ agent's default execution — an optional preference that an assignment override
 | `workspace_write` | *edits files* | Change files in the project. |
 | `review` | *reviews* | Read the work and decide: approved, or changes needed. |
 
-Aqorin never widens an access class to make a runtime fit. A read-only or review agent runs only
-where Aqorin can enforce its restriction. Otherwise the plan refuses it, or the workflow is
-labelled *advisory*. See [Security model](../security/).
+Aqorin never widens an access class to make a runtime fit. A read-only or review agent runs on any
+runtime: where Aqorin can enforce its restriction it is *enforced*; anywhere else it runs with its
+runtime's read-only setting and is told not to write or run commands, and the restriction is said to
+be *advisory* — so is the Run's result. See [Security model](../security/#restricted-roles).
 
 ## The Agents screen (`4`)
 

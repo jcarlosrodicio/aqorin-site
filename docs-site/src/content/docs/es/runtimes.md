@@ -15,8 +15,9 @@ Tus [conexiones](../connections/) aparecen debajo.
 
 El inspector dice:
 
-- qué puede hacer Aqorin con el runtime: ejecutar pasos que editan archivos, y pasos de solo
-  lectura y de revisión (y si no, por qué no);
+- qué puede hacer Aqorin con el runtime: ejecutar pasos que editan archivos, y si aplica aquí de
+  forma efectiva la restricción de los pasos de solo lectura y de revisión (si no, por qué no; esos
+  pasos se ejecutan igualmente en él, con la restricción orientativa);
 - dónde está instalado;
 - cómo inicia sesión;
 - su catálogo de modelos.

@@ -30,10 +30,12 @@ says *what* is done; the assignment, or failing it the default execution, says *
 
 ## Models and restricted roles
 
-A read-only or review step needs more than a model that answers. Aqorin admits it only where it has
-validated the mechanism that restricts that role, for that **runtime, version and model**. A model
-with no such validation is refused for those steps, and the plan says so — name the model in the
-assignment. On Claude Code every step of a Run uses one model, so a validated one serves them all.
+A read-only or review step can be given any model. Its restriction is **enforced** only where Aqorin
+has validated the mechanism that restricts that role, for that **runtime, version and model** — name
+the model in the assignment. With any other model the step still runs, with its restriction
+**advisory**: the model picker says `restriction enforced` or `restriction advisory` beside each
+model, and the plan says it too. On Claude Code every step of a Run uses one model, so a validated
+one serves them all.
 Steps that edit files are not restricted in this way. Which runtimes and models are validated:
 [Security model](../security/#restricted-roles).
 

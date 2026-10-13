@@ -99,7 +99,7 @@ specify → implement
 <span class="k">no runtime inside</span></pre></div>
           <div><h5><span>assignment</span><span class="k">per role</span></h5><pre id="assign"></pre></div>
         </div>
-        <div class="board-foot"><span>Click a role, then a runtime.</span><span class="tag warn">illustrative · plans it can't enforce are refused</span></div>
+        <div class="board-foot"><span>Click a role, then a runtime.</span><span class="tag warn">illustrative · limits it can't enforce are said advisory</span></div>
       </div>
     </div>
   </div>
@@ -159,7 +159,7 @@ specify → implement
       </div>
 
       <p class="neq rv">Role <span>≠</span> Runtime <span>≠</span> Model</p>
-      <p class="neq-note rv">Three independent concepts: no canonical role implies a runtime or a model. A Run can assign a runtime and a model per role, and Aqorin refuses the plan when it cannot enforce a role's limits on its runtime.</p>
+      <p class="neq-note rv">Three independent concepts: no canonical role implies a runtime or a model. A Run can assign a runtime and a model per role, and when Aqorin cannot enforce a role's limits on its runtime, the plan and the result say they are only advisory.</p>
     </div>
   </section>
 
@@ -227,8 +227,8 @@ specify → implement
             <p class="foot">Now: a hands-on review of the redesigned TUI, and the <a href="/docs/">documentation</a>. Shown on macOS arm64 only; on main, not yet in the npm package.</p>
           </div>
           <div class="ledger rv">
-            <div class="yes"><h4>Exists today · on main</h4><ul><li>A terminal UI, and a CLI that does everything it does</li><li>Four runtimes: Claude Code, Codex, OpenCode and Pi</li><li>Your own agents and workflows, in the TUI or by hand</li><li>A runtime, connection and model per role, inside one Run</li><li>Plans refused when a role's limits can't be enforced</li><li>With checks, validation decided by them, not by the model</li><li>Free chat on the four runtimes, permissions asked in the open where the runtime asks</li><li>Runs that outlive the terminal; retry, replan or cancel when a step fails</li><li><code>@aqorin/cli</code> 0.2.0 on npm, MIT — behind main</li></ul></div>
-            <div class="no"><h4>Next on the track</h4><ul><li>A hands-on review of the redesigned TUI</li><li>Publishing the Alpha — not decided yet</li><li>Restricted roles on Codex and Pi — deferred</li></ul></div>
+            <div class="yes"><h4>Exists today · on main</h4><ul><li>A terminal UI, and a CLI that does everything it does</li><li>Four runtimes: Claude Code, Codex, OpenCode and Pi</li><li>Your own agents and workflows, in the TUI or by hand</li><li>A runtime, connection and model per role, inside one Run</li><li>Any agent on any runtime: a role's limits enforced where verified, said advisory where not</li><li>With checks, validation decided by them, not by the model</li><li>Free chat on the four runtimes, permissions asked in the open where the runtime asks</li><li>Runs that outlive the terminal; retry, replan or cancel when a step fails</li><li><code>@aqorin/cli</code> 0.2.0 on npm, MIT — behind main</li></ul></div>
+            <div class="no"><h4>Next on the track</h4><ul><li>A hands-on review of the redesigned TUI</li><li>Publishing the Alpha — not decided yet</li><li>Verified read-only limits on Codex and Pi — deferred</li></ul></div>
           </div>
         </div>
       </div>

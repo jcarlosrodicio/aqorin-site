@@ -14,8 +14,9 @@ Your [connections](../connections/) appear beneath it.
 
 The inspector says:
 
-- what Aqorin can do with the runtime: run steps that edit files, and read-only and review steps
-  (and if not, why not);
+- what Aqorin can do with the runtime: run steps that edit files, and whether it enforces the
+  restriction of read-only and review steps here (if not, why not — such steps still run on it, with
+  the restriction advisory);
 - where it is installed;
 - how it signs in;
 - its model catalog.

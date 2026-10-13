@@ -117,7 +117,7 @@ Run the canonical Engine-driven feature workflow on a target. Every attempt of a
 
 ### `run`
 
-Run a workflow file from the project's .aqorin/workflows/ (or the built-in feature) with a task file; the workflow is validated before anything runs and frozen with the Run. It sets control flow only: a runtime or model field is refused. Each role is a built-in (specifier, developer, reviewer) or .aqorin/agents/&lt;id>.agent.yaml with an access_class, which selects each runtime's projection. A read_only or review role is admitted only where a passed probe record covers its runtime, version, platform and model; otherwise the plan is refused before anything runs; jcode runs only the built-in feature
+Run a workflow file from the project's .aqorin/workflows/ (or the built-in feature) with a task file; the workflow is validated before anything runs and frozen with the Run. It sets control flow only: a runtime or model field is refused. Each role is a built-in (specifier, developer, reviewer) or .aqorin/agents/&lt;id>.agent.yaml with an access_class, which selects each runtime's projection. A read_only or review role's restriction is enforced where a passed probe record covers its runtime, version, platform and model; elsewhere it runs with an advisory restriction (told not to write or run commands, not verified), said on the plan and the Run; jcode runs only the built-in feature
 
 ### `tasks`
 

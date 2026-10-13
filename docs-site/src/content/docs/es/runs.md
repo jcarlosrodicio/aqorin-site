@@ -43,8 +43,9 @@ Un Run terminado se abre en su **Result**, que muestra:
 - las comprobaciones;
 - los cambios;
 - su **garantía** (*assurance*). Un Run es *advisory* (orientativo) cuando su workflow dice que lo
-  es, no tiene ningún paso que ejecute comprobaciones o ningún paso de revisión, o cuando la tarea
-  no tenía comprobaciones. Si no, es *enforced* (aplicado por Aqorin). Un éxito advisory dice
+  es, no tiene ningún paso que ejecute comprobaciones o ningún paso de revisión, cuando la tarea no
+  tenía comprobaciones, o cuando un paso de solo lectura o de revisión se ejecutó con una
+  restricción orientativa. Si no, es *enforced* (aplicado por Aqorin). Un éxito advisory dice
   "completed — advisory": nunca se muestra como validado ni como aprobado de forma independiente.
   El Result afirma que se alcanzó la garantía solo para un Run que tuvo éxito.
 

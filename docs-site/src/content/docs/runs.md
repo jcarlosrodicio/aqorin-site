@@ -42,7 +42,8 @@ A finished Run opens on its **Result**, which shows:
 - the checks;
 - the changes;
 - its **assurance**. A Run is *advisory* when its workflow says it is, has no step that runs checks
-  or no review step, or when the task had no checks. Otherwise it is *enforced*. An advisory
+  or no review step, when the task had no checks, or when a read-only or review step ran with an
+  advisory restriction. Otherwise it is *enforced*. An advisory
   success reads "completed — advisory": it is never shown as validated or independently approved.
   The Result claims the assurance was reached only for a Run that succeeded.
 

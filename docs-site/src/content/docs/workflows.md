@@ -62,11 +62,17 @@ A workflow is **enforced** when Aqorin has validated how its read-only and revie
 restricted, for that runtime, version and model. Otherwise it is **advisory**, and it says so. An
 advisory result is never presented as independently reviewed.
 
+Any step can run on any runtime. A read-only or review step on a runtime, version or model no check
+covers still runs — with its runtime's read-only setting, told not to write or run commands — and
+its restriction is **advisory**: the plan marks the step `advisory`, and the Run's result is
+advisory. See [Security model](../security/#restricted-roles).
+
 ## Assignments: where each step runs
 
 On Workflows, **Where it runs** (`g`) opens an **assignment**. For each step, `Enter` chooses:
 
-1. its runtime, judged against the step's access class;
+1. its runtime, judged against the step's access class (`restriction enforced` or
+   `restriction advisory` for a read-only or review step);
 2. the connection;
 3. a model the runtime can be given for that class.
 
@@ -90,7 +96,6 @@ roles:
 
 Before anything runs, the preflight refuses what cannot be honoured:
 
-- a runtime that cannot enforce a role's restriction;
 - a required skill that the runtime cannot load;
 - a connection that is not configured.
 

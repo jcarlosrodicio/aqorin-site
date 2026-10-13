@@ -35,12 +35,21 @@ If a Run failed because of it, fix the key, then **Retry same assignment**. See
 
 The plan says who cannot run where, and why. The common causes:
 
-- **A read-only or review step on a runtime with no validated mechanism.** `a` assigns the step
-  where it can run. See [Security model](../security/#restricted-roles).
 - **A connection that is not configured.** `c` opens the runtime's configuration.
 - **A required skill or MCP server the runtime cannot load.** Make it optional, or assign the step
   elsewhere.
 - **A runtime version new to Aqorin.** `v` validates it, with one model call.
+- **A resume after a runtime update.** A Run planned with a step's restriction enforced is not
+  resumed on a version no check covers. Refresh the check (`aqorin eligibility refresh <runtime>`),
+  or replan the step.
+
+## The plan says a step is advisory
+
+A read-only or review step on a runtime, version or model no check on this machine covers runs
+anyway, with its restriction **advisory**: it is told not to write or run commands, with its runtime's
+read-only setting, and nothing shows it held to that. The Run's result is advisory. To have the
+restriction enforced, assign the step to a validated runtime and model — the plan names them. See
+[Security model](../security/#restricted-roles).
 
 ## One Run at a time
 

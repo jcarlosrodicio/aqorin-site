@@ -20,10 +20,12 @@ description: Lo que la Terminal Alpha no hace, y lo que no afirma.
 
 ## Lo que no afirma
 
-- **Los roles restringidos** se admiten solo donde hay un mecanismo validado para ese runtime,
-  versión, modelo y plataforma. En otros sitios se rechazan, no se relajan. Hoy hay unas pocas
-  combinaciones validadas (OpenCode y Claude Code, cada uno con modelos concretos), y
-  `aqorin eligibility refresh` solo actualiza esos dos runtimes.
+- **La restricción de los roles restringidos** solo es efectiva donde hay un mecanismo validado para
+  ese runtime, versión, modelo y plataforma. En otros sitios se ejecutan con una restricción
+  orientativa: se les indica que no escriban ni ejecuten comandos, con el modo de solo lectura del
+  propio runtime, y nada demuestra que lo hayan respetado. Hoy hay unas pocas combinaciones validadas
+  (OpenCode y Claude Code, cada uno con modelos concretos), y `aqorin eligibility refresh` solo
+  actualiza esos dos runtimes.
 - **Los `inputs` y `outputs` de un agente** se añaden a sus instrucciones, no se comprueban.
 - **El modelo que atendió una petición** no se observa en todos los runtimes.
 - **Un paso reintentado** empieza de cero. Es al menos una vez (*at least once*), no una

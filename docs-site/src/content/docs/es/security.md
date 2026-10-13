@@ -20,19 +20,21 @@ Estas reglas son código del motor de Aqorin, no instrucciones que a un modelo s
   ningún presupuesto.
 - **Human Approval (aprobación humana).** Lo que necesita tu aprobación la espera. `--yes` nunca
   aprueba nada.
-- **Admisión antes de que se ejecute nada.** Un plan que no se puede cumplir se rechaza antes de que
-  arranque ningún runtime.
+- **Admisión antes de que se ejecute nada.** Un plan que no se puede cumplir (una conexión sin
+  configurar, una skill obligatoria que un runtime no admite) se rechaza antes de que arranque ningún
+  runtime. La restricción de un paso de solo lectura o de revisión también se evalúa antes de que se
+  ejecute nada, y se indica si es efectiva u orientativa.
 
 <a id="restricted-roles"></a>
 
 ## Roles restringidos
 
-Un agente `read_only` o `review` se admite solo donde Aqorin ha validado el mecanismo que lo
-restringe, para ese runtime, versión, modelo y plataforma. En cualquier otro sitio, el plan se
-rechaza (`policy_unenforceable`), nunca se relaja. Aqorin nunca amplía la clase de acceso de un rol
-para que un runtime encaje.
+Cualquier agente puede ejecutarse en cualquier runtime, también los de solo lectura y los de
+revisión. Lo que cambia es si su restricción (no escribir, no ejecutar comandos) es **efectiva**
+(enforced) u **orientativa** (advisory).
 
-Validado hoy, en macOS arm64:
+Es **efectiva** donde Aqorin ha validado el mecanismo que la aplica, para ese runtime, versión,
+modelo y plataforma. Validado hoy, en macOS arm64:
 
 | Runtime | Versión | Modelos |
 |---|---|---|
@@ -45,8 +47,24 @@ comandos, ni escritura, ni skills, ni servidores MCP. Cuando un runtime se actua
 `aqorin eligibility refresh <runtime> --model <modelo>` comprueba la nueva versión en esta máquina
 (OpenCode y Claude Code; una llamada al modelo por control, preguntando antes).
 
-Un workflow que no puede cumplir esto se etiqueta como **advisory** (orientativo), y su resultado
-nunca se presenta como revisado de forma independiente.
+En cualquier otro sitio (Codex, Pi, otro modelo u otra versión), la restricción es **orientativa**. El
+paso se ejecuta con el modo de solo lectura propio de su runtime, y se le indica que no escriba ni
+ejecute comandos:
+
+| Runtime | Su modo de solo lectura |
+|---|---|
+| Codex | el sandbox de solo lectura, con su shell, exec y multiagente desactivados |
+| Pi | solo las herramientas read, grep, find y ls; sin extensiones ni servidores MCP |
+| OpenCode, Claude Code | sus permisos de solo lectura |
+
+Nada demuestra que el paso lo respete, así que Aqorin nunca lo afirma. El plan marca el paso como
+`advisory`, los selectores dicen `restriction enforced` o `restriction advisory`, y el resultado del
+Run es orientativo: nunca se presenta como validado ni como revisado de forma independiente. Aqorin
+nunca amplía la clase de acceso de un rol para que un runtime encaje.
+
+Un Run planificado con la restricción efectiva nunca se reanuda con ella orientativa: en una versión
+del runtime que ninguna comprobación cubre, la reanudación se rechaza (`policy_unenforceable`).
+Refresca la comprobación, o replanifica el paso, lo que deja constancia del cambio.
 
 ## Tu configuración y tus claves
 

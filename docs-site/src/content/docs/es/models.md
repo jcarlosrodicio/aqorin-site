@@ -31,11 +31,12 @@ ninguno. Un agente dice *qué* se hace; la asignación, o si no la ejecución po
 
 ## Modelos y roles restringidos
 
-Un paso de solo lectura o de revisión necesita algo más que un modelo que responda. Aqorin lo admite
-solo donde ha validado el mecanismo que restringe ese rol, para ese **runtime, versión y modelo**.
-Un modelo sin esa validación se rechaza para esos pasos, y el plan lo dice: indica el modelo en la
-asignación. En Claude Code todos los pasos de un Run usan un mismo modelo, así que uno validado sirve
-para todos. Los pasos que editan archivos no se restringen de esta manera. Qué runtimes y modelos
+A un paso de solo lectura o de revisión se le puede dar cualquier modelo. Su restricción solo es
+**efectiva** donde Aqorin ha validado el mecanismo que restringe ese rol, para ese **runtime, versión
+y modelo**: indica el modelo en la asignación. Con cualquier otro modelo el paso se ejecuta igual,
+con la restricción **orientativa**: el selector de modelos dice `restriction enforced` o
+`restriction advisory` junto a cada modelo, y el plan también lo dice. En Claude Code todos los
+pasos de un Run usan un mismo modelo, así que uno validado sirve para todos. Los pasos que editan archivos no se restringen de esta manera. Qué runtimes y modelos
 están validados: [Modelo de seguridad](../security/#roles-restringidos).
 
 ```bash

@@ -116,10 +116,15 @@ and <code dir="auto">v</code> sets the review step.</li>
 <p>A workflow is <strong>enforced</strong> when Aqorin has validated how its read-only and review steps are
 restricted, for that runtime, version and model. Otherwise it is <strong>advisory</strong>, and it says so. An
 advisory result is never presented as independently reviewed.</p>
+<p>Any step can run on any runtime. A read-only or review step on a runtime, version or model no check
+covers still runs — with its runtime’s read-only setting, told not to write or run commands — and
+its restriction is <strong>advisory</strong>: the plan marks the step <code dir="auto">advisory</code>, and the Run’s result is
+advisory. See <a href="../security/#restricted-roles">Security model</a>.</p>
 <div class="sl-heading-wrapper level-h2"><h2 id="assignments-where-each-step-runs">Assignments: where each step runs</h2><a class="sl-anchor-link" href="#assignments-where-each-step-runs"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Assignments: where each step runs”</span></a></div>
 <p>On Workflows, <strong>Where it runs</strong> (<code dir="auto">g</code>) opens an <strong>assignment</strong>. For each step, <code dir="auto">Enter</code> chooses:</p>
 <ol>
-<li>its runtime, judged against the step’s access class;</li>
+<li>its runtime, judged against the step’s access class (<code dir="auto">restriction enforced</code> or
+<code dir="auto">restriction advisory</code> for a read-only or review step);</li>
 <li>the connection;</li>
 <li>a model the runtime can be given for that class.</li>
 </ol>
@@ -133,7 +138,6 @@ advisory result is never presented as independently reviewed.</p>
 <div class="sl-heading-wrapper level-h3"><h3 id="the-preflight">The preflight</h3><a class="sl-anchor-link" href="#the-preflight"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “The preflight”</span></a></div>
 <p>Before anything runs, the preflight refuses what cannot be honoured:</p>
 <ul>
-<li>a runtime that cannot enforce a role’s restriction;</li>
 <li>a required skill that the runtime cannot load;</li>
 <li>a connection that is not configured.</li>
 </ul>

@@ -87,10 +87,12 @@ contexto usa.</li>
 </ul>
 <div class="sl-heading-wrapper level-h2"><h2 id="lo-que-no-afirma">Lo que no afirma</h2><a class="sl-anchor-link" href="#lo-que-no-afirma"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Sección titulada «Lo que no afirma»</span></a></div>
 <ul>
-<li><strong>Los roles restringidos</strong> se admiten solo donde hay un mecanismo validado para ese runtime,
-versión, modelo y plataforma. En otros sitios se rechazan, no se relajan. Hoy hay unas pocas
-combinaciones validadas (OpenCode y Claude Code, cada uno con modelos concretos), y
-<code dir="auto">aqorin eligibility refresh</code> solo actualiza esos dos runtimes.</li>
+<li><strong>La restricción de los roles restringidos</strong> solo es efectiva donde hay un mecanismo validado para
+ese runtime, versión, modelo y plataforma. En otros sitios se ejecutan con una restricción
+orientativa: se les indica que no escriban ni ejecuten comandos, con el modo de solo lectura del
+propio runtime, y nada demuestra que lo hayan respetado. Hoy hay unas pocas combinaciones validadas
+(OpenCode y Claude Code, cada uno con modelos concretos), y <code dir="auto">aqorin eligibility refresh</code> solo
+actualiza esos dos runtimes.</li>
 <li><strong>Los <code dir="auto">inputs</code> y <code dir="auto">outputs</code> de un agente</strong> se añaden a sus instrucciones, no se comprueban.</li>
 <li><strong>El modelo que atendió una petición</strong> no se observa en todos los runtimes.</li>
 <li><strong>Un paso reintentado</strong> empieza de cero. Es al menos una vez (<em>at least once</em>), no una

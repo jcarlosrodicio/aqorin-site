@@ -26,12 +26,13 @@ The plan shows whether the task can run, and where each step runs. Nothing runs 
 - `w` changes where the task runs: a saved assignment, or **New assignment…**, which opens the
   editor for this workflow. Once you save it (`s`), Esc goes back to the plan with it; your task is
   kept.
-- When a step cannot run where it is assigned, the plan says which agent, why, and where it can
-  run instead — for example, a review or read-only step on a runtime that no check on this machine
-  covers, or one with no model named. `a` assigns the step there; it asks first, then plans again.
-  When the step's own runtime is validated with another model, that comes first: on Claude Code, `a`
-  keeps the step there with a validated model, and the Run's other steps on Claude Code take the
-  same model (Claude Code runs one model per Run).
+- When a step cannot run where it is assigned — for example, a connection that is not configured —
+  the plan says which agent, why, and where it can run instead. `a` assigns the step there; it asks
+  first, then plans again.
+- A review or read-only step on a runtime, version or model that no check on this machine covers
+  runs anyway, with its restriction **advisory**: the plan says `Ready, advisory`, marks the step
+  `advisory`, and names where the restriction would be enforced. The Run's result is advisory. See
+  [Security model](../security/#restricted-roles).
 - When a runtime's version is new to Aqorin, the plan says so too. `v` validates it with one model
   call, and asks first.
 
@@ -39,8 +40,8 @@ While the summary says why a plan is refused, the plan's full text — what `--p
 folded; `d` shows it. A refused plan creates no Run. If a task file was written, it is kept for next
 time.
 
-Home also warns you ahead of time when your default runtime cannot run review and read-only steps
-here, and says which runtimes can.
+Home also warns you ahead of time when your default runtime runs review and read-only steps here
+with an advisory restriction, and says which runtime enforces it.
 
 ## From the CLI
 

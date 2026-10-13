@@ -85,16 +85,18 @@ aprobada, sus comprobaciones han pasado, sus aprobaciones están resueltas y no 
 ningún presupuesto.</li>
 <li><strong>Human Approval (aprobación humana).</strong> Lo que necesita tu aprobación la espera. <code dir="auto">--yes</code> nunca
 aprueba nada.</li>
-<li><strong>Admisión antes de que se ejecute nada.</strong> Un plan que no se puede cumplir se rechaza antes de que
-arranque ningún runtime.</li>
+<li><strong>Admisión antes de que se ejecute nada.</strong> Un plan que no se puede cumplir (una conexión sin
+configurar, una skill obligatoria que un runtime no admite) se rechaza antes de que arranque ningún
+runtime. La restricción de un paso de solo lectura o de revisión también se evalúa antes de que se
+ejecute nada, y se indica si es efectiva u orientativa.</li>
 </ul>
 <p><a id="restricted-roles"></a></p>
 <div class="sl-heading-wrapper level-h2"><h2 id="roles-restringidos">Roles restringidos</h2><a class="sl-anchor-link" href="#roles-restringidos"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Sección titulada «Roles restringidos»</span></a></div>
-<p>Un agente <code dir="auto">read_only</code> o <code dir="auto">review</code> se admite solo donde Aqorin ha validado el mecanismo que lo
-restringe, para ese runtime, versión, modelo y plataforma. En cualquier otro sitio, el plan se
-rechaza (<code dir="auto">policy_unenforceable</code>), nunca se relaja. Aqorin nunca amplía la clase de acceso de un rol
-para que un runtime encaje.</p>
-<p>Validado hoy, en macOS arm64:</p>
+<p>Cualquier agente puede ejecutarse en cualquier runtime, también los de solo lectura y los de
+revisión. Lo que cambia es si su restricción (no escribir, no ejecutar comandos) es <strong>efectiva</strong>
+(enforced) u <strong>orientativa</strong> (advisory).</p>
+<p>Es <strong>efectiva</strong> donde Aqorin ha validado el mecanismo que la aplica, para ese runtime, versión,
+modelo y plataforma. Validado hoy, en macOS arm64:</p>
 <table>
 <thead>
 <tr>
@@ -121,8 +123,38 @@ comprobación. En Claude Code, un paso de solo lectura o de revisión solo tiene
 comandos, ni escritura, ni skills, ni servidores MCP. Cuando un runtime se actualiza,
 <code dir="auto">aqorin eligibility refresh &lt;runtime&gt; --model &lt;modelo&gt;</code> comprueba la nueva versión en esta máquina
 (OpenCode y Claude Code; una llamada al modelo por control, preguntando antes).</p>
-<p>Un workflow que no puede cumplir esto se etiqueta como <strong>advisory</strong> (orientativo), y su resultado
-nunca se presenta como revisado de forma independiente.</p>
+<p>En cualquier otro sitio (Codex, Pi, otro modelo u otra versión), la restricción es <strong>orientativa</strong>. El
+paso se ejecuta con el modo de solo lectura propio de su runtime, y se le indica que no escriba ni
+ejecute comandos:</p>
+<table>
+<thead>
+<tr>
+<th>Runtime</th>
+<th>Su modo de solo lectura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Codex</td>
+<td>el sandbox de solo lectura, con su shell, exec y multiagente desactivados</td>
+</tr>
+<tr>
+<td>Pi</td>
+<td>solo las herramientas read, grep, find y ls; sin extensiones ni servidores MCP</td>
+</tr>
+<tr>
+<td>OpenCode, Claude Code</td>
+<td>sus permisos de solo lectura</td>
+</tr>
+</tbody>
+</table>
+<p>Nada demuestra que el paso lo respete, así que Aqorin nunca lo afirma. El plan marca el paso como
+<code dir="auto">advisory</code>, los selectores dicen <code dir="auto">restriction enforced</code> o <code dir="auto">restriction advisory</code>, y el resultado del
+Run es orientativo: nunca se presenta como validado ni como revisado de forma independiente. Aqorin
+nunca amplía la clase de acceso de un rol para que un runtime encaje.</p>
+<p>Un Run planificado con la restricción efectiva nunca se reanuda con ella orientativa: en una versión
+del runtime que ninguna comprobación cubre, la reanudación se rechaza (<code dir="auto">policy_unenforceable</code>).
+Refresca la comprobación, o replanifica el paso, lo que deja constancia del cambio.</p>
 <div class="sl-heading-wrapper level-h2"><h2 id="tu-configuración-y-tus-claves">Tu configuración y tus claves</h2><a class="sl-anchor-link" href="#tu-configuración-y-tus-claves"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Sección titulada «Tu configuración y tus claves»</span></a></div>
 <ul>
 <li>Aqorin nunca escribe la configuración de tus runtimes. Lo que le da a un runtime en un paso de

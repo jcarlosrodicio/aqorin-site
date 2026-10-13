@@ -27,12 +27,14 @@ pulsas `Enter`.
 - `w` cambia dónde se ejecuta la tarea: una asignación guardada, o **New assignment…**, que abre el
   editor para este workflow. Cuando la guardas (`s`), Esc vuelve al plan con ella; tu tarea se
   conserva.
-- Cuando un paso no puede ejecutarse donde está asignado, el plan dice qué agente, por qué y dónde
-  puede ejecutarse en su lugar, por ejemplo un paso de revisión o de solo lectura en un runtime que
-  ninguna comprobación de esta máquina cubre, o uno sin modelo indicado. `a` asigna el paso allí;
-  pregunta primero y vuelve a planificar. Si el propio runtime del paso está validado con otro
-  modelo, esa opción va primero: en Claude Code, `a` deja el paso allí con un modelo validado, y los
-  demás pasos del Run en Claude Code usan ese mismo modelo (Claude Code usa un modelo por Run).
+- Cuando un paso no puede ejecutarse donde está asignado (por ejemplo, una conexión sin
+  configurar), el plan dice qué agente, por qué y dónde puede ejecutarse en su lugar. `a` asigna el
+  paso allí; pregunta primero y vuelve a planificar.
+- Un paso de revisión o de solo lectura en un runtime, versión o modelo que ninguna comprobación de
+  esta máquina cubre se ejecuta igualmente, con la restricción **advisory** (orientativa): el plan
+  dice `Ready, advisory`, marca el paso como `advisory` e indica dónde la restricción sería
+  efectiva. El resultado del Run es orientativo. Mira
+  [Modelo de seguridad](../security/#roles-restringidos).
 - Cuando la versión de un runtime es nueva para Aqorin, el plan también lo dice. `v` la valida con
   una llamada a un modelo, y pregunta primero.
 
@@ -40,8 +42,8 @@ Mientras el resumen dice por qué se rechaza un plan, el texto completo del plan
 `--plan-only`) queda plegado; `d` lo muestra. Un plan rechazado no crea ningún Run. Si se escribió un
 archivo de tarea, se conserva para la próxima vez.
 
-Home también te avisa con antelación cuando tu runtime por defecto no puede ejecutar aquí pasos de
-revisión y de solo lectura, y dice qué runtimes sí pueden.
+Home también te avisa con antelación cuando tu runtime por defecto ejecuta aquí los pasos de revisión
+y de solo lectura con una restricción orientativa, y dice qué runtime la aplica de forma efectiva.
 
 ## Desde la CLI
 

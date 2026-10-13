@@ -36,12 +36,22 @@ Si un Run falló por eso, arregla la clave y luego **Retry same assignment**. Mi
 
 El plan dice quién no puede ejecutarse dónde, y por qué. Las causas habituales:
 
-- **Un paso de solo lectura o de revisión en un runtime sin mecanismo validado.** `a` asigna el
-  paso donde pueda ejecutarse. Mira [Modelo de seguridad](../security/#restricted-roles).
 - **Una conexión que no está configurada.** `c` abre la configuración del runtime.
 - **Una skill o un servidor MCP requeridos que el runtime no puede cargar.** Hazlo opcional, o
   asigna el paso a otro sitio.
 - **Una versión de runtime nueva para Aqorin.** `v` la valida, con una llamada a un modelo.
+- **Una reanudación tras actualizar un runtime.** Un Run planificado con la restricción de un paso
+  efectiva no se reanuda en una versión que ninguna comprobación cubre. Refresca la comprobación
+  (`aqorin eligibility refresh <runtime>`), o replanifica el paso.
+
+## El plan dice que un paso es advisory
+
+Un paso de solo lectura o de revisión en un runtime, versión o modelo que ninguna comprobación de
+esta máquina cubre se ejecuta igualmente, con la restricción **advisory** (orientativa): se le indica
+que no escriba ni ejecute comandos, con el modo de solo lectura de su runtime, y nada demuestra que
+lo haya respetado. El resultado del Run es orientativo. Para que la restricción sea efectiva, asigna
+el paso a un runtime y un modelo validados; el plan los indica. Mira
+[Modelo de seguridad](../security/#roles-restringidos).
 
 ## Un Run cada vez
 
