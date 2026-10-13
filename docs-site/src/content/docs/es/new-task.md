@@ -10,14 +10,20 @@ description: Un formulario que va de una petición a un plan, y nada se ejecuta 
 3. **What the agents are asked to do:** tu petición.
 4. **Checks (optional):** comandos que deben pasar, como `npm test`. Aqorin los ejecuta sin shell.
    Un `&&`, `|` o `>` sin comillas se rechaza allí donde lo escribes.
+5. **Agent check:** No por defecto. **Yes** pide al runtime del paso que compruebe también el trabajo.
 
 ## Comprobaciones
 
 - **Con comprobaciones**, **Plan** escribe la tarea en `.aqorin/tasks/`, con un nombre sacado de tu
   petición. Aqorin ejecuta las comprobaciones por sí mismo, con tus permisos, y solo su código de
   salida decide la validación.
-- **Sin comprobaciones**, no se escribe ningún archivo de tarea. La validación es la palabra del
-  propio runtime, que es *advisory* (orientativa), y el plan lo dice.
+- **Sin comprobaciones**, no se escribe ningún archivo de tarea. Nada comprueba el trabajo: el paso
+  sigue enseguida, sus comprobaciones dicen *not checked* y el Run es *advisory* (orientativo). El
+  plan lo dice.
+- **Agent check** (desactivado por defecto) pide al runtime del paso que compruebe también el trabajo
+  tras el paso. El runtime elige qué ejecutar (tests, linters…), lo que puede tardar, y su veredicto
+  es *advisory*: deciden tus comandos, si declaraste alguno. Para que un agente pruebe el trabajo
+  como un paso propio, añade un nodo al workflow.
 
 ## El plan
 
@@ -54,4 +60,5 @@ aqorin tasks new "Add a --dry-run flag" --check-command "npm test" --check-comma
 aqorin run feature --task-file <task file> --plan-only     # the plan, nothing runs
 aqorin run feature --task-file <task file>                 # launch
 aqorin run feature "Add a --dry-run flag"                  # no checks: advisory
+aqorin run feature "Add a --dry-run flag" --agent-check    # the step's runtime checks the work
 ```

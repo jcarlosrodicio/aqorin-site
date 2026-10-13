@@ -62,9 +62,10 @@ el paso a un runtime y un modelo validados; el plan los indica. Mira
 ## El paso siguiente no empieza
 
 Tras un paso cuyo trabajo se comprueba, el Run ejecuta sus comprobaciones antes de seguir, y los
-pasos muestran **checking**. Primero el runtime del paso comprueba el trabajo (de forma
-orientativa), y ejecutar los tests del proyecto puede llevar minutos; después Aqorin ejecuta las
-comprobaciones de la tarea, si declara alguna. El paso siguiente (el revisor, por ejemplo) empieza cuando responden. El trabajo del paso
+pasos muestran **checking**. Aqorin ejecuta las comprobaciones de la tarea; si la tarea pidió el
+agent check, antes el runtime del paso comprueba el trabajo (de forma orientativa): elige qué
+ejecutar, y pasar todos los tests del proyecto puede llevar minutos. Si es demasiado lento, lanza la
+tarea sin **Agent check**. El paso siguiente (el revisor, por ejemplo) empieza cuando responden. El trabajo del paso
 muestra qué están haciendo mientras lo hacen. Mira
 [Runs](../runs/#la-vista-de-un-run).
 
