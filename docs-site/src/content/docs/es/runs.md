@@ -31,13 +31,17 @@ La vista de un Run es un panel:
   modelo que informa el runtime y, en Claude Code, el contexto que lleva usado (de su ventana, al
   terminar el paso). Luego vienen sus mensajes. Las llamadas a herramientas entre dos mensajes se
   pliegan en una sola línea atenuada, con cuántas son y las que fallaron: `t` las muestra una a una.
-- **A la derecha**, el Run en pocas líneas. Un Run orientativo dice ahí, una sola vez, qué significa
-  y por qué, en pocas palabras; los motivos completos están en su Resultado.
+- **A la derecha**, el Run en pocas líneas: su estado, workflow y garantía, tarea, tiempo, cambios
+  y handoffs. Un Run orientativo dice ahí, una sola vez, qué significa. `d` muestra por qué, en pocas
+  palabras, con los detalles del paso seleccionado (su asignación, versión e intentos); los motivos
+  completos están en su Resultado.
 
 Tras un paso cuyo trabajo se comprueba, los pasos muestran **checking** hasta que las comprobaciones
 responden: primero el runtime del paso comprueba el trabajo (de forma orientativa) y después Aqorin
 ejecuta las comprobaciones de la tarea, si declara alguna. El paso siguiente las espera, así que un revisor que
-todavía no ha empezado suele estar esperando a estas comprobaciones.
+todavía no ha empezado suele estar esperando a estas comprobaciones. Mientras tanto, el trabajo del
+paso muestra qué hacen: los mensajes y llamadas a herramientas del runtime y, después, cada
+comprobación de la tarea mientras se ejecuta; cuando responden, quedan bajo **Checks**.
 
 `Tab` a los pasos, y luego `↑` `↓` elige uno. `y` envía los mensajes del paso seleccionado al
 portapapeles de tu terminal, si la terminal lo permite (no puede confirmarlo): una selección con el

@@ -31,13 +31,17 @@ A Run's view is a dashboard:
   reports and, on Claude Code, the context it has used (of its window, once the step ends).
   Then come its messages. The tool calls between two messages are folded into one muted line, with
   their count and any that failed: `t` shows each one.
-- **On the right**, the Run in a few lines. An advisory Run says there, once, what that means and
-  why, in a few words; the full reasons are in its Result.
+- **On the right**, the Run in a few lines: its state, workflow and assurance, task, time, changes
+  and handoffs. An advisory Run says there, once, what that means. `d` shows why, in a few words,
+  with the selected step's details (its assignment, version and attempts); the full reasons are in
+  its Result.
 
 After a step whose work is checked, the steps show **checking** until the checks report: the step's
 runtime checks the work first (advisory), then Aqorin runs the task's checks when it declares some.
 The next step waits for them, so a reviewer that has not started yet is usually waiting on these
-checks.
+checks. Meanwhile the step's work shows what the checks are doing — the runtime's messages and tool
+calls, then each of the task's checks as it runs — and, once they report, keeps them under
+**Checks**.
 
 `Tab` to the steps, then `↑` `↓` picks one. `y` sends the selected step's messages to your
 terminal's clipboard, where the terminal allows it (it cannot confirm it): a mouse selection takes
