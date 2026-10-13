@@ -25,7 +25,9 @@ The screen lists every reference once:
 
 For each one, it shows whether the key is set now, and what uses it.
 
-- **Add reference** sets an OpenCode provider key, in a form.
+- **Add reference** sets an OpenCode provider key, in a form. OpenCode's own runs get it under
+  that name, and any connection's key field then offers it to choose — Pi, OpenCode or Claude Code
+  — so you never type it twice.
 - **Edit reference** and **Remove** change it. **Remove** asks first; the value itself is never
   touched.
 - A reference that belongs to a connection or an MCP server is changed there. **Open** takes you to

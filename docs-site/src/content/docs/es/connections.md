@@ -26,9 +26,12 @@ cuatro pasos, y no se guarda nada hasta el último:
 
    El campo pide el **nombre** de la variable —por ejemplo `NAN_API_KEY`, exportada en la terminal
    desde la que abres `aqorin`—, nunca la clave. Si pegas ahí el valor de una clave, el formulario lo
-   oculta, no guarda nada y te lo dice en un solo aviso.
+   oculta, no guarda nada y te lo dice en un solo aviso. Una clave que ya aparece en
+   [Credentials](../credentials/) se ofrece por su nombre: elígela en vez de volver a escribirla.
 3. **Models:** **Discover** los descubre (una llamada al `/models` del proveedor, hecha solo porque
-   lo pediste), escríbelos, o añádelos más tarde.
+   lo pediste), escríbelos, o añádelos más tarde. En **Claude Code y Codex**, el paso ofrece además
+   **sus modelos**: los que el runtime lista para tu inicio de sesión, tal como los leyó Runtimes,
+   sin ninguna llamada al modelo.
 4. **Default model:** el modelo que recibe un paso cuando no nombra ninguno. Este paso muestra lo que
    se va a escribir.
 
@@ -44,7 +47,8 @@ La conexión aparece bajo su runtime. Su inspector muestra:
 Sus acciones:
 
 - **Edit** reabre el mismo formulario, rellenado.
-- **Models** convierte un modelo en el predeterminado, quita uno o añade uno a mano.
+- **Models** convierte un modelo en el predeterminado, quita uno o añade uno a mano; en Claude Code
+  y Codex, también desde la propia lista del runtime.
 - **Discover** vuelve a pedir sus modelos al proveedor.
 - **Delete** pregunta primero y dice qué usa la conexión. La clave se queda donde está.
 

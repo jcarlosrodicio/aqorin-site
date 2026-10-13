@@ -35,6 +35,9 @@ If a Run failed because of it, fix the key, then **Retry same assignment**. See
 
 The plan says who cannot run where, and why. The common causes:
 
+- **Aqorin was opened inside its own repository.** A workflow never runs on Aqorin's own repository,
+  or on a folder inside it. Open Aqorin in the project you want it to work on (`cd` there, then
+  `aqorin`).
 - **A connection that is not configured.** `c` opens the runtime's configuration.
 - **A required skill or MCP server the runtime cannot load.** Make it optional, or assign the step
   elsewhere.

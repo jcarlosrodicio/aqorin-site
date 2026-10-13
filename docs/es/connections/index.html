@@ -94,11 +94,14 @@ referencia. En Codex, la referencia es el nombre de la variable que contiene la 
 </ul>
 <p>El campo pide el <strong>nombre</strong> de la variable —por ejemplo <code dir="auto">NAN_API_KEY</code>, exportada en la terminal
 desde la que abres <code dir="auto">aqorin</code>—, nunca la clave. Si pegas ahí el valor de una clave, el formulario lo
-oculta, no guarda nada y te lo dice en un solo aviso.</p>
+oculta, no guarda nada y te lo dice en un solo aviso. Una clave que ya aparece en
+<a href="../credentials/">Credentials</a> se ofrece por su nombre: elígela en vez de volver a escribirla.</p>
 </li>
 <li>
 <p><strong>Models:</strong> <strong>Discover</strong> los descubre (una llamada al <code dir="auto">/models</code> del proveedor, hecha solo porque
-lo pediste), escríbelos, o añádelos más tarde.</p>
+lo pediste), escríbelos, o añádelos más tarde. En <strong>Claude Code y Codex</strong>, el paso ofrece además
+<strong>sus modelos</strong>: los que el runtime lista para tu inicio de sesión, tal como los leyó Runtimes,
+sin ninguna llamada al modelo.</p>
 </li>
 <li>
 <p><strong>Default model:</strong> el modelo que recibe un paso cuando no nombra ninguno. Este paso muestra lo que
@@ -116,7 +119,8 @@ valor;</li>
 <p>Sus acciones:</p>
 <ul>
 <li><strong>Edit</strong> reabre el mismo formulario, rellenado.</li>
-<li><strong>Models</strong> convierte un modelo en el predeterminado, quita uno o añade uno a mano.</li>
+<li><strong>Models</strong> convierte un modelo en el predeterminado, quita uno o añade uno a mano; en Claude Code
+y Codex, también desde la propia lista del runtime.</li>
 <li><strong>Discover</strong> vuelve a pedir sus modelos al proveedor.</li>
 <li><strong>Delete</strong> pregunta primero y dice qué usa la conexión. La clave se queda donde está.</li>
 </ul>

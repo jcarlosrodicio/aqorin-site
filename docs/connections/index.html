@@ -93,11 +93,14 @@ For Codex, the reference is the name of the variable that holds the key.</li>
 </ul>
 <p>The field asks for the variable’s <strong>name</strong> — for example <code dir="auto">NAN_API_KEY</code>, exported in the shell you
 start <code dir="auto">aqorin</code> from — never the key itself. If you paste a key’s value there, the form hides it,
-stores nothing, and says so in one warning.</p>
+stores nothing, and says so in one warning. A key that <a href="../credentials/">Credentials</a> already
+lists is offered by its name: choose it instead of typing it again.</p>
 </li>
 <li>
 <p><strong>Models:</strong> <strong>Discover</strong> them (one call to the provider’s <code dir="auto">/models</code>, made only because you
-asked), type them, or add them later.</p>
+asked), type them, or add them later. For <strong>Claude Code and Codex</strong>, the step also offers
+<strong>their models</strong>: the ones the runtime lists for your sign-in, as Runtimes read them — no model
+call.</p>
 </li>
 <li>
 <p><strong>Default model:</strong> the model a step gets when it names none. This step shows what will be
@@ -115,7 +118,8 @@ value;</li>
 <p>Its actions:</p>
 <ul>
 <li><strong>Edit</strong> reopens the same form, filled in.</li>
-<li><strong>Models</strong> makes a model the default, removes one, or adds one by hand.</li>
+<li><strong>Models</strong> makes a model the default, removes one, or adds one by hand — or, on Claude Code and
+Codex, from the runtime’s own list.</li>
 <li><strong>Discover</strong> asks the provider for its models again.</li>
 <li><strong>Delete</strong> asks first and says what uses the connection. The key stays where it lives.</li>
 </ul>

@@ -17,7 +17,8 @@ ninguno. Un agente dice *qué* se hace; la asignación, o si no la ejecución po
   - **Codex:** el catálogo de tu cuenta, tal como Codex lo actualiza con tu sesión; un modelo que
     Codex oculta para tu cuenta no se ofrece.
   - **OpenCode y Pi:** los modelos de los proveedores para los que tienen clave.
-- **Los modelos de una conexión:** los que descubriste o escribiste. Cada conexión tiene un modelo
+- **Los modelos de una conexión:** los que descubriste, escribiste o —en Claude Code y Codex—
+  tomaste de la propia lista del runtime. Cada conexión tiene un modelo
   por defecto, que se usa cuando un paso no nombra ninguno. Mira [Conexiones](../connections/).
 
 ## Dónde eliges uno

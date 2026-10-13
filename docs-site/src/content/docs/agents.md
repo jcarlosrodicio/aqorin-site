@@ -45,7 +45,9 @@ Its actions:
 An agent's **default execution** is a runtime, a connection (or the runtime's own) and a model.
 It is your preference — the agents Aqorin ships come with none.
 
-- **Configure default** (`c`) chooses it. For a built-in agent, it is kept in this project's
+- **Configure default** (`c`) chooses it. The model is picked from the connection's models, or the
+  ones the runtime lists (Claude Code's and Codex's included), or another id typed. For a built-in
+  agent, it is kept in this project's
   configuration; for your own agent, in the agent's file.
 - **Clear default** removes it.
 

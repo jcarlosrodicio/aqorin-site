@@ -16,7 +16,8 @@ says *what* is done; the assignment, or failing it the default execution, says *
   - **Codex:** your account's catalog, as Codex refreshes it with your sign-in; a model Codex hides
     for your account is not offered.
   - **OpenCode and Pi:** the models of the providers they have keys for.
-- **A connection's models:** the ones you discovered or typed. Each connection has a default
+- **A connection's models:** the ones you discovered, typed or — for Claude Code and Codex — took
+  from the runtime's own list. Each connection has a default
   model, used when a step names none. See [Connections](../connections/).
 
 ## Where you choose one
