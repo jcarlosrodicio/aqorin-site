@@ -33,7 +33,7 @@ aqorin feature --task-file <file> [--project <path>] [--runtime <id>]
 aqorin tasks new <request> --check-command <command>… [--project <path>]
 aqorin feature <request> --runtime codex [--model <id>] [--project <path>]
 aqorin feature <request> --runtime claude-code [--model <id>] [--project <path>]
-aqorin run <workflow> --task-file <file> [--project <path>] [--runtime <id>] [--attempt-timeout <duration>]
+aqorin run <workflow> --task-file <file> [--project <path>] [--runtime <id>] [--attempt-timeout <duration>] [--agent-check]
 aqorin run <workflow> <request> [--project <path>] [--runtime <id>]   (no Acceptance Plan: the runtime's attestation)
 aqorin run <workflow> --task-file <file> --assign <name> [--plan-only] [--project <path>]
 aqorin feature <request> [--runtime <id>] --plan-only [--project <path>]
@@ -113,7 +113,7 @@ Open a runtime's native TTY (opencode: ephemeral config overlay; jcode/pi/codex/
 
 ### `feature`
 
-Run the canonical Engine-driven feature workflow on a target. Every attempt of a Run is bounded (30 min by default; --attempt-timeout 90s|45m|2h sets the Run's, frozen with it): when it elapses Aqorin stops the runtime and the Run waits for a decision (aqorin replan — another runtime or model, or the same one to run the step again — then aqorin resume); nothing is retried on its own
+Run the canonical Engine-driven feature workflow on a target. Every attempt of a Run is bounded (30 min by default; --attempt-timeout 90s|45m|2h sets the Run's, frozen with it): when it elapses Aqorin stops the runtime and the Run waits for a decision (aqorin replan — another runtime or model, or the same one to run the step again — then aqorin resume); nothing is retried on its own. After an acceptance step Aqorin runs the task's commands; no agent checks the work unless --agent-check asks the step's runtime to (advisory, before the commands — or alone when there are none), frozen with the Run
 
 ### `run`
 

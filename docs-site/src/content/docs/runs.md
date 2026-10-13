@@ -36,8 +36,10 @@ A Run's view is a dashboard:
   with the selected step's details (its assignment, version and attempts); the full reasons are in
   its Result.
 
-After a step whose work is checked, the steps show **checking** until the checks report: the step's
-runtime checks the work first (advisory), then Aqorin runs the task's checks when it declares some.
+After a step whose work is checked, the steps show **checking** until the checks report: Aqorin runs
+the task's checks — after the step's runtime checks the work (advisory), when the task asked for the
+[agent's check](../new-task/#checks). With no check and no agent's check, nothing runs: the step
+moves on and its checks read *not checked*.
 The next step waits for them, so a reviewer that has not started yet is usually waiting on these
 checks. Meanwhile the step's work shows what the checks are doing — the runtime's messages and tool
 calls, then each of the task's checks as it runs — and, once they report, keeps them under

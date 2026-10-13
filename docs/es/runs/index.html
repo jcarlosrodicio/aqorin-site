@@ -97,8 +97,10 @@ palabras, con los detalles del paso seleccionado (su asignación, versión e int
 completos están en su Resultado.</li>
 </ul>
 <p>Tras un paso cuyo trabajo se comprueba, los pasos muestran <strong>checking</strong> hasta que las comprobaciones
-responden: primero el runtime del paso comprueba el trabajo (de forma orientativa) y después Aqorin
-ejecuta las comprobaciones de la tarea, si declara alguna. El paso siguiente las espera, así que un revisor que
+responden: Aqorin ejecuta las comprobaciones de la tarea, después de que el runtime del paso
+compruebe el trabajo (de forma orientativa) si la tarea pidió el <a href="../new-task/#comprobaciones">agent check</a>.
+Sin comprobaciones ni agent check no se ejecuta nada: el paso sigue y sus comprobaciones dicen
+<em>not checked</em>. El paso siguiente las espera, así que un revisor que
 todavía no ha empezado suele estar esperando a estas comprobaciones. Mientras tanto, el trabajo del
 paso muestra qué hacen: los mensajes y llamadas a herramientas del runtime y, después, cada
 comprobación de la tarea mientras se ejecuta; cuando responden, quedan bajo <strong>Checks</strong>.</p>

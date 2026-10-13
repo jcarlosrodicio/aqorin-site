@@ -10,13 +10,18 @@ description: One form from a request to a plan, and nothing runs until you press
 3. **What the agents are asked to do:** your request.
 4. **Checks (optional):** commands that must pass, such as `npm test`. Aqorin runs them without a
    shell. An unquoted `&&`, `|` or `>` is refused where you type it.
+5. **Agent check:** No by default. **Yes** asks the step's runtime to check the work too.
 
 ## Checks
 
 - **With checks**, **Plan** writes the task to `.aqorin/tasks/`, named from your request. Aqorin
   runs the checks itself, with your permissions, and only their exit status decides validation.
-- **With no checks**, no task file is written. The runtime's own word is the validation, which is
-  *advisory*, and the plan says so.
+- **With no checks**, no task file is written. Nothing checks the work: the step moves on at once,
+  its checks read *not checked*, and the Run is *advisory*. The plan says so.
+- **Agent check** (off by default) asks the step's runtime to check the work too, after the step. The
+  runtime chooses what to run (tests, linters…), which can take a while, and its verdict is
+  *advisory*: your commands, when you declared some, decide. To have an agent test the work as a
+  step of its own, add a node to the workflow.
 
 ## The plan
 
@@ -51,4 +56,5 @@ aqorin tasks new "Add a --dry-run flag" --check-command "npm test" --check-comma
 aqorin run feature --task-file <task file> --plan-only     # the plan, nothing runs
 aqorin run feature --task-file <task file>                 # launch
 aqorin run feature "Add a --dry-run flag"                  # no checks: advisory
+aqorin run feature "Add a --dry-run flag" --agent-check    # the step's runtime checks the work
 ```

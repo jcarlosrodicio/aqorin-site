@@ -37,8 +37,10 @@ La vista de un Run es un panel:
   completos están en su Resultado.
 
 Tras un paso cuyo trabajo se comprueba, los pasos muestran **checking** hasta que las comprobaciones
-responden: primero el runtime del paso comprueba el trabajo (de forma orientativa) y después Aqorin
-ejecuta las comprobaciones de la tarea, si declara alguna. El paso siguiente las espera, así que un revisor que
+responden: Aqorin ejecuta las comprobaciones de la tarea, después de que el runtime del paso
+compruebe el trabajo (de forma orientativa) si la tarea pidió el [agent check](../new-task/#comprobaciones).
+Sin comprobaciones ni agent check no se ejecuta nada: el paso sigue y sus comprobaciones dicen
+*not checked*. El paso siguiente las espera, así que un revisor que
 todavía no ha empezado suele estar esperando a estas comprobaciones. Mientras tanto, el trabajo del
 paso muestra qué hacen: los mensajes y llamadas a herramientas del runtime y, después, cada
 comprobación de la tarea mientras se ejecuta; cuando responden, quedan bajo **Checks**.
