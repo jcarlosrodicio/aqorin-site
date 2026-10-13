@@ -51,7 +51,8 @@ La **ejecución por defecto** de un agente es un runtime, una conexión (o la pr
 modelo. Es tu preferencia: los agentes que Aqorin incluye vienen sin ninguna.
 
 - **Configure default** (`c`) la elige. El modelo se escoge entre los de la conexión, o entre los
-  que lista el runtime (también los de Claude Code y Codex), o escribiendo otro id. Para un agente
+  que lista el runtime (también los de Claude Code y Codex), o con **Another model id…** si no está
+  en la lista. Para un agente
   integrado, se guarda en la configuración de
   este proyecto; para un agente tuyo, en el archivo del agente.
 - **Clear default** la quita.

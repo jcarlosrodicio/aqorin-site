@@ -26,11 +26,13 @@ and nothing is saved until the last one:
    The field asks for the variable's **name** — for example `NAN_API_KEY`, exported in the shell you
    start `aqorin` from — never the key itself. If you paste a key's value there, the form hides it,
    stores nothing, and says so in one warning. A key that [Credentials](../credentials/) already
-   lists is offered by its name: choose it instead of typing it again.
+   lists — an OpenCode provider key or another connection's, never one only an MCP server uses — is
+   offered by its name and what uses it, to the left of **Another environment variable**: choose it
+   instead of typing it again. Codex takes environment variables only.
 3. **Models:** **Discover** them (one call to the provider's `/models`, made only because you
    asked), type them, or add them later. For **Claude Code and Codex**, the step also offers
-   **their models**: the ones the runtime lists for your sign-in, as Runtimes read them — no model
-   call.
+   **their models**: the ones the runtime lists for your own sign-in, as Runtimes read them — no
+   model call. With an API key, its account may serve others: type them.
 4. **Default model:** the model a step gets when it names none. This step shows what will be
    written.
 

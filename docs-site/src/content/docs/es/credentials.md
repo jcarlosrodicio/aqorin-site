@@ -26,8 +26,10 @@ La pantalla lista cada referencia una vez:
 De cada una muestra si la clave está definida ahora y qué la usa.
 
 - **Add reference** define una clave de proveedor de OpenCode, en un formulario. Las ejecuciones
-  propias de OpenCode la reciben con ese nombre, y el campo de clave de cualquier conexión —Pi,
-  OpenCode o Claude Code— la ofrece para elegirla, así que no la escribes dos veces.
+  propias de OpenCode la reciben con ese nombre, y el campo de clave de una conexión —Pi,
+  OpenCode o Claude Code; también la de Codex si es una variable de entorno— la ofrece para elegirla,
+  así que no la escribes dos veces. Una referencia que solo usa un servidor MCP nunca se ofrece como
+  clave de una conexión.
 - **Edit reference** y **Remove** la cambian. **Remove** pregunta primero; el valor en sí nunca se
   toca.
 - Una referencia que pertenece a una conexión o a un servidor MCP se cambia allí. **Open** te lleva

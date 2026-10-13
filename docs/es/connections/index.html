@@ -95,13 +95,17 @@ referencia. En Codex, la referencia es el nombre de la variable que contiene la 
 <p>El campo pide el <strong>nombre</strong> de la variable —por ejemplo <code dir="auto">NAN_API_KEY</code>, exportada en la terminal
 desde la que abres <code dir="auto">aqorin</code>—, nunca la clave. Si pegas ahí el valor de una clave, el formulario lo
 oculta, no guarda nada y te lo dice en un solo aviso. Una clave que ya aparece en
-<a href="../credentials/">Credentials</a> se ofrece por su nombre: elígela en vez de volver a escribirla.</p>
+<a href="../credentials/">Credentials</a> —una clave de proveedor de OpenCode o la de otra conexión, nunca una
+que solo use un servidor MCP— se ofrece por su nombre y por lo que la usa, a la izquierda de
+<strong>Another environment variable</strong>: elígela en vez de volver a escribirla. Codex solo admite
+variables de entorno.</p>
 </li>
 <li>
 <p><strong>Models:</strong> <strong>Discover</strong> los descubre (una llamada al <code dir="auto">/models</code> del proveedor, hecha solo porque
 lo pediste), escríbelos, o añádelos más tarde. En <strong>Claude Code y Codex</strong>, el paso ofrece además
-<strong>sus modelos</strong>: los que el runtime lista para tu inicio de sesión, tal como los leyó Runtimes,
-sin ninguna llamada al modelo.</p>
+<strong>sus modelos</strong>: los que el runtime lista para tu propio inicio de sesión, tal como los leyó
+Runtimes, sin ninguna llamada al modelo. Con una API key, su cuenta puede ofrecer otros:
+escríbelos.</p>
 </li>
 <li>
 <p><strong>Default model:</strong> el modelo que recibe un paso cuando no nombra ninguno. Este paso muestra lo que

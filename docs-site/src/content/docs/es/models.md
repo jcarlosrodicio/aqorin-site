@@ -18,7 +18,9 @@ ninguno. Un agente dice *qué* se hace; la asignación, o si no la ejecución po
     Codex oculta para tu cuenta no se ofrece.
   - **OpenCode y Pi:** los modelos de los proveedores para los que tienen clave.
 - **Los modelos de una conexión:** los que descubriste, escribiste o —en Claude Code y Codex—
-  tomaste de la propia lista del runtime. Cada conexión tiene un modelo
+  tomaste de la propia lista del runtime. Siempre que eliges un modelo de una de esas listas (un
+  nodo, el predeterminado de un agente, un replan, un Free chat), **Another model id…** te deja
+  escribir uno que no aparece. Cada conexión tiene un modelo
   por defecto, que se usa cuando un paso no nombra ninguno. Mira [Conexiones](../connections/).
 
 ## Dónde eliges uno

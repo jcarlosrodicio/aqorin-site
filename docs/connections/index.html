@@ -94,13 +94,15 @@ For Codex, the reference is the name of the variable that holds the key.</li>
 <p>The field asks for the variable’s <strong>name</strong> — for example <code dir="auto">NAN_API_KEY</code>, exported in the shell you
 start <code dir="auto">aqorin</code> from — never the key itself. If you paste a key’s value there, the form hides it,
 stores nothing, and says so in one warning. A key that <a href="../credentials/">Credentials</a> already
-lists is offered by its name: choose it instead of typing it again.</p>
+lists — an OpenCode provider key or another connection’s, never one only an MCP server uses — is
+offered by its name and what uses it, to the left of <strong>Another environment variable</strong>: choose it
+instead of typing it again. Codex takes environment variables only.</p>
 </li>
 <li>
 <p><strong>Models:</strong> <strong>Discover</strong> them (one call to the provider’s <code dir="auto">/models</code>, made only because you
 asked), type them, or add them later. For <strong>Claude Code and Codex</strong>, the step also offers
-<strong>their models</strong>: the ones the runtime lists for your sign-in, as Runtimes read them — no model
-call.</p>
+<strong>their models</strong>: the ones the runtime lists for your own sign-in, as Runtimes read them — no
+model call. With an API key, its account may serve others: type them.</p>
 </li>
 <li>
 <p><strong>Default model:</strong> the model a step gets when it names none. This step shows what will be

@@ -17,7 +17,8 @@ says *what* is done; the assignment, or failing it the default execution, says *
     for your account is not offered.
   - **OpenCode and Pi:** the models of the providers they have keys for.
 - **A connection's models:** the ones you discovered, typed or — for Claude Code and Codex — took
-  from the runtime's own list. Each connection has a default
+  from the runtime's own list. Wherever a model is chosen from such a list (a node, an agent's
+  default, a replan, a Free chat), **Another model id…** types one it does not name. Each connection has a default
   model, used when a step names none. See [Connections](../connections/).
 
 ## Where you choose one
