@@ -23,7 +23,9 @@ description: One form from a request to a plan, and nothing runs until you press
 The plan shows whether the task can run, and where each step runs. Nothing runs until you press
 `Enter`.
 
-- `w` changes where the task runs.
+- `w` changes where the task runs: a saved assignment, or **New assignment…**, which opens the
+  editor for this workflow. Once you save it (`s`), Esc goes back to the plan with it; your task is
+  kept.
 - When a step cannot run where it is assigned, the plan says which agent, why, and where it can
   run instead — for example, a review or read-only step on a runtime that no check on this machine
   covers, or one with no model named. `a` assigns the step there; it asks first, then plans again.

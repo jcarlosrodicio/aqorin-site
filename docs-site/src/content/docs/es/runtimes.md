@@ -63,9 +63,14 @@ real a un modelo. Es la misma comprobación que `aqorin doctor --live`. Antes de
 - que nada de la configuración propia del runtime cambia;
 - que tu proveedor puede facturar la llamada.
 
-**Cancel** no llama a nada. En una conexión de Pi, Validate comprueba Pi a través de esa conexión.
+**Cancel** no llama a nada. En una conexión de Pi, Validate comprueba Pi a través de esa conexión. En
+un runtime que tiene conexiones, Validate pregunta primero por dónde: su propia configuración o una de
+las conexiones, porque su modelo por defecto puede ser justo el que no tiene una clave que funcione.
 
-Una versión de runtime nueva para Aqorin se señala. Valídala antes de fiarte de ella.
+Una versión de runtime nueva para Aqorin se señala, y Home la pone en **Still to do**. Valídala antes
+de fiarte de ella. Si la comprobación acaba con un error del proveedor, no se registra nada:
+valídala a través de una conexión cuya clave funcione o, si ya pasó por una, revisa la clave y el
+modelo por defecto de esa conexión.
 
 ## Cómo se ejecuta cada runtime bajo Aqorin
 

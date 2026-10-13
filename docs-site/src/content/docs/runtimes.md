@@ -58,9 +58,14 @@ It is the same check as `aqorin doctor --live`. Before the call, it says:
 - that nothing of the runtime's own configuration changes;
 - that your provider may bill the call.
 
-**Cancel** calls nothing. On a Pi connection, Validate checks Pi through that connection.
+**Cancel** calls nothing. On a Pi connection, Validate checks Pi through that connection. On a
+runtime that has connections, Validate first asks which way: its own configuration, or one of the
+connections — its own default may be the one route whose key does not work.
 
-A runtime version new to Aqorin is flagged. Validate it before you rely on it.
+A runtime version new to Aqorin is flagged, and Home lists it under **Still to do**. Validate it
+before you rely on it. If the check ends in the provider's error, nothing is recorded: validate it
+through a connection whose key works — or, if it went through one, check that connection's key and
+default model.
 
 ## How each runtime runs under Aqorin
 

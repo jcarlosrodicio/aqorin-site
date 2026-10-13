@@ -11,6 +11,12 @@ ninguno. Un agente dice *qué* se hace; la asignación, o si no la ejecución po
 
 - **El catálogo propio de un runtime:** los modelos que el runtime ofrece mediante su conexión
   nativa. Runtimes (`6`) los muestra, y también `aqorin runtimes inspect <runtime> --models`.
+  - **Claude Code:** los modelos que ofrece a tu sesión, leídos del propio Claude Code (sin
+    llamar a ningún modelo), con su nombre completo, y sus alias (`opus`, `sonnet`…), cada uno
+    diciendo a qué modelo apunta.
+  - **Codex:** el catálogo de tu cuenta, tal como Codex lo actualiza con tu sesión; un modelo que
+    Codex oculta para tu cuenta no se ofrece.
+  - **OpenCode y Pi:** los modelos de los proveedores para los que tienen clave.
 - **Los modelos de una conexión:** los que descubriste o escribiste. Cada conexión tiene un modelo
   por defecto, que se usa cuando un paso no nombra ninguno. Mira [Conexiones](../connections/).
 

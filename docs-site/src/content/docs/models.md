@@ -11,6 +11,11 @@ says *what* is done; the assignment, or failing it the default execution, says *
 
 - **A runtime's own catalog:** the models the runtime offers through its native connection.
   Runtimes (`6`) shows them, and so does `aqorin runtimes inspect <runtime> --models`.
+  - **Claude Code:** the models it offers your sign-in, read from Claude Code itself (no model
+    call), by full name — and its aliases (`opus`, `sonnet`…), each saying what it resolves to.
+  - **Codex:** your account's catalog, as Codex refreshes it with your sign-in; a model Codex hides
+    for your account is not offered.
+  - **OpenCode and Pi:** the models of the providers they have keys for.
 - **A connection's models:** the ones you discovered or typed. Each connection has a default
   model, used when a step names none. See [Connections](../connections/).
 

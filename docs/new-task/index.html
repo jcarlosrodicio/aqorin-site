@@ -89,7 +89,9 @@ runs the checks itself, with your permissions, and only their exit status decide
 <p>The plan shows whether the task can run, and where each step runs. Nothing runs until you press
 <code dir="auto">Enter</code>.</p>
 <ul>
-<li><code dir="auto">w</code> changes where the task runs.</li>
+<li><code dir="auto">w</code> changes where the task runs: a saved assignment, or <strong>New assignment…</strong>, which opens the
+editor for this workflow. Once you save it (<code dir="auto">s</code>), Esc goes back to the plan with it; your task is
+kept.</li>
 <li>When a step cannot run where it is assigned, the plan says which agent, why, and where it can
 run instead — for example, a review or read-only step on a runtime that no check on this machine
 covers, or one with no model named. <code dir="auto">a</code> assigns the step there; it asks first, then plans again.

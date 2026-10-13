@@ -24,7 +24,9 @@ description: Un formulario que va de una petición a un plan, y nada se ejecuta 
 El plan muestra si la tarea puede ejecutarse y dónde se ejecuta cada paso. Nada se ejecuta hasta que
 pulsas `Enter`.
 
-- `w` cambia dónde se ejecuta la tarea.
+- `w` cambia dónde se ejecuta la tarea: una asignación guardada, o **New assignment…**, que abre el
+  editor para este workflow. Cuando la guardas (`s`), Esc vuelve al plan con ella; tu tarea se
+  conserva.
 - Cuando un paso no puede ejecutarse donde está asignado, el plan dice qué agente, por qué y dónde
   puede ejecutarse en su lugar, por ejemplo un paso de revisión o de solo lectura en un runtime que
   ninguna comprobación de esta máquina cubre, o uno sin modelo indicado. `a` asigna el paso allí;
