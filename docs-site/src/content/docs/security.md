@@ -61,10 +61,11 @@ Run, whose plan says the restriction advisory.
 
 ## Commands a step can run
 
-A step that edits files may also run commands where its runtime lets it. On Claude Code, the
-developer — any agent of the *edits files* class — gets the shell: it can run the project's tests,
-linters and scripts, with your permissions, as you would running Claude Code yourself. Aqorin does not
-limit which commands it runs. A read-only or review step never gets it.
+A step that edits files may also run commands where its runtime lets it. On Claude Code, every
+agent of the *edits files* class — the developer included — gets the shell: it can run the project's
+tests, linters and scripts, with your permissions, as you would running Claude Code yourself. The
+shell is not confined to the project folder, and Aqorin does not limit which commands it runs; the
+plan says so for each such step. A read-only or review step never gets it.
 
 ## Your configuration and your keys
 

@@ -59,8 +59,8 @@ restriction enforced, assign the step to a validated runtime and model — the p
 ## The next step does not start
 
 After a step whose work is checked, the Run runs its checks before moving on, and the steps show
-**checking**. With checks in the task, Aqorin runs them; with none, the step's runtime checks the work
-itself — running the project's tests can take minutes. The next step (the reviewer, say) starts when
+**checking**. The step's runtime checks the work first (advisory) — running the project's tests can
+take minutes — then Aqorin runs the task's checks, when it declares some. The next step (the reviewer, say) starts when
 they report. See [Runs](../runs/#a-runs-view).
 
 ## One Run at a time

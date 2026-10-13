@@ -28,20 +28,20 @@ La vista de un Run es un panel:
   (agente · runtime), y su intento.
 - **En el centro**, el trabajo del paso seleccionado. Una línea dice qué está haciendo ahora
   (*Thinking…*, *Running tool… npm test*, *Waiting for you*), y la siguiente quién lo ejecuta, con el
-  modelo que informa el runtime y el contexto que lleva usado (Claude Code: de su ventana; Codex: los
-  tokens de su turno). Luego vienen sus mensajes. Las llamadas a herramientas entre dos mensajes se
+  modelo que informa el runtime y, en Claude Code, el contexto que lleva usado (de su ventana, al
+  terminar el paso). Luego vienen sus mensajes. Las llamadas a herramientas entre dos mensajes se
   pliegan en una sola línea atenuada, con cuántas son y las que fallaron: `t` las muestra una a una.
 - **A la derecha**, el Run en pocas líneas. Un Run orientativo dice ahí, una sola vez, qué significa
   y por qué, en pocas palabras; los motivos completos están en su Resultado.
 
 Tras un paso cuyo trabajo se comprueba, los pasos muestran **checking** hasta que las comprobaciones
-responden: Aqorin ejecuta las comprobaciones de la tarea o, si la tarea no declara ninguna, el
-propio runtime del paso comprueba el trabajo. El paso siguiente las espera, así que un revisor que
+responden: primero el runtime del paso comprueba el trabajo (de forma orientativa) y después Aqorin
+ejecuta las comprobaciones de la tarea, si declara alguna. El paso siguiente las espera, así que un revisor que
 todavía no ha empezado suele estar esperando a estas comprobaciones.
 
-`Tab` a los pasos, y luego `↑` `↓` elige uno. `y` copia los mensajes del paso seleccionado al
-portapapeles, si tu terminal lo permite: una selección con el ratón coge líneas enteras de todos
-los paneles. `c` `c` cancela el Run. Ctrl+T abre el [Trace](../trace/).
+`Tab` a los pasos, y luego `↑` `↓` elige uno. `y` envía los mensajes del paso seleccionado al
+portapapeles de tu terminal, si la terminal lo permite (no puede confirmarlo): una selección con el
+ratón coge líneas enteras de todos los paneles. `c` `c` cancela el Run. Ctrl+T abre el [Trace](../trace/).
 
 ## El resultado
 

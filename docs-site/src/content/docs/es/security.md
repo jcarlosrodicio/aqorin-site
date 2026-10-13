@@ -69,9 +69,10 @@ Refresca la comprobación, o empieza un Run nuevo, cuyo plan indicará la restri
 ## Comandos que puede ejecutar un paso
 
 Un paso que edita archivos puede también ejecutar comandos, donde su runtime lo permite. En Claude
-Code, el developer —cualquier agente de la clase *edita archivos*— tiene la shell: puede ejecutar los
-tests, linters y scripts del proyecto, con tus permisos, como harías tú al usar Claude Code. Aqorin no
-limita qué comandos ejecuta. Un paso de solo lectura o de revisión nunca la tiene.
+Code, todo agente de la clase *edita archivos* —el developer incluido— tiene la shell: puede ejecutar
+los tests, linters y scripts del proyecto, con tus permisos, como harías tú al usar Claude Code. La
+shell no está limitada a la carpeta del proyecto, y Aqorin no limita qué comandos ejecuta; el plan lo
+dice en cada paso así. Un paso de solo lectura o de revisión nunca la tiene.
 
 ## Tu configuración y tus claves
 
