@@ -50,6 +50,7 @@ The pane's title shows the filter and how many rows match. `Esc` clears it.
 | `y` | Send the selected step's messages to the terminal's clipboard, where the terminal allows it (it cannot confirm it). |
 | Ctrl+T | [Trace](../trace/): Activity, Trace and Raw. |
 | `c` `c` | Cancel the Run. |
+| `I` `K` `X` `U` | A finished Run in a worktree of its own: integrate it, keep the branch, discard it, or undo an integration — each asked first, and offered only when it can be done. See [Runs](../runs/). |
 
 ## In an editor
 

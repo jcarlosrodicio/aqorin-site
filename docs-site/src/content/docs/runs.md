@@ -23,18 +23,29 @@ A new worktree has nothing installed. To prepare each one, set `worktree_setup` 
 `.aqorin/aqorin.yaml` (see [Configuration](../configuration/)); without it nothing is prepared, and the
 plan says so.
 
+At most four workflows run in worktrees at once; a fifth launch is refused and names them.
+
 When such a Run is over, its Result says what became of its worktree, and you decide — nothing happens
-on its own:
+on its own, and every decision is recorded on the Run (`aqorin logs <run>` shows it):
 
 | Key | What it does |
 |---|---|
-| `I` | **Integrate**: its changes are committed on the branch and merged into your folder's current branch. Refused, changing nothing, while your folder has uncommitted changes or a workflow running in it; a conflict merges nothing and names the files. |
+| `I` | **Integrate**: its changes are committed on the branch and merged into the branch the worktree was made from. Refused, changing nothing, when your folder is on another branch, has uncommitted changes or a workflow running in it; a conflict merges nothing and names the files. |
+| `U` | **Undo** an integration, after asking: a new commit reverts the merge; your history is not rewritten. |
 | `K` | **Keep the branch**, for a pull request; the worktree is removed. |
 | `X` | **Discard** the worktree and the branch, after asking. |
 
-From the CLI: `aqorin worktree list`, `aqorin worktree integrate|keep <run>`, `aqorin worktree discard
-<run> --yes`. A project that is not a git repository runs one workflow at a time. Free chats never
-count.
+From the CLI: `aqorin worktree list`, `aqorin worktree integrate|keep|undo <run>`, `aqorin worktree
+discard <run> --yes`. `aqorin status`, `runs` and `inspect` say which Runs work in a worktree and what
+became of it. A decision that was started and never finished reads *interrupted*; decide again.
+
+A launch stopped before its Run existed can leave a worktree behind. `aqorin worktree list` names it as
+recorded by no Run, and `aqorin worktree discard <branch> --yes` removes it.
+
+A worktree keeps each Run's checks, review and changes apart. **It is not a wall:** an agent allowed to
+write can still write your project folder, or another Run's worktree, by its full path.
+
+A project that is not a git repository runs one workflow at a time. Free chats never count.
 
 ## The Runs screen (`2`)
 
