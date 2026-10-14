@@ -11,9 +11,9 @@ description: What the Terminal Alpha does not do, and what it does not claim.
   CLI, without the TUI.
 - **Runtimes:** Claude Code, Codex, OpenCode and Pi. Other runtimes that Aqorin's code knows, such
   as jcode, are not part of the Alpha.
-- **One active Run per working tree.**
-- **Free chat:** you cannot choose a connection, and an OpenCode or Pi chat does not show how much
-  context it uses.
+- **One active workflow Run per working tree** (Free chats beside it are allowed).
+- **Free chat:** a connection can be chosen on Pi only, and an OpenCode or Pi chat does not show how
+  much context it uses.
 - **Accessibility:** the full-screen TUI does not support screen readers. Use `--plain` or `--json`.
 - **Notifications:** only the terminal bell; no OS notifications.
 

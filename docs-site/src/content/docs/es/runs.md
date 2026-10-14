@@ -11,8 +11,8 @@ runtime, así que un runtime que se cae no borra lo que ocurrió.
 Un Run se ejecuta en su propio worker. Salir de la TUI, o cerrar la terminal, lo deja ejecutándose.
 Ejecuta `aqorin` otra vez, o `aqorin logs <run> --follow`, para seguirlo.
 
-Hay **un Run a la vez por árbol de trabajo**. Un Run o un chat nuevo se rechaza mientras otro esté
-sin terminar.
+Hay **un Run de workflow a la vez por árbol de trabajo**. Un workflow nuevo se rechaza mientras otro
+esté sin terminar. Los Free chats no cuentan: ni se rechazan ni rechazan nada.
 
 ## La pantalla Runs (`2`)
 
