@@ -31,7 +31,7 @@ aqorin open <opencode|jcode|pi|codex|claude-code> [--project <path>] [--runtime-
 aqorin feature <request> [--project <path>] [--runtime opencode|jcode|pi|codex|claude-code] [--attempt-timeout <duration>]
 aqorin feature --task-file <file> [--project <path>] [--runtime <id>] [--agent-check]
 aqorin tasks new <request> --check-command <command>… [--project <path>]
-aqorin worktree list | integrate <run> | keep <run> | discard <run> --yes [--project <path>]
+aqorin worktree list | integrate <run> | keep <run> | discard <run|aqorin/branch> --yes | undo <run> [--project <path>]
 aqorin feature <request> --runtime codex [--model <id>] [--project <path>]
 aqorin feature <request> --runtime claude-code [--model <id>] [--project <path>]
 aqorin run <workflow> --task-file <file> [--project <path>] [--runtime <id>] [--attempt-timeout <duration>] [--agent-check]
@@ -126,7 +126,7 @@ tasks new writes a task to .aqorin/tasks/ from a request and its checks (--check
 
 ### `worktree`
 
-A workflow launched while another is unfinished in the project folder runs in a git worktree of its own (outside the repository, branch aqorin/…; worktree_setup in .aqorin/aqorin.yaml prepares it). Once its Run is over: integrate merges it into the project's branch (refused with uncommitted changes, a workflow running there, or a conflict), keep leaves the branch, discard --yes removes both
+A workflow launched while another is unfinished in the project folder runs in a git worktree of its own (outside the repository, branch aqorin/…; worktree_setup in .aqorin/aqorin.yaml prepares it); at most 4 at once. Once its Run is over: integrate merges it into the branch it was made from (refused on another branch, with uncommitted changes, a workflow running there, or a conflict), keep leaves the branch, discard --yes removes both, undo reverts an integration; each decision is recorded on the Run. list also names Aqorin's worktrees no Run records (discard &lt;branch>)
 
 ### `simulate`
 

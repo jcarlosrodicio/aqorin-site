@@ -71,6 +71,17 @@ repository a second workflow runs in a worktree of its own instead (see [Runs](.
 finish, cancel or resume the open Run (`2` Runs). A
 Run whose driver died is shown as **stale**. Open it, then resume or cancel it.
 
+At most four workflows run in worktrees at once: a fifth is refused and names them — wait for one, or
+cancel one.
+
+## A worktree is not integrated
+
+Integrating goes only into the branch the worktree was made from: if your folder is on another branch,
+`git checkout` that one and integrate again — or keep the branch for a pull request. It is also refused
+while your folder has uncommitted changes or a workflow running in it, and when the merge conflicts
+(nothing is merged; the files are named). An integration you regret is undone with `U`
+(`aqorin worktree undo <run>`).
+
 ## The state store is newer than this Aqorin
 
 A newer Aqorin wrote the state store. Upgrade Aqorin; an older binary refuses to open it rather

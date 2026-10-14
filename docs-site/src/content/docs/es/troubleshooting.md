@@ -76,6 +76,17 @@ repositorio git, un segundo workflow se ejecuta en un worktree propio (mira [Run
 git, termina, cancela o reanuda el Run abierto (`2` Runs). Un
 Run cuyo driver murió aparece como **stale**. Ábrelo, y luego reanúdalo o cancélalo.
 
+Como mucho cuatro workflows van en worktrees a la vez: un quinto se rechaza y los nombra — espera a que
+acabe uno, o cancela uno.
+
+## Un worktree no se integra
+
+Integrar solo va a la rama desde la que se creó el worktree: si tu carpeta está en otra rama, haz
+`git checkout` de esa y vuelve a integrar — o conserva la rama para un pull request. También se rechaza
+mientras tu carpeta tenga cambios sin commit o un workflow en marcha, y cuando la fusión choca (no se
+fusiona nada; se nombran los ficheros). Una integración de la que te arrepientes se deshace con `U`
+(`aqorin worktree undo <run>`).
+
 ## El almacén de estado es más nuevo que este Aqorin
 
 Un Aqorin más nuevo escribió el almacén de estado. Actualiza Aqorin; un binario más antiguo se niega

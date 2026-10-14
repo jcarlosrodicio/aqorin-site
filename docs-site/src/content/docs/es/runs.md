@@ -23,17 +23,30 @@ Un worktree nuevo no tiene nada instalado. Para prepararlo, pon `worktree_setup`
 `.aqorin/aqorin.yaml` (mira [Configuración](../configuration/)); sin él no se prepara nada, y el plan
 lo dice.
 
-Cuando ese Run termina, su Result dice qué pasó con su worktree, y decides tú — nada ocurre solo:
+Como mucho cuatro workflows van en worktrees a la vez; un quinto lanzamiento se rechaza y los nombra.
+
+Cuando ese Run termina, su Result dice qué pasó con su worktree, y decides tú — nada ocurre solo, y
+cada decisión queda registrada en el Run (`aqorin logs <run>` la muestra):
 
 | Tecla | Qué hace |
 |---|---|
-| `I` | **Integrar**: sus cambios se confirman en la rama y se fusionan en la rama actual de tu carpeta. Se rechaza, sin cambiar nada, mientras tu carpeta tenga cambios sin commit o un workflow en marcha; un conflicto no fusiona nada y nombra los ficheros. |
+| `I` | **Integrar**: sus cambios se confirman en la rama y se fusionan en la rama desde la que se creó el worktree. Se rechaza, sin cambiar nada, si tu carpeta está en otra rama, tiene cambios sin commit o un workflow en marcha; un conflicto no fusiona nada y nombra los ficheros. |
+| `U` | **Deshacer** una integración, tras preguntar: un commit nuevo revierte la fusión; tu historia no se reescribe. |
 | `K` | **Conservar la rama**, para un pull request; el worktree se borra. |
 | `X` | **Descartar** el worktree y la rama, tras preguntar. |
 
-Desde la CLI: `aqorin worktree list`, `aqorin worktree integrate|keep <run>`, `aqorin worktree discard
-<run> --yes`. Un proyecto que no es un repositorio git ejecuta un workflow cada vez. Los Free chats nunca
-cuentan.
+Desde la CLI: `aqorin worktree list`, `aqorin worktree integrate|keep|undo <run>`, `aqorin worktree
+discard <run> --yes`. `aqorin status`, `runs` e `inspect` dicen qué Runs trabajan en un worktree y qué
+pasó con él. Una decisión que empezó y no terminó aparece como *interrumpida*; decide de nuevo.
+
+Un lanzamiento que se paró antes de que existiera su Run puede dejar un worktree. `aqorin worktree list`
+lo nombra como no registrado por ningún Run, y `aqorin worktree discard <rama> --yes` lo borra.
+
+Un worktree separa los checks, la revisión y los cambios de cada Run. **No es un muro:** un agente que
+puede escribir aún puede escribir en la carpeta de tu proyecto, o en el worktree de otro Run, con su
+ruta completa.
+
+Un proyecto que no es un repositorio git ejecuta un workflow cada vez. Los Free chats nunca cuentan.
 
 ## La pantalla Runs (`2`)
 

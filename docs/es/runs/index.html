@@ -84,7 +84,9 @@ revisión y sus cambios son suyos, y Runs lo marca con <code dir="auto">⎇</cod
 <p>Un worktree nuevo no tiene nada instalado. Para prepararlo, pon <code dir="auto">worktree_setup</code> en
 <code dir="auto">.aqorin/aqorin.yaml</code> (mira <a href="../configuration/">Configuración</a>); sin él no se prepara nada, y el plan
 lo dice.</p>
-<p>Cuando ese Run termina, su Result dice qué pasó con su worktree, y decides tú — nada ocurre solo:</p>
+<p>Como mucho cuatro workflows van en worktrees a la vez; un quinto lanzamiento se rechaza y los nombra.</p>
+<p>Cuando ese Run termina, su Result dice qué pasó con su worktree, y decides tú — nada ocurre solo, y
+cada decisión queda registrada en el Run (<code dir="auto">aqorin logs &lt;run&gt;</code> la muestra):</p>
 <table>
 <thead>
 <tr>
@@ -95,7 +97,11 @@ lo dice.</p>
 <tbody>
 <tr>
 <td><code dir="auto">I</code></td>
-<td><strong>Integrar</strong>: sus cambios se confirman en la rama y se fusionan en la rama actual de tu carpeta. Se rechaza, sin cambiar nada, mientras tu carpeta tenga cambios sin commit o un workflow en marcha; un conflicto no fusiona nada y nombra los ficheros.</td>
+<td><strong>Integrar</strong>: sus cambios se confirman en la rama y se fusionan en la rama desde la que se creó el worktree. Se rechaza, sin cambiar nada, si tu carpeta está en otra rama, tiene cambios sin commit o un workflow en marcha; un conflicto no fusiona nada y nombra los ficheros.</td>
+</tr>
+<tr>
+<td><code dir="auto">U</code></td>
+<td><strong>Deshacer</strong> una integración, tras preguntar: un commit nuevo revierte la fusión; tu historia no se reescribe.</td>
 </tr>
 <tr>
 <td><code dir="auto">K</code></td>
@@ -107,8 +113,14 @@ lo dice.</p>
 </tr>
 </tbody>
 </table>
-<p>Desde la CLI: <code dir="auto">aqorin worktree list</code>, <code dir="auto">aqorin worktree integrate|keep &lt;run&gt;</code>, <code dir="auto">aqorin worktree discard &lt;run&gt; --yes</code>. Un proyecto que no es un repositorio git ejecuta un workflow cada vez. Los Free chats nunca
-cuentan.</p>
+<p>Desde la CLI: <code dir="auto">aqorin worktree list</code>, <code dir="auto">aqorin worktree integrate|keep|undo &lt;run&gt;</code>, <code dir="auto">aqorin worktree discard &lt;run&gt; --yes</code>. <code dir="auto">aqorin status</code>, <code dir="auto">runs</code> e <code dir="auto">inspect</code> dicen qué Runs trabajan en un worktree y qué
+pasó con él. Una decisión que empezó y no terminó aparece como <em>interrumpida</em>; decide de nuevo.</p>
+<p>Un lanzamiento que se paró antes de que existiera su Run puede dejar un worktree. <code dir="auto">aqorin worktree list</code>
+lo nombra como no registrado por ningún Run, y <code dir="auto">aqorin worktree discard &lt;rama&gt; --yes</code> lo borra.</p>
+<p>Un worktree separa los checks, la revisión y los cambios de cada Run. <strong>No es un muro:</strong> un agente que
+puede escribir aún puede escribir en la carpeta de tu proyecto, o en el worktree de otro Run, con su
+ruta completa.</p>
+<p>Un proyecto que no es un repositorio git ejecuta un workflow cada vez. Los Free chats nunca cuentan.</p>
 <div class="sl-heading-wrapper level-h2"><h2 id="la-pantalla-runs-2">La pantalla Runs (<code dir="auto">2</code>)</h2><a class="sl-anchor-link" href="#la-pantalla-runs-2"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Sección titulada «La pantalla Runs (2)»</span></a></div>
 <p>Cada Run y chat de este proyecto aparece con su estado y cuándo empezó. Un chat abierto dice
 <em>chat open</em>. <code dir="auto">/</code> filtra la lista, <code dir="auto">n</code> empieza una <a href="../new-task/">nueva tarea</a> y <code dir="auto">c</code> empieza un

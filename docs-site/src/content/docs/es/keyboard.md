@@ -51,6 +51,7 @@ borra.
 | `y` | Enviar los mensajes del paso seleccionado al portapapeles de la terminal, si la terminal lo permite (no puede confirmarlo). |
 | Ctrl+T | [Trace](../trace/): Activity, Trace y Raw. |
 | `c` `c` | Cancelar el Run. |
+| `I` `K` `X` `U` | Un Run terminado en un worktree propio: integrarlo, conservar la rama, descartarlo o deshacer una integración — cada una tras preguntar, y solo cuando se puede hacer. Mira [Runs](../runs/). |
 
 ## En un editor
 
