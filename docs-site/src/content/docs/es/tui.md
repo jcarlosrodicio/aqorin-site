@@ -33,7 +33,9 @@ lugar, y `--json` o una tubería dan la salida propia de la CLI.
 
 Hasta que el proyecto está listo para ejecutar, Home es una lista de comprobación. Cuando está
 listo, Home es el plano de control: los cuatro runtimes, el Run que se está moviendo, lo que te
-espera y los Runs recientes.
+espera y los Runs recientes. Cuando Aqorin tiene algo que contarte del proyecto —por ejemplo, que tu
+runtime por defecto ejecuta los pasos de revisión y de solo lectura con una restricción advisory—, la
+línea Status muestra `! 1 notice`; `!` lo lee y Esc lo pliega.
 
 En el primer uso, el wordmark en bloques de Aqorin encabeza la pantalla, tras la misma marca.
 

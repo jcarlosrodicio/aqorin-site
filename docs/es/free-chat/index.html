@@ -154,6 +154,13 @@ trabajar en tu proyecto sin preguntar, y pregunta antes de usar la red o una rut
 raíces escribibles. Ese sandbox es de Codex: Aqorin lo solicita y comprueba que Codex informa de que
 está en vigor, pero no lo aplica él mismo. El chat de Codex se ejecuta en el home de Codex propio de
 Aqorin, con tu inicio de sesión enlazado, nunca copiado, y nunca con tu configuración.</p>
+<p>Un chat de OpenCode lee tu configuración de OpenCode y recibe las variables que tu
+<code dir="auto">~/.config/opencode/opencode.json</code>, <code dir="auto">.jsonc</code> o <code dir="auto">config.json</code> global nombra como <code dir="auto">{env:NOMBRE}</code> —una clave de
+proveedor como <code dir="auto">NAN_API_KEY</code>— desde el entorno con el que se arrancó Aqorin: por nombre, nunca
+guardadas y ocultas en lo que Aqorin muestra y guarda, como una credencial. No se leen para esto el
+<code dir="auto">opencode.json</code> de un proyecto, <code dir="auto">OPENCODE_CONFIG</code> ni <code dir="auto">OPENCODE_CONFIG_DIR</code>, y nunca se pasa un nombre
+que una credencial no puede tener (como <code dir="auto">PATH</code> u <code dir="auto">OPENCODE_…</code>). Si un mensaje falla, el error dice el
+motivo del proveedor.</p>
 <p>En un chat de OpenCode, Aqorin mantiene desactivada una cosa: los subagentes de OpenCode (su
 herramienta task). Sus peticiones vendrían de una sesión que el chat no sigue, así que esperarían
 sin que las vieras.</p>

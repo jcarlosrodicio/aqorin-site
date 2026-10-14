@@ -154,6 +154,12 @@ without asking, and it asks before using the network or a path beyond its writab
 sandbox is Codex’s: Aqorin requests it and checks that Codex reports it in effect, but does not
 enforce it itself. Codex’s chat runs in Aqorin’s own Codex home, with your sign-in linked, never
 copied — never with your configuration.</p>
+<p>An OpenCode chat reads your OpenCode configuration, and gets the variables your global
+<code dir="auto">~/.config/opencode/opencode.json</code>, <code dir="auto">.jsonc</code> or <code dir="auto">config.json</code> names as <code dir="auto">{env:NAME}</code> — a provider key such as
+<code dir="auto">NAN_API_KEY</code> — from the environment Aqorin was started in: by name, never stored, and hidden from
+what Aqorin shows and keeps as a credential is. Not read for them: a project’s own <code dir="auto">opencode.json</code>,
+<code dir="auto">OPENCODE_CONFIG</code> or <code dir="auto">OPENCODE_CONFIG_DIR</code>; and a name a credential may not have (such as <code dir="auto">PATH</code> or
+<code dir="auto">OPENCODE_…</code>) is never given. If a message fails, the error says the provider’s reason.</p>
 <p>In an OpenCode chat, Aqorin keeps one thing off: OpenCode’s subagents (its task tool). Their
 requests would come from a session the chat does not follow, so they would wait unseen.</p>
 <div class="sl-heading-wrapper level-h2"><h2 id="the-conversation">The conversation</h2><a class="sl-anchor-link" href="#the-conversation"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “The conversation”</span></a></div>
