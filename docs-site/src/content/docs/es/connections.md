@@ -28,8 +28,8 @@ cuatro pasos, y no se guarda nada hasta el último:
    desde la que abres `aqorin`—, nunca la clave. Si pegas ahí el valor de una clave, el formulario lo
    oculta, no guarda nada y te lo dice en un solo aviso. Una clave que ya aparece en
    [Credentials](../credentials/) —una clave de proveedor de OpenCode o la de otra conexión, nunca una
-   que solo use un servidor MCP— se ofrece por su nombre y por lo que la usa. Si es la única clave de su tipo, una conexión nueva empieza en
-   ella: la clave que añadiste una vez se vuelve a usar, sin escribirla otra vez. Si hay varias, no se
+   que solo use un servidor MCP— se ofrece por su nombre y por lo que la usa. Si es la única clave de una conexión al mismo host, una conexión
+   nueva a ese host empieza en ella: la clave que añadiste una vez se vuelve a usar, sin escribirla otra vez. Si hay varias, no se
    elige ninguna por ti. Codex solo admite variables de entorno.
 3. **Models:** **Discover** los descubre (una llamada al `/models` del proveedor, hecha solo porque
    lo pediste), escríbelos, o añádelos más tarde. En **Claude Code y Codex**, el paso ofrece además
