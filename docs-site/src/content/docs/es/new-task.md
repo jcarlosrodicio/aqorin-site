@@ -29,8 +29,10 @@ description: Un formulario que va de una petición a un plan, y nada se ejecuta 
 
 El plan es un solo panel: si la tarea puede ejecutarse, la tarea y quién la comprueba, y el flujo:
 cada paso, su agente y el runtime, la conexión y el modelo en que se ejecuta. `d` pone en su lugar el
-texto completo (lo que imprime `--plan-only`), y `!` los **notices**: lo que Aqorin quiere que sepas,
-dicho solo cuando lo pides. Nada se ejecuta hasta que pulsas `Enter`.
+texto completo (lo que imprime `--plan-only`), y `!` los **notices**: lo que Aqorin quiere que sepas
+(un rol al que solo se le dice que lea, una versión de runtime aún no verificada, un trabajo que nada
+comprueba), dicho solo cuando lo pides. Un paso que puede ejecutar comandos (el Bash de Claude Code) se
+dice en el propio plan. Nada se ejecuta hasta que pulsas `Enter`.
 
 - `w` cambia dónde se ejecuta la tarea: una asignación guardada, o **New assignment…**, que abre el
   editor para este workflow. Cuando la guardas (`s`), Esc vuelve al plan con ella; tu tarea se

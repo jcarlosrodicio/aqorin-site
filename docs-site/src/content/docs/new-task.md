@@ -27,8 +27,10 @@ description: One form from a request to a plan, and nothing runs until you press
 
 The plan is one pane: whether the task can run, the task and who checks it, and the flow — each step,
 its agent, and the runtime, connection and model it runs on. `d` puts its full text in its place
-(what `--plan-only` prints), and `!` the **notices**: what Aqorin wants you to know about it, said
-only when you ask. Nothing runs until you press `Enter`.
+(what `--plan-only` prints), and `!` the **notices**: what Aqorin wants you to know about it — a role
+only told to read, a runtime version not verified yet, work nothing checks — said only when you ask. A
+step that may run commands (Claude Code's Bash) is said on the plan itself. Nothing runs until you press
+`Enter`.
 
 - `w` changes where the task runs: a saved assignment, or **New assignment…**, which opens the
   editor for this workflow. Once you save it (`s`), Esc goes back to the plan with it; your task is
