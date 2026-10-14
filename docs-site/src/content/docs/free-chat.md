@@ -40,7 +40,7 @@ enforce it itself. Codex's chat runs in Aqorin's own Codex home, with your sign-
 copied — never with your configuration.
 
 An OpenCode chat reads your OpenCode configuration, and gets the variables your global
-`~/.config/opencode/opencode.json` or `.jsonc` names as `{env:NAME}` — a provider key such as
+`~/.config/opencode/opencode.json`, `.jsonc` or `config.json` names as `{env:NAME}` — a provider key such as
 `NAN_API_KEY` — from the environment Aqorin was started in: by name, never stored, and hidden from
 what Aqorin shows and keeps as a credential is. Not read for them: a project's own `opencode.json`,
 `OPENCODE_CONFIG` or `OPENCODE_CONFIG_DIR`; and a name a credential may not have (such as `PATH` or

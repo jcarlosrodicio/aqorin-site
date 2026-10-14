@@ -40,7 +40,7 @@ está en vigor, pero no lo aplica él mismo. El chat de Codex se ejecuta en el h
 Aqorin, con tu inicio de sesión enlazado, nunca copiado, y nunca con tu configuración.
 
 Un chat de OpenCode lee tu configuración de OpenCode y recibe las variables que tu
-`~/.config/opencode/opencode.json` o `.jsonc` global nombra como `{env:NOMBRE}` —una clave de
+`~/.config/opencode/opencode.json`, `.jsonc` o `config.json` global nombra como `{env:NOMBRE}` —una clave de
 proveedor como `NAN_API_KEY`— desde el entorno con el que se arrancó Aqorin: por nombre, nunca
 guardadas y ocultas en lo que Aqorin muestra y guarda, como una credencial. No se leen para esto el
 `opencode.json` de un proyecto, `OPENCODE_CONFIG` ni `OPENCODE_CONFIG_DIR`, y nunca se pasa un nombre

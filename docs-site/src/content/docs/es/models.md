@@ -21,8 +21,9 @@ ninguno. Un agente dice *qué* se hace; la asignación, o si no la ejecución po
   tomaste de la propia lista del runtime. Siempre que eliges un modelo de una de esas listas (un
   nodo, el predeterminado de un agente, un replan, un Free chat), **Another model id…** te deja
   escribir uno que no aparece. Una lista larga (doce o más) se busca: escribe parte del nombre y se
-  queda con los modelos que lo contienen, con el primero seleccionado; Retroceso la amplía. El
-  predeterminado y **Another model id…** siguen ofrecidos. Cada conexión tiene un modelo
+  queda con los modelos que lo contienen, con el primero seleccionado; Retroceso la amplía y, vacía,
+  devuelve lo que estaba elegido antes. El espacio y los dígitos se escriben en la búsqueda; si nada
+  coincide, Enter no elige nada. El predeterminado y **Another model id…** siguen ofrecidos. Cada conexión tiene un modelo
   por defecto, que se usa cuando un paso no nombra ninguno. Mira [Conexiones](../connections/).
 
 ## Dónde eliges uno

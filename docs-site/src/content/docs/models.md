@@ -20,7 +20,9 @@ says *what* is done; the assignment, or failing it the default execution, says *
   from the runtime's own list. Wherever a model is chosen from such a list (a node, an agent's
   default, a replan, a Free chat), **Another model id…** types one it does not name. A long list
   (twelve or more) is searched: type part of the name and it narrows to the models that hold it, the
-  first selected; Backspace widens it. The default and **Another model id…** stay offered. Each connection has a default
+  first selected; Backspace widens it, and emptied, gives back what was chosen before. Space and
+  digits are typed into the search; when nothing matches, Enter takes nothing. The default and
+  **Another model id…** stay offered. Each connection has a default
   model, used when a step names none. See [Connections](../connections/).
 
 ## Where you choose one
