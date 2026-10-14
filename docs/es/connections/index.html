@@ -96,9 +96,9 @@ referencia. En Codex, la referencia es el nombre de la variable que contiene la 
 desde la que abres <code dir="auto">aqorin</code>—, nunca la clave. Si pegas ahí el valor de una clave, el formulario lo
 oculta, no guarda nada y te lo dice en un solo aviso. Una clave que ya aparece en
 <a href="../credentials/">Credentials</a> —una clave de proveedor de OpenCode o la de otra conexión, nunca una
-que solo use un servidor MCP— se ofrece por su nombre y por lo que la usa, a la izquierda de
-<strong>Another environment variable</strong>: elígela en vez de volver a escribirla. Codex solo admite
-variables de entorno.</p>
+que solo use un servidor MCP— se ofrece por su nombre y por lo que la usa. Si es la única clave de una conexión al mismo host, una conexión
+nueva a ese host empieza en ella: la clave que añadiste una vez se vuelve a usar, sin escribirla otra vez. Si hay varias, no se
+elige ninguna por ti. Codex solo admite variables de entorno.</p>
 </li>
 <li>
 <p><strong>Models:</strong> <strong>Discover</strong> los descubre (una llamada al <code dir="auto">/models</code> del proveedor, hecha solo porque

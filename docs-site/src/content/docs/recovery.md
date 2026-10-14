@@ -3,11 +3,12 @@ title: Recovery, retry and replan
 description: What happens when a step's runtime fails, and the three ways on — none of them taken on its own.
 ---
 
-When a step's runtime fails — a missing key, an expired login, a crash, a timeout — the Run does not
-guess. It stops in **needs a decision** and waits for you in [Attention](../attention/). Aqorin
+When a step's runtime fails — a missing key, an expired login, a provider down or a model at
+capacity, a crash, a timeout — the Run does not guess, whoever chose where it runs. It stops in
+**needs a decision** and waits for you in [Attention](../attention/). Aqorin
 never switches runtime on its own, and nothing is retried on its own.
 
-The failed turn's own words, in the Run's transcript, say what the runtime answered.
+The step says what the runtime answered, in its own last words.
 
 ## The three ways on
 

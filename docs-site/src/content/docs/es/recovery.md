@@ -3,12 +3,13 @@ title: Recuperación, reintento y replan
 description: Qué ocurre cuando falla el runtime de un paso, y los tres caminos a seguir, ninguno tomado por su cuenta.
 ---
 
-Cuando falla el runtime de un paso (una clave que falta, un inicio de sesión caducado, un fallo, un
-timeout), el Run no adivina. Se detiene en **needs a decision** y te espera en
+Cuando falla el runtime de un paso (una clave que falta, un inicio de sesión caducado, un proveedor
+caído o un modelo saturado, un fallo, un timeout), el Run no adivina, sea quien sea quien eligió dónde
+se ejecuta. Se detiene en **needs a decision** y te espera en
 [Attention](../attention/). Aqorin nunca cambia de runtime por su cuenta, y nada se reintenta por su
 cuenta.
 
-Las propias palabras del turno fallido, en la transcripción del Run, dicen qué respondió el runtime.
+El paso dice qué respondió el runtime, con sus últimas palabras.
 
 ## Los tres caminos
 

@@ -8,9 +8,9 @@ description: One form from a request to a plan, and nothing runs until you press
 1. **What to do:** a [Free chat](../free-chat/), or a workflow.
 2. **Which workflow, and where it runs.**
 3. **What the agents are asked to do:** your request.
-4. **Checks (optional):** commands that must pass, such as `npm test`. Aqorin runs them without a
-   shell. An unquoted `&&`, `|` or `>` is refused where you type it.
-5. **Agent check:** No by default. **Yes** asks the step's runtime to check the work too.
+4. **Checked by:** **Nothing** (the default), **Commands**, **The agent**, or **Commands and the
+   agent**. The command fields appear only with commands: each must pass, such as `npm test`, and
+   runs without a shell — an unquoted `&&`, `|` or `>` is refused where you type it.
 
 ## Checks
 
@@ -18,15 +18,15 @@ description: One form from a request to a plan, and nothing runs until you press
   runs the checks itself, with your permissions, and only their exit status decides validation.
 - **With no checks**, no task file is written. Nothing checks the work: the step moves on at once,
   its checks read *not checked*, and the Run is *advisory*. The plan says so.
-- **Agent check** (off by default) asks the step's runtime to check the work too, after the step. The
+- **The agent** (off by default) asks the step's runtime to check the work too, after the step. The
   runtime chooses what to run (tests, linters…), which can take a while, and its verdict is
   *advisory*: your commands, when you declared some, decide. To have an agent test the work as a
   step of its own, add a node to the workflow.
 
 ## The plan
 
-The plan shows whether the task can run, and where each step runs. Nothing runs until you press
-`Enter`.
+The plan is short: whether the task can run, the task and who checks it, and where each step runs.
+`d` shows its full text — what `--plan-only` prints. Nothing runs until you press `Enter`.
 
 - `w` changes where the task runs: a saved assignment, or **New assignment…**, which opens the
   editor for this workflow. Once you save it (`s`), Esc goes back to the plan with it; your task is
@@ -35,15 +35,15 @@ The plan shows whether the task can run, and where each step runs. Nothing runs 
   the plan says which agent, why, and where it can run instead. `a` assigns the step there; it asks
   first, then plans again.
 - A review or read-only step on a runtime, version or model that no check on this machine covers
-  runs anyway, with its restriction **advisory**: the plan says `Ready, advisory`, marks the step
-  `advisory`, and names where the restriction would be enforced. The Run's result is advisory. See
+  runs anyway, with its restriction **advisory**: the plan says `Ready · advisory` and marks the step
+  `advisory`; its full text (`d`) names where the restriction would be enforced. The Run's result is
+  advisory. See
   [Security model](../security/#restricted-roles).
 - When a runtime's version is a new major to Aqorin (Pi 0.x → 1.x, say), the plan says so too. It
   still runs: its first step checks what only a real run shows, and once a step completes on it,
   it is recorded as verified. `v` checks it now instead, with one model call, and asks first.
 
-While the summary says why a plan is refused, the plan's full text — what `--plan-only` prints — is
-folded; `d` shows it. A refused plan creates no Run. If a task file was written, it is kept for next
+A refused plan says why in its summary, and creates no Run. If a task file was written, it is kept for next
 time.
 
 Home also warns you ahead of time when your default runtime runs review and read-only steps here

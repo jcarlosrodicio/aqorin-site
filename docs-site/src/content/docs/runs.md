@@ -28,8 +28,9 @@ A Run's view is a dashboard:
   runtime), and its attempt.
 - **In the middle**, the selected step's work. One line says what it is doing now — *Thinking…*,
   *Running tool… npm test*, *Waiting for you* — and the next who runs it, with the model the runtime
-  reports and, on Claude Code, the context it has used (of its window, once the step ends).
-  Then come its messages. The tool calls between two messages are folded into one muted line, with
+  reports, the context it has used where the runtime says it (Claude Code's of its window, once the
+  step ends; Pi's and OpenCode's last request) and the tokens it has spent, in and out. A step that
+  failed says why, in its runtime's last words. Then come its messages. The tool calls between two messages are folded into one muted line, with
   their count and any that failed: `t` shows each one.
 - **On the right**, the Run in a few lines: its state, workflow and assurance, task, time, changes
   and handoffs. An advisory Run says there, once, what that means. `d` shows why, in a few words,
@@ -46,8 +47,9 @@ calls, then each of the task's checks as it runs — and, once they report, keep
 **Checks**.
 
 `Tab` to the steps, then `↑` `↓` picks one. `y` sends the selected step's messages to your
-terminal's clipboard, where the terminal allows it (it cannot confirm it): a mouse selection takes
-whole lines across every pane.
+terminal's clipboard, where the terminal allows it (it cannot confirm it). A mouse selection takes
+whole lines across every pane: `z` shows the focused pane alone, so it takes only that pane's lines,
+and `z` again shows them all.
 `c` `c` cancels the Run. Ctrl+T opens the [Trace](../trace/).
 
 ## The result

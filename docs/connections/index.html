@@ -95,8 +95,9 @@ For Codex, the reference is the name of the variable that holds the key.</li>
 start <code dir="auto">aqorin</code> from — never the key itself. If you paste a key’s value there, the form hides it,
 stores nothing, and says so in one warning. A key that <a href="../credentials/">Credentials</a> already
 lists — an OpenCode provider key or another connection’s, never one only an MCP server uses — is
-offered by its name and what uses it, to the left of <strong>Another environment variable</strong>: choose it
-instead of typing it again. Codex takes environment variables only.</p>
+offered by its name and what uses it. When it is the only key of a connection to the same host, a
+new connection to that host starts on it: the key you added once is used again, not typed a second time. With several, none is chosen
+for you. Codex takes environment variables only.</p>
 </li>
 <li>
 <p><strong>Models:</strong> <strong>Discover</strong> them (one call to the provider’s <code dir="auto">/models</code>, made only because you
