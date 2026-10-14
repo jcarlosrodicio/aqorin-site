@@ -33,9 +33,10 @@ A Run's view is a dashboard:
   failed says why, in its runtime's last words. Then come its messages. The tool calls between two messages are folded into one muted line, with
   their count and any that failed: `t` shows each one.
 - **On the right**, the Run in a few lines: its state, workflow and assurance, task, time, changes
-  and handoffs. An advisory Run says there, once, what that means. `d` shows why, in a few words,
-  with the selected step's details (its assignment, version and attempts); the full reasons are in
-  its Result.
+  and handoffs. `d` shows the selected step's details (its assignment, version and attempts). What
+  Aqorin wants you to know — why the Run is advisory, what a runtime version says of its flags — is
+  not repeated there: `!` shows the **notices** in its place. What failed and what waits for you
+  always shows.
 
 After a step whose work is checked, the steps show **checking** until the checks report: Aqorin runs
 the task's checks — after the step's runtime checks the work (advisory), when the task asked for the
@@ -54,7 +55,8 @@ and `z` again shows them all.
 
 ## The result
 
-A finished Run opens on its **Result**, which shows:
+A finished Run opens on its **Result** — one you follow to its end moves there by itself — which
+shows:
 
 - how it ended, and why;
 - the review;
@@ -64,6 +66,7 @@ A finished Run opens on its **Result**, which shows:
   or no review step, when the task had no checks, or when a read-only or review step ran with an
   advisory restriction. Otherwise it is *enforced*. An advisory
   success reads "completed — advisory": it is never shown as validated or independently approved.
+  The reasons are the notices' (`!`).
   The Result claims the assurance was reached only for a Run that succeeded.
 
 ## From the CLI

@@ -27,9 +27,12 @@ description: Un formulario que va de una petición a un plan, y nada se ejecuta 
 
 ## El plan
 
-El plan es corto: si la tarea puede ejecutarse, la tarea y quién la comprueba, y dónde se ejecuta cada
-paso. `d` muestra su texto completo (lo que imprime `--plan-only`). Nada se ejecuta hasta que pulsas
-`Enter`.
+El plan es un solo panel: si la tarea puede ejecutarse, la tarea y quién la comprueba, y el flujo:
+cada paso, su agente y el runtime, la conexión y el modelo en que se ejecuta. `d` pone en su lugar el
+texto completo (lo que imprime `--plan-only`), y `!` los **notices**: lo que Aqorin quiere que sepas
+(un rol al que solo se le dice que lea, una versión de runtime aún no verificada, un trabajo que nada
+comprueba), dicho solo cuando lo pides. Un paso que puede ejecutar comandos (el Bash de Claude Code) se
+dice en el propio plan. Nada se ejecuta hasta que pulsas `Enter`.
 
 - `w` cambia dónde se ejecuta la tarea: una asignación guardada, o **New assignment…**, que abre el
   editor para este workflow. Cuando la guardas (`s`), Esc vuelve al plan con ella; tu tarea se
@@ -38,9 +41,9 @@ paso. `d` muestra su texto completo (lo que imprime `--plan-only`). Nada se ejec
   configurar), el plan dice qué agente, por qué y dónde puede ejecutarse en su lugar. `a` asigna el
   paso allí; pregunta primero y vuelve a planificar.
 - Un paso de revisión o de solo lectura en un runtime, versión o modelo que ninguna comprobación de
-  esta máquina cubre se ejecuta igualmente, con la restricción **advisory** (orientativa): el plan
-  dice `Ready · advisory` y marca el paso como `advisory`; su texto completo (`d`) indica dónde la
-  restricción sería efectiva. El resultado del Run es orientativo. Mira
+  esta máquina cubre se ejecuta igualmente, con la restricción **advisory** (orientativa); los
+  notices (`!`) dicen qué pasos y dónde sería efectiva la restricción. El resultado del Run es
+  orientativo. Mira
   [Modelo de seguridad](../security/#roles-restringidos).
 - Cuando la versión de un runtime es una versión mayor nueva para Aqorin (de Pi 0.x a 1.x, por
   ejemplo), el plan también lo dice. Se ejecuta igualmente: su primer paso comprueba lo que solo una

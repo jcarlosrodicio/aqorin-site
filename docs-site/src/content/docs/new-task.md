@@ -25,8 +25,12 @@ description: One form from a request to a plan, and nothing runs until you press
 
 ## The plan
 
-The plan is short: whether the task can run, the task and who checks it, and where each step runs.
-`d` shows its full text — what `--plan-only` prints. Nothing runs until you press `Enter`.
+The plan is one pane: whether the task can run, the task and who checks it, and the flow — each step,
+its agent, and the runtime, connection and model it runs on. `d` puts its full text in its place
+(what `--plan-only` prints), and `!` the **notices**: what Aqorin wants you to know about it — a role
+only told to read, a runtime version not verified yet, work nothing checks — said only when you ask. A
+step that may run commands (Claude Code's Bash) is said on the plan itself. Nothing runs until you press
+`Enter`.
 
 - `w` changes where the task runs: a saved assignment, or **New assignment…**, which opens the
   editor for this workflow. Once you save it (`s`), Esc goes back to the plan with it; your task is
@@ -35,9 +39,8 @@ The plan is short: whether the task can run, the task and who checks it, and whe
   the plan says which agent, why, and where it can run instead. `a` assigns the step there; it asks
   first, then plans again.
 - A review or read-only step on a runtime, version or model that no check on this machine covers
-  runs anyway, with its restriction **advisory**: the plan says `Ready · advisory` and marks the step
-  `advisory`; its full text (`d`) names where the restriction would be enforced. The Run's result is
-  advisory. See
+  runs anyway, with its restriction **advisory**; the notices (`!`) say which steps and where the
+  restriction would be enforced. The Run's result is advisory. See
   [Security model](../security/#restricted-roles).
 - When a runtime's version is a new major to Aqorin (Pi 0.x → 1.x, say), the plan says so too. It
   still runs: its first step checks what only a real run shows, and once a step completes on it,

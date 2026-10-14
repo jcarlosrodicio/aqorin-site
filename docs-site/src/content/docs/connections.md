@@ -12,8 +12,10 @@ key instead of a login — add a **connection** of Aqorin's own.
 
 ## Add a connection
 
-On Runtimes (`6`), select the runtime and press **Add connection** (`a`). The form has four steps,
-and nothing is saved until the last one:
+On Runtimes (`6`), select the runtime and press **Add connection** (`a`). With a Pi or OpenCode
+connection there already, it first offers **A new one** or **Like <name>**: the same endpoint, key and
+models for this runtime, so a provider you set up once is used again. The form has four steps, and
+nothing is saved until the last one:
 
 1. **Name** — how you will pick the connection.
 2. **Endpoint or sign-in:**

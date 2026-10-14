@@ -94,9 +94,10 @@ de entrada y de salida. Un paso que falló dice por qué, con las últimas palab
 Luego vienen sus mensajes. Las llamadas a herramientas entre dos mensajes se
 pliegan en una sola línea atenuada, con cuántas son y las que fallaron: <code dir="auto">t</code> las muestra una a una.</li>
 <li><strong>A la derecha</strong>, el Run en pocas líneas: su estado, workflow y garantía, tarea, tiempo, cambios
-y handoffs. Un Run orientativo dice ahí, una sola vez, qué significa. <code dir="auto">d</code> muestra por qué, en pocas
-palabras, con los detalles del paso seleccionado (su asignación, versión e intentos); los motivos
-completos están en su Resultado.</li>
+y handoffs. <code dir="auto">d</code> muestra los detalles del paso seleccionado (su asignación, versión e intentos). Lo
+que Aqorin quiere que sepas (por qué el Run es orientativo, qué dice de sus flags la versión de un
+runtime) no se repite ahí: <code dir="auto">!</code> muestra los <strong>notices</strong> en su lugar. Lo que falla y lo que te espera
+se muestra siempre.</li>
 </ul>
 <p>Tras un paso cuyo trabajo se comprueba, los pasos muestran <strong>checking</strong> hasta que las comprobaciones
 responden: Aqorin ejecuta las comprobaciones de la tarea, después de que el runtime del paso
@@ -111,7 +112,7 @@ portapapeles de tu terminal, si la terminal lo permite (no puede confirmarlo). U
 ratón coge líneas enteras de todos los paneles: <code dir="auto">z</code> muestra solo el panel enfocado, para que coja solo
 sus líneas, y <code dir="auto">z</code> otra vez los muestra todos. <code dir="auto">c</code> <code dir="auto">c</code> cancela el Run. Ctrl+T abre el <a href="../trace/">Trace</a>.</p>
 <div class="sl-heading-wrapper level-h2"><h2 id="el-resultado">El resultado</h2><a class="sl-anchor-link" href="#el-resultado"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Sección titulada «El resultado»</span></a></div>
-<p>Un Run terminado se abre en su <strong>Result</strong>, que muestra:</p>
+<p>Un Run terminado se abre en su <strong>Result</strong> (uno que sigues hasta el final pasa a él solo), que muestra:</p>
 <ul>
 <li>cómo terminó, y por qué;</li>
 <li>la revisión;</li>

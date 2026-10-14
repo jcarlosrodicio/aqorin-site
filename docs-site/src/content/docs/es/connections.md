@@ -13,8 +13,10 @@ Aqorin.
 
 ## Añadir una conexión
 
-En Runtimes (`6`), selecciona el runtime y pulsa **Add connection** (`a`). El formulario tiene
-cuatro pasos, y no se guarda nada hasta el último:
+En Runtimes (`6`), selecciona el runtime y pulsa **Add connection** (`a`). Si ya hay una conexión de
+Pi u OpenCode, primero ofrece **A new one** o **Like <nombre>**: el mismo endpoint, clave y modelos para
+este runtime, así un proveedor que configuraste una vez se vuelve a usar. El formulario tiene cuatro
+pasos, y no se guarda nada hasta el último:
 
 1. **Name**: cómo elegirás la conexión.
 2. **Endpoint o inicio de sesión:**

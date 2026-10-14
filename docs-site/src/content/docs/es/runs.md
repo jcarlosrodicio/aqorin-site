@@ -34,9 +34,10 @@ La vista de un Run es un panel:
   Luego vienen sus mensajes. Las llamadas a herramientas entre dos mensajes se
   pliegan en una sola línea atenuada, con cuántas son y las que fallaron: `t` las muestra una a una.
 - **A la derecha**, el Run en pocas líneas: su estado, workflow y garantía, tarea, tiempo, cambios
-  y handoffs. Un Run orientativo dice ahí, una sola vez, qué significa. `d` muestra por qué, en pocas
-  palabras, con los detalles del paso seleccionado (su asignación, versión e intentos); los motivos
-  completos están en su Resultado.
+  y handoffs. `d` muestra los detalles del paso seleccionado (su asignación, versión e intentos). Lo
+  que Aqorin quiere que sepas (por qué el Run es orientativo, qué dice de sus flags la versión de un
+  runtime) no se repite ahí: `!` muestra los **notices** en su lugar. Lo que falla y lo que te espera
+  se muestra siempre.
 
 Tras un paso cuyo trabajo se comprueba, los pasos muestran **checking** hasta que las comprobaciones
 responden: Aqorin ejecuta las comprobaciones de la tarea, después de que el runtime del paso
@@ -54,7 +55,7 @@ sus líneas, y `z` otra vez los muestra todos. `c` `c` cancela el Run. Ctrl+T ab
 
 ## El resultado
 
-Un Run terminado se abre en su **Result**, que muestra:
+Un Run terminado se abre en su **Result** (uno que sigues hasta el final pasa a él solo), que muestra:
 
 - cómo terminó, y por qué;
 - la revisión;

@@ -91,8 +91,12 @@ runtime chooses what to run (tests, linters…), which can take a while, and its
 step of its own, add a node to the workflow.</li>
 </ul>
 <div class="sl-heading-wrapper level-h2"><h2 id="the-plan">The plan</h2><a class="sl-anchor-link" href="#the-plan"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “The plan”</span></a></div>
-<p>The plan is short: whether the task can run, the task and who checks it, and where each step runs.
-<code dir="auto">d</code> shows its full text — what <code dir="auto">--plan-only</code> prints. Nothing runs until you press <code dir="auto">Enter</code>.</p>
+<p>The plan is one pane: whether the task can run, the task and who checks it, and the flow — each step,
+its agent, and the runtime, connection and model it runs on. <code dir="auto">d</code> puts its full text in its place
+(what <code dir="auto">--plan-only</code> prints), and <code dir="auto">!</code> the <strong>notices</strong>: what Aqorin wants you to know about it — a role
+only told to read, a runtime version not verified yet, work nothing checks — said only when you ask. A
+step that may run commands (Claude Code’s Bash) is said on the plan itself. Nothing runs until you press
+<code dir="auto">Enter</code>.</p>
 <ul>
 <li><code dir="auto">w</code> changes where the task runs: a saved assignment, or <strong>New assignment…</strong>, which opens the
 editor for this workflow. Once you save it (<code dir="auto">s</code>), Esc goes back to the plan with it; your task is
@@ -101,9 +105,8 @@ kept.</li>
 the plan says which agent, why, and where it can run instead. <code dir="auto">a</code> assigns the step there; it asks
 first, then plans again.</li>
 <li>A review or read-only step on a runtime, version or model that no check on this machine covers
-runs anyway, with its restriction <strong>advisory</strong>: the plan says <code dir="auto">Ready · advisory</code> and marks the step
-<code dir="auto">advisory</code>; its full text (<code dir="auto">d</code>) names where the restriction would be enforced. The Run’s result is
-advisory. See
+runs anyway, with its restriction <strong>advisory</strong>; the notices (<code dir="auto">!</code>) say which steps and where the
+restriction would be enforced. The Run’s result is advisory. See
 <a href="../security/#restricted-roles">Security model</a>.</li>
 <li>When a runtime’s version is a new major to Aqorin (Pi 0.x → 1.x, say), the plan says so too. It
 still runs: its first step checks what only a real run shows, and once a step completes on it,

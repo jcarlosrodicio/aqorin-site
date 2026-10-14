@@ -30,6 +30,9 @@ De cada una muestra si la clave está definida ahora y qué la usa.
   OpenCode o Claude Code; también la de Codex si es una variable de entorno— la ofrece para elegirla,
   así que no la escribes dos veces. Una referencia que solo usa un servidor MCP nunca se ofrece como
   clave de una conexión.
+- **Use in a connection…** (`u`) abre el formulario de una conexión de Pi u OpenCode con la clave, y
+  con el endpoint y los modelos de la única conexión compatible con OpenAI que ya la usa, si la hay. No
+  se ofrece para la variable de un servidor MCP.
 - **Edit reference** y **Remove** la cambian. **Remove** pregunta primero; el valor en sí nunca se
   toca.
 - Una referencia que pertenece a una conexión o a un servidor MCP se cambia allí. **Open** te lleva
