@@ -39,11 +39,12 @@ sandbox is Codex's: Aqorin requests it and checks that Codex reports it in effec
 enforce it itself. Codex's chat runs in Aqorin's own Codex home, with your sign-in linked, never
 copied — never with your configuration.
 
-An OpenCode chat reads your OpenCode configuration, and gets the variables it names as `{env:NAME}`
-— a provider key such as `NAN_API_KEY`, a model id — in your global `opencode.json` or `.jsonc`,
-`OPENCODE_CONFIG` or `OPENCODE_CONFIG_DIR`, from the environment Aqorin was started in: by name,
-never stored, and hidden from what Aqorin shows and keeps as a credential is. A project's own
-`opencode.json` is not read for them. If a message fails, the error says the provider's reason.
+An OpenCode chat reads your OpenCode configuration, and gets the variables your global
+`~/.config/opencode/opencode.json` or `.jsonc` names as `{env:NAME}` — a provider key such as
+`NAN_API_KEY` — from the environment Aqorin was started in: by name, never stored, and hidden from
+what Aqorin shows and keeps as a credential is. Not read for them: a project's own `opencode.json`,
+`OPENCODE_CONFIG` or `OPENCODE_CONFIG_DIR`; and a name a credential may not have (such as `PATH` or
+`OPENCODE_…`) is never given. If a message fails, the error says the provider's reason.
 
 In an OpenCode chat, Aqorin keeps one thing off: OpenCode's subagents (its task tool). Their
 requests would come from a session the chat does not follow, so they would wait unseen.

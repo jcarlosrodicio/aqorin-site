@@ -39,11 +39,12 @@ raíces escribibles. Ese sandbox es de Codex: Aqorin lo solicita y comprueba que
 está en vigor, pero no lo aplica él mismo. El chat de Codex se ejecuta en el home de Codex propio de
 Aqorin, con tu inicio de sesión enlazado, nunca copiado, y nunca con tu configuración.
 
-Un chat de OpenCode lee tu configuración de OpenCode y recibe las variables que nombra como
-`{env:NOMBRE}` —una clave de proveedor como `NAN_API_KEY`, un id de modelo— en tu `opencode.json` o
-`.jsonc` global, `OPENCODE_CONFIG` u `OPENCODE_CONFIG_DIR`, desde el entorno con el que se arrancó
-Aqorin: por nombre, nunca guardadas y ocultas en lo que Aqorin muestra y guarda, como una credencial.
-El `opencode.json` propio de un proyecto no se lee para esto. Si un mensaje falla, el error dice el
+Un chat de OpenCode lee tu configuración de OpenCode y recibe las variables que tu
+`~/.config/opencode/opencode.json` o `.jsonc` global nombra como `{env:NOMBRE}` —una clave de
+proveedor como `NAN_API_KEY`— desde el entorno con el que se arrancó Aqorin: por nombre, nunca
+guardadas y ocultas en lo que Aqorin muestra y guarda, como una credencial. No se leen para esto el
+`opencode.json` de un proyecto, `OPENCODE_CONFIG` ni `OPENCODE_CONFIG_DIR`, y nunca se pasa un nombre
+que una credencial no puede tener (como `PATH` u `OPENCODE_…`). Si un mensaje falla, el error dice el
 motivo del proveedor.
 
 En un chat de OpenCode, Aqorin mantiene desactivada una cosa: los subagentes de OpenCode (su
