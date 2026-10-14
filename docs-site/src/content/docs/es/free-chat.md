@@ -92,7 +92,7 @@ muestra también cuánto de la ventana de contexto del modelo está usado.
 | `/allow`, `/deny` | Responder a una petición de permiso. |
 | `/answer <text>` | Responder a una pregunta. |
 | `/finish` | Terminar el chat, tras preguntar. También en la paleta y en F1. |
-| `/cancel` | Cancelar el Run del chat, tras preguntar: para un turno que nunca responde. |
+| `/cancel` | Cancelar el Run del chat, tras preguntar: para un turno que nunca responde; `/follow-up` lo continúa después. |
 | `/follow-up` | Empezar otro chat después de este. |
 | Ctrl+T | Los pasos y la actividad del Run. |
 

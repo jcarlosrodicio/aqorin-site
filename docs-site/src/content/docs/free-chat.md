@@ -89,7 +89,7 @@ shows how much of the model's context window is used.
 | `/allow`, `/deny` | Answer a permission request. |
 | `/answer <text>` | Answer a question. |
 | `/finish` | End the chat, after asking. Also in the palette and on F1. |
-| `/cancel` | Cancel the chat's Run, after asking — for a turn that never answers. |
+| `/cancel` | Cancel the chat's Run, after asking — for a turn that never answers; `/follow-up` then continues it. |
 | `/follow-up` | Start another chat after this one. |
 | Ctrl+T | The Run's steps and activity. |
 

@@ -83,7 +83,7 @@ agents and workflows are the project's library (.aqorin/agents/, .aqorin/workflo
 
 In a terminal, aqorin alone opens the TUI: this project's Runs (n launches a new one as aqorin run does; open one to follow it, inspect each node, cancel it), the four runtimes, the agent and workflow editors, each node's assignment and its preflight, Skills and MCP servers, and the credential references — each the CLI's own files and verbs. Quitting (q) leaves every Run going. --plain, --json or a pipe give the line view instead. NO_COLOR turns color off; AQORIN_TUI_ASCII=1 uses ASCII glyphs; AQORIN_TUI_BELL=0 silences the bell that rings when something starts waiting for you.
 
-feature, run and resume drive their Run in a detached worker: closing the terminal leaves it running (aqorin logs &lt;run> --follow, or aqorin, reattaches); Ctrl+C interrupts it resumably at its next step boundary, and a second Ctrl+C stops waiting (the interruption still happens). One Run at a time per working tree: a new Run or conversation is refused while another is unfinished.
+feature, run and resume drive their Run in a detached worker: closing the terminal leaves it running (aqorin logs &lt;run> --follow, or aqorin, reattaches); Ctrl+C interrupts it resumably at its next step boundary, and a second Ctrl+C stops waiting (the interruption still happens). One Run at a time per working tree: a new Run or conversation is refused while another is unfinished — a Free chat excepted, which neither waits nor holds the tree.
 
 ## Commands
 
