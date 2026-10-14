@@ -18,7 +18,9 @@ says *what* is done; the assignment, or failing it the default execution, says *
   - **OpenCode and Pi:** the models of the providers they have keys for.
 - **A connection's models:** the ones you discovered, typed or — for Claude Code and Codex — took
   from the runtime's own list. Wherever a model is chosen from such a list (a node, an agent's
-  default, a replan, a Free chat), **Another model id…** types one it does not name. Each connection has a default
+  default, a replan, a Free chat), **Another model id…** types one it does not name. A long list
+  (twelve or more) is searched: type part of the name and it narrows to the models that hold it, the
+  first selected; Backspace widens it. The default and **Another model id…** stay offered. Each connection has a default
   model, used when a step names none. See [Connections](../connections/).
 
 ## Where you choose one
