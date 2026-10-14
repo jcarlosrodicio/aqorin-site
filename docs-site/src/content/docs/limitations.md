@@ -12,8 +12,10 @@ description: What the Terminal Alpha does not do, and what it does not claim.
 - **Runtimes:** Claude Code, Codex, OpenCode and Pi. Other runtimes that Aqorin's code knows, such
   as jcode, are not part of the Alpha.
 - **Several workflows in one folder:** one works in the folder; the others run in git worktrees of
-  their own, at most four at once. Outside git, one at a time. A worktree is not a wall: an agent
-  allowed to write can still reach the folder or another worktree by its full path.
+  their own, at most four at once. Outside git, one at a time. On macOS Aqorin's sandbox keeps a Run's
+  agents out of the others' folders; with `sandbox: off`, in a Free chat or on Codex beyond its own
+  sandbox, nothing does.
+- **Sandbox:** writes only — reads and the network are not limited; Free chats are not sandboxed yet.
 - **Free chat:** a connection can be chosen on Pi only, and an OpenCode or Pi chat does not show how
   much context it uses.
 - **Accessibility:** the full-screen TUI does not support screen readers. Use `--plain` or `--json`.

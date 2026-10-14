@@ -42,8 +42,9 @@ became of it. A decision that was started and never finished reads *interrupted*
 A launch stopped before its Run existed can leave a worktree behind. `aqorin worktree list` names it as
 recorded by no Run, and `aqorin worktree discard <branch> --yes` removes it.
 
-A worktree keeps each Run's checks, review and changes apart. **It is not a wall:** an agent allowed to
-write can still write your project folder, or another Run's worktree, by its full path.
+A worktree keeps each Run's checks, review and changes apart. On macOS, Aqorin's sandbox also keeps its
+agents out of your project folder and other Runs' worktrees — see [Security](../security/). With
+`sandbox: off`, it is not a wall: an agent can write anywhere you can.
 
 A project that is not a git repository runs one workflow at a time. Free chats never count.
 
@@ -93,6 +94,7 @@ shows:
 
 - how it ended, and why;
 - the review;
+- the verification, when the workflow has one — said apart, since it never approves the Run;
 - the checks;
 - the changes;
 - its **assurance**. A Run is *advisory* when its workflow says it is, has no step that runs checks

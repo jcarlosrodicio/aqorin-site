@@ -32,6 +32,7 @@ agent_defaults:
   developer: { connection: nan, model: glm }   # your default execution for a built-in agent
   reviewer: { runtime: codex }
 worktree_setup: [npm, ci]   # run in each new worktree of a workflow (an argv, no shell)
+sandbox: off                # solo para ejecutar sin el sandbox de Aqorin (macOS); cada Run lo dice
 resources:
   skills:
     - id: house-style
