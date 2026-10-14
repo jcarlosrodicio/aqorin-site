@@ -11,8 +11,30 @@ so a runtime that crashes does not erase what happened.
 A Run runs in its own worker. Quitting the TUI, or closing the terminal, leaves it running. Run
 `aqorin` again, or `aqorin logs <run> --follow`, to follow it.
 
-There is **one workflow Run at a time per working tree**. A new workflow is refused while another is
-unfinished. Free chats are not counted: they are neither refused nor refuse anything.
+## Several workflows at once
+
+The first workflow works in your project folder. One launched while another is still unfinished there
+runs in a **git worktree of its own** — outside your repository, in Aqorin's data folder, on a new branch
+`aqorin/<task>-<id>` from your last commit. The plan says so before it runs, and says when your folder
+has uncommitted changes (they are not in the worktree). Its checks, review and changes are its own, and
+Runs marks it `⎇`.
+
+A new worktree has nothing installed. To prepare each one, set `worktree_setup` in
+`.aqorin/aqorin.yaml` (see [Configuration](../configuration/)); without it nothing is prepared, and the
+plan says so.
+
+When such a Run is over, its Result says what became of its worktree, and you decide — nothing happens
+on its own:
+
+| Key | What it does |
+|---|---|
+| `I` | **Integrate**: its changes are committed on the branch and merged into your folder's current branch. Refused, changing nothing, while your folder has uncommitted changes or a workflow running in it; a conflict merges nothing and names the files. |
+| `K` | **Keep the branch**, for a pull request; the worktree is removed. |
+| `X` | **Discard** the worktree and the branch, after asking. |
+
+From the CLI: `aqorin worktree list`, `aqorin worktree integrate|keep <run>`, `aqorin worktree discard
+<run> --yes`. A project that is not a git repository runs one workflow at a time. Free chats never
+count.
 
 ## The Runs screen (`2`)
 

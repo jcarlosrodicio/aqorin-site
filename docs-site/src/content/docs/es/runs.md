@@ -11,8 +11,29 @@ runtime, así que un runtime que se cae no borra lo que ocurrió.
 Un Run se ejecuta en su propio worker. Salir de la TUI, o cerrar la terminal, lo deja ejecutándose.
 Ejecuta `aqorin` otra vez, o `aqorin logs <run> --follow`, para seguirlo.
 
-Hay **un Run de workflow a la vez por árbol de trabajo**. Un workflow nuevo se rechaza mientras otro
-esté sin terminar. Los Free chats no cuentan: ni se rechazan ni rechazan nada.
+## Varios workflows a la vez
+
+El primer workflow trabaja en la carpeta de tu proyecto. Uno que lances mientras otro sigue sin terminar
+ahí se ejecuta en **un worktree de git propio**: fuera de tu repositorio, en la carpeta de datos de
+Aqorin, en una rama nueva `aqorin/<tarea>-<id>` desde tu último commit. El plan lo dice antes de
+ejecutarse, y avisa si tu carpeta tiene cambios sin commit (no están en el worktree). Sus checks, su
+revisión y sus cambios son suyos, y Runs lo marca con `⎇`.
+
+Un worktree nuevo no tiene nada instalado. Para prepararlo, pon `worktree_setup` en
+`.aqorin/aqorin.yaml` (mira [Configuración](../configuration/)); sin él no se prepara nada, y el plan
+lo dice.
+
+Cuando ese Run termina, su Result dice qué pasó con su worktree, y decides tú — nada ocurre solo:
+
+| Tecla | Qué hace |
+|---|---|
+| `I` | **Integrar**: sus cambios se confirman en la rama y se fusionan en la rama actual de tu carpeta. Se rechaza, sin cambiar nada, mientras tu carpeta tenga cambios sin commit o un workflow en marcha; un conflicto no fusiona nada y nombra los ficheros. |
+| `K` | **Conservar la rama**, para un pull request; el worktree se borra. |
+| `X` | **Descartar** el worktree y la rama, tras preguntar. |
+
+Desde la CLI: `aqorin worktree list`, `aqorin worktree integrate|keep <run>`, `aqorin worktree discard
+<run> --yes`. Un proyecto que no es un repositorio git ejecuta un workflow cada vez. Los Free chats nunca
+cuentan.
 
 ## La pantalla Runs (`2`)
 
