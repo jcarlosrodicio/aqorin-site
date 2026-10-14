@@ -93,9 +93,10 @@ step ends; Pi’s and OpenCode’s last request) and the tokens it has spent, in
 failed says why, in its runtime’s last words. Then come its messages. The tool calls between two messages are folded into one muted line, with
 their count and any that failed: <code dir="auto">t</code> shows each one.</li>
 <li><strong>On the right</strong>, the Run in a few lines: its state, workflow and assurance, task, time, changes
-and handoffs. An advisory Run says there, once, what that means. <code dir="auto">d</code> shows why, in a few words,
-with the selected step’s details (its assignment, version and attempts); the full reasons are in
-its Result.</li>
+and handoffs. <code dir="auto">d</code> shows the selected step’s details (its assignment, version and attempts). What
+Aqorin wants you to know — why the Run is advisory, what a runtime version says of its flags — is
+not repeated there: <code dir="auto">!</code> shows the <strong>notices</strong> in its place. What failed and what waits for you
+always shows.</li>
 </ul>
 <p>After a step whose work is checked, the steps show <strong>checking</strong> until the checks report: Aqorin runs
 the task’s checks — after the step’s runtime checks the work (advisory), when the task asked for the
@@ -111,7 +112,8 @@ whole lines across every pane: <code dir="auto">z</code> shows the focused pane 
 and <code dir="auto">z</code> again shows them all.
 <code dir="auto">c</code> <code dir="auto">c</code> cancels the Run. Ctrl+T opens the <a href="../trace/">Trace</a>.</p>
 <div class="sl-heading-wrapper level-h2"><h2 id="the-result">The result</h2><a class="sl-anchor-link" href="#the-result"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “The result”</span></a></div>
-<p>A finished Run opens on its <strong>Result</strong>, which shows:</p>
+<p>A finished Run opens on its <strong>Result</strong> — one you follow to its end moves there by itself — which
+shows:</p>
 <ul>
 <li>how it ended, and why;</li>
 <li>the review;</li>
@@ -121,6 +123,7 @@ and <code dir="auto">z</code> again shows them all.
 or no review step, when the task had no checks, or when a read-only or review step ran with an
 advisory restriction. Otherwise it is <em>enforced</em>. An advisory
 success reads “completed — advisory”: it is never shown as validated or independently approved.
+The reasons are the notices’ (<code dir="auto">!</code>).
 The Result claims the assurance was reached only for a Run that succeeded.</li>
 </ul>
 <div class="sl-heading-wrapper level-h2"><h2 id="from-the-cli">From the CLI</h2><a class="sl-anchor-link" href="#from-the-cli"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “From the CLI”</span></a></div>

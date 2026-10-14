@@ -93,9 +93,10 @@ es <em>advisory</em>: deciden tus comandos, si declaraste alguno. Para que un ag
 como un paso propio, añade un nodo al workflow.</li>
 </ul>
 <div class="sl-heading-wrapper level-h2"><h2 id="el-plan">El plan</h2><a class="sl-anchor-link" href="#el-plan"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Sección titulada «El plan»</span></a></div>
-<p>El plan es corto: si la tarea puede ejecutarse, la tarea y quién la comprueba, y dónde se ejecuta cada
-paso. <code dir="auto">d</code> muestra su texto completo (lo que imprime <code dir="auto">--plan-only</code>). Nada se ejecuta hasta que pulsas
-<code dir="auto">Enter</code>.</p>
+<p>El plan es un solo panel: si la tarea puede ejecutarse, la tarea y quién la comprueba, y el flujo:
+cada paso, su agente y el runtime, la conexión y el modelo en que se ejecuta. <code dir="auto">d</code> pone en su lugar el
+texto completo (lo que imprime <code dir="auto">--plan-only</code>), y <code dir="auto">!</code> los <strong>notices</strong>: lo que Aqorin quiere que sepas,
+dicho solo cuando lo pides. Nada se ejecuta hasta que pulsas <code dir="auto">Enter</code>.</p>
 <ul>
 <li><code dir="auto">w</code> cambia dónde se ejecuta la tarea: una asignación guardada, o <strong>New assignment…</strong>, que abre el
 editor para este workflow. Cuando la guardas (<code dir="auto">s</code>), Esc vuelve al plan con ella; tu tarea se
@@ -104,9 +105,9 @@ conserva.</li>
 configurar), el plan dice qué agente, por qué y dónde puede ejecutarse en su lugar. <code dir="auto">a</code> asigna el
 paso allí; pregunta primero y vuelve a planificar.</li>
 <li>Un paso de revisión o de solo lectura en un runtime, versión o modelo que ninguna comprobación de
-esta máquina cubre se ejecuta igualmente, con la restricción <strong>advisory</strong> (orientativa): el plan
-dice <code dir="auto">Ready · advisory</code> y marca el paso como <code dir="auto">advisory</code>; su texto completo (<code dir="auto">d</code>) indica dónde la
-restricción sería efectiva. El resultado del Run es orientativo. Mira
+esta máquina cubre se ejecuta igualmente, con la restricción <strong>advisory</strong> (orientativa); los
+notices (<code dir="auto">!</code>) dicen qué pasos y dónde sería efectiva la restricción. El resultado del Run es
+orientativo. Mira
 <a href="../security/#roles-restringidos">Modelo de seguridad</a>.</li>
 <li>Cuando la versión de un runtime es una versión mayor nueva para Aqorin (de Pi 0.x a 1.x, por
 ejemplo), el plan también lo dice. Se ejecuta igualmente: su primer paso comprueba lo que solo una
