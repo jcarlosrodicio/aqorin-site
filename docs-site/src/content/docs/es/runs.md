@@ -28,8 +28,10 @@ La vista de un Run es un panel:
   (agente · runtime), y su intento.
 - **En el centro**, el trabajo del paso seleccionado. Una línea dice qué está haciendo ahora
   (*Thinking…*, *Running tool… npm test*, *Waiting for you*), y la siguiente quién lo ejecuta, con el
-  modelo que informa el runtime y, en Claude Code, el contexto que lleva usado (de su ventana, al
-  terminar el paso). Luego vienen sus mensajes. Las llamadas a herramientas entre dos mensajes se
+  modelo que informa el runtime, el contexto que lleva usado donde el runtime lo dice (en Claude Code,
+  de su ventana al terminar el paso; en Pi y OpenCode, el de la última petición) y los tokens gastados,
+  de entrada y de salida. Un paso que falló dice por qué, con las últimas palabras de su runtime.
+  Luego vienen sus mensajes. Las llamadas a herramientas entre dos mensajes se
   pliegan en una sola línea atenuada, con cuántas son y las que fallaron: `t` las muestra una a una.
 - **A la derecha**, el Run en pocas líneas: su estado, workflow y garantía, tarea, tiempo, cambios
   y handoffs. Un Run orientativo dice ahí, una sola vez, qué significa. `d` muestra por qué, en pocas
@@ -46,8 +48,9 @@ paso muestra qué hacen: los mensajes y llamadas a herramientas del runtime y, d
 comprobación de la tarea mientras se ejecuta; cuando responden, quedan bajo **Checks**.
 
 `Tab` a los pasos, y luego `↑` `↓` elige uno. `y` envía los mensajes del paso seleccionado al
-portapapeles de tu terminal, si la terminal lo permite (no puede confirmarlo): una selección con el
-ratón coge líneas enteras de todos los paneles. `c` `c` cancela el Run. Ctrl+T abre el [Trace](../trace/).
+portapapeles de tu terminal, si la terminal lo permite (no puede confirmarlo). Una selección con el
+ratón coge líneas enteras de todos los paneles: `z` muestra solo el panel enfocado, para que coja solo
+sus líneas, y `z` otra vez los muestra todos. `c` `c` cancela el Run. Ctrl+T abre el [Trace](../trace/).
 
 ## El resultado
 

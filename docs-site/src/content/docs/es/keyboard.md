@@ -46,6 +46,7 @@ borra.
 | PgUp / PgDn | Desplazar la actividad. Ctrl+End vuelve a seguir su final. |
 | `t` | Mostrar cada llamada a herramienta, o volver a plegarlas entre los mensajes. |
 | `d` | Mostrar u ocultar, a la derecha, los detalles del paso seleccionado y los motivos de un Run orientativo. |
+| `z` | Mostrar solo el panel enfocado, para que una selección con el ratón coja solo sus líneas; `z` otra vez los muestra todos. |
 | `y` | Enviar los mensajes del paso seleccionado al portapapeles de la terminal, si la terminal lo permite (no puede confirmarlo). |
 | Ctrl+T | [Trace](../trace/): Activity, Trace y Raw. |
 | `c` `c` | Cancelar el Run. |

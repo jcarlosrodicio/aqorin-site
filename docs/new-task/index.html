@@ -75,9 +75,9 @@
 <li><strong>What to do:</strong> a <a href="../free-chat/">Free chat</a>, or a workflow.</li>
 <li><strong>Which workflow, and where it runs.</strong></li>
 <li><strong>What the agents are asked to do:</strong> your request.</li>
-<li><strong>Checks (optional):</strong> commands that must pass, such as <code dir="auto">npm test</code>. Aqorin runs them without a
-shell. An unquoted <code dir="auto">&amp;&amp;</code>, <code dir="auto">|</code> or <code dir="auto">&gt;</code> is refused where you type it.</li>
-<li><strong>Agent check:</strong> No by default. <strong>Yes</strong> asks the step’s runtime to check the work too.</li>
+<li><strong>Checked by:</strong> <strong>Nothing</strong> (the default), <strong>Commands</strong>, <strong>The agent</strong>, or <strong>Commands and the
+agent</strong>. The command fields appear only with commands: each must pass, such as <code dir="auto">npm test</code>, and
+runs without a shell — an unquoted <code dir="auto">&amp;&amp;</code>, <code dir="auto">|</code> or <code dir="auto">&gt;</code> is refused where you type it.</li>
 </ol>
 <div class="sl-heading-wrapper level-h2"><h2 id="checks">Checks</h2><a class="sl-anchor-link" href="#checks"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Checks”</span></a></div>
 <ul>
@@ -85,14 +85,14 @@ shell. An unquoted <code dir="auto">&amp;&amp;</code>, <code dir="auto">|</code>
 runs the checks itself, with your permissions, and only their exit status decides validation.</li>
 <li><strong>With no checks</strong>, no task file is written. Nothing checks the work: the step moves on at once,
 its checks read <em>not checked</em>, and the Run is <em>advisory</em>. The plan says so.</li>
-<li><strong>Agent check</strong> (off by default) asks the step’s runtime to check the work too, after the step. The
+<li><strong>The agent</strong> (off by default) asks the step’s runtime to check the work too, after the step. The
 runtime chooses what to run (tests, linters…), which can take a while, and its verdict is
 <em>advisory</em>: your commands, when you declared some, decide. To have an agent test the work as a
 step of its own, add a node to the workflow.</li>
 </ul>
 <div class="sl-heading-wrapper level-h2"><h2 id="the-plan">The plan</h2><a class="sl-anchor-link" href="#the-plan"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “The plan”</span></a></div>
-<p>The plan shows whether the task can run, and where each step runs. Nothing runs until you press
-<code dir="auto">Enter</code>.</p>
+<p>The plan is short: whether the task can run, the task and who checks it, and where each step runs.
+<code dir="auto">d</code> shows its full text — what <code dir="auto">--plan-only</code> prints. Nothing runs until you press <code dir="auto">Enter</code>.</p>
 <ul>
 <li><code dir="auto">w</code> changes where the task runs: a saved assignment, or <strong>New assignment…</strong>, which opens the
 editor for this workflow. Once you save it (<code dir="auto">s</code>), Esc goes back to the plan with it; your task is
@@ -101,15 +101,15 @@ kept.</li>
 the plan says which agent, why, and where it can run instead. <code dir="auto">a</code> assigns the step there; it asks
 first, then plans again.</li>
 <li>A review or read-only step on a runtime, version or model that no check on this machine covers
-runs anyway, with its restriction <strong>advisory</strong>: the plan says <code dir="auto">Ready, advisory</code>, marks the step
-<code dir="auto">advisory</code>, and names where the restriction would be enforced. The Run’s result is advisory. See
+runs anyway, with its restriction <strong>advisory</strong>: the plan says <code dir="auto">Ready · advisory</code> and marks the step
+<code dir="auto">advisory</code>; its full text (<code dir="auto">d</code>) names where the restriction would be enforced. The Run’s result is
+advisory. See
 <a href="../security/#restricted-roles">Security model</a>.</li>
 <li>When a runtime’s version is a new major to Aqorin (Pi 0.x → 1.x, say), the plan says so too. It
 still runs: its first step checks what only a real run shows, and once a step completes on it,
 it is recorded as verified. <code dir="auto">v</code> checks it now instead, with one model call, and asks first.</li>
 </ul>
-<p>While the summary says why a plan is refused, the plan’s full text — what <code dir="auto">--plan-only</code> prints — is
-folded; <code dir="auto">d</code> shows it. A refused plan creates no Run. If a task file was written, it is kept for next
+<p>A refused plan says why in its summary, and creates no Run. If a task file was written, it is kept for next
 time.</p>
 <p>Home also warns you ahead of time when your default runtime runs review and read-only steps here
 with an advisory restriction, and says which runtime enforces it.</p>

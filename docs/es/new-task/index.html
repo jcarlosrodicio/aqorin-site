@@ -75,9 +75,9 @@
 <li><strong>What to do:</strong> un <a href="../free-chat/">Free chat</a>, o un workflow.</li>
 <li><strong>Which workflow, and where it runs.</strong></li>
 <li><strong>What the agents are asked to do:</strong> tu petición.</li>
-<li><strong>Checks (optional):</strong> comandos que deben pasar, como <code dir="auto">npm test</code>. Aqorin los ejecuta sin shell.
-Un <code dir="auto">&amp;&amp;</code>, <code dir="auto">|</code> o <code dir="auto">&gt;</code> sin comillas se rechaza allí donde lo escribes.</li>
-<li><strong>Agent check:</strong> No por defecto. <strong>Yes</strong> pide al runtime del paso que compruebe también el trabajo.</li>
+<li><strong>Checked by:</strong> <strong>Nothing</strong> (por defecto), <strong>Commands</strong>, <strong>The agent</strong> o <strong>Commands and the
+agent</strong>. Los campos de comandos solo aparecen con comandos: cada uno debe pasar, como <code dir="auto">npm test</code>,
+y se ejecuta sin shell; un <code dir="auto">&amp;&amp;</code>, <code dir="auto">|</code> o <code dir="auto">&gt;</code> sin comillas se rechaza allí donde lo escribes.</li>
 </ol>
 <div class="sl-heading-wrapper level-h2"><h2 id="comprobaciones">Comprobaciones</h2><a class="sl-anchor-link" href="#comprobaciones"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Sección titulada «Comprobaciones»</span></a></div>
 <ul>
@@ -87,14 +87,15 @@ salida decide la validación.</li>
 <li><strong>Sin comprobaciones</strong>, no se escribe ningún archivo de tarea. Nada comprueba el trabajo: el paso
 sigue enseguida, sus comprobaciones dicen <em>not checked</em> y el Run es <em>advisory</em> (orientativo). El
 plan lo dice.</li>
-<li><strong>Agent check</strong> (desactivado por defecto) pide al runtime del paso que compruebe también el trabajo
+<li><strong>The agent</strong> (desactivado por defecto) pide al runtime del paso que compruebe también el trabajo
 tras el paso. El runtime elige qué ejecutar (tests, linters…), lo que puede tardar, y su veredicto
 es <em>advisory</em>: deciden tus comandos, si declaraste alguno. Para que un agente pruebe el trabajo
 como un paso propio, añade un nodo al workflow.</li>
 </ul>
 <div class="sl-heading-wrapper level-h2"><h2 id="el-plan">El plan</h2><a class="sl-anchor-link" href="#el-plan"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Sección titulada «El plan»</span></a></div>
-<p>El plan muestra si la tarea puede ejecutarse y dónde se ejecuta cada paso. Nada se ejecuta hasta que
-pulsas <code dir="auto">Enter</code>.</p>
+<p>El plan es corto: si la tarea puede ejecutarse, la tarea y quién la comprueba, y dónde se ejecuta cada
+paso. <code dir="auto">d</code> muestra su texto completo (lo que imprime <code dir="auto">--plan-only</code>). Nada se ejecuta hasta que pulsas
+<code dir="auto">Enter</code>.</p>
 <ul>
 <li><code dir="auto">w</code> cambia dónde se ejecuta la tarea: una asignación guardada, o <strong>New assignment…</strong>, que abre el
 editor para este workflow. Cuando la guardas (<code dir="auto">s</code>), Esc vuelve al plan con ella; tu tarea se
@@ -104,16 +105,15 @@ configurar), el plan dice qué agente, por qué y dónde puede ejecutarse en su 
 paso allí; pregunta primero y vuelve a planificar.</li>
 <li>Un paso de revisión o de solo lectura en un runtime, versión o modelo que ninguna comprobación de
 esta máquina cubre se ejecuta igualmente, con la restricción <strong>advisory</strong> (orientativa): el plan
-dice <code dir="auto">Ready, advisory</code>, marca el paso como <code dir="auto">advisory</code> e indica dónde la restricción sería
-efectiva. El resultado del Run es orientativo. Mira
+dice <code dir="auto">Ready · advisory</code> y marca el paso como <code dir="auto">advisory</code>; su texto completo (<code dir="auto">d</code>) indica dónde la
+restricción sería efectiva. El resultado del Run es orientativo. Mira
 <a href="../security/#roles-restringidos">Modelo de seguridad</a>.</li>
 <li>Cuando la versión de un runtime es una versión mayor nueva para Aqorin (de Pi 0.x a 1.x, por
 ejemplo), el plan también lo dice. Se ejecuta igualmente: su primer paso comprueba lo que solo una
 ejecución real muestra, y en cuanto un paso termina en ella queda registrada como verificada. <code dir="auto">v</code>
 la comprueba ya, con una llamada a un modelo, y pregunta primero.</li>
 </ul>
-<p>Mientras el resumen dice por qué se rechaza un plan, el texto completo del plan (lo que imprime
-<code dir="auto">--plan-only</code>) queda plegado; <code dir="auto">d</code> lo muestra. Un plan rechazado no crea ningún Run. Si se escribió un
+<p>Un plan rechazado dice por qué en su resumen, y no crea ningún Run. Si se escribió un
 archivo de tarea, se conserva para la próxima vez.</p>
 <p>Home también te avisa con antelación cuando tu runtime por defecto ejecuta aquí los pasos de revisión
 y de solo lectura con una restricción orientativa, y dice qué runtime la aplica de forma efectiva.</p>

@@ -27,8 +27,9 @@ and nothing is saved until the last one:
    start `aqorin` from — never the key itself. If you paste a key's value there, the form hides it,
    stores nothing, and says so in one warning. A key that [Credentials](../credentials/) already
    lists — an OpenCode provider key or another connection's, never one only an MCP server uses — is
-   offered by its name and what uses it, to the left of **Another environment variable**: choose it
-   instead of typing it again. Codex takes environment variables only.
+   offered by its name and what uses it, to the left of **Another environment variable**, and a new
+   connection starts on it: the key you added once is used again, not typed a second time. Codex
+   takes environment variables only.
 3. **Models:** **Discover** them (one call to the provider's `/models`, made only because you
    asked), type them, or add them later. For **Claude Code and Codex**, the step also offers
    **their models**: the ones the runtime lists for your own sign-in, as Runtimes read them — no

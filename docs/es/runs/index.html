@@ -88,8 +88,10 @@ sin terminar.</p>
 (agente · runtime), y su intento.</li>
 <li><strong>En el centro</strong>, el trabajo del paso seleccionado. Una línea dice qué está haciendo ahora
 (<em>Thinking…</em>, <em>Running tool… npm test</em>, <em>Waiting for you</em>), y la siguiente quién lo ejecuta, con el
-modelo que informa el runtime y, en Claude Code, el contexto que lleva usado (de su ventana, al
-terminar el paso). Luego vienen sus mensajes. Las llamadas a herramientas entre dos mensajes se
+modelo que informa el runtime, el contexto que lleva usado donde el runtime lo dice (en Claude Code,
+de su ventana al terminar el paso; en Pi y OpenCode, el de la última petición) y los tokens gastados,
+de entrada y de salida. Un paso que falló dice por qué, con las últimas palabras de su runtime.
+Luego vienen sus mensajes. Las llamadas a herramientas entre dos mensajes se
 pliegan en una sola línea atenuada, con cuántas son y las que fallaron: <code dir="auto">t</code> las muestra una a una.</li>
 <li><strong>A la derecha</strong>, el Run en pocas líneas: su estado, workflow y garantía, tarea, tiempo, cambios
 y handoffs. Un Run orientativo dice ahí, una sola vez, qué significa. <code dir="auto">d</code> muestra por qué, en pocas
@@ -105,8 +107,9 @@ todavía no ha empezado suele estar esperando a estas comprobaciones. Mientras t
 paso muestra qué hacen: los mensajes y llamadas a herramientas del runtime y, después, cada
 comprobación de la tarea mientras se ejecuta; cuando responden, quedan bajo <strong>Checks</strong>.</p>
 <p><code dir="auto">Tab</code> a los pasos, y luego <code dir="auto">↑</code> <code dir="auto">↓</code> elige uno. <code dir="auto">y</code> envía los mensajes del paso seleccionado al
-portapapeles de tu terminal, si la terminal lo permite (no puede confirmarlo): una selección con el
-ratón coge líneas enteras de todos los paneles. <code dir="auto">c</code> <code dir="auto">c</code> cancela el Run. Ctrl+T abre el <a href="../trace/">Trace</a>.</p>
+portapapeles de tu terminal, si la terminal lo permite (no puede confirmarlo). Una selección con el
+ratón coge líneas enteras de todos los paneles: <code dir="auto">z</code> muestra solo el panel enfocado, para que coja solo
+sus líneas, y <code dir="auto">z</code> otra vez los muestra todos. <code dir="auto">c</code> <code dir="auto">c</code> cancela el Run. Ctrl+T abre el <a href="../trace/">Trace</a>.</p>
 <div class="sl-heading-wrapper level-h2"><h2 id="el-resultado">El resultado</h2><a class="sl-anchor-link" href="#el-resultado"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Sección titulada «El resultado»</span></a></div>
 <p>Un Run terminado se abre en su <strong>Result</strong>, que muestra:</p>
 <ul>
