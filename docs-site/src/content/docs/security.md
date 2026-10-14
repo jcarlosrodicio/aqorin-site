@@ -105,8 +105,8 @@ write in the Run's own folder or worktree and anywhere outside your project. The
 None of them, nor any folder above them, can be renamed out of the way. The Run's checks run in the
 sandbox too, and integrating a sandboxed Run's worktree runs no git hook — its agents may have written
 one. Reads and the network are not limited. Codex keeps its own sandbox; Claude Code's own is turned off
-inside Aqorin's for that Run, without changing your settings. Where the sandbox cannot be set up, the Run
-is refused. `sandbox: off` in `.aqorin/aqorin.yaml` runs without it, and every Run says so. **Free chats
+inside Aqorin's for that Run, without changing your settings. On a Mac where the sandbox cannot be set
+up, the Run is refused. `sandbox: off` in `.aqorin/aqorin.yaml` runs without it, and every Run says so. **Free chats
 are not sandboxed yet.**
 
 ## Free chat

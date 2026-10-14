@@ -113,7 +113,7 @@ proyecto. Estas escrituras fallan con `Operation not permitted`:
 Ninguno de ellos, ni ninguna carpeta por encima, se puede renombrar para apartarlo. Los checks del Run también
 se ejecutan en el sandbox, e integrar el worktree de un Run con sandbox no ejecuta ningún hook de git — sus
 agentes podrían haberlo escrito. Las lecturas y la red no se limitan. Codex conserva su propio sandbox; el de Claude Code se apaga dentro del
-de Aqorin para ese Run, sin cambiar tu configuración. Donde el sandbox no se puede montar, el Run se rechaza.
+de Aqorin para ese Run, sin cambiar tu configuración. En un Mac donde el sandbox no se puede montar, el Run se rechaza.
 `sandbox: off` en `.aqorin/aqorin.yaml` ejecuta sin él, y cada Run lo dice. **Los Free chats aún no van con
 sandbox.**
 
