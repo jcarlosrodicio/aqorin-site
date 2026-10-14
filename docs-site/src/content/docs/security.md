@@ -81,11 +81,33 @@ plan says so for each such step. A read-only or review step never gets it.
 | Enforced by | Example |
 |---|---|
 | **Aqorin** | Transitions, budgets, checks, approvals, admission, credential references. |
-| **The runtime, natively** | A runtime's own permission prompts, and its own sandbox — such as Codex's in a chat. |
+| **The macOS kernel** | Aqorin's sandbox around a workflow Run's Claude Code, OpenCode and Pi: the writes below, refused. |
+| **The runtime, natively** | A runtime's own permission prompts, and its own sandbox — such as Codex's. |
 | **Not enforceable** | Said as such. Aqorin requests it, and says it only requested it. |
 
 A sandbox flag that Aqorin has not verified on a runtime is reported as a **request**, not a
 guarantee.
+
+## The sandbox around a workflow Run
+
+On macOS, a workflow Run's Claude Code, OpenCode and Pi run in Aqorin's sandbox (Seatbelt). Its agents
+write in the Run's own folder or worktree and anywhere outside your project. These writes fail with
+`Operation not permitted`:
+
+- the repository's other folders, its `.git` and its `.aqorin` — so an agent cannot commit, move a
+  branch, add a hook to `.git` or turn the sandbox off; Aqorin commits when you integrate a worktree;
+- other Runs' worktrees, and Aqorin's own files — its record of your Runs included;
+- your keys, cloud credentials, and git and shell configuration (`~/.ssh`, `~/.aws`, `~/.gitconfig`,
+  `~/.zshrc`…, and the file a symlinked one points to);
+- the coding agents' own settings (`~/.claude/settings.json`, `~/.codex`, `~/.config/opencode`, `~/.pi`…)
+  and the executables on your PATH (`~/.local/bin`, Homebrew's).
+
+None of them, nor any folder above them, can be renamed out of the way. The Run's checks run in the
+sandbox too, and integrating a sandboxed Run's worktree runs no git hook — its agents may have written
+one. Reads and the network are not limited. Codex keeps its own sandbox; Claude Code's own is turned off
+inside Aqorin's for that Run, without changing your settings. Where the sandbox cannot be set up, the Run
+is refused. `sandbox: off` in `.aqorin/aqorin.yaml` runs without it, and every Run says so. **Free chats
+are not sandboxed yet.**
 
 ## Free chat
 
@@ -103,4 +125,6 @@ See [Free chat](../free-chat/).
 - **What an MCP server does with its access.** Aqorin chooses which servers and tools an agent
   may use, not what the server does.
 - **Your check commands.** They run with your permissions. They are code you trust.
-- **A role that may edit files.** It can do in the project whatever its runtime allows.
+- **A role that may edit files.** It can do in its own folder whatever its runtime allows — and, with
+  `sandbox: off` or in a Free chat, anywhere you can.
+- **What a sandboxed agent reads,** and where it connects.

@@ -46,6 +46,7 @@ aqorin inspect <run>
 aqorin logs <run> [--follow] [--json-events]
 aqorin cancel <run>
 aqorin resume <run>
+aqorin answer <run> [--] <text>
 aqorin replan <run> --role <role> --runtime <id> [--connection <id>] [--model <model>] --reason <text>
 aqorin replan <run> --role <role> --same --reason <text>
 aqorin capabilities [--runtime <id>]
@@ -80,11 +81,11 @@ aqorin help
 aqorin --version
 ```
 
-agents and workflows are the project's library (.aqorin/agents/, .aqorin/workflows/) beside the built-ins and the Portable Feature templates (portable-feature-enforced, portable-feature-advisory); validate prints file:line:column for each problem, and delete refuses an agent a workflow still uses. A workflow's saved default assignment is used by aqorin run &lt;workflow> when no --assign, --runtime or --model is given.
+agents and workflows are the project's library (.aqorin/agents/, .aqorin/workflows/) beside the built-ins — engineering-change, quick-change, bug-fix, investigate, code-review, docs-change; feature and the Portable Feature templates (portable-feature-enforced, portable-feature-advisory) for advanced use — and duplicate copies one into the project to change it; validate prints file:line:column for each problem, and delete refuses an agent a workflow still uses. A workflow's saved default assignment is used by aqorin run &lt;workflow> when no --assign, --runtime or --model is given.
 
 In a terminal, aqorin alone opens the TUI: this project's Runs (n launches a new one as aqorin run does; open one to follow it, inspect each node, cancel it), the four runtimes, the agent and workflow editors, each node's assignment and its preflight, Skills and MCP servers, and the credential references — each the CLI's own files and verbs. Quitting (q) leaves every Run going. --plain, --json or a pipe give the line view instead. NO_COLOR turns color off; AQORIN_TUI_ASCII=1 uses ASCII glyphs; AQORIN_TUI_BELL=0 silences the bell that rings when something starts waiting for you.
 
-feature, run and resume drive their Run in a detached worker: closing the terminal leaves it running (aqorin logs &lt;run> --follow, or aqorin, reattaches); Ctrl+C interrupts it resumably at its next step boundary, and a second Ctrl+C stops waiting (the interruption still happens). One Run at a time per working tree: a new Run or conversation is refused while another is unfinished — a Free chat excepted, which neither waits nor holds the tree, and a workflow, which then runs in a git worktree of its own (aqorin worktree).
+feature, run and resume drive their Run in a detached worker: closing the terminal leaves it running (aqorin logs &lt;run> --follow, or aqorin, reattaches); Ctrl+C interrupts it resumably at its next step boundary, and a second Ctrl+C stops waiting (the interruption still happens). One Run at a time per working tree: a new Run or conversation is refused while another is unfinished — a Free chat excepted, which neither waits nor holds the tree, and a workflow, which then runs in a git worktree of its own (aqorin worktree). On macOS a workflow Run's Claude Code, OpenCode and Pi, and its checks, run in Aqorin's sandbox (Seatbelt): writes refused in the repository outside the Run's own folder, its .git and .aqorin, other worktrees, Aqorin's files, your keys, credentials, shell and git configuration, the agents' own settings and the executables on your PATH; reads and the network are not limited; Codex keeps its own sandbox. Refused where it cannot be set up; sandbox: off in .aqorin/aqorin.yaml runs without it (said on every Run). Free chats are not sandboxed yet.
 
 ## Commands
 
@@ -155,6 +156,10 @@ Request cancellation of a persisted Run. On claude-code the cancel command itsel
 ### `resume`
 
 Resume a Run from its durable event cursor (declared strategy). On claude-code the strategy is a step restart: the interrupted step starts again in a fresh invocation (at least once), never resuming its Claude Code conversation. A Run created with --assign whose attempt failed for a runtime cause waits BLOCKED for a human decision: resume is refused until replan
+
+### `answer`
+
+Answer the questions a workflow step asked: the Run waits BLOCKED (Attention lists them); the answer is recorded, and the next resume runs the step again with its questions and the answer (-- before an answer that starts with a dash)
 
 ### `replan`
 

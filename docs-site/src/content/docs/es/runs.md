@@ -42,9 +42,9 @@ pasó con él. Una decisión que empezó y no terminó aparece como *interrumpid
 Un lanzamiento que se paró antes de que existiera su Run puede dejar un worktree. `aqorin worktree list`
 lo nombra como no registrado por ningún Run, y `aqorin worktree discard <rama> --yes` lo borra.
 
-Un worktree separa los checks, la revisión y los cambios de cada Run. **No es un muro:** un agente que
-puede escribir aún puede escribir en la carpeta de tu proyecto, o en el worktree de otro Run, con su
-ruta completa.
+Un worktree separa los checks, la revisión y los cambios de cada Run. En macOS, el sandbox de Aqorin además
+mantiene a sus agentes fuera de la carpeta de tu proyecto y de los worktrees de otros Runs — mira
+[Seguridad](../security/). Con `sandbox: off` no es un muro: un agente puede escribir donde puedas tú.
 
 Un proyecto que no es un repositorio git ejecuta un workflow cada vez. Los Free chats nunca cuentan.
 
@@ -93,6 +93,7 @@ Un Run terminado se abre en su **Result** (uno que sigues hasta el final pasa a 
 
 - cómo terminó, y por qué;
 - la revisión;
+- la verificación, si el workflow tiene una, dicha aparte: nunca aprueba el Run;
 - las comprobaciones;
 - los cambios;
 - su **garantía** (*assurance*). Un Run es *advisory* (orientativo) cuando su workflow dice que lo

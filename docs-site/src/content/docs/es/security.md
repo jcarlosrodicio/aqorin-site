@@ -89,11 +89,33 @@ dice en cada paso así. Un paso de solo lectura o de revisión nunca la tiene.
 | Aplicada por | Ejemplo |
 |---|---|
 | **Aqorin** | Transiciones, presupuestos, comprobaciones, aprobaciones, admisión, referencias de credenciales. |
-| **El runtime, de forma nativa** | Los avisos de permiso propios de un runtime, y su propio sandbox, como el de Codex en un chat. |
+| **El kernel de macOS** | El sandbox de Aqorin alrededor de Claude Code, OpenCode y Pi en un Run de workflow: las escrituras de abajo, rechazadas. |
+| **El runtime, de forma nativa** | Los avisos de permiso propios de un runtime, y su propio sandbox, como el de Codex. |
 | **No aplicable** | Se dice como tal. Aqorin lo solicita, y dice que solo lo solicitó. |
 
 Una marca de sandbox que Aqorin no ha verificado en un runtime se informa como una **petición**, no
 como una garantía.
+
+## El sandbox alrededor de un Run de workflow
+
+En macOS, Claude Code, OpenCode y Pi en un Run de workflow se ejecutan en el sandbox de Aqorin
+(Seatbelt). Sus agentes escriben en la carpeta o el worktree del propio Run y en cualquier sitio fuera de tu
+proyecto. Estas escrituras fallan con `Operation not permitted`:
+
+- las demás carpetas del repositorio, su `.git` y su `.aqorin` — así un agente no puede hacer commit, mover
+  una rama, añadir un hook en `.git` ni apagar el sandbox; Aqorin hace el commit cuando integras un worktree;
+- los worktrees de otros Runs, y los ficheros del propio Aqorin — incluido su registro de tus Runs;
+- tus claves, credenciales de la nube y configuración de git y de la shell (`~/.ssh`, `~/.aws`,
+  `~/.gitconfig`, `~/.zshrc`…, y el fichero al que apunta uno enlazado);
+- la configuración propia de los agentes (`~/.claude/settings.json`, `~/.codex`, `~/.config/opencode`,
+  `~/.pi`…) y los ejecutables de tu PATH (`~/.local/bin`, los de Homebrew).
+
+Ninguno de ellos, ni ninguna carpeta por encima, se puede renombrar para apartarlo. Los checks del Run también
+se ejecutan en el sandbox, e integrar el worktree de un Run con sandbox no ejecuta ningún hook de git — sus
+agentes podrían haberlo escrito. Las lecturas y la red no se limitan. Codex conserva su propio sandbox; el de Claude Code se apaga dentro del
+de Aqorin para ese Run, sin cambiar tu configuración. Donde el sandbox no se puede montar, el Run se rechaza.
+`sandbox: off` en `.aqorin/aqorin.yaml` ejecuta sin él, y cada Run lo dice. **Los Free chats aún no van con
+sandbox.**
 
 ## Free chat
 
@@ -111,4 +133,6 @@ Mira [Free chat](../free-chat/).
 - **Lo que hace un servidor MCP con su acceso.** Aqorin elige qué servidores y herramientas puede
   usar un agente, no lo que hace el servidor.
 - **Tus comandos de comprobación.** Se ejecutan con tus permisos. Son código en el que confías.
-- **Un rol que puede editar archivos.** Puede hacer en el proyecto todo lo que su runtime permita.
+- **Un rol que puede editar archivos.** Puede hacer en su propia carpeta todo lo que su runtime permita —
+  y, con `sandbox: off` o en un Free chat, en cualquier sitio donde puedas tú.
+- **Lo que lee un agente con sandbox,** y adónde se conecta.
