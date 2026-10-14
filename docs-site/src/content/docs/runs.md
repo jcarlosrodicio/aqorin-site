@@ -28,9 +28,9 @@ on its own:
 
 | Key | What it does |
 |---|---|
-| `i` | **Integrate**: its changes are committed on the branch and merged into your folder's current branch. Refused, changing nothing, while your folder has uncommitted changes or a workflow running in it; a conflict merges nothing and names the files. |
-| `k` | **Keep the branch**, for a pull request; the worktree is removed. |
-| `x` | **Discard** the worktree and the branch, after asking. |
+| `I` | **Integrate**: its changes are committed on the branch and merged into your folder's current branch. Refused, changing nothing, while your folder has uncommitted changes or a workflow running in it; a conflict merges nothing and names the files. |
+| `K` | **Keep the branch**, for a pull request; the worktree is removed. |
+| `X` | **Discard** the worktree and the branch, after asking. |
 
 From the CLI: `aqorin worktree list`, `aqorin worktree integrate|keep <run>`, `aqorin worktree discard
 <run> --yes`. A project that is not a git repository runs one workflow at a time. Free chats never

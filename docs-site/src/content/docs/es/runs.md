@@ -27,9 +27,9 @@ Cuando ese Run termina, su Result dice qué pasó con su worktree, y decides tú
 
 | Tecla | Qué hace |
 |---|---|
-| `i` | **Integrar**: sus cambios se confirman en la rama y se fusionan en la rama actual de tu carpeta. Se rechaza, sin cambiar nada, mientras tu carpeta tenga cambios sin commit o un workflow en marcha; un conflicto no fusiona nada y nombra los ficheros. |
-| `k` | **Conservar la rama**, para un pull request; el worktree se borra. |
-| `x` | **Descartar** el worktree y la rama, tras preguntar. |
+| `I` | **Integrar**: sus cambios se confirman en la rama y se fusionan en la rama actual de tu carpeta. Se rechaza, sin cambiar nada, mientras tu carpeta tenga cambios sin commit o un workflow en marcha; un conflicto no fusiona nada y nombra los ficheros. |
+| `K` | **Conservar la rama**, para un pull request; el worktree se borra. |
+| `X` | **Descartar** el worktree y la rama, tras preguntar. |
 
 Desde la CLI: `aqorin worktree list`, `aqorin worktree integrate|keep <run>`, `aqorin worktree discard
 <run> --yes`. Un proyecto que no es un repositorio git ejecuta un workflow cada vez. Los Free chats nunca
