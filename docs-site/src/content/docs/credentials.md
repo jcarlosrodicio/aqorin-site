@@ -30,7 +30,8 @@ For each one, it shows whether the key is set now, and what uses it.
   Codex's too when it is an environment variable — so you never type it twice. A reference only an
   MCP server uses is never offered as a connection's key.
 - **Use in a connection…** (`u`) opens a Pi or OpenCode connection's form with the key — and the
-  endpoint and models of a connection that already uses it.
+  endpoint and models of the one OpenAI-compatible connection that already uses it, when there is one.
+  It is not offered for an MCP server's variable.
 - **Edit reference** and **Remove** change it. **Remove** asks first; the value itself is never
   touched.
 - A reference that belongs to a connection or an MCP server is changed there. **Open** takes you to
