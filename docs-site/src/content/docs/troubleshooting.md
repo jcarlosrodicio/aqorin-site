@@ -66,8 +66,9 @@ they report. The step's work shows what they are doing as they do it. See [Runs]
 
 ## One Run at a time
 
-There is one workflow Run at a time per working tree (Free chats do not count). Finish, cancel or
-resume the open Run (`2` Runs). A
+There is one workflow Run at a time in your project folder (Free chats do not count); in a git
+repository a second workflow runs in a worktree of its own instead (see [Runs](../runs/)). Outside git,
+finish, cancel or resume the open Run (`2` Runs). A
 Run whose driver died is shown as **stale**. Open it, then resume or cancel it.
 
 ## The state store is newer than this Aqorin

@@ -71,8 +71,9 @@ muestra qué están haciendo mientras lo hacen. Mira
 
 ## Un Run cada vez
 
-Hay un Run de workflow a la vez por árbol de trabajo (los Free chats no cuentan). Termina, cancela o
-reanuda el Run abierto (`2` Runs). Un
+Hay un Run de workflow a la vez en la carpeta de tu proyecto (los Free chats no cuentan); en un
+repositorio git, un segundo workflow se ejecuta en un worktree propio (mira [Runs](../runs/)). Fuera de
+git, termina, cancela o reanuda el Run abierto (`2` Runs). Un
 Run cuyo driver murió aparece como **stale**. Ábrelo, y luego reanúdalo o cancélalo.
 
 ## El almacén de estado es más nuevo que este Aqorin
