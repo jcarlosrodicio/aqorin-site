@@ -71,7 +71,8 @@ muestra qué están haciendo mientras lo hacen. Mira
 
 ## Un Run cada vez
 
-Hay un Run a la vez por árbol de trabajo. Termina, cancela o reanuda el Run abierto (`2` Runs). Un
+Hay un Run de workflow a la vez por árbol de trabajo (los Free chats no cuentan). Termina, cancela o
+reanuda el Run abierto (`2` Runs). Un
 Run cuyo driver murió aparece como **stale**. Ábrelo, y luego reanúdalo o cancélalo.
 
 ## El almacén de estado es más nuevo que este Aqorin

@@ -11,8 +11,8 @@ so a runtime that crashes does not erase what happened.
 A Run runs in its own worker. Quitting the TUI, or closing the terminal, leaves it running. Run
 `aqorin` again, or `aqorin logs <run> --follow`, to follow it.
 
-There is **one Run at a time per working tree**. A new Run or chat is refused while another is
-unfinished.
+There is **one workflow Run at a time per working tree**. A new workflow is refused while another is
+unfinished. Free chats are not counted: they are neither refused nor refuse anything.
 
 ## The Runs screen (`2`)
 

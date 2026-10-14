@@ -11,8 +11,8 @@ description: Lo que la Terminal Alpha no hace, y lo que no afirma.
   anterior, sin la TUI.
 - **Runtimes:** Claude Code, Codex, OpenCode y Pi. Otros runtimes que el código de Aqorin conoce,
   como jcode, no forman parte de la Alpha.
-- **Un Run activo por árbol de trabajo.**
-- **Free chat:** no puedes elegir una conexión, y un chat de OpenCode o de Pi no muestra cuánto
+- **Un Run de workflow activo por árbol de trabajo** (los Free chats a su lado sí se permiten).
+- **Free chat:** solo en Pi puedes elegir una conexión, y un chat de OpenCode o de Pi no muestra cuánto
   contexto usa.
 - **Accesibilidad:** la TUI a pantalla completa no admite lectores de pantalla. Usa `--plain` o
   `--json`.

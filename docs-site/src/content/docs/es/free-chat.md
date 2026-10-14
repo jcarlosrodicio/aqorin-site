@@ -4,7 +4,14 @@ description: Una conversación con un runtime a través de Aqorin, como se ejecu
 ---
 
 El **Free chat** es una conversación con un runtime, a través de Aqorin. Empieza uno con la primera
-opción de New task, o con `c` en Runs. Elige un runtime y un modelo, y decide cómo funciona.
+opción de New task, o con `c` en Runs. Elige un runtime y un modelo, y decide cómo funciona. En Pi
+también se ofrecen los modelos de las conexiones de Pi que configuraste en Runtimes, como *modelo ·
+conexión*: el chat se ejecuta entonces aislado sobre esa conexión, con su clave pasada por nombre.
+
+Los Free chats no se esperan entre sí ni esperan a un workflow: puedes tener varios abiertos, y un
+workflow se ejecuta a su lado. Si un mensaje falla —un error del proveedor—, el chat dice por qué con
+las palabras del runtime y sigue: vuelve a enviar o termínalo. Un chat que no arranca dice por qué en un
+diálogo.
 
 ## Cómo funciona
 
@@ -85,6 +92,7 @@ muestra también cuánto de la ventana de contexto del modelo está usado.
 | `/allow`, `/deny` | Responder a una petición de permiso. |
 | `/answer <text>` | Responder a una pregunta. |
 | `/finish` | Terminar el chat, tras preguntar. También en la paleta y en F1. |
+| `/cancel` | Cancelar el Run del chat, tras preguntar: para un turno que nunca responde. |
 | `/follow-up` | Empezar otro chat después de este. |
 | Ctrl+T | Los pasos y la actividad del Run. |
 
