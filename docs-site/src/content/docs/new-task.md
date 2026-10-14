@@ -6,7 +6,8 @@ description: One form from a request to a plan, and nothing runs until you press
 **New task** (`n` on Runs) is one form, filled in this order:
 
 1. **What to do:** a [Free chat](../free-chat/), or a workflow.
-2. **Which workflow, and where it runs.**
+2. **Which workflow, and where it runs.** Each is offered by name with its flow and what it is for;
+   [Engineering change](../workflows/#the-built-in-workflows) comes first.
 3. **What the agents are asked to do:** your request.
 4. **Checked by:** **Nothing** (the default), **Commands**, **The agent**, or **Commands and the
    agent**. The command fields appear only with commands: each must pass, such as `npm test`, and
@@ -21,7 +22,8 @@ description: One form from a request to a plan, and nothing runs until you press
 - **The agent** (off by default) asks the step's runtime to check the work too, after the step. The
   runtime chooses what to run (tests, linters…), which can take a while, and its verdict is
   *advisory*: your commands, when you declared some, decide. To have an agent test the work as a
-  step of its own, add a node to the workflow.
+  step of its own, use a workflow with a **Verify** step, such as
+  [Engineering change](../workflows/#verify-checks-and-review-are-three-things).
 
 ## The plan
 

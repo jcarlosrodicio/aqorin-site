@@ -6,7 +6,8 @@ description: Un formulario que va de una petición a un plan, y nada se ejecuta 
 **New task** (`n` en Runs) es un formulario, que se rellena en este orden:
 
 1. **What to do:** un [Free chat](../free-chat/), o un workflow.
-2. **Which workflow, and where it runs.**
+2. **Which workflow, and where it runs.** Cada uno aparece por su nombre, con su flujo y para qué
+   sirve; [Engineering change](../workflows/#los-workflows-integrados) va el primero.
 3. **What the agents are asked to do:** tu petición.
 4. **Checked by:** **Nothing** (por defecto), **Commands**, **The agent** o **Commands and the
    agent**. Los campos de comandos solo aparecen con comandos: cada uno debe pasar, como `npm test`,
@@ -23,7 +24,8 @@ description: Un formulario que va de una petición a un plan, y nada se ejecuta 
 - **The agent** (desactivado por defecto) pide al runtime del paso que compruebe también el trabajo
   tras el paso. El runtime elige qué ejecutar (tests, linters…), lo que puede tardar, y su veredicto
   es *advisory*: deciden tus comandos, si declaraste alguno. Para que un agente pruebe el trabajo
-  como un paso propio, añade un nodo al workflow.
+  como un paso propio, usa un workflow con un paso **Verify**, como
+  [Engineering change](../workflows/#verify-las-comprobaciones-y-la-revisión-son-tres-cosas).
 
 ## El plan
 

@@ -42,7 +42,8 @@ cambie.
    Mira [Runtimes](../runtimes/).
 4. **Empieza un Free chat** (`2` Runs, luego `c`). Elige un runtime y un modelo, y habla con él como
    lo harías en su propia terminal. Mira [Free chat](../free-chat/).
-5. **Ejecuta un workflow** (`2` Runs, luego `n`). Elige un workflow, di qué hacer y, si quieres, qué
+5. **Ejecuta un workflow** (`2` Runs, luego `n`). Elige un workflow —[Engineering change](../workflows/#los-workflows-integrados)
+   va el primero—, di qué hacer y, si quieres, qué
    comandos deben pasar, como `npm test`. El plan dice dónde se ejecuta cada paso, y nada se
    ejecuta hasta que pulsas Enter. Mira [Nueva tarea](../new-task/).
 6. **Síguelo** en la vista del Run, y **responde** lo que pregunte en [Attention](../attention/)
@@ -58,6 +59,6 @@ Añade `--json` a cualquier comando para usarlo en scripts. Mira [CLI reference]
 ```bash
 aqorin runtimes                                   # what is installed
 aqorin tasks new "Add a --dry-run flag" --check-command "npm test"
-aqorin run feature --task-file <the task file it wrote>
+aqorin run engineering-change --task-file <the task file it wrote>
 aqorin logs <run> --follow
 ```
