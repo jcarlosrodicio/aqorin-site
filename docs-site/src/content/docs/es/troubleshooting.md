@@ -29,7 +29,7 @@ Una conexión, un proveedor de OpenCode o un servidor MCP nombra una clave que n
 El inspector dice cuál, por su nombre. Define la variable en el entorno en que se ejecuta Aqorin, o
 arregla el elemento del llavero, y vuelve a comprobar en [Credenciales](../credentials/) (`8`).
 
-Si un Run falló por eso, arregla la clave y luego **Retry same assignment**. Mira
+Si un Run falló por eso, arregla la clave y luego reintenta: `R` sobre el Run en Attention. Mira
 [Recuperación](../recovery/).
 
 ## El plan se rechaza

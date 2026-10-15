@@ -26,7 +26,8 @@ The screen lists every reference once:
 For each one, it shows whether the key is set now, and what uses it.
 
 - **Add reference** sets an OpenCode provider key, in a form. OpenCode's own runs get it under
-  that name, and a connection's key field then offers it to choose — Pi, OpenCode or Claude Code;
+  that name — besides the variables your own OpenCode configuration names as `{env:NAME}`, which its
+  chats and workflow steps get without a reference ([Free chat](../free-chat/)), and a connection's key field then offers it to choose — Pi, OpenCode or Claude Code;
   Codex's too when it is an environment variable — so you never type it twice. A reference only an
   MCP server uses is never offered as a connection's key.
 - **Use in a connection…** (`u`) opens a Pi or OpenCode connection's form with the key — and the

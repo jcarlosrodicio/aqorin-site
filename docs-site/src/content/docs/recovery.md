@@ -20,7 +20,9 @@ The step says what the runtime answered, in its own last words.
 | **Replan to another runtime/model** | The runtime or model is the problem. | The step's role moves to another runtime, connection and model, with a reason. The new plan is admitted like any other. |
 | **Cancel Run** | You are done with it. | The Run ends as cancelled. |
 
-After a decision, `R` resumes the Run.
+After a decision, `R` resumes the Run. Before one, `R` is the short way to **Retry same assignment**:
+it records the retry (its reason, "retried with R in the TUI") and resumes, in one key. Nothing is
+retried on its own.
 
 A retry is not offered for:
 

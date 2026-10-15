@@ -21,7 +21,9 @@ El paso dice qué respondió el runtime, con sus últimas palabras.
 | **Replan to another runtime/model** | El problema es el runtime o el modelo. | El rol del paso pasa a otro runtime, conexión y modelo, con un motivo. El plan nuevo se admite como cualquier otro. |
 | **Cancel Run** | Has terminado con él. | El Run termina como cancelado. |
 
-Tras una decisión, `R` reanuda el Run.
+Tras una decisión, `R` reanuda el Run. Antes de ella, `R` es el atajo de **Retry same assignment**:
+registra el reintento (con el motivo «retried with R in the TUI») y reanuda, con una sola tecla. Nada
+se reintenta solo.
 
 No se ofrece un reintento para:
 
