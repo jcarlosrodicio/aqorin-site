@@ -67,7 +67,10 @@ paso de solo lectura o de revisión en Claude Code, OpenCode, Pi o Codex no pued
 salvo el estado propio de su runtime, sus cachés y sus temporales —ni tu proyecto, ni su `.git`, ni tu
 home—, sea cual sea el modelo: el kernel de macOS rechaza la escritura, y una comprobación en este Mac
 (sin llamar a ningún modelo) lo demuestra antes de que el paso se ejecute. Codex se ejecuta ahí con su
-propio sandbox desactivado, solo dentro del de Aqorin. El plan dice entonces que **el sandbox de Aqorin
+propio sandbox desactivado, solo dentro del de Aqorin, y conserva su shell —su única forma de leer
+ficheros—, así que puede ejecutar comandos que solo lean: sus escrituras en tu proyecto y tus ficheros se
+rechazan, pero un comando puede leer lo que puedas leer tú y salir a la red, así que ese paso es siempre
+orientativo. El plan dice entonces que **el sandbox de Aqorin
 limita sus escrituras al estado propio de su runtime y que sus comandos no se verifican**: el paso sigue
 siendo orientativo salvo que una comprobación cubra también sus comandos, porque si no, que no ejecute
 comandos solo se le pide.
