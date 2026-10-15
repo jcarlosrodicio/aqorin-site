@@ -128,16 +128,17 @@ agents out of your project folder and other Runs’ worktrees — see <a href=".
 <div class="sl-heading-wrapper level-h2"><h2 id="a-runs-view">A Run’s view</h2><a class="sl-anchor-link" href="#a-runs-view"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “A Run’s view”</span></a></div>
 <p>A Run’s view is a dashboard:</p>
 <ul>
-<li><strong>On the left</strong>, the steps: each one’s state, its time, which agent runs it and where (agent ·
-runtime), and its attempt.</li>
+<li><strong>On the left</strong>, the steps: each one’s name with its state’s glyph, its state and time to the right,
+which agent runs it and where (agent · runtime), and its attempt past the first.</li>
 <li><strong>In the middle</strong>, the selected step’s work. One line says what it is doing now — <em>Thinking…</em>,
 <em>Running tool… npm test</em>, <em>Waiting for you</em> — and the next who runs it, with the model the runtime
 reports, the context it has used where the runtime says it (Claude Code’s of its window, once the
 step ends; Pi’s and OpenCode’s last request) and the tokens it has spent, in and out. A step that
 failed says why, in its runtime’s last words. A step run again with your answer to its questions
-first shows the attempt that asked: what it said, its questions and what you answered. Then come its messages. The tool calls between two messages are folded into one muted line, with
+first shows the attempt that asked: what it said, its questions and what you answered. Then come its messages, under who says them — <em>◆ the agent</em>, <em>› you</em> for your answers, <em>? Asked</em> for
+its questions — each attempt under its own rule, with the agent’s bold, <code dir="auto">code</code> and bullets shown as such. The tool calls between two messages are folded into one muted line, with
 their count and any that failed: <code dir="auto">t</code> shows each one.</li>
-<li><strong>On the right</strong>, the Run in a few lines: its state, workflow and assurance, task, time, changes,
+<li><strong>On the right</strong>, the Run in a few lines, one row each: its state, workflow, assurance, task, time, changes,
 handoffs, the Run’s <strong>Tokens</strong> (every attempt’s in and out, an agent’s check’s too, as each runtime
 reported them — Claude Code and Codex at the end of each attempt) and the working step’s <strong>Context</strong> (Codex’s runs do not report it). <code dir="auto">d</code> shows the selected step’s details (its assignment, version and attempts). What
 Aqorin wants you to know — why the Run is advisory, what a runtime version says of its flags — is

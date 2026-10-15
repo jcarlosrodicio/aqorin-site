@@ -128,17 +128,19 @@ mantiene a sus agentes fuera de la carpeta de tu proyecto y de los worktrees de 
 <div class="sl-heading-wrapper level-h2"><h2 id="la-vista-de-un-run">La vista de un Run</h2><a class="sl-anchor-link" href="#la-vista-de-un-run"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Sección titulada «La vista de un Run»</span></a></div>
 <p>La vista de un Run es un panel:</p>
 <ul>
-<li><strong>A la izquierda</strong>, los pasos: el estado de cada uno, su tiempo, qué agente lo ejecuta y dónde
-(agente · runtime), y su intento.</li>
+<li><strong>A la izquierda</strong>, los pasos: el nombre de cada uno con el símbolo de su estado, su estado y su
+tiempo a la derecha, qué agente lo ejecuta y dónde (agente · runtime), y su intento a partir del segundo.</li>
 <li><strong>En el centro</strong>, el trabajo del paso seleccionado. Una línea dice qué está haciendo ahora
 (<em>Thinking…</em>, <em>Running tool… npm test</em>, <em>Waiting for you</em>), y la siguiente quién lo ejecuta, con el
 modelo que informa el runtime, el contexto que lleva usado donde el runtime lo dice (en Claude Code,
 de su ventana al terminar el paso; en Pi y OpenCode, el de la última petición) y los tokens gastados,
 de entrada y de salida. Un paso que falló dice por qué, con las últimas palabras de su runtime. Un
 paso que se ejecuta de nuevo con tu respuesta a sus preguntas muestra antes el intento que preguntó:
-lo que dijo, sus preguntas y lo que respondiste. Luego vienen sus mensajes. Las llamadas a herramientas entre dos mensajes se
+lo que dijo, sus preguntas y lo que respondiste. Luego vienen sus mensajes, bajo quién los dice —<em>◆ el agente</em>, <em>› you</em> para tus respuestas, <em>? Asked</em>
+para sus preguntas—, cada intento bajo su propia línea, con las negritas, el <code dir="auto">código</code> y las viñetas del
+agente mostrados como tales. Las llamadas a herramientas entre dos mensajes se
 pliegan en una sola línea atenuada, con cuántas son y las que fallaron: <code dir="auto">t</code> las muestra una a una.</li>
-<li><strong>A la derecha</strong>, el Run en pocas líneas: su estado, workflow y garantía, tarea, tiempo, cambios,
+<li><strong>A la derecha</strong>, el Run en pocas líneas, una por dato: su estado, workflow, garantía, tarea, tiempo, cambios,
 handoffs, los <strong>Tokens</strong> del Run (los de entrada y salida de todos sus intentos, también los de la
 comprobación de un agente, tal como los informó cada runtime; Claude Code y Codex, al terminar cada intento) y el <strong>Context</strong> del paso que trabaja
 (los Runs de Codex no lo informan). <code dir="auto">d</code> muestra los detalles del paso seleccionado (su asignación, versión e intentos). Lo
