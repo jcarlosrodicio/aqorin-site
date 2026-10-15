@@ -12,28 +12,85 @@ Un **workflow** dice:
 Un workflow no nombra ningún runtime ni ningún modelo. Eso pertenece a una
 [asignación](#assignments-where-each-step-runs).
 
-## El workflow integrado `feature`
+## Los workflows integrados
+
+Aqorin trae una biblioteca de workflows para el desarrollo de cada día. Ninguno nombra un runtime,
+una conexión ni un modelo: cada paso se ejecuta donde dicen su asignación, el valor por defecto de su
+agente o el runtime por defecto del proyecto.
+
+| Workflow | Flujo | Úsalo para |
+| --- | --- | --- |
+| **Engineering change** (`engineering-change`) | Research → Plan → Implement → Verify → Review → Docs | una funcionalidad o un cambio sustancial, hecho como el proyecto dice que se hacen los cambios. New task lo ofrece el primero. |
+| **Quick change** (`quick-change`) | Implement → Review | un cambio pequeño y claro |
+| **Bug fix** (`bug-fix`) | Diagnose → Implement → Verify → Review | un defecto que reproducir, corregir y demostrar corregido |
+| **Investigate** (`investigate`) | Investigate | una pregunta sobre el código, respondida con un informe; a su agente se le indica no cambiar nada (puede ejecutar comandos, así que no se impone) |
+| **Code review** (`code-review`) | Review | un informe sobre los cambios actuales; no aprueba nada, y a su agente se le indica no cambiar nada (no se impone) |
+| **Docs change** (`docs-change`) | Docs → Review | solo documentación |
+
+### Engineering change
 
 ```text
-specify  →  implement  →  review  →  done
-               ↑  checks      │
-               └── changes ───┘   (up to 3 review cycles)
+research → plan → implement → verify → review → docs → done
+                     ↑  checks   │         │
+                     └─ changes ─┴─────────┘   (up to 3 rounds each)
 ```
 
-`feature` ejecuta tres pasos:
+1. `researcher` lee la petición y el proyecto, empezando por sus instrucciones.
+2. `planner` escribe el plan, y los documentos de planificación que el proyecto exige (OpenSpec, por
+   ejemplo), solo donde el proyecto los pide.
+3. `developer` lo implementa; las comprobaciones de tu tarea se ejecutan tras este paso.
+4. `verifier` ejecuta la verificación propia del proyecto y prueba el cambio: **passed** sigue
+   adelante, **needs changes** devuelve el trabajo a `implement` con lo que encontró.
+5. `reviewer` lo juzga de forma independiente: **approved** sigue, **changes needed** vuelve atrás.
+6. `documenter` actualiza la documentación y entrega el resultado. Se ejecuta tras la aprobación: lo que
+   escribe lo comprueban las comprobaciones de tu tarea, no la revisión.
 
-1. `specifier` escribe la especificación.
-2. `developer` la implementa, y Aqorin valida cada intento.
-3. `reviewer` decide: **approved** termina el Run, y **changes needed** devuelve el trabajo a
-   `implement`.
+### Siguen tu proyecto
 
-El Run termina con éxito solo cuando la revisión está aprobada, las comprobaciones han pasado, cada
-aprobación se ha resuelto y no se ha superado ningún presupuesto. Lo aplica el motor, no un prompt.
+Sus agentes leen primero las instrucciones del proyecto —`AGENTS.md` o su equivalente, un harness,
+OpenSpec si el proyecto lo usa— y las siguen. Donde el proyecto no tiene ninguna, no se inventa nada.
 
-Las plantillas Portable Feature (`portable-feature-enforced`, `portable-feature-advisory`) añaden un
-paso de investigación.
+### Un paso puede preguntarte
+
+Cuando la petición deja algo que solo tú puedes decidir, un paso (Research, Plan, Diagnose…) termina
+con sus preguntas en lugar de adivinar. El Run espera en [Attention](../attention/): `a` responde, y el
+paso se ejecuta de nuevo con tu respuesta. Desde la CLI:
+
+```bash
+aqorin answer <run> "También decimales; mantén la API antigua."
+aqorin answer <run> -- "-5 a 5"       # una respuesta que empieza por guion
+aqorin resume <run>
+```
+
+### Verify, las comprobaciones y la revisión son tres cosas
+
+- **Tus comprobaciones** —los comandos de la tarea, como `npm test`— se ejecutan tras el paso marcado
+  para ellas (Implement), en cualquier workflow. Las ejecuta Aqorin; deciden si el trabajo del paso
+  pasa.
+- **Verify** es un paso. Su agente ejecuta la verificación propia del proyecto y prueba el cambio, y
+  decide *passed* o *needs changes*, con su propio presupuesto de rondas. Puede ejecutar comandos, así
+  que podría cambiar archivos: que no lo haga es una instrucción, dicha en el plan, no algo que se
+  imponga; por eso tus comprobaciones vuelven a ejecutarse tras él, antes de la revisión.
+- **Review** es el juicio independiente posterior, y el único que aprueba el Run.
+
+La comprobación del agente (`--agent-check`) es otra cosa más, desactivada por defecto.
+
+### `feature` y las plantillas
+
+`feature` (specify → implement → review) y las plantillas Portable Feature
+(`portable-feature-enforced`, `portable-feature-advisory`, que añaden un paso de investigación) se
+mantienen, marcadas como **advanced**.
+
+El Run termina con éxito solo cuando la revisión está aprobada (o, en un workflow sin ella, sus
+comprobaciones han pasado), cada aprobación se ha resuelto y no se ha superado ningún presupuesto. Lo
+aplica el motor, no un prompt.
 
 ## La pantalla Workflows (`5`)
+
+La lista nombra cada workflow con sus pasos, su garantía y su origen: **built-in** (viene con Aqorin),
+**project** (un archivo en `.aqorin/workflows/`) o **advanced**. El inspector de uno integrado empieza
+por para qué sirve, su flujo y sus agentes. **Customize…** (`d`) lo copia al proyecto con un nombre
+libre; la copia es tuya para editarla, y el integrado queda como está.
 
 La pantalla lee cada workflow de arriba abajo:
 
@@ -49,7 +106,8 @@ En el editor:
   agente junto a la lista.
 - **Rename**, **Move up/down**, **Then…** (adónde va el paso a continuación) y **Remove** (que
   pregunta primero) son botones y teclas.
-- `i` edita la descripción, `b` fija el presupuesto de revisión, `p` fija el paso que ejecuta las
+- `i` edita la descripción, `b` fija el presupuesto de revisión (y las rondas de verificación, si un
+  paso verifica), `p` fija el paso que ejecuta las
   comprobaciones y `v` fija el paso de revisión.
 - `s` guarda.
 

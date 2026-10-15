@@ -18,6 +18,11 @@ consecuencia.
 
 Cuando el runtime de una conversación pregunta algo, `a` lo responde.
 
+Cuando pregunta un **paso de un workflow** (uno de [Engineering change](../workflows/#un-paso-puede-preguntarte),
+por ejemplo), el elemento muestra sus preguntas. `a` toma tu respuesta en un solo texto, la registra y
+reanuda el Run: el paso se ejecuta de nuevo con tu respuesta. Desde la CLI, `aqorin answer <run> <text>`
+y luego `aqorin resume <run>`.
+
 ## Decisiones
 
 Cuando falla el runtime de un paso, el Run te espera. `r` ofrece tres caminos a seguir, explicados

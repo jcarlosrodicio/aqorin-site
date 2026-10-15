@@ -40,7 +40,8 @@ and a step can run on Claude Code, Codex, OpenCode or Pi without the workflow ch
    [Runtimes](../runtimes/).
 4. **Start a Free chat** (`2` Runs, then `c`). Pick a runtime and a model, then talk to it as you
    would in its own terminal. See [Free chat](../free-chat/).
-5. **Run a workflow** (`2` Runs, then `n`). Choose a workflow, say what to do and, optionally,
+5. **Run a workflow** (`2` Runs, then `n`). Choose a workflow — [Engineering change](../workflows/#the-built-in-workflows)
+   comes first — say what to do and, optionally,
    which commands must pass, such as `npm test`. The plan says where each step runs, and nothing
    runs until you press Enter. See [New task](../new-task/).
 6. **Follow it** in the Run's view, and **answer** what it asks in [Attention](../attention/) (`3`).
@@ -55,6 +56,6 @@ Every action in the TUI is also a CLI verb, with the same words and the same ref
 ```bash
 aqorin runtimes                                   # what is installed
 aqorin tasks new "Add a --dry-run flag" --check-command "npm test"
-aqorin run feature --task-file <the task file it wrote>
+aqorin run engineering-change --task-file <the task file it wrote>
 aqorin logs <run> --follow
 ```

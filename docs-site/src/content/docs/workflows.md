@@ -12,28 +12,85 @@ A **workflow** says:
 A workflow names no runtime and no model. Those belong to an
 [assignment](#assignments-where-each-step-runs).
 
-## The built-in `feature` workflow
+## The built-in workflows
+
+Aqorin ships a library of workflows for everyday development. None names a runtime, a connection or a
+model: each step runs where its assignment, its agent's default or the project's default runtime
+says.
+
+| Workflow | Flow | Use it for |
+| --- | --- | --- |
+| **Engineering change** (`engineering-change`) | Research → Plan → Implement → Verify → Review → Docs | a feature or a substantial change, done the way the project says changes are done. New task offers it first. |
+| **Quick change** (`quick-change`) | Implement → Review | a small, clear change |
+| **Bug fix** (`bug-fix`) | Diagnose → Implement → Verify → Review | a defect to reproduce, fix and prove fixed |
+| **Investigate** (`investigate`) | Investigate | a question about the code, answered with a report; its agent is told to change nothing (it can run commands, so that is not enforced) |
+| **Code review** (`code-review`) | Review | a report on the current changes; it approves nothing, and its agent is told to change nothing (not enforced) |
+| **Docs change** (`docs-change`) | Docs → Review | documentation only |
+
+### Engineering change
 
 ```text
-specify  →  implement  →  review  →  done
-               ↑  checks      │
-               └── changes ───┘   (up to 3 review cycles)
+research → plan → implement → verify → review → docs → done
+                     ↑  checks   │         │
+                     └─ changes ─┴─────────┘   (up to 3 rounds each)
 ```
 
-`feature` runs three steps:
+1. `researcher` reads the request and the project — its instructions first.
+2. `planner` writes the plan, and the planning documents the project requires (OpenSpec, for
+   example) — only where the project asks for them.
+3. `developer` implements it; your task's checks run after this step.
+4. `verifier` runs the project's own verification and exercises the change: **passed** goes on,
+   **needs changes** sends the work back to `implement` with its findings.
+5. `reviewer` judges it independently: **approved** goes on, **changes needed** goes back.
+6. `documenter` updates the documentation and hands the result over. It runs after the approval: what
+   it writes is checked by your task's checks, not by the review.
 
-1. `specifier` writes the spec.
-2. `developer` implements it, and Aqorin validates every attempt.
-3. `reviewer` decides: **approved** ends the Run, and **changes needed** sends the work back to
-   `implement`.
+### They follow your project
 
-The Run succeeds only when the review is approved, the checks passed, every approval was resolved
-and no budget was exceeded. The engine enforces this, not a prompt.
+Their agents read the project's instructions first — `AGENTS.md` or its equivalent, a harness,
+OpenSpec when the project uses it — and follow them. Where the project has none, nothing is
+invented.
 
-The Portable Feature templates (`portable-feature-enforced`, `portable-feature-advisory`) add a
-research step.
+### A step may ask you
+
+When the request leaves something only you can decide, a step (Research, Plan, Diagnose…) ends on its
+questions instead of guessing. The Run waits in [Attention](../attention/): `a` answers, and the step
+runs again with your answer. From the CLI:
+
+```bash
+aqorin answer <run> "Decimals too; keep the old API."
+aqorin answer <run> -- "-5 to 5"      # an answer that starts with a dash
+aqorin resume <run>
+```
+
+### Verify, checks and review are three things
+
+- **Your checks** — the task's commands, such as `npm test` — run after the step marked for them
+  (Implement), in every workflow. Aqorin runs them; they decide whether the step's work passes.
+- **Verify** is a step. Its agent runs the project's own verification and exercises the change, then
+  decides *passed* or *needs changes*, with its own budget of rounds. It may run commands, so it
+  could change files: that it does not is an instruction, said on the plan, not enforced — which
+  is why your checks run again after it, before the review.
+- **Review** is the independent judgement afterwards, and the only one that approves the Run.
+
+The agent's check (`--agent-check`) is separate again, and off by default.
+
+### `feature` and the templates
+
+`feature` (specify → implement → review) and the Portable Feature templates
+(`portable-feature-enforced`, `portable-feature-advisory`, which add a research step) stay, marked
+**advanced**.
+
+The Run succeeds only when the review is approved (or, in a workflow without one, its checks
+passed), every approval was resolved and no budget was exceeded. The engine enforces this, not a
+prompt.
 
 ## The Workflows screen (`5`)
+
+The list names each workflow with its steps, its assurance and where it comes from: **built-in**
+(shipped with Aqorin), **project** (a file in `.aqorin/workflows/`) or **advanced**. A built-in's
+inspector starts with what it is for, its flow and its agents. **Customize…** (`d`) copies it into
+the project under a name not taken; the copy is yours to edit, and the built-in stays as it is.
 
 The screen reads each workflow top to bottom:
 
@@ -49,7 +106,8 @@ In the editor:
   list.
 - **Rename**, **Move up/down**, **Then…** (where the step goes next) and **Remove** (which asks
   first) are buttons and keys.
-- `i` edits the description, `b` sets the review budget, `p` sets the step that runs the checks,
+- `i` edits the description, `b` sets the review budget (and the verification rounds, when a step
+  verifies), `p` sets the step that runs the checks,
   and `v` sets the review step.
 - `s` saves.
 

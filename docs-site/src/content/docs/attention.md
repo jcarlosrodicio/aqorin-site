@@ -17,6 +17,11 @@ An approval shows what is asked, its scope, its risk and its consequence.
 
 When a conversation's runtime asks something, `a` answers it.
 
+When a **workflow step** asks (a step of [Engineering change](../workflows/#a-step-may-ask-you), for
+example), the item lists its questions. `a` takes your answer in one text, records it and resumes the
+Run: the step runs again with your answer. From the CLI, `aqorin answer <run> <text>` then
+`aqorin resume <run>`.
+
 ## Decisions
 
 When a step's runtime fails, the Run waits for you. `r` offers three ways forward, explained in
