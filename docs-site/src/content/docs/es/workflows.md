@@ -53,8 +53,9 @@ OpenSpec si el proyecto lo usa— y las siguen. Donde el proyecto no tiene ningu
 ### Un paso puede preguntarte
 
 Cuando la petición deja algo que solo tú puedes decidir, un paso (Research, Plan, Diagnose…) termina
-con sus preguntas en lugar de adivinar. El Run espera en [Attention](../attention/): `a` responde, y el
-paso se ejecuta de nuevo con tu respuesta. Desde la CLI:
+con sus preguntas en lugar de adivinar, cada una con las respuestas que propone cuando puede. El Run
+espera en [Attention](../attention/): `a` te las hace de una en una (elige una respuesta o escribe la
+tuya), y el paso se ejecuta de nuevo con tus respuestas. Desde la CLI:
 
 ```bash
 aqorin answer <run> "También decimales; mantén la API antigua."

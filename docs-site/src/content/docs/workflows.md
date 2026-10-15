@@ -54,8 +54,9 @@ invented.
 ### A step may ask you
 
 When the request leaves something only you can decide, a step (Research, Plan, Diagnose…) ends on its
-questions instead of guessing. The Run waits in [Attention](../attention/): `a` answers, and the step
-runs again with your answer. From the CLI:
+questions instead of guessing, each with the answers it proposes when it can. The Run waits in
+[Attention](../attention/): `a` asks them one at a time — pick an answer or write your own — and the step
+runs again with your answers. From the CLI:
 
 ```bash
 aqorin answer <run> "Decimals too; keep the old API."
