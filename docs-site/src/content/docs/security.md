@@ -59,7 +59,9 @@ class to make a runtime fit.
 review step on Claude Code, OpenCode, Pi or Codex cannot write anywhere but its runtime's own state,
 caches and temporary files — your project, its `.git` and your home included — whatever the model: the
 macOS kernel refuses the write, and a check on this Mac (no model call) shows it before the step runs.
-Codex runs there with its own sandbox off, only inside Aqorin's. The plan then says its **writes are held
+Codex runs there with its own sandbox off, only inside Aqorin's, and keeps its shell — the only way it
+reads files — so it may run commands that only read: their writes to your project and your files are
+refused, but a command can still read what you can and reach the network, so such a step is always advisory. The plan then says its **writes are held
 by Aqorin's sandbox to its runtime's own state, commands not verified**: the step is still advisory unless
 a check also covers its commands, because otherwise whether it runs a command is still only asked.
 

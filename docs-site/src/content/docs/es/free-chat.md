@@ -4,9 +4,12 @@ description: Una conversación con un runtime a través de Aqorin, como se ejecu
 ---
 
 El **Free chat** es una conversación con un runtime, a través de Aqorin. Empieza uno con la primera
-opción de New task, o con `c` en Runs. Elige un runtime y un modelo, y decide cómo funciona. En Pi
-también se ofrecen los modelos de las conexiones de Pi que configuraste en Runtimes, como *modelo ·
-conexión*: el chat se ejecuta entonces aislado sobre esa conexión, con su clave pasada por nombre.
+opción de New task, o con `c` en Runs. Elige un runtime y un modelo, y decide cómo funciona. En Pi,
+si configuraste conexiones de Pi en Runtimes, primero eliges **Its connection** —*None* para los
+proveedores propios de Pi, o una de las tuyas, cuyos modelos se ofrecen después con el suyo por defecto
+primero—: el chat se ejecuta entonces aislado sobre esa conexión, con su clave pasada por nombre. Un chat
+de OpenCode usa tu propia configuración de OpenCode; las conexiones de OpenCode de Aqorin son para los
+workflows.
 
 Los Free chats no se esperan entre sí ni esperan a un workflow: puedes tener varios abiertos, y un
 workflow se ejecuta a su lado. Si un mensaje falla —un error del proveedor—, el chat dice por qué con
