@@ -134,11 +134,14 @@ mantiene a sus agentes fuera de la carpeta de tu proyecto y de los worktrees de 
 (<em>Thinking…</em>, <em>Running tool… npm test</em>, <em>Waiting for you</em>), y la siguiente quién lo ejecuta, con el
 modelo que informa el runtime, el contexto que lleva usado donde el runtime lo dice (en Claude Code,
 de su ventana al terminar el paso; en Pi y OpenCode, el de la última petición) y los tokens gastados,
-de entrada y de salida. Un paso que falló dice por qué, con las últimas palabras de su runtime.
-Luego vienen sus mensajes. Las llamadas a herramientas entre dos mensajes se
+de entrada y de salida. Un paso que falló dice por qué, con las últimas palabras de su runtime. Un
+paso que se ejecuta de nuevo con tu respuesta a sus preguntas muestra antes el intento que preguntó:
+lo que dijo, sus preguntas y lo que respondiste. Luego vienen sus mensajes. Las llamadas a herramientas entre dos mensajes se
 pliegan en una sola línea atenuada, con cuántas son y las que fallaron: <code dir="auto">t</code> las muestra una a una.</li>
-<li><strong>A la derecha</strong>, el Run en pocas líneas: su estado, workflow y garantía, tarea, tiempo, cambios
-y handoffs. <code dir="auto">d</code> muestra los detalles del paso seleccionado (su asignación, versión e intentos). Lo
+<li><strong>A la derecha</strong>, el Run en pocas líneas: su estado, workflow y garantía, tarea, tiempo, cambios,
+handoffs, los <strong>Tokens</strong> del Run (los de entrada y salida de todos sus intentos, también los de la
+comprobación de un agente, tal como los informó cada runtime; Claude Code y Codex, al terminar cada intento) y el <strong>Context</strong> del paso que trabaja
+(los Runs de Codex no lo informan). <code dir="auto">d</code> muestra los detalles del paso seleccionado (su asignación, versión e intentos). Lo
 que Aqorin quiere que sepas (por qué el Run es orientativo, qué dice de sus flags la versión de un
 runtime) no se repite ahí: <code dir="auto">!</code> muestra los <strong>notices</strong> en su lugar. Lo que falla y lo que te espera
 se muestra siempre.</li>

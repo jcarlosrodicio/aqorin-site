@@ -18,7 +18,8 @@ An approval shows what is asked, its scope, its risk and its consequence.
 When a conversation's runtime asks something, `a` answers it.
 
 When a **workflow step** asks (a step of [Engineering change](../workflows/#a-step-may-ask-you), for
-example), the item lists its questions. `a` — here, or in the opened Run, which says *press a to answer* —
+example), the item lists its questions. `a` — here, or in the opened Run, which says *press a to answer*
+and opens the dialog on its own, once for each round of questions (`Esc` leaves it for later) —
 offers **Accept** (yes, go ahead), **Reject** (no, go on without it) or **Write an answer…**; the answer is
 recorded and the Run resumed: the step runs again with it. From the CLI, `aqorin answer <run> <text>` then
 `aqorin resume <run>`.

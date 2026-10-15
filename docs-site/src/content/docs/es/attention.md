@@ -20,7 +20,8 @@ Cuando el runtime de una conversación pregunta algo, `a` lo responde.
 
 Cuando pregunta un **paso de un workflow** (uno de [Engineering change](../workflows/#un-paso-puede-preguntarte),
 por ejemplo), el elemento muestra sus preguntas. `a` —aquí, o en el Run abierto, que dice *press a to
-answer*— ofrece **Accept** (sí, adelante), **Reject** (no, sigue sin ello) o **Write an answer…**; la
+answer* y abre el diálogo por sí solo, una vez por cada ronda de preguntas (`Esc` lo deja para luego)—
+ofrece **Accept** (sí, adelante), **Reject** (no, sigue sin ello) o **Write an answer…**; la
 respuesta se registra y el Run se reanuda: el paso se ejecuta de nuevo con ella. Desde la CLI, `aqorin answer <run> <text>`
 y luego `aqorin resume <run>`.
 
