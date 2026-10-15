@@ -62,6 +62,16 @@ Nada demuestra que el paso lo respete, así que Aqorin nunca lo afirma. El plan 
 Run es orientativo: nunca se presenta como validado ni como revisado de forma independiente. Aqorin
 nunca amplía la clase de acceso de un rol para que un runtime encaje.
 
+**En macOS, el sandbox de Aqorin obliga a ese paso a solo leer ficheros.** Con el sandbox activo, un
+paso de solo lectura o de revisión en Claude Code, OpenCode, Pi o Codex no puede escribir en ningún sitio
+salvo el estado propio de su runtime, sus cachés y sus temporales —ni tu proyecto, ni su `.git`, ni tu
+home—, sea cual sea el modelo: el kernel de macOS rechaza la escritura, y una comprobación en este Mac
+(sin llamar a ningún modelo) lo demuestra antes de que el paso se ejecute. Codex se ejecuta ahí con su
+propio sandbox desactivado, solo dentro del de Aqorin. El plan dice entonces que **el sandbox de Aqorin
+limita sus escrituras al estado propio de su runtime y que sus comandos no se verifican**: el paso sigue
+siendo orientativo salvo que una comprobación cubra también sus comandos, porque si no, que no ejecute
+comandos solo se le pide.
+
 Un Run planificado con la restricción efectiva nunca se reanuda con ella orientativa: en una versión
 del runtime que ninguna comprobación cubre, la reanudación se rechaza (`policy_unenforceable`).
 Refresca la comprobación, o empieza un Run nuevo, cuyo plan indicará la restricción como orientativa.

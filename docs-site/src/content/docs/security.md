@@ -55,6 +55,14 @@ Nothing shows the step holds to it, so Aqorin never says it does. The plan marks
 advisory: never presented as validated or independently reviewed. Aqorin never widens a role's access
 class to make a runtime fit.
 
+**On macOS, Aqorin's sandbox holds such a step to reading files.** With the sandbox on, a read-only or
+review step on Claude Code, OpenCode, Pi or Codex cannot write anywhere but its runtime's own state,
+caches and temporary files — your project, its `.git` and your home included — whatever the model: the
+macOS kernel refuses the write, and a check on this Mac (no model call) shows it before the step runs.
+Codex runs there with its own sandbox off, only inside Aqorin's. The plan then says its **writes are held
+by Aqorin's sandbox to its runtime's own state, commands not verified**: the step is still advisory unless
+a check also covers its commands, because otherwise whether it runs a command is still only asked.
+
 A Run planned with the restriction enforced is never resumed with it advisory: on a runtime version
 no check covers, the resume is refused (`policy_unenforceable`). Refresh the check, or start a new
 Run, whose plan says the restriction advisory.
