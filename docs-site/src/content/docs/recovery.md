@@ -6,7 +6,7 @@ description: What happens when a step's runtime fails, and the three ways on —
 When a step's runtime fails — a missing key, an expired login, a provider down or a model at
 capacity, a crash, a timeout — the Run does not guess, whoever chose where it runs. It stops in
 **needs a decision** and waits for you in [Attention](../attention/). Aqorin
-never switches runtime on its own, and nothing is retried on its own.
+never switches runtime on its own, and retries on its own only a transient failure (below).
 
 The step says what the runtime answered, in its own last words.
 
@@ -21,8 +21,19 @@ The step says what the runtime answered, in its own last words.
 | **Cancel Run** | You are done with it. | The Run ends as cancelled. |
 
 After a decision, `R` resumes the Run. Before one, `R` is the short way to **Retry same assignment**:
-it records the retry (its reason, "retried with R in the TUI") and resumes, in one key. Nothing is
-retried on its own.
+it records the retry (its reason, "retried with R in the TUI") and resumes, in one key.
+
+## Retried on its own
+
+A **transient** failure does not wait for you at first. When the runtime's error reads as a rate limit
+(429), an overload or a provider's 5xx, or a network fault, and the attempt left your project as it found
+it, Aqorin runs the same step again on the same assignment: after 30 s, then after 2 min. The step says
+*retrying in N s (1 of 2)* meanwhile; `c` cancels the Run. Each retry counts as an attempt.
+
+Never retried on its own: an authentication, key, quota, billing or model error; Aqorin's own attempt
+timeout; an attempt that changed files. After the second retry, or in those cases, the Run waits for a
+decision, and the decision says why. No runtime or model is ever changed on its own. Aqorin recognizes
+these failures by the runtime's words: a message it does not know waits for you.
 
 A retry is not offered for:
 

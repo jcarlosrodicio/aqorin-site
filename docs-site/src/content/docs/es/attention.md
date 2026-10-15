@@ -26,7 +26,9 @@ y luego `aqorin resume <run>`.
 
 ## Decisiones
 
-Cuando falla el runtime de un paso, el Run te espera. `R` (**Retry**) reintenta el paso con la misma
+Cuando falla el runtime de un paso, el Run te espera, tras hasta dos reintentos automáticos si el
+fallo era transitorio (un límite de uso, una sobrecarga, un fallo de red; mira
+[Reintentos automáticos](../recovery/#reintentos-automáticos)). `R` (**Retry**) reintenta el paso con la misma
 asignación y reanuda el Run, con una sola tecla, cuando ya arreglaste lo que fallaba o el proveedor
 ha vuelto. `r` (**Replan · Cancel…**) ofrece tres caminos a seguir, explicados
 en [Recuperación, reintento y replan](../recovery/):

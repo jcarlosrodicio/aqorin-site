@@ -163,7 +163,7 @@ Answer the questions a workflow step asked: the Run waits BLOCKED (Attention lis
 
 ### `replan`
 
-Reassign the failed (or interrupted) step's role of a Run created with --assign to the runtime and model you name, after the same admission a new plan gets; nothing runs and the Run keeps its state (resume continues it). --same keeps the role's runtime, connection and model (retry the same assignment once its cause is fixed), admitted again as it stands now. Never automatic: Aqorin does not retry or switch runtime on its own, and does not roll back the previous attempt's workspace or external effects
+Reassign the failed (or interrupted) step's role of a Run created with --assign to the runtime and model you name, after the same admission a new plan gets; nothing runs and the Run keeps its state (resume continues it). --same keeps the role's runtime, connection and model (retry the same assignment once its cause is fixed), admitted again as it stands now. Never automatic: Aqorin does not switch runtime on its own, retries on its own only a transient failure (twice, while the workspace is unchanged), and does not roll back the previous attempt's workspace or external effects
 
 ### `capabilities`
 

@@ -41,4 +41,5 @@ description: What the Terminal Alpha does not do, and what it does not claim.
 - Aqorin never writes your runtimes' configuration, and never loads your Claude Code plugins or Pi
   extensions — except in a chat you create with *Your configuration*.
 - It never stores or prints a key's value, and never signs in for you.
-- It never switches runtime, or retries a step, on its own.
+- It never switches runtime on its own, and retries a step on its own only after a transient failure
+  (a rate limit, an overload, a network fault), twice, while the project is unchanged.
