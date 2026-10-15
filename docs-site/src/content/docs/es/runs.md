@@ -64,11 +64,14 @@ La vista de un Run es un panel:
   (*Thinking…*, *Running tool… npm test*, *Waiting for you*), y la siguiente quién lo ejecuta, con el
   modelo que informa el runtime, el contexto que lleva usado donde el runtime lo dice (en Claude Code,
   de su ventana al terminar el paso; en Pi y OpenCode, el de la última petición) y los tokens gastados,
-  de entrada y de salida. Un paso que falló dice por qué, con las últimas palabras de su runtime.
-  Luego vienen sus mensajes. Las llamadas a herramientas entre dos mensajes se
+  de entrada y de salida. Un paso que falló dice por qué, con las últimas palabras de su runtime. Un
+  paso que se ejecuta de nuevo con tu respuesta a sus preguntas muestra antes el intento que preguntó:
+  lo que dijo, sus preguntas y lo que respondiste. Luego vienen sus mensajes. Las llamadas a herramientas entre dos mensajes se
   pliegan en una sola línea atenuada, con cuántas son y las que fallaron: `t` las muestra una a una.
-- **A la derecha**, el Run en pocas líneas: su estado, workflow y garantía, tarea, tiempo, cambios
-  y handoffs. `d` muestra los detalles del paso seleccionado (su asignación, versión e intentos). Lo
+- **A la derecha**, el Run en pocas líneas: su estado, workflow y garantía, tarea, tiempo, cambios,
+  handoffs, los **Tokens** del Run (los de entrada y salida de todos sus intentos, también los de la
+  comprobación de un agente, tal como los informó cada runtime; Claude Code y Codex, al terminar cada intento) y el **Context** del paso que trabaja
+  (los Runs de Codex no lo informan). `d` muestra los detalles del paso seleccionado (su asignación, versión e intentos). Lo
   que Aqorin quiere que sepas (por qué el Run es orientativo, qué dice de sus flags la versión de un
   runtime) no se repite ahí: `!` muestra los **notices** en su lugar. Lo que falla y lo que te espera
   se muestra siempre.

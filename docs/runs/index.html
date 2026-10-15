@@ -134,10 +134,12 @@ runtime), and its attempt.</li>
 <em>Running tool… npm test</em>, <em>Waiting for you</em> — and the next who runs it, with the model the runtime
 reports, the context it has used where the runtime says it (Claude Code’s of its window, once the
 step ends; Pi’s and OpenCode’s last request) and the tokens it has spent, in and out. A step that
-failed says why, in its runtime’s last words. Then come its messages. The tool calls between two messages are folded into one muted line, with
+failed says why, in its runtime’s last words. A step run again with your answer to its questions
+first shows the attempt that asked: what it said, its questions and what you answered. Then come its messages. The tool calls between two messages are folded into one muted line, with
 their count and any that failed: <code dir="auto">t</code> shows each one.</li>
-<li><strong>On the right</strong>, the Run in a few lines: its state, workflow and assurance, task, time, changes
-and handoffs. <code dir="auto">d</code> shows the selected step’s details (its assignment, version and attempts). What
+<li><strong>On the right</strong>, the Run in a few lines: its state, workflow and assurance, task, time, changes,
+handoffs, the Run’s <strong>Tokens</strong> (every attempt’s in and out, an agent’s check’s too, as each runtime
+reported them — Claude Code and Codex at the end of each attempt) and the working step’s <strong>Context</strong> (Codex’s runs do not report it). <code dir="auto">d</code> shows the selected step’s details (its assignment, version and attempts). What
 Aqorin wants you to know — why the Run is advisory, what a runtime version says of its flags — is
 not repeated there: <code dir="auto">!</code> shows the <strong>notices</strong> in its place. What failed and what waits for you
 always shows.</li>
