@@ -89,7 +89,7 @@ dice en cada paso así. Un paso de solo lectura o de revisión nunca la tiene.
 | Aplicada por | Ejemplo |
 |---|---|
 | **Aqorin** | Transiciones, presupuestos, comprobaciones, aprobaciones, admisión, referencias de credenciales. |
-| **El kernel de macOS** | El sandbox de Aqorin alrededor de Claude Code, OpenCode y Pi en un Run de workflow: las escrituras de abajo, rechazadas. |
+| **El kernel de macOS** | El sandbox de Aqorin alrededor de Claude Code, OpenCode y Pi en un Run de workflow o en un Free chat: las escrituras de abajo, rechazadas. |
 | **El runtime, de forma nativa** | Los avisos de permiso propios de un runtime, y su propio sandbox, como el de Codex. |
 | **No aplicable** | Se dice como tal. Aqorin lo solicita, y dice que solo lo solicitó. |
 
@@ -114,8 +114,12 @@ Ninguno de ellos, ni ninguna carpeta por encima, se puede renombrar para apartar
 se ejecutan en el sandbox, e integrar el worktree de un Run con sandbox no ejecuta ningún hook de git — sus
 agentes podrían haberlo escrito. Las lecturas y la red no se limitan. Codex conserva su propio sandbox; el de Claude Code se apaga dentro del
 de Aqorin para ese Run, sin cambiar tu configuración. Donde el sandbox no se puede montar, el Run se rechaza.
-`sandbox: off` en `.aqorin/aqorin.yaml` ejecuta sin él, y cada Run lo dice. **Los Free chats aún no van con
-sandbox.**
+`sandbox: off` en `.aqorin/aqorin.yaml` ejecuta sin él, y cada Run lo dice.
+
+Un Free chat en Claude Code, OpenCode o Pi se ejecuta en el mismo sandbox y escribe en la carpeta de tu
+proyecto: su sandbox se decide al empezar (o continuar) el chat, y cada turno se ejecuta en ese. Un chat
+empezado antes de esto se ejecuta sin él, y lo dice. Un chat de Pi con *Your configuration* no puede ejecutarse
+en él —Pi escribe en `~/.pi`, que sigue cerrado—, así que usa la configuración de Aqorin, o `sandbox: off`.
 
 ## Free chat
 
@@ -134,5 +138,5 @@ Mira [Free chat](../free-chat/).
   usar un agente, no lo que hace el servidor.
 - **Tus comandos de comprobación.** Se ejecutan con tus permisos. Son código en el que confías.
 - **Un rol que puede editar archivos.** Puede hacer en su propia carpeta todo lo que su runtime permita —
-  y, con `sandbox: off` o en un Free chat, en cualquier sitio donde puedas tú.
+  y, con `sandbox: off`, en cualquier sitio donde puedas tú.
 - **Lo que lee un agente con sandbox,** y adónde se conecta.

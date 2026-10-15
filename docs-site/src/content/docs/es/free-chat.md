@@ -46,6 +46,11 @@ raíces escribibles. Ese sandbox es de Codex: Aqorin lo solicita y comprueba que
 está en vigor, pero no lo aplica él mismo. El chat de Codex se ejecuta en el home de Codex propio de
 Aqorin, con tu inicio de sesión enlazado, nunca copiado, y nunca con tu configuración.
 
+En macOS, un chat de Claude Code, OpenCode o Pi se ejecuta en el sandbox de Aqorin, sea cual sea su modo:
+escribe en tu proyecto y fuera de él, nunca en el `.git` o el `.aqorin` del repositorio, en los worktrees de
+otros Runs, en los archivos de Aqorin ni en tus claves y ajustes. Un chat de Pi con *Your configuration* no
+puede ejecutarse en él. Mira [Seguridad](../security/).
+
 Un chat de OpenCode lee tu configuración de OpenCode y recibe las variables que tu
 `~/.config/opencode/opencode.json`, `.jsonc` o `config.json` global nombra como `{env:NOMBRE}` —una clave de
 proveedor como `NAN_API_KEY`— desde el entorno con el que se arrancó Aqorin: por nombre, nunca
