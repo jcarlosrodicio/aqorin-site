@@ -96,7 +96,8 @@ ese runtime, versión, modelo y plataforma. En otros sitios se ejecutan con una 
 orientativa: se les indica que no escriban ni ejecuten comandos, con el modo de solo lectura del
 propio runtime, y nada demuestra que lo hayan respetado. Hoy hay unas pocas combinaciones validadas
 (OpenCode y Claude Code, cada uno con modelos concretos), y <code dir="auto">aqorin eligibility refresh</code> solo
-actualiza esos dos runtimes.</li>
+actualiza esos dos runtimes. En macOS con el sandbox activo, el sandbox de Aqorin impone que no
+escriban ficheros en todos los runtimes salvo jcode; que no ejecuten comandos, no.</li>
 <li><strong>Los <code dir="auto">inputs</code> y <code dir="auto">outputs</code> de un agente</strong> se añaden a sus instrucciones, no se comprueban.</li>
 <li><strong>El modelo que atendió una petición</strong> no se observa en todos los runtimes.</li>
 <li><strong>Un paso reintentado</strong> empieza de cero. Es al menos una vez (<em>at least once</em>), no una

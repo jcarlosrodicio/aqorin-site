@@ -29,7 +29,8 @@ description: Lo que la Terminal Alpha no hace, y lo que no afirma.
   orientativa: se les indica que no escriban ni ejecuten comandos, con el modo de solo lectura del
   propio runtime, y nada demuestra que lo hayan respetado. Hoy hay unas pocas combinaciones validadas
   (OpenCode y Claude Code, cada uno con modelos concretos), y `aqorin eligibility refresh` solo
-  actualiza esos dos runtimes.
+  actualiza esos dos runtimes. En macOS con el sandbox activo, el sandbox de Aqorin impone que no
+  escriban ficheros en todos los runtimes salvo jcode; que no ejecuten comandos, no.
 - **Los `inputs` y `outputs` de un agente** se añaden a sus instrucciones, no se comprueban.
 - **El modelo que atendió una petición** no se observa en todos los runtimes.
 - **Un paso reintentado** empieza de cero. Es al menos una vez (*at least once*), no una
