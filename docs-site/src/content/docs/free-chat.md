@@ -57,7 +57,8 @@ An OpenCode chat reads your OpenCode configuration, and gets the variables your 
 `NAN_API_KEY` — from the environment Aqorin was started in: by name, never stored, and hidden from
 what Aqorin shows and keeps as a credential is. Not read for them: a project's own `opencode.json`,
 `OPENCODE_CONFIG` or `OPENCODE_CONFIG_DIR`; and a name a credential may not have (such as `PATH` or
-`OPENCODE_…`) is never given. If a message fails, the error says the provider's reason.
+`OPENCODE_…`) is never given. If a message fails, the error says the provider's reason. A workflow's
+OpenCode steps get the same variables.
 
 In an OpenCode chat, Aqorin keeps one thing off: OpenCode's subagents (its task tool). Their
 requests would come from a session the chat does not follow, so they would wait unseen.

@@ -60,7 +60,7 @@ proveedor como `NAN_API_KEY`— desde el entorno con el que se arrancó Aqorin: 
 guardadas y ocultas en lo que Aqorin muestra y guarda, como una credencial. No se leen para esto el
 `opencode.json` de un proyecto, `OPENCODE_CONFIG` ni `OPENCODE_CONFIG_DIR`, y nunca se pasa un nombre
 que una credencial no puede tener (como `PATH` u `OPENCODE_…`). Si un mensaje falla, el error dice el
-motivo del proveedor.
+motivo del proveedor. Los pasos de OpenCode de un workflow reciben las mismas variables.
 
 En un chat de OpenCode, Aqorin mantiene desactivada una cosa: los subagentes de OpenCode (su
 herramienta task). Sus peticiones vendrían de una sesión que el chat no sigue, así que esperarían

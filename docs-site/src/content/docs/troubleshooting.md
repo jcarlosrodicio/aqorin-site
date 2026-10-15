@@ -28,7 +28,7 @@ A connection, an OpenCode provider or an MCP server names a key that does not re
 inspector says which one, by name. Set the variable in the environment Aqorin runs in, or fix the
 keychain item, then check again on [Credentials](../credentials/) (`8`).
 
-If a Run failed because of it, fix the key, then **Retry same assignment**. See
+If a Run failed because of it, fix the key, then retry: `R` on the Run in Attention. See
 [Recovery](../recovery/).
 
 ## The plan is refused

@@ -26,10 +26,12 @@ y luego `aqorin resume <run>`.
 
 ## Decisiones
 
-Cuando falla el runtime de un paso, el Run te espera. `r` ofrece tres caminos a seguir, explicados
+Cuando falla el runtime de un paso, el Run te espera. `R` (**Retry**) reintenta el paso con la misma
+asignación y reanuda el Run, con una sola tecla, cuando ya arreglaste lo que fallaba o el proveedor
+ha vuelto. `r` (**Replan · Cancel…**) ofrece tres caminos a seguir, explicados
 en [Recuperación, reintento y replan](../recovery/):
 
-- **Retry same assignment**;
+- **Retry same assignment**, con tu propio motivo;
 - **Replan to another runtime/model**;
 - **Cancel Run**.
 
