@@ -58,17 +58,19 @@ Cada Run y chat de este proyecto aparece con su estado y cuándo empezó. Un cha
 
 La vista de un Run es un panel:
 
-- **A la izquierda**, los pasos: el estado de cada uno, su tiempo, qué agente lo ejecuta y dónde
-  (agente · runtime), y su intento.
+- **A la izquierda**, los pasos: el nombre de cada uno con el símbolo de su estado, su estado y su
+  tiempo a la derecha, qué agente lo ejecuta y dónde (agente · runtime), y su intento a partir del segundo.
 - **En el centro**, el trabajo del paso seleccionado. Una línea dice qué está haciendo ahora
   (*Thinking…*, *Running tool… npm test*, *Waiting for you*), y la siguiente quién lo ejecuta, con el
   modelo que informa el runtime, el contexto que lleva usado donde el runtime lo dice (en Claude Code,
   de su ventana al terminar el paso; en Pi y OpenCode, el de la última petición) y los tokens gastados,
   de entrada y de salida. Un paso que falló dice por qué, con las últimas palabras de su runtime. Un
   paso que se ejecuta de nuevo con tu respuesta a sus preguntas muestra antes el intento que preguntó:
-  lo que dijo, sus preguntas y lo que respondiste. Luego vienen sus mensajes. Las llamadas a herramientas entre dos mensajes se
+  lo que dijo, sus preguntas y lo que respondiste. Luego vienen sus mensajes, bajo quién los dice —*◆ el agente*, *› you* para tus respuestas, *? Asked*
+  para sus preguntas—, cada intento bajo su propia línea, con las negritas, el `código` y las viñetas del
+  agente mostrados como tales. Las llamadas a herramientas entre dos mensajes se
   pliegan en una sola línea atenuada, con cuántas son y las que fallaron: `t` las muestra una a una.
-- **A la derecha**, el Run en pocas líneas: su estado, workflow y garantía, tarea, tiempo, cambios,
+- **A la derecha**, el Run en pocas líneas, una por dato: su estado, workflow, garantía, tarea, tiempo, cambios,
   handoffs, los **Tokens** del Run (los de entrada y salida de todos sus intentos, también los de la
   comprobación de un agente, tal como los informó cada runtime; Claude Code y Codex, al terminar cada intento) y el **Context** del paso que trabaja
   (los Runs de Codex no lo informan). `d` muestra los detalles del paso seleccionado (su asignación, versión e intentos). Lo

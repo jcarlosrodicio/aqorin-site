@@ -58,16 +58,17 @@ Every Run and chat of this project is listed with its state and when it started.
 
 A Run's view is a dashboard:
 
-- **On the left**, the steps: each one's state, its time, which agent runs it and where (agent ·
-  runtime), and its attempt.
+- **On the left**, the steps: each one's name with its state's glyph, its state and time to the right,
+  which agent runs it and where (agent · runtime), and its attempt past the first.
 - **In the middle**, the selected step's work. One line says what it is doing now — *Thinking…*,
   *Running tool… npm test*, *Waiting for you* — and the next who runs it, with the model the runtime
   reports, the context it has used where the runtime says it (Claude Code's of its window, once the
   step ends; Pi's and OpenCode's last request) and the tokens it has spent, in and out. A step that
   failed says why, in its runtime's last words. A step run again with your answer to its questions
-  first shows the attempt that asked: what it said, its questions and what you answered. Then come its messages. The tool calls between two messages are folded into one muted line, with
+  first shows the attempt that asked: what it said, its questions and what you answered. Then come its messages, under who says them — *◆ the agent*, *› you* for your answers, *? Asked* for
+  its questions — each attempt under its own rule, with the agent's bold, `code` and bullets shown as such. The tool calls between two messages are folded into one muted line, with
   their count and any that failed: `t` shows each one.
-- **On the right**, the Run in a few lines: its state, workflow and assurance, task, time, changes,
+- **On the right**, the Run in a few lines, one row each: its state, workflow, assurance, task, time, changes,
   handoffs, the Run's **Tokens** (every attempt's in and out, an agent's check's too, as each runtime
   reported them — Claude Code and Codex at the end of each attempt) and the working step's **Context** (Codex's runs do not report it). `d` shows the selected step's details (its assignment, version and attempts). What
   Aqorin wants you to know — why the Run is advisory, what a runtime version says of its flags — is
