@@ -6,8 +6,8 @@ description: Qué ocurre cuando falla el runtime de un paso, y los tres caminos 
 Cuando falla el runtime de un paso (una clave que falta, un inicio de sesión caducado, un proveedor
 caído o un modelo saturado, un fallo, un timeout), el Run no adivina, sea quien sea quien eligió dónde
 se ejecuta. Se detiene en **needs a decision** y te espera en
-[Attention](../attention/). Aqorin nunca cambia de runtime por su cuenta, y nada se reintenta por su
-cuenta.
+[Attention](../attention/). Aqorin nunca cambia de runtime por su cuenta, y solo reintenta por su
+cuenta un fallo transitorio (más abajo).
 
 El paso dice qué respondió el runtime, con sus últimas palabras.
 
@@ -22,8 +22,20 @@ El paso dice qué respondió el runtime, con sus últimas palabras.
 | **Cancel Run** | Has terminado con él. | El Run termina como cancelado. |
 
 Tras una decisión, `R` reanuda el Run. Antes de ella, `R` es el atajo de **Retry same assignment**:
-registra el reintento (con el motivo «retried with R in the TUI») y reanuda, con una sola tecla. Nada
-se reintenta solo.
+registra el reintento (con el motivo «retried with R in the TUI») y reanuda, con una sola tecla.
+
+## Reintentos automáticos
+
+Un fallo **transitorio** no te espera de entrada. Cuando el error del runtime dice que es un límite de
+uso (429), una sobrecarga o un 5xx del proveedor, o un fallo de red, y el intento dejó tu proyecto como
+estaba, Aqorin ejecuta otra vez el mismo paso con la misma asignación: a los 30 s y, después, a los 2 min.
+Mientras tanto el paso dice *retrying in N s (1 of 2)*; `c` cancela el Run. Cada reintento cuenta como
+un intento.
+
+Nunca se reintenta solo: un error de autenticación, clave, cuota, facturación o modelo; el timeout propio
+de Aqorin; un intento que cambió archivos. Tras el segundo reintento, o en esos casos, el Run espera una
+decisión, y la decisión dice por qué. Nunca se cambia de runtime ni de modelo por su cuenta. Aqorin
+reconoce estos fallos por las palabras del runtime: un mensaje que no conoce te espera.
 
 No se ofrece un reintento para:
 

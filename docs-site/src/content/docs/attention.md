@@ -25,7 +25,8 @@ recorded and the Run resumed: the step runs again with it. From the CLI, `aqorin
 
 ## Decisions
 
-When a step's runtime fails, the Run waits for you. `R` (**Retry**) retries the step on the same
+When a step's runtime fails, the Run waits for you — after up to two automatic retries of a transient
+failure (a rate limit, an overload, a network fault; see [Retried on its own](../recovery/#retried-on-its-own)). `R` (**Retry**) retries the step on the same
 assignment and resumes the Run, in one key — once you fixed what was wrong, or the provider is back.
 `r` (**Replan · Cancel…**) offers three ways forward, explained in
 [Recovery, retry and replan](../recovery/):
