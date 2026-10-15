@@ -45,6 +45,11 @@ sandbox is Codex's: Aqorin requests it and checks that Codex reports it in effec
 enforce it itself. Codex's chat runs in Aqorin's own Codex home, with your sign-in linked, never
 copied — never with your configuration.
 
+On macOS, a Claude Code, OpenCode or Pi chat runs in Aqorin's sandbox, whatever its mode: it writes in
+your project and outside it, never in the repository's `.git` or `.aqorin`, other Runs' worktrees,
+Aqorin's own files, or your keys and settings. A Pi chat on *Your configuration* cannot run in it. See
+[Security](../security/).
+
 An OpenCode chat reads your OpenCode configuration, and gets the variables your global
 `~/.config/opencode/opencode.json`, `.jsonc` or `config.json` names as `{env:NAME}` — a provider key such as
 `NAN_API_KEY` — from the environment Aqorin was started in: by name, never stored, and hidden from

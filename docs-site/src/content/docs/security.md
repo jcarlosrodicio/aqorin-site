@@ -81,7 +81,7 @@ plan says so for each such step. A read-only or review step never gets it.
 | Enforced by | Example |
 |---|---|
 | **Aqorin** | Transitions, budgets, checks, approvals, admission, credential references. |
-| **The macOS kernel** | Aqorin's sandbox around a workflow Run's Claude Code, OpenCode and Pi: the writes below, refused. |
+| **The macOS kernel** | Aqorin's sandbox around a workflow Run's or a Free chat's Claude Code, OpenCode and Pi: the writes below, refused. |
 | **The runtime, natively** | A runtime's own permission prompts, and its own sandbox — such as Codex's. |
 | **Not enforceable** | Said as such. Aqorin requests it, and says it only requested it. |
 
@@ -106,8 +106,12 @@ None of them, nor any folder above them, can be renamed out of the way. The Run'
 sandbox too, and integrating a sandboxed Run's worktree runs no git hook — its agents may have written
 one. Reads and the network are not limited. Codex keeps its own sandbox; Claude Code's own is turned off
 inside Aqorin's for that Run, without changing your settings. Where the sandbox cannot be set up, the Run
-is refused. `sandbox: off` in `.aqorin/aqorin.yaml` runs without it, and every Run says so. **Free chats
-are not sandboxed yet.**
+is refused. `sandbox: off` in `.aqorin/aqorin.yaml` runs without it, and every Run says so.
+
+A Free chat on Claude Code, OpenCode or Pi runs in the same sandbox, writing in your project folder: its
+sandbox is chosen when you start (or follow up) the chat, and every turn runs in that one. A chat started
+before this runs without it, and says so. A Pi chat on *Your configuration* cannot run in it — Pi writes
+in `~/.pi`, which stays closed — so use Aqorin's configuration, or `sandbox: off`.
 
 ## Free chat
 
@@ -126,5 +130,5 @@ See [Free chat](../free-chat/).
   may use, not what the server does.
 - **Your check commands.** They run with your permissions. They are code you trust.
 - **A role that may edit files.** It can do in its own folder whatever its runtime allows — and, with
-  `sandbox: off` or in a Free chat, anywhere you can.
+  `sandbox: off`, anywhere you can.
 - **What a sandboxed agent reads,** and where it connects.
