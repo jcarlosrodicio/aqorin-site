@@ -83,7 +83,7 @@ where it is, why it needs you, and which keys resolve it there.</p>
 <p>When a <strong>workflow step</strong> asks (a step of <a href="../workflows/#a-step-may-ask-you">Engineering change</a>, for
 example), the item lists its questions and the answers the step proposes. <code dir="auto">a</code> — here, or in the opened
 Run, which says <em>press a to answer</em> and opens the dialog on its own, once for each round of questions,
-with nothing chosen so a stray Enter answers nothing (<code dir="auto">Esc</code> leaves it for later) — asks one question at a
+with its first answer chosen, and an Enter pressed as it appears answers nothing (<code dir="auto">Esc</code> leaves it for later) — asks one question at a
 time: pick one of its proposed answers (<em>Yes</em> / <em>No</em> for a yes-or-no question) or <strong>Write an answer…</strong>; a
 question with none proposed is written. The answers are recorded and the Run resumed: the step runs again
 with them. From the CLI, <code dir="auto">aqorin answer &lt;run&gt; &lt;text&gt;</code> then

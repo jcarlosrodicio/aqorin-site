@@ -20,7 +20,7 @@ When a conversation's runtime asks something, `a` answers it.
 When a **workflow step** asks (a step of [Engineering change](../workflows/#a-step-may-ask-you), for
 example), the item lists its questions and the answers the step proposes. `a` — here, or in the opened
 Run, which says *press a to answer* and opens the dialog on its own, once for each round of questions,
-with nothing chosen so a stray Enter answers nothing (`Esc` leaves it for later) — asks one question at a
+with its first answer chosen, and an Enter pressed as it appears answers nothing (`Esc` leaves it for later) — asks one question at a
 time: pick one of its proposed answers (*Yes* / *No* for a yes-or-no question) or **Write an answer…**; a
 question with none proposed is written. The answers are recorded and the Run resumed: the step runs again
 with them. From the CLI, `aqorin answer <run> <text>` then
