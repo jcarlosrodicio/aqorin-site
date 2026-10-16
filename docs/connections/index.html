@@ -77,9 +77,10 @@ reach natively through an extension may not exist inside Aqorin.</p>
 chat, a check, <code dir="auto">aqorin open opencode</code> — runs in Aqorin’s own OpenCode home, never with your OpenCode
 configuration, its login (<code dir="auto">opencode auth login</code>), a repository’s <code dir="auto">opencode.json</code> or the variables your
 configuration reads, and sees only the provider of the connection it runs on. A step on OpenCode that
-names no connection runs on <strong>OpenCode’s default connection</strong>: select one of its connections on Runtimes
-and press <strong>Use by default</strong> (<code dir="auto">u</code>), or run <code dir="auto">aqorin connections use &lt;name&gt;</code>. With none, Aqorin refuses
-before anything runs and says how to add one. Your OpenCode outside Aqorin is untouched.</p>
+names no connection runs on <strong>OpenCode’s default connection</strong> — its only one, or, with several, the one
+you choose: select it on Runtimes and press <strong>Use by default</strong> (<code dir="auto">u</code>), or run <code dir="auto">aqorin connections use &lt;name&gt;</code>. With none, Aqorin refuses before anything runs and says how to add one. A model named the way
+OpenCode names one (<code dir="auto">nan/deepseek-v4-flash</code>) runs as the connection’s own model when it has it. Your
+OpenCode outside Aqorin is untouched.</p>
 <p>For any of these — a provider for OpenCode, one Pi reaches through an extension, or an API key instead
 of a login — add a <strong>connection</strong> of Aqorin’s own.</p>
 <div class="sl-heading-wrapper level-h2"><h2 id="add-a-connection">Add a connection</h2><a class="sl-anchor-link" href="#add-a-connection"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Add a connection”</span></a></div>

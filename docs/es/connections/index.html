@@ -77,10 +77,11 @@ extensiones: un proveedor al que llegas mediante una extensión puede no existir
 Free chat, una comprobación, <code dir="auto">aqorin open opencode</code>— corre en el home de OpenCode propio de Aqorin, nunca
 con tu configuración de OpenCode, su inicio de sesión (<code dir="auto">opencode auth login</code>), el <code dir="auto">opencode.json</code> de un
 repositorio ni las variables que lee tu configuración, y solo ve el proveedor de la conexión sobre la que
-corre. Un paso en OpenCode que no nombra conexión corre sobre la <strong>conexión por defecto de OpenCode</strong>:
-selecciona una de sus conexiones en Runtimes y pulsa <strong>Use by default</strong> (<code dir="auto">u</code>), o ejecuta
-<code dir="auto">aqorin connections use &lt;nombre&gt;</code>. Si no hay ninguna, Aqorin se niega antes de lanzar nada y te dice cómo
-añadir una. Tu OpenCode fuera de Aqorin no se toca.</p>
+corre. Un paso en OpenCode que no nombra conexión corre sobre la <strong>conexión por defecto de OpenCode</strong>: su
+única conexión o, si hay varias, la que elijas: selecciónala en Runtimes y pulsa <strong>Use by default</strong> (<code dir="auto">u</code>),
+o ejecuta <code dir="auto">aqorin connections use &lt;nombre&gt;</code>. Si no hay ninguna, Aqorin se niega antes de lanzar nada y te
+dice cómo añadir una. Un modelo nombrado como lo nombra OpenCode (<code dir="auto">nan/deepseek-v4-flash</code>) corre como el
+modelo propio de la conexión si lo tiene. Tu OpenCode fuera de Aqorin no se toca.</p>
 <p>Para cualquiera de estos casos —un proveedor para OpenCode, uno al que Pi llega mediante una extensión, o
 una clave de API en lugar de un inicio de sesión— añade una <strong>conexión</strong> propia de Aqorin.</p>
 <div class="sl-heading-wrapper level-h2"><h2 id="añadir-una-conexión">Añadir una conexión</h2><a class="sl-anchor-link" href="#añadir-una-conexión"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Sección titulada «Añadir una conexión»</span></a></div>

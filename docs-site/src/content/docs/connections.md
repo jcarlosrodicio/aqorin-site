@@ -11,9 +11,11 @@ reach natively through an extension may not exist inside Aqorin.
 chat, a check, `aqorin open opencode` — runs in Aqorin's own OpenCode home, never with your OpenCode
 configuration, its login (`opencode auth login`), a repository's `opencode.json` or the variables your
 configuration reads, and sees only the provider of the connection it runs on. A step on OpenCode that
-names no connection runs on **OpenCode's default connection**: select one of its connections on Runtimes
-and press **Use by default** (`u`), or run `aqorin connections use <name>`. With none, Aqorin refuses
-before anything runs and says how to add one. Your OpenCode outside Aqorin is untouched.
+names no connection runs on **OpenCode's default connection** — its only one, or, with several, the one
+you choose: select it on Runtimes and press **Use by default** (`u`), or run `aqorin connections use
+<name>`. With none, Aqorin refuses before anything runs and says how to add one. A model named the way
+OpenCode names one (`nan/deepseek-v4-flash`) runs as the connection's own model when it has it. Your
+OpenCode outside Aqorin is untouched.
 
 For any of these — a provider for OpenCode, one Pi reaches through an extension, or an API key instead
 of a login — add a **connection** of Aqorin's own.
