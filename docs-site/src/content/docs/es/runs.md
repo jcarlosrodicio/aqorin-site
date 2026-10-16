@@ -116,6 +116,33 @@ Un Run terminado se abre en su **Result** (uno que sigues hasta el final pasa a 
   "completed — advisory": nunca se muestra como validado ni como aprobado de forma independiente.
   El Result afirma que se alcanzó la garantía solo para un Run que tuvo éxito.
 
+## Commit y pull request
+
+Un Run que tuvo éxito y dejó cambios ofrece **Commit and PR…** (`P`) en su Result. El runtime y el modelo del
+paso de revisión del Run redactan el mensaje del commit y el pull request, en un turno en un directorio desechable al
+que se le pide que no use herramientas. Ese turno recibe la tarea, lo que dijeron los pasos, la revisión y los ficheros
+cambiados, no el diff. Ves el plan y el borrador (adónde se sube, todos los ficheros y los que parecen una clave
+o un fichero de entorno), con lo que parezca un secreto ya redactado. Puedes editar el mensaje del commit o el
+pull request, y confirmas; si el árbol cambió entretanto, no se entrega nada.
+
+Después, Aqorin:
+
+- hace commit de todos los cambios del árbol de trabajo, también los que no hizo el Run (lo avisa antes de que
+  confirmes), en una rama nueva `aqorin/<tarea>-<id>`, en la que se queda tu carpeta (un Run en su propio
+  worktree, en su rama);
+- la sube a `origin`;
+- abre el pull request con `gh` contra la rama de la que partió, con tu identidad de git y tu sesión de gh.
+
+Nunca lo fusiona. Para un Run que trabajó en el sandbox de Aqorin no se ejecuta ningún hook de git; si no, git
+se comporta como lo hace contigo.
+
+Antes de redactar nada comprueba que puede entregarlo: un repositorio git en una rama, cambios que confirmar, un
+remoto `origin` que tenga la rama base, `gh` instalado y con sesión iniciada (`gh auth login`), y ningún otro
+workflow sin terminar en la carpeta. Una entrega que se quedó a medias (por ejemplo, un push rechazado) sigue
+desde donde se paró al volver a pulsar `P`. El Result dice entonces
+**Delivered**, con el pull request. Desde el CLI: `aqorin deliver <run> --draft` y luego
+`aqorin deliver <run> --yes`, o `--from <borrador.json> --yes` con un borrador tuyo.
+
 ## Desde la CLI
 
 ```bash
