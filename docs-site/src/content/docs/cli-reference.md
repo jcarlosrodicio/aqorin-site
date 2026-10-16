@@ -32,6 +32,7 @@ aqorin feature <request> [--project <path>] [--runtime opencode|jcode|pi|codex|c
 aqorin feature --task-file <file> [--project <path>] [--runtime <id>] [--agent-check]
 aqorin tasks new <request> --check-command <command>… [--project <path>]
 aqorin worktree list | integrate <run> | keep <run> | discard <run|aqorin/branch> --yes | undo <run> [--project <path>]
+aqorin deliver <run> --draft | --yes | --from <draft.json> --yes [--project <path>]
 aqorin feature <request> --runtime codex [--model <id>] [--project <path>]
 aqorin feature <request> --runtime claude-code [--model <id>] [--project <path>]
 aqorin run <workflow> --task-file <file> [--project <path>] [--runtime <id>] [--attempt-timeout <duration>] [--agent-check]

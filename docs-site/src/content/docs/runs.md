@@ -114,6 +114,34 @@ shows:
   The reasons are the notices' (`!`).
   The Result claims the assurance was reached only for a Run that succeeded.
 
+## Commit and pull request
+
+A Run that succeeded with changes offers **Commit and PR…** (`P`) on its Result. The runtime and model of
+the Run's review step draft the commit message and the pull request, in one turn in a disposable directory, told
+to use no tool.
+That turn is given the task, what the steps said, the review and the files changed — not the diff. You see the
+plan and the draft — where it is pushed, every file, and any that looks like a key or an environment file —
+with whatever reads as a secret redacted from the draft. You can edit the commit message or the pull request,
+and confirm; if the tree moved meanwhile, nothing is delivered.
+
+Aqorin then:
+
+- commits every change in the working tree — changes the Run did not make too, which it says before you
+  confirm — on a new branch `aqorin/<task>-<id>` that your folder stays on (a Run in its own worktree: on its
+  branch);
+- pushes it to `origin`;
+- opens the pull request with `gh` against the branch it came from, with your git identity and your gh login.
+
+It never merges. For a Run that worked in Aqorin's sandbox no git hook runs; otherwise git runs as it does for
+you.
+
+Before anything is drafted it checks that it can deliver: a git repository on a branch, changes to commit, an
+`origin` remote with the base branch on it, `gh` installed and logged in (`gh auth login`), and no other
+workflow unfinished in the folder. A delivery that stopped — a refused push, say — goes on from where it
+stopped when you press `P` again. The Result then says **Delivered**, with
+the pull request. From the CLI: `aqorin deliver <run> --draft`, then `aqorin deliver <run> --yes` — or
+`--from <draft.json> --yes` with a draft of your own.
+
 ## From the CLI
 
 ```bash
