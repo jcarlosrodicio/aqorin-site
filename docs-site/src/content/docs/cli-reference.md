@@ -155,7 +155,7 @@ Request cancellation of a persisted Run. On claude-code the cancel command itsel
 
 ### `resume`
 
-Resume a Run from its durable event cursor (declared strategy). On claude-code the strategy is a step restart: the interrupted step starts again in a fresh invocation (at least once), never resuming its Claude Code conversation. A Run created with --assign whose attempt failed for a runtime cause waits BLOCKED for a human decision: resume is refused until replan
+Resume a Run from its durable event cursor (declared strategy). On claude-code the strategy is a step restart: the interrupted step starts again in a fresh invocation (at least once), never resuming its Claude Code conversation. A Run created with --assign whose attempt failed for a runtime cause or an execution fault on Aqorin's side waits BLOCKED for a human decision: resume is refused until replan
 
 ### `answer`
 
