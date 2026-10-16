@@ -23,6 +23,14 @@ The step says what the runtime answered, in its own last words.
 After a decision, `R` resumes the Run. Before one, `R` is the short way to **Retry same assignment**:
 it records the retry (its reason, "retried with R in the TUI") and resumes, in one key.
 
+## When the cause is Aqorin's
+
+A step's output has no size limit: Aqorin reads it as it arrives, however long the step runs, and keeps
+its transcript whole (redacted) up to 16 MiB. If Aqorin itself cannot read a step to its end — one line
+of the runtime's output over 8 MiB, or a fault in Aqorin's own reading — the step does not count as
+done and the Run waits for you too, saying the cause is on Aqorin's side, not the runtime's.
+**Retry same assignment** and a replan are both open, and nothing is retried on its own.
+
 ## Retried on its own
 
 A **transient** failure does not wait for you at first. When the runtime's error reads as a rate limit

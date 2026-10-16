@@ -24,6 +24,15 @@ El paso dice qué respondió el runtime, con sus últimas palabras.
 Tras una decisión, `R` reanuda el Run. Antes de ella, `R` es el atajo de **Retry same assignment**:
 registra el reintento (con el motivo «retried with R in the TUI») y reanuda, con una sola tecla.
 
+## Cuando la causa es de Aqorin
+
+La salida de un paso no tiene límite de tamaño: Aqorin la lee a medida que llega, dure lo que dure el
+paso, y guarda su transcripción entera (redactada) hasta 16 MiB. Si es Aqorin quien no puede leer un
+paso hasta el final (una línea de la salida del runtime de más de 8 MiB, o un fallo en la propia
+lectura de Aqorin), el paso no cuenta como terminado y el Run también te espera, y dice que la causa
+está del lado de Aqorin, no del runtime. **Retry same assignment** y el replan siguen
+disponibles, y nada se reintenta por su cuenta.
+
 ## Reintentos automáticos
 
 Un fallo **transitorio** no te espera de entrada. Cuando el error del runtime dice que es un límite de
