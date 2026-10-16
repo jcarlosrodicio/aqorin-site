@@ -79,7 +79,7 @@ version whose help cannot be read at all is still refused until it is validated.
 |---|---|
 | Claude Code | Headless, under an isolated profile: none of your settings, plugins or MCP servers. The skills and MCP servers you give an agent in Aqorin are added. |
 | Codex | In Aqorin's own Codex home, signed in with your login or an API key by reference. |
-| OpenCode | Isolated, without your plugins. Provider keys come by reference ([Credentials](../credentials/)). |
+| OpenCode | In Aqorin's own OpenCode home, on one of your [connections](../connections/) only — never your OpenCode configuration or login. |
 | Pi | Isolated, without your extensions. A provider you reach through an extension needs a [connection](../connections/). |
 
 A [Free chat](../free-chat/) can instead run with your own configuration, if you choose that when

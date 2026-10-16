@@ -14,7 +14,7 @@ description: Qué necesita Aqorin, cómo instalarlo y desinstalarlo, y dónde gu
   |---|---|
   | Claude Code | `claude` |
   | Codex | `codex login` |
-  | OpenCode | `opencode auth login`, o las claves de proveedor que ya usas |
+  | OpenCode | nada en OpenCode: dentro de Aqorin corre sobre una [conexión](../connections/) que añades |
   | Pi | `pi`, luego `/login`, o las claves de proveedor que ya usas |
 
 Aqorin nunca inicia sesión por ti.

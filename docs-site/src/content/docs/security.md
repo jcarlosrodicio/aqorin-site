@@ -37,6 +37,7 @@ version, model and platform. Validated today, on macOS arm64:
 | Claude Code | 2.1.296 | `claude-opus-5-5`, `claude-sonnet-5-5` |
 
 The model must be named in the assignment: a runtime's own default is not one a check covered. On
+OpenCode, `nan/glm5.3-flash` is model `glm5.3-flash` on an Aqorin connection named `nan`. On
 Claude Code, a read-only or review step has only Read, Glob and Grep — no command, no write, no skill,
 no MCP server. After a runtime updates, `aqorin eligibility refresh <runtime> --model <model>` checks
 the new version on this machine (OpenCode and Claude Code; one model call per control, asked first).

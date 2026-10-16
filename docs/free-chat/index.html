@@ -74,8 +74,8 @@
 of New task, or with <code dir="auto">c</code> on Runs. Pick a runtime and a model, then decide how it works. For Pi, when
 you have set up Pi connections in Runtimes, you first choose <strong>Its connection</strong> — <em>None</em> for Pi’s own
 providers, or one of yours, whose models are then offered with its default first: the chat then runs
-isolated on that connection, its key given by name. An OpenCode chat uses your own OpenCode
-configuration; Aqorin’s OpenCode connections are for workflows.</p>
+isolated on that connection, its key given by name. An OpenCode chat always runs on one of your
+OpenCode connections — OpenCode’s default first, never <em>None</em> — and then one of its models.</p>
 <p>Free chats do not wait for each other or for a workflow: several can be open, and a workflow runs
 beside them. If a message fails — a provider error — the chat says why in the runtime’s words and goes
 on: send again, or finish it. A chat that does not start says why in a dialog.</p>
@@ -146,7 +146,7 @@ on: send again, or finish it. A chat that does not start says why in a dialog.</
 <td>OpenCode</td>
 <td>Its permission prompts, here</td>
 <td>Yes</td>
-<td>Always yours</td>
+<td>Always isolated, on a connection</td>
 </tr>
 <tr>
 <td>Pi</td>
@@ -165,13 +165,12 @@ copied — never with your configuration.</p>
 your project and outside it, never in the repository’s <code dir="auto">.git</code> or <code dir="auto">.aqorin</code>, other Runs’ worktrees,
 Aqorin’s own files, or your keys and settings. A Pi chat on <em>Your configuration</em> cannot run in it. See
 <a href="../security/">Security</a>.</p>
-<p>An OpenCode chat reads your OpenCode configuration, and gets the variables your global
-<code dir="auto">~/.config/opencode/opencode.json</code>, <code dir="auto">.jsonc</code> or <code dir="auto">config.json</code> names as <code dir="auto">{env:NAME}</code> — a provider key such as
-<code dir="auto">NAN_API_KEY</code> — from the environment Aqorin was started in: by name, never stored, and hidden from
-what Aqorin shows and keeps as a credential is. Not read for them: a project’s own <code dir="auto">opencode.json</code>,
-<code dir="auto">OPENCODE_CONFIG</code> or <code dir="auto">OPENCODE_CONFIG_DIR</code>; and a name a credential may not have (such as <code dir="auto">PATH</code> or
-<code dir="auto">OPENCODE_…</code>) is never given. If a message fails, the error says the provider’s reason. A workflow’s
-OpenCode steps get the same variables.</p>
+<p>An OpenCode chat runs in Aqorin’s own OpenCode home, on its connection only: never your OpenCode
+configuration, its login, a repository’s <code dir="auto">opencode.json</code> or the variables your configuration reads. The
+connection’s key reaches it by name, is never stored, and is hidden from what Aqorin shows and keeps.
+With no OpenCode connection set up, the chat is not started and Aqorin says how to add one. If a message
+fails, the error says the provider’s reason. A chat started before this version has no connection: start
+a new one.</p>
 <p>In an OpenCode chat, Aqorin keeps one thing off: OpenCode’s subagents (its task tool). Their
 requests would come from a session the chat does not follow, so they would wait unseen.</p>
 <div class="sl-heading-wrapper level-h2"><h2 id="the-conversation">The conversation</h2><a class="sl-anchor-link" href="#the-conversation"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “The conversation”</span></a></div>

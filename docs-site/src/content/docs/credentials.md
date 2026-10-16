@@ -19,35 +19,33 @@ everything Aqorin shows or records.
 
 The screen lists every reference once:
 
-- your OpenCode provider keys;
 - your connections' keys;
-- your MCP servers' variables.
+- your MCP servers' variables;
+- any OpenCode provider key you set before, shown as *not used*.
 
 For each one, it shows whether the key is set now, and what uses it.
 
-- **Add reference** sets an OpenCode provider key, in a form. OpenCode's own runs get it under
-  that name — besides the variables your own OpenCode configuration names as `{env:NAME}`, which its
-  chats and workflow steps get without a reference ([Free chat](../free-chat/)), and a connection's key field then offers it to choose — Pi, OpenCode or Claude Code;
-  Codex's too when it is an environment variable — so you never type it twice. A reference only an
-  MCP server uses is never offered as a connection's key.
+- OpenCode provider keys are retired: OpenCode runs only on Aqorin's [connections](../connections/),
+  so a key set here would reach no OpenCode. **Add reference** and **Edit reference** say so and point
+  you to Runtimes; give the key to an OpenCode connection instead. A reference only an MCP server uses
+  is never offered as a connection's key.
 - **Use in a connection…** (`u`) opens a Pi or OpenCode connection's form with the key — and the
   endpoint and models of the one OpenAI-compatible connection that already uses it, when there is one.
   It is not offered for an MCP server's variable.
-- **Edit reference** and **Remove** change it. **Remove** asks first; the value itself is never
-  touched.
+- **Remove** takes a reference away. It asks first; the value itself is never touched.
 - A reference that belongs to a connection or an MCP server is changed there. **Open** takes you to
   it.
 
-The form's field is **Name of the variable that holds it**, with an example. If you type or paste a
+A connection's key field asks for the **name of the variable that holds it**. If you type or paste a
 value where a name belongs, the form hides it, stores nothing, and says so in one warning.
 
 ## Runtime logins
 
-The runtimes' own logins are not Aqorin credentials. Claude Code, Codex, OpenCode and Pi keep their
-logins in their own way, and Aqorin never signs in for you or reads their credential files.
+The runtimes' own logins are not Aqorin credentials. Claude Code, Codex and Pi keep their logins in
+their own way, and Aqorin never signs in for you or reads their credential files. Inside Aqorin,
+OpenCode does not use its own login at all: it runs on Aqorin's connections.
 
 ```bash
 aqorin credentials list
-aqorin credentials set opencode ANTHROPIC_API_KEY=env:MY_ANTHROPIC_KEY
-aqorin credentials unset opencode ANTHROPIC_API_KEY
+aqorin credentials unset opencode ANTHROPIC_API_KEY   # a key set before; set opencode is refused
 ```
