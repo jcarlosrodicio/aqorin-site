@@ -77,7 +77,9 @@ El chat muestra:
 El marco de la caja dice de quién es el turno y qué está haciendo el agente: *Thinking…*, *Running
 tool… npm test*, *Waiting for you* o *Ready*. Mientras el agente trabaja, lo que escribes se guarda
 como borrador hasta que sea tu turno; no se envía nada por su cuenta. Lo que envías se muestra al
-instante, marcado *sending…* hasta que el runtime lo tiene.
+instante, marcado *sending…* hasta que el runtime lo tiene. La respuesta aparece según la escribe el
+modelo, en todos los runtimes; la última palabra de una línea puede esperar al siguiente espacio,
+porque Aqorin solo muestra el texto donde ningún secreto puede quedar partido en dos.
 
 La cabecera muestra el modo y de quién es la configuración en uso. Para Claude Code y Codex,
 muestra también cuánto de la ventana de contexto del modelo está usado.
