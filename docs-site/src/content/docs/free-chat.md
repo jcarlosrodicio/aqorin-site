@@ -67,9 +67,9 @@ requests would come from a session the chat does not follow, so they would wait 
 
 The chat shows:
 
-- your messages and the runtime's replies;
-- its tools, as one-line rows;
-- a box at the bottom where you write.
+- your messages, behind a bar on the left, and the runtime's replies;
+- its tools, as grey one-line rows with their ✓ or ✗ in colour;
+- a box at the bottom where you write, its cursor already there.
 
 The box's frame says whose turn it is and what the agent is doing: *Thinking…*, *Running tool… npm
 test*, *Waiting for you* or *Ready*. While the agent works, what you type is kept as a draft until

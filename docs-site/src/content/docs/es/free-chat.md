@@ -70,9 +70,9 @@ sin que las vieras.
 
 El chat muestra:
 
-- tus mensajes y las respuestas del runtime;
-- sus herramientas, como filas de una línea;
-- una caja al final donde escribes.
+- tus mensajes, tras una barra a la izquierda, y las respuestas del runtime;
+- sus herramientas, como filas grises de una línea con su ✓ o ✗ en color;
+- una caja al final donde escribes, con el cursor ya en ella.
 
 El marco de la caja dice de quién es el turno y qué está haciendo el agente: *Thinking…*, *Running
 tool… npm test*, *Waiting for you* o *Ready*. Mientras el agente trabaja, lo que escribes se guarda
