@@ -48,7 +48,7 @@ The pane's title shows the filter and how many rows match. `Esc` clears it.
 | `!` | Show the notices — what Aqorin wants you to know about the Run, the plan or, on Home, the project — in the pane's place; `!` again goes back. |
 | `z` | Show the focused pane alone, so a mouse selection takes only its lines; `z` again shows them all. |
 | `y` | Send the selected step's messages to the terminal's clipboard, where the terminal allows it (it cannot confirm it). |
-| Ctrl+T | [Trace](../trace/): Activity, Trace and Raw. |
+| Ctrl+T | [Trace](../trace/): Activity, Flow, Trace and Raw. |
 | `c` `c` | Cancel the Run. |
 | `I` `K` `X` `U` | A finished Run in a worktree of its own: integrate it, keep the branch, discard it, or undo an integration — each asked first, and offered only when it can be done. See [Runs](../runs/). |
 
