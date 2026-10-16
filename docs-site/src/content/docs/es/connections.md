@@ -3,13 +3,21 @@ title: Conexiones
 description: Cómo llega un runtime a un modelo, mediante su propio inicio de sesión o mediante una conexión que añades a Aqorin.
 ---
 
-Cada runtime tiene una **conexión nativa**: su propio inicio de sesión y su propia configuración,
-exactamente como cuando lo ejecutas tú.
+Claude Code, Codex y Pi tienen cada uno una **conexión nativa**: su propio inicio de sesión y su propia
+configuración, exactamente como cuando los ejecutas tú. Aqorin ejecuta Pi **aislado**, sin tus
+extensiones: un proveedor al que llegas mediante una extensión puede no existir dentro de Aqorin.
 
-Aqorin ejecuta Pi y OpenCode **aislados**, sin tus extensiones ni plugins. Por eso, un proveedor al
-que llegas de forma nativa mediante una extensión puede no existir dentro de Aqorin. En ese caso, o
-para usar una clave de API en lugar de un inicio de sesión, añade una **conexión** propia de
-Aqorin.
+**OpenCode no tiene conexión nativa en Aqorin.** Todo OpenCode que lanza Aqorin —un paso de workflow, un
+Free chat, una comprobación, `aqorin open opencode`— corre en el home de OpenCode propio de Aqorin, nunca
+con tu configuración de OpenCode, su inicio de sesión (`opencode auth login`), el `opencode.json` de un
+repositorio ni las variables que lee tu configuración, y solo ve el proveedor de la conexión sobre la que
+corre. Un paso en OpenCode que no nombra conexión corre sobre la **conexión por defecto de OpenCode**:
+selecciona una de sus conexiones en Runtimes y pulsa **Use by default** (`u`), o ejecuta
+`aqorin connections use <nombre>`. Si no hay ninguna, Aqorin se niega antes de lanzar nada y te dice cómo
+añadir una. Tu OpenCode fuera de Aqorin no se toca.
+
+Para cualquiera de estos casos —un proveedor para OpenCode, uno al que Pi llega mediante una extensión, o
+una clave de API en lugar de un inicio de sesión— añade una **conexión** propia de Aqorin.
 
 ## Añadir una conexión
 

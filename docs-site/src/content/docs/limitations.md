@@ -16,8 +16,10 @@ description: What the Terminal Alpha does not do, and what it does not claim.
   agents out of the others' folders; a Free chat writes in the project folder, where one of them may work;
   with `sandbox: off` or on Codex beyond its own sandbox, nothing does.
 - **Sandbox:** writes only — reads and the network are not limited.
-- **Free chat:** a connection can be chosen on Pi only, and an OpenCode or Pi chat does not show how
-  much context it uses.
+- **Free chat:** a connection can be chosen on Pi and OpenCode only, and an OpenCode or Pi chat does not
+  show how much context it uses.
+- **OpenCode:** only OpenAI-compatible providers, as Aqorin connections. OpenCode's built-in providers
+  (an Anthropic or OpenAI key) and its logins (OpenCode Go, Copilot, xAI) are not reachable from Aqorin.
 - **Accessibility:** the full-screen TUI does not support screen readers. Use `--plain` or `--json`.
 - **Notifications:** only the terminal bell; no OS notifications.
 

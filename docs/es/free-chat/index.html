@@ -75,8 +75,8 @@ opción de New task, o con <code dir="auto">c</code> en Runs. Elige un runtime y
 si configuraste conexiones de Pi en Runtimes, primero eliges <strong>Its connection</strong> —<em>None</em> para los
 proveedores propios de Pi, o una de las tuyas, cuyos modelos se ofrecen después con el suyo por defecto
 primero—: el chat se ejecuta entonces aislado sobre esa conexión, con su clave pasada por nombre. Un chat
-de OpenCode usa tu propia configuración de OpenCode; las conexiones de OpenCode de Aqorin son para los
-workflows.</p>
+de OpenCode siempre corre sobre una de tus conexiones de OpenCode —primero la de por defecto de OpenCode,
+nunca <em>None</em>— y luego uno de sus modelos.</p>
 <p>Los Free chats no se esperan entre sí ni esperan a un workflow: puedes tener varios abiertos, y un
 workflow se ejecuta a su lado. Si un mensaje falla —un error del proveedor—, el chat dice por qué con
 las palabras del runtime y sigue: vuelve a enviar o termínalo. Un chat que no arranca dice por qué en un
@@ -148,7 +148,7 @@ diálogo.</p>
 <td>OpenCode</td>
 <td>Sus avisos de permiso, aquí</td>
 <td>Sí</td>
-<td>Siempre la tuya</td>
+<td>Siempre aislado, sobre una conexión</td>
 </tr>
 <tr>
 <td>Pi</td>
@@ -167,13 +167,12 @@ Aqorin, con tu inicio de sesión enlazado, nunca copiado, y nunca con tu configu
 escribe en tu proyecto y fuera de él, nunca en el <code dir="auto">.git</code> o el <code dir="auto">.aqorin</code> del repositorio, en los worktrees de
 otros Runs, en los archivos de Aqorin ni en tus claves y ajustes. Un chat de Pi con <em>Your configuration</em> no
 puede ejecutarse en él. Mira <a href="../security/">Seguridad</a>.</p>
-<p>Un chat de OpenCode lee tu configuración de OpenCode y recibe las variables que tu
-<code dir="auto">~/.config/opencode/opencode.json</code>, <code dir="auto">.jsonc</code> o <code dir="auto">config.json</code> global nombra como <code dir="auto">{env:NOMBRE}</code> —una clave de
-proveedor como <code dir="auto">NAN_API_KEY</code>— desde el entorno con el que se arrancó Aqorin: por nombre, nunca
-guardadas y ocultas en lo que Aqorin muestra y guarda, como una credencial. No se leen para esto el
-<code dir="auto">opencode.json</code> de un proyecto, <code dir="auto">OPENCODE_CONFIG</code> ni <code dir="auto">OPENCODE_CONFIG_DIR</code>, y nunca se pasa un nombre
-que una credencial no puede tener (como <code dir="auto">PATH</code> u <code dir="auto">OPENCODE_…</code>). Si un mensaje falla, el error dice el
-motivo del proveedor. Los pasos de OpenCode de un workflow reciben las mismas variables.</p>
+<p>Un chat de OpenCode corre en el home de OpenCode propio de Aqorin y solo sobre su conexión: nunca con tu
+configuración de OpenCode, su inicio de sesión, el <code dir="auto">opencode.json</code> de un repositorio ni las variables que
+lee tu configuración. La clave de la conexión le llega por nombre, nunca se guarda y se oculta en lo que
+Aqorin muestra y guarda. Si no tienes ninguna conexión de OpenCode, el chat no empieza y Aqorin te dice
+cómo añadir una. Si un mensaje falla, el error dice el motivo del proveedor. Un chat empezado antes de
+esta versión no tiene conexión: empieza uno nuevo.</p>
 <p>En un chat de OpenCode, Aqorin mantiene desactivada una cosa: los subagentes de OpenCode (su
 herramienta task). Sus peticiones vendrían de una sesión que el chat no sigue, así que esperarían
 sin que las vieras.</p>

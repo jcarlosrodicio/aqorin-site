@@ -15,7 +15,8 @@ says *what* is done; the assignment, or failing it the default execution, says *
     call), by full name — and its aliases (`opus`, `sonnet`…), each saying what it resolves to.
   - **Codex:** your account's catalog, as Codex refreshes it with your sign-in; a model Codex hides
     for your account is not offered.
-  - **OpenCode and Pi:** the models of the providers they have keys for.
+  - **Pi:** the models of the providers it has keys for.
+  - **OpenCode:** its connections' models — inside Aqorin it has no providers of its own.
 - **A connection's models:** the ones you discovered, typed or — for Claude Code and Codex — took
   from the runtime's own list. Wherever a model is chosen from such a list (a node, an agent's
   default, a replan, a Free chat), **Another model id…** types one it does not name. A long list

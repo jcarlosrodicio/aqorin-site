@@ -3,12 +3,20 @@ title: Connections
 description: How a runtime reaches a model, through its own login or through a connection you add to Aqorin.
 ---
 
-Every runtime has a **native connection**: its own login and configuration, exactly as when you
-run it yourself.
+Claude Code, Codex and Pi each have a **native connection**: their own login and configuration, exactly
+as when you run them yourself. Aqorin runs Pi **isolated**, without your extensions: a provider you
+reach natively through an extension may not exist inside Aqorin.
 
-Aqorin runs Pi and OpenCode **isolated**, without your extensions or plugins. A provider you reach
-natively through an extension may therefore not exist inside Aqorin. In that case — or to use an API
-key instead of a login — add a **connection** of Aqorin's own.
+**OpenCode has no native connection in Aqorin.** Every OpenCode Aqorin starts — a workflow step, a Free
+chat, a check, `aqorin open opencode` — runs in Aqorin's own OpenCode home, never with your OpenCode
+configuration, its login (`opencode auth login`), a repository's `opencode.json` or the variables your
+configuration reads, and sees only the provider of the connection it runs on. A step on OpenCode that
+names no connection runs on **OpenCode's default connection**: select one of its connections on Runtimes
+and press **Use by default** (`u`), or run `aqorin connections use <name>`. With none, Aqorin refuses
+before anything runs and says how to add one. Your OpenCode outside Aqorin is untouched.
+
+For any of these — a provider for OpenCode, one Pi reaches through an extension, or an API key instead
+of a login — add a **connection** of Aqorin's own.
 
 ## Add a connection
 

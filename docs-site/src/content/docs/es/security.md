@@ -42,7 +42,8 @@ modelo y plataforma. Validado hoy, en macOS arm64:
 | Claude Code | 2.1.296 | `claude-opus-5-5`, `claude-sonnet-5-5` |
 
 El modelo debe indicarse en la asignación: el modelo por defecto de un runtime no lo cubre ninguna
-comprobación. En Claude Code, un paso de solo lectura o de revisión solo tiene Read, Glob y Grep: ni
+comprobación. En OpenCode, `nan/glm5.3-flash` es el modelo `glm5.3-flash` sobre una conexión de Aqorin
+llamada `nan`. En Claude Code, un paso de solo lectura o de revisión solo tiene Read, Glob y Grep: ni
 comandos, ni escritura, ni skills, ni servidores MCP. Cuando un runtime se actualiza,
 `aqorin eligibility refresh <runtime> --model <modelo>` comprueba la nueva versión en esta máquina
 (OpenCode y Claude Code; una llamada al modelo por control, preguntando antes).

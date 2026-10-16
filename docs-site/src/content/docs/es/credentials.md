@@ -19,39 +19,33 @@ de todo lo que Aqorin muestra o registra.
 
 La pantalla lista cada referencia una vez:
 
-- tus claves de proveedor de OpenCode;
 - las claves de tus conexiones;
-- las variables de tus servidores MCP.
+- las variables de tus servidores MCP;
+- cualquier clave de proveedor de OpenCode que definieras antes, marcada como *not used*.
 
 De cada una muestra si la clave está definida ahora y qué la usa.
 
-- **Add reference** define una clave de proveedor de OpenCode, en un formulario. Las ejecuciones
-  propias de OpenCode la reciben con ese nombre —además de las variables que tu propia configuración de
-  OpenCode nombra como `{env:NOMBRE}`, que sus chats y los pasos de workflow reciben sin referencia
-  ([Free chat](../free-chat/))—, y el campo de clave de una conexión —Pi,
-  OpenCode o Claude Code; también la de Codex si es una variable de entorno— la ofrece para elegirla,
-  así que no la escribes dos veces. Una referencia que solo usa un servidor MCP nunca se ofrece como
-  clave de una conexión.
+- Las claves de proveedor de OpenCode están retiradas: OpenCode solo corre sobre las
+  [conexiones](../connections/) de Aqorin, así que una clave definida aquí no llegaría a ningún OpenCode.
+  **Add reference** y **Edit reference** lo dicen y te llevan a Runtimes: dale la clave a una conexión de
+  OpenCode. Una referencia que solo usa un servidor MCP nunca se ofrece como clave de una conexión.
 - **Use in a connection…** (`u`) abre el formulario de una conexión de Pi u OpenCode con la clave, y
   con el endpoint y los modelos de la única conexión compatible con OpenAI que ya la usa, si la hay. No
   se ofrece para la variable de un servidor MCP.
-- **Edit reference** y **Remove** la cambian. **Remove** pregunta primero; el valor en sí nunca se
-  toca.
+- **Remove** quita una referencia. Pregunta primero; el valor en sí nunca se toca.
 - Una referencia que pertenece a una conexión o a un servidor MCP se cambia allí. **Open** te lleva
   hasta ella.
 
-El campo del formulario es **Name of the variable that holds it**, con un ejemplo. Si escribes o
-pegas un valor donde va un nombre, el formulario lo oculta, no guarda nada y te lo dice en un solo
-aviso.
+El campo de clave de una conexión pide el **nombre de la variable que la guarda**. Si escribes o pegas
+un valor donde va un nombre, el formulario lo oculta, no guarda nada y te lo dice en un solo aviso.
 
 ## Inicios de sesión de los runtimes
 
-Los inicios de sesión propios de los runtimes no son credenciales de Aqorin. Claude Code, Codex,
-OpenCode y Pi guardan sus inicios de sesión a su manera, y Aqorin nunca inicia sesión por ti ni lee
-sus archivos de credenciales.
+Los inicios de sesión propios de los runtimes no son credenciales de Aqorin. Claude Code, Codex y Pi
+guardan sus inicios de sesión a su manera, y Aqorin nunca inicia sesión por ti ni lee sus archivos de
+credenciales. Dentro de Aqorin, OpenCode no usa su inicio de sesión: corre sobre las conexiones de Aqorin.
 
 ```bash
 aqorin credentials list
-aqorin credentials set opencode ANTHROPIC_API_KEY=env:MY_ANTHROPIC_KEY
-aqorin credentials unset opencode ANTHROPIC_API_KEY
+aqorin credentials unset opencode ANTHROPIC_API_KEY   # una clave de antes; set opencode se rechaza
 ```
