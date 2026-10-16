@@ -74,7 +74,8 @@ The chat shows:
 The box's frame says whose turn it is and what the agent is doing: *Thinking…*, *Running tool… npm
 test*, *Waiting for you* or *Ready*. While the agent works, what you type is kept as a draft until
 it is your turn — nothing is sent on its own. What you send shows at once, marked *sending…* until
-the runtime has it.
+the runtime has it. The reply shows as the model writes it, on every runtime; a line's last word may
+wait for the next space, because Aqorin shows text only where no secret can be cut in two.
 
 The header shows the mode and whose configuration is in use. For Claude Code and Codex, it also
 shows how much of the model's context window is used.
