@@ -1,14 +1,15 @@
 ---
-title: Trace, Activity and Raw
-description: The developer's view of everything a Run recorded, at three levels of detail.
+title: Trace, Flow, Activity and Raw
+description: The developer's view of everything a Run recorded, at four levels of detail — and its workflow drawn.
 ---
 
 **Trace** (Ctrl+T in a Run) is the developer's view of what was recorded. `[` and `]` switch
-between three levels:
+between four levels:
 
 | Level | Shows |
 |---|---|
 | **Activity** | The transcript: messages, tools and turns, as you read them in the Run. |
+| **Flow** | The workflow drawn: each step a box with its agent and state, arrows to the next, the end, and each loop back (a review or a verification asking for changes) with how many times it was taken. The step working now pulses; after a handoff a dot travels the arrow it took. Left to right when the steps fit, else top to bottom. Nothing moves with `AQORIN_TUI_MOTION=0`. |
 | **Trace** | Every recorded entry, with its kind, where it happened and what it says. The selected entry is shown as stored. |
 | **Raw** | The records as stored, with their canonical UTC time marked `Z`. |
 
