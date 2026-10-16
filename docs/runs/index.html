@@ -129,18 +129,21 @@ agents out of your project folder and other Runs’ worktrees — see <a href=".
 <p>A Run’s view is a dashboard:</p>
 <ul>
 <li><strong>On the left</strong>, the steps: each one’s name with its state’s glyph, its state and time to the right,
-which agent runs it and where (agent · runtime), and its attempt past the first.</li>
+which agent runs it and where (agent · runtime), and its attempt past the first. Under them, <em>Review
+loop 1 of 3</em> once a review asked for changes, and <em>Checks</em> when the task has checks.</li>
 <li><strong>In the middle</strong>, the selected step’s work. One line says what it is doing now — <em>Thinking…</em>,
-<em>Running tool… npm test</em>, <em>Waiting for you</em> — and the next who runs it, with the model the runtime
-reports, the context it has used where the runtime says it (Claude Code’s of its window, once the
-step ends; Pi’s and OpenCode’s last request) and the tokens it has spent, in and out. A step that
+<em>Running tool… npm test</em>, <em>Waiting for you</em>. A step that
 failed says why, in its runtime’s last words. A step run again with your answer to its questions
 first shows the attempt that asked: what it said, its questions and what you answered. Then come its messages, under who says them — <em>◆ the agent</em>, <em>› you</em> for your answers, <em>? Asked</em> for
-its questions — each attempt under its own rule, with the agent’s bold, <code dir="auto">code</code> and bullets shown as such. The tool calls between two messages are folded into one muted line, with
-their count and any that failed: <code dir="auto">t</code> shows each one.</li>
-<li><strong>On the right</strong>, the Run in a few lines, one row each: its state, workflow, assurance, task, time, changes,
+its questions, <em>◈ Aqorin · verdict</em> for the verdict a review, verification or check step ends on (its
+decision and findings in words) — each attempt under its own rule, with the agent’s bold, <code dir="auto">code</code> and bullets shown as such. The tool calls between two messages are folded into one muted line, with
+their count and any that failed: <code dir="auto">t</code> shows each one. Under them, kept in sight as they scroll: who runs
+the step, with the model the runtime reports, the context it has used where the runtime says it
+(Claude Code’s of its window, once the step ends; Pi’s and OpenCode’s last request) and the tokens it
+has spent, in and out.</li>
+<li><strong>On the right</strong>, the Run in a few lines, one row each: its state, workflow, task, time, changes,
 handoffs, the Run’s <strong>Tokens</strong> (every attempt’s in and out, an agent’s check’s too, as each runtime
-reported them — Claude Code and Codex at the end of each attempt) and the working step’s <strong>Context</strong> (Codex’s runs do not report it). <code dir="auto">d</code> shows the selected step’s details (its assignment, version and attempts). What
+reported them — Claude Code and Codex at the end of each attempt) the working step’s <strong>Context</strong> (Codex’s runs do not report it) and its <strong>Run id</strong>. <code dir="auto">d</code> shows the selected step’s details (its assignment, version and attempts). What
 Aqorin wants you to know — why the Run is advisory, what a runtime version says of its flags — is
 not repeated there: <code dir="auto">!</code> shows the <strong>notices</strong> in its place. What failed and what waits for you
 always shows.</li>
@@ -153,6 +156,9 @@ The next step waits for them, so a reviewer that has not started yet is usually 
 checks. Meanwhile the step’s work shows what the checks are doing — the runtime’s messages and tool
 calls, then each of the task’s checks as it runs — and, once they report, keeps them under
 <strong>Checks</strong>.</p>
+<p>The selection follows the step that runs: opening a Run selects it, and when it ends the next one is
+selected — unless you moved to another step to read it, which stays selected until you come back to the
+one running.</p>
 <p><code dir="auto">Tab</code> to the steps, then <code dir="auto">↑</code> <code dir="auto">↓</code> picks one. <code dir="auto">y</code> sends the selected step’s messages to your
 terminal’s clipboard, where the terminal allows it (it cannot confirm it). A mouse selection takes
 whole lines across every pane: <code dir="auto">z</code> shows the focused pane alone, so it takes only that pane’s lines,

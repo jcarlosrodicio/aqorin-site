@@ -32,7 +32,8 @@ Run `aqorin` in a project and the TUI opens. `aqorin --plain` gives a line view 
 ## Home
 
 Until the project is ready to run, Home is a checklist. Once it is ready, Home is the control
-plane: the four runtimes, the Run that is moving, what waits for you and the recent Runs. When Aqorin
+plane: the four runtimes, the Run that is moving and the recent Runs, with what waits for you on the right —
+that pane only when something does. When Aqorin
 has something to tell you about the project — for example, that your default runtime runs review and
 read-only steps with an advisory restriction — the Status line shows `! 1 notice`; `!` reads it, Esc
 folds it.

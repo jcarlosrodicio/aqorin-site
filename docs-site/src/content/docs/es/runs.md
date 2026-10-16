@@ -60,20 +60,24 @@ La vista de un Run es un panel:
 
 - **A la izquierda**, los pasos: el nombre de cada uno con el símbolo de su estado, su estado y su
   tiempo a la derecha, qué agente lo ejecuta y dónde (agente · runtime), y su intento a partir del segundo.
+  Debajo, *Review loop 1 of 3* cuando una revisión ha pedido cambios, y *Checks* cuando la tarea tiene
+  comprobaciones.
 - **En el centro**, el trabajo del paso seleccionado. Una línea dice qué está haciendo ahora
-  (*Thinking…*, *Running tool… npm test*, *Waiting for you*), y la siguiente quién lo ejecuta, con el
-  modelo que informa el runtime, el contexto que lleva usado donde el runtime lo dice (en Claude Code,
-  de su ventana al terminar el paso; en Pi y OpenCode, el de la última petición) y los tokens gastados,
-  de entrada y de salida. Un paso que falló dice por qué, con las últimas palabras de su runtime. Un
+  (*Thinking…*, *Running tool… npm test*, *Waiting for you*). Un paso que falló dice por qué, con las últimas palabras de su runtime. Un
   paso que se ejecuta de nuevo con tu respuesta a sus preguntas muestra antes el intento que preguntó:
   lo que dijo, sus preguntas y lo que respondiste. Luego vienen sus mensajes, bajo quién los dice —*◆ el agente*, *› you* para tus respuestas, *? Asked*
-  para sus preguntas—, cada intento bajo su propia línea, con las negritas, el `código` y las viñetas del
+  para sus preguntas, *◈ Aqorin · verdict* para el veredicto con que acaba un paso de revisión,
+  verificación o comprobación (su decisión y sus hallazgos, en palabras)—, cada intento bajo su propia línea, con las negritas, el `código` y las viñetas del
   agente mostrados como tales. Las llamadas a herramientas entre dos mensajes se
   pliegan en una sola línea atenuada, con cuántas son y las que fallaron: `t` las muestra una a una.
-- **A la derecha**, el Run en pocas líneas, una por dato: su estado, workflow, garantía, tarea, tiempo, cambios,
+  Debajo, siempre a la vista aunque se desplacen: quién ejecuta el paso, con el modelo que informa el
+  runtime, el contexto que lleva usado donde el runtime lo dice (en Claude Code, de su ventana al
+  terminar el paso; en Pi y OpenCode, el de la última petición) y los tokens gastados, de entrada y de
+  salida.
+- **A la derecha**, el Run en pocas líneas, una por dato: su estado, workflow, tarea, tiempo, cambios,
   handoffs, los **Tokens** del Run (los de entrada y salida de todos sus intentos, también los de la
-  comprobación de un agente, tal como los informó cada runtime; Claude Code y Codex, al terminar cada intento) y el **Context** del paso que trabaja
-  (los Runs de Codex no lo informan). `d` muestra los detalles del paso seleccionado (su asignación, versión e intentos). Lo
+  comprobación de un agente, tal como los informó cada runtime; Claude Code y Codex, al terminar cada intento) el **Context** del paso que trabaja
+  (los Runs de Codex no lo informan) y su **Run id**. `d` muestra los detalles del paso seleccionado (su asignación, versión e intentos). Lo
   que Aqorin quiere que sepas (por qué el Run es orientativo, qué dice de sus flags la versión de un
   runtime) no se repite ahí: `!` muestra los **notices** en su lugar. Lo que falla y lo que te espera
   se muestra siempre.
@@ -86,6 +90,10 @@ Sin comprobaciones ni agent check no se ejecuta nada: el paso sigue y sus compro
 todavía no ha empezado suele estar esperando a estas comprobaciones. Mientras tanto, el trabajo del
 paso muestra qué hacen: los mensajes y llamadas a herramientas del runtime y, después, cada
 comprobación de la tarea mientras se ejecuta; cuando responden, quedan bajo **Checks**.
+
+La selección sigue al paso que se ejecuta: al abrir un Run queda seleccionado, y cuando termina se
+selecciona el siguiente, salvo que te hayas movido a otro paso para leerlo, que sigue seleccionado hasta
+que vuelvas al que se está ejecutando.
 
 `Tab` a los pasos, y luego `↑` `↓` elige uno. `y` envía los mensajes del paso seleccionado al
 portapapeles de tu terminal, si la terminal lo permite (no puede confirmarlo). Una selección con el
