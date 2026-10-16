@@ -56,7 +56,9 @@ invented.
 When the request leaves something only you can decide, a step (Research, Plan, Diagnose…) ends on its
 questions instead of guessing, each with the answers it proposes when it can. The Run waits in
 [Attention](../attention/): `a` asks them one at a time — pick an answer or write your own — and the step
-runs again with your answers. From the CLI:
+runs again with your answers. Every later step of the Run is given them too, as your decisions for the
+Run: the verification and the review judge the work by what you answered, not only by the request —
+whatever runtime each runs on, so an answer is no place for a key or a password. From the CLI:
 
 ```bash
 aqorin answer <run> "Decimals too; keep the old API."
