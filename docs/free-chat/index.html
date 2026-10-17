@@ -213,9 +213,15 @@ requests would come from a session the chat does not follow, so they would wait 
 <p>The chat shows:</p>
 <ul>
 <li>your messages, behind a bar on the left, and the runtime’s replies;</li>
-<li>its tools, as grey one-line rows with their ✓ or ✗ in colour;</li>
+<li>its tools, as grey one-line rows with their ✓ or ✗ in colour — more than three in a row show their
+last three under one line for the earlier ones (<em>✓ 9 earlier tools: shell ×8, apply_patch</em>; the
+Run’s activity, Ctrl+T, lists every one);</li>
 <li>a box at the bottom where you write, its cursor already there.</li>
 </ul>
+<p>Everything reads in the order it happened: the reply’s text and tools in turn, and an answer you give, or
+a message you send into a turn, between the parts of the reply that came before and after it — while
+the turn runs too. A link in a reply reads as its text and where it points, a path relative to the
+project (<code dir="auto">~</code> outside it).</p>
 <p>The box’s frame says whose turn it is and what the agent is doing: <em>Thinking…</em>, <em>Running tool… npm
 test</em>, <em>Waiting for you</em> or <em>Ready</em>. What you send shows at once, marked <em>sending…</em> until
 the runtime has it. The reply shows as the model writes it, on every runtime; a line’s last word may
