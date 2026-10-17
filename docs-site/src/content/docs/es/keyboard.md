@@ -74,6 +74,6 @@ El editor de workflows tiene más teclas: `i` edita la descripción, `b` el pres
 | `\` y luego `Enter`, o Shift+Enter | Una línea nueva. |
 | `/` | Al principio de un mensaje, los comandos del chat: `Enter` ejecuta uno, `Tab` lo escribe, `Esc` cierra la lista. |
 | Ctrl+C o `/interrupt` | Detener el turno, donde el runtime lo admita. |
-| Ctrl+T | Los pasos y la actividad del Run. |
+| Ctrl+T | El Run del chat: su actividad a todo lo ancho y una ficha corta (Flow, Trace y Raw con `[` `]`). |
 
 Mira [Free chat](../free-chat/) para los comandos con barra del chat.

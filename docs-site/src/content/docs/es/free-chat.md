@@ -98,12 +98,14 @@ El chat muestra:
 
 Todo se lee en el orden en que pasó: el texto y las herramientas de la respuesta, por turnos, y una
 respuesta tuya, o un mensaje que envías durante el turno, entre las partes de la respuesta que vinieron
-antes y después, también mientras el turno sigue en marcha. Un enlace de la respuesta se ve como su
-texto y a dónde apunta: una ruta relativa al proyecto (`~` fuera de él). `aqorin conversation inspect`
-lista los mensajes en ese mismo orden.
+antes y después, también mientras el turno sigue en marcha. Si tu terminal tiene color, el Markdown de
+la respuesta se formatea: títulos, negrita y cursiva, listas, citas, bloques de código y tablas; sin color se
+muestra tal cual. Un enlace de la respuesta se ve como su texto y a dónde apunta: una ruta relativa al
+proyecto (`~` fuera de él). `aqorin conversation inspect` lista los mensajes en ese mismo orden.
 
 El marco de la caja dice de quién es el turno y qué está haciendo el agente: *Thinking…*, *Running
-tool… npm test*, *Waiting for you* o *Ready*. Lo que envías se muestra al
+tool… npm test*, *Waiting for you* o *Ready*. Las teclas están en el pie; la caja solo las nombra cuando
+un pie estrecho no tiene sitio para ellas. Lo que envías se muestra al
 instante, marcado *sending…* hasta que el runtime lo tiene. La respuesta aparece según la escribe el
 modelo, en todos los runtimes; la última palabra de una línea puede esperar al siguiente espacio,
 porque Aqorin solo muestra el texto donde ningún secreto puede quedar partido en dos.
@@ -150,7 +152,7 @@ la lista.
 | `/finish` | Terminar el chat, tras preguntar, y volver a Runs. También en la paleta y en F1. |
 | `/cancel` | Cancelar el Run del chat, tras preguntar: para un turno que nunca responde, que el chat señala; `/follow-up` lo continúa después. También *Cancel the chat…* en el pie, la paleta y F1. |
 | `/follow-up` | Empezar otro chat después de este. |
-| Ctrl+T | Los pasos y la actividad del Run. |
+| Ctrl+T | El Run del chat: su actividad a todo lo ancho, junto a una ficha corta —estado, tiempo, tokens y contexto (donde el runtime los informa), runtime, modelo y lo que te espera—. `[` `]` para Flow, Trace y Raw. |
 
 ```bash
 aqorin conversation create --free-chat --runtime claude-code --permission-mode ask --runtime-config isolated

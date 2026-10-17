@@ -230,11 +230,13 @@ shell ×8, apply_patch</em>; la actividad de la Run, Ctrl+T, las lista todas);</
 </ul>
 <p>Todo se lee en el orden en que pasó: el texto y las herramientas de la respuesta, por turnos, y una
 respuesta tuya, o un mensaje que envías durante el turno, entre las partes de la respuesta que vinieron
-antes y después, también mientras el turno sigue en marcha. Un enlace de la respuesta se ve como su
-texto y a dónde apunta: una ruta relativa al proyecto (<code dir="auto">~</code> fuera de él). <code dir="auto">aqorin conversation inspect</code>
-lista los mensajes en ese mismo orden.</p>
+antes y después, también mientras el turno sigue en marcha. Si tu terminal tiene color, el Markdown de
+la respuesta se formatea: títulos, negrita y cursiva, listas, citas, bloques de código y tablas; sin color se
+muestra tal cual. Un enlace de la respuesta se ve como su texto y a dónde apunta: una ruta relativa al
+proyecto (<code dir="auto">~</code> fuera de él). <code dir="auto">aqorin conversation inspect</code> lista los mensajes en ese mismo orden.</p>
 <p>El marco de la caja dice de quién es el turno y qué está haciendo el agente: <em>Thinking…</em>, <em>Running
-tool… npm test</em>, <em>Waiting for you</em> o <em>Ready</em>. Lo que envías se muestra al
+tool… npm test</em>, <em>Waiting for you</em> o <em>Ready</em>. Las teclas están en el pie; la caja solo las nombra cuando
+un pie estrecho no tiene sitio para ellas. Lo que envías se muestra al
 instante, marcado <em>sending…</em> hasta que el runtime lo tiene. La respuesta aparece según la escribe el
 modelo, en todos los runtimes; la última palabra de una línea puede esperar al siguiente espacio,
 porque Aqorin solo muestra el texto donde ningún secreto puede quedar partido en dos.</p>
@@ -312,7 +314,7 @@ la lista.</p>
 </tr>
 <tr>
 <td>Ctrl+T</td>
-<td>Los pasos y la actividad del Run.</td>
+<td>El Run del chat: su actividad a todo lo ancho, junto a una ficha corta —estado, tiempo, tokens y contexto (donde el runtime los informa), runtime, modelo y lo que te espera—. <code dir="auto">[</code> <code dir="auto">]</code> para Flow, Trace y Raw.</td>
 </tr>
 </tbody>
 </table>

@@ -94,11 +94,14 @@ The chat shows:
 
 Everything reads in the order it happened: the reply's text and tools in turn, and an answer you give, or
 a message you send into a turn, between the parts of the reply that came before and after it — while
-the turn runs too. A link in a reply reads as its text and where it points, a path relative to the
-project (`~` outside it). `aqorin conversation inspect` lists the messages in the same order.
+the turn runs too. Where your terminal has colour, a reply's Markdown is formatted — headings, bold and
+italics, lists, quotes, code blocks and tables; without colour it is shown as written. A link in a reply reads
+as its text and where it points, a path relative to the project (`~` outside it). `aqorin conversation inspect`
+lists the messages in the same order.
 
 The box's frame says whose turn it is and what the agent is doing: *Thinking…*, *Running tool… npm
-test*, *Waiting for you* or *Ready*. What you send shows at once, marked *sending…* until
+test*, *Waiting for you* or *Ready*. The keys are in the footer; the box names them only when a narrow
+footer has no room for them. What you send shows at once, marked *sending…* until
 the runtime has it. The reply shows as the model writes it, on every runtime; a line's last word may
 wait for the next space, because Aqorin shows text only where no secret can be cut in two.
 
@@ -143,7 +146,7 @@ list.
 | `/finish` | End the chat, after asking, and go back to Runs. Also in the palette and on F1. |
 | `/cancel` | Cancel the chat's Run, after asking — for a turn that never answers, which the chat points out; `/follow-up` then continues it. Also *Cancel the chat…* in the footer, the palette and on F1. |
 | `/follow-up` | Start another chat after this one. |
-| Ctrl+T | The Run's steps and activity. |
+| Ctrl+T | The chat's Run: its activity across the width, beside a short card — state, time, tokens and context (where the runtime reports them), runtime, model, and what waits on you. `[` `]` for Flow, Trace and Raw. |
 
 ```bash
 aqorin conversation create --free-chat --runtime claude-code --permission-mode ask --runtime-config isolated

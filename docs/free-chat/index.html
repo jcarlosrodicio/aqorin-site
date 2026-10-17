@@ -226,10 +226,13 @@ Run’s activity, Ctrl+T, lists every one);</li>
 </ul>
 <p>Everything reads in the order it happened: the reply’s text and tools in turn, and an answer you give, or
 a message you send into a turn, between the parts of the reply that came before and after it — while
-the turn runs too. A link in a reply reads as its text and where it points, a path relative to the
-project (<code dir="auto">~</code> outside it). <code dir="auto">aqorin conversation inspect</code> lists the messages in the same order.</p>
+the turn runs too. Where your terminal has colour, a reply’s Markdown is formatted — headings, bold and
+italics, lists, quotes, code blocks and tables; without colour it is shown as written. A link in a reply reads
+as its text and where it points, a path relative to the project (<code dir="auto">~</code> outside it). <code dir="auto">aqorin conversation inspect</code>
+lists the messages in the same order.</p>
 <p>The box’s frame says whose turn it is and what the agent is doing: <em>Thinking…</em>, <em>Running tool… npm
-test</em>, <em>Waiting for you</em> or <em>Ready</em>. What you send shows at once, marked <em>sending…</em> until
+test</em>, <em>Waiting for you</em> or <em>Ready</em>. The keys are in the footer; the box names them only when a narrow
+footer has no room for them. What you send shows at once, marked <em>sending…</em> until
 the runtime has it. The reply shows as the model writes it, on every runtime; a line’s last word may
 wait for the next space, because Aqorin shows text only where no secret can be cut in two.</p>
 <p>The header shows the mode and whose configuration is in use. For Claude Code and Codex, it also
@@ -305,7 +308,7 @@ list.</p>
 </tr>
 <tr>
 <td>Ctrl+T</td>
-<td>The Run’s steps and activity.</td>
+<td>The chat’s Run: its activity across the width, beside a short card — state, time, tokens and context (where the runtime reports them), runtime, model, and what waits on you. <code dir="auto">[</code> <code dir="auto">]</code> for Flow, Trace and Raw.</td>
 </tr>
 </tbody>
 </table>

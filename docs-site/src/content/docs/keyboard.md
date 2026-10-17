@@ -72,6 +72,6 @@ step that runs the checks, and `v` the review step. See [Workflows](../workflows
 | `\` then `Enter`, or Shift+Enter | A new line. |
 | `/` | At the start of a message, the chat's commands: `Enter` runs one, `Tab` writes it, `Esc` closes the list. |
 | Ctrl+C or `/interrupt` | Stop the turn, where the runtime supports it. |
-| Ctrl+T | The Run's steps and activity. |
+| Ctrl+T | The chat's Run: its activity across the width and a short card (Flow, Trace and Raw with `[` `]`). |
 
 See [Free chat](../free-chat/) for the chat's slash commands.
