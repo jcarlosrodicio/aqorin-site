@@ -106,6 +106,10 @@ muestra también cuánto de la ventana de contexto del modelo está usado.
 
 ## Comandos
 
+Escribe `/` al principio de un mensaje y el chat lista sus comandos, cada uno con lo que hace: ↑↓ para elegir,
+**Enter** lo ejecuta, **Tab** lo escribe en tu mensaje (para añadir su texto, como `/answer <text>`), Esc cierra
+la lista.
+
 | Comando | Hace |
 |---|---|
 | `Enter` | Enviar; mientras el agente trabaja, lo pone en cola para el siguiente turno. `\` y luego `Enter`, o Shift+Enter, añade una línea. |
@@ -113,8 +117,8 @@ muestra también cuánto de la ventana de contexto del modelo está usado.
 | `/interrupt` o Ctrl+C | Detener el turno, donde el runtime lo admita. |
 | `/allow`, `/deny` | Responder a una petición de permiso. |
 | `/answer <text>` | Responder a una pregunta. |
-| `/finish` | Terminar el chat, tras preguntar. También en la paleta y en F1. |
-| `/cancel` | Cancelar el Run del chat, tras preguntar: para un turno que nunca responde; `/follow-up` lo continúa después. |
+| `/finish` | Terminar el chat, tras preguntar, y volver a Runs. También en la paleta y en F1. |
+| `/cancel` | Cancelar el Run del chat, tras preguntar: para un turno que nunca responde, que el chat señala; `/follow-up` lo continúa después. También *Cancel the chat…* en el pie, la paleta y F1. |
 | `/follow-up` | Empezar otro chat después de este. |
 | Ctrl+T | Los pasos y la actividad del Run. |
 

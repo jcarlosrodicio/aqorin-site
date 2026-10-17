@@ -101,6 +101,10 @@ shows how much of the model's context window is used.
 
 ## Commands
 
+Type `/` at the start of a message and the chat lists its commands, each with what it does: ↑↓ choose,
+**Enter** runs one, **Tab** writes it into your message (to add its text, as `/answer <text>`), Esc closes the
+list.
+
 | Command | Does |
 |---|---|
 | `Enter` | Send — while the agent works, queue it for the next turn. `\` then `Enter`, or Shift+Enter, adds a line. |
@@ -108,8 +112,8 @@ shows how much of the model's context window is used.
 | `/interrupt` or Ctrl+C | Stop the turn, where the runtime supports it. |
 | `/allow`, `/deny` | Answer a permission request. |
 | `/answer <text>` | Answer a question. |
-| `/finish` | End the chat, after asking. Also in the palette and on F1. |
-| `/cancel` | Cancel the chat's Run, after asking — for a turn that never answers; `/follow-up` then continues it. |
+| `/finish` | End the chat, after asking, and go back to Runs. Also in the palette and on F1. |
+| `/cancel` | Cancel the chat's Run, after asking — for a turn that never answers, which the chat points out; `/follow-up` then continues it. Also *Cancel the chat…* in the footer, the palette and on F1. |
 | `/follow-up` | Start another chat after this one. |
 | Ctrl+T | The Run's steps and activity. |
 
