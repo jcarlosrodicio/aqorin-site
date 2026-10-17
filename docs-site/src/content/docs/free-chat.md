@@ -16,7 +16,7 @@ on: send again, or finish it. A chat that does not start says why in a dialog.
 
 ## How it works
 
-The last step of the form asks two things.
+The last step of the form asks three things.
 
 **What it may do:**
 
@@ -31,6 +31,20 @@ The last step of the form asks two things.
 |---|---|
 | **Isolated** | Aqorin's clean profile. |
 | **Your configuration** | Your settings, plugins, extensions and MCP servers. The runtime reads them; Aqorin never writes them. Whatever they already allow runs without asking, as in your terminal. |
+
+**Effort:** how hard the model reasons, in the runtime's own levels. **Default** leaves it to the runtime.
+
+| Runtime | Levels | The runtime's control |
+|---|---|---|
+| Claude Code | low, medium, high, xhigh, max | `--effort` |
+| Codex | minimal, low, medium, high, xhigh | `model_reasoning_effort` |
+| Pi | off, minimal, low, medium, high, xhigh, max | `--thinking` |
+| OpenCode | — | its effort is a provider's model variant, and Aqorin's connections declare none |
+
+In the chat, `/effort <level>` (or `/effort`, to pick one; `/effort default`) changes it from your next message
+on; the chat's header shows it. It is a request: the model applies what it supports. A Pi chat on *Your
+configuration* keeps the level once one is chosen (Pi keeps a session's level, and its default is your settings'):
+choose another level instead of Default.
 
 ### Per runtime
 
@@ -112,6 +126,7 @@ list.
 | `/interrupt` or Ctrl+C | Stop the turn, where the runtime supports it. |
 | `/allow`, `/deny` | Answer a permission request. |
 | `/answer <text>` | Answer a question. |
+| `/effort <level>` | The model's effort from your next message (`default`: the runtime's). |
 | `/finish` | End the chat, after asking, and go back to Runs. Also in the palette and on F1. |
 | `/cancel` | Cancel the chat's Run, after asking — for a turn that never answers, which the chat points out; `/follow-up` then continues it. Also *Cancel the chat…* in the footer, the palette and on F1. |
 | `/follow-up` | Start another chat after this one. |
@@ -120,5 +135,6 @@ list.
 ```bash
 aqorin conversation create --free-chat --runtime claude-code --permission-mode ask --runtime-config isolated
 aqorin conversation send <conversation> "Explain src/index.ts"
+aqorin conversation send <conversation> --effort high -- "Now refactor it"
 aqorin conversation finish <conversation>
 ```

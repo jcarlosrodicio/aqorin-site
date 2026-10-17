@@ -18,7 +18,7 @@ diálogo.
 
 ## Cómo funciona
 
-El último paso del formulario pregunta dos cosas.
+El último paso del formulario pregunta tres cosas.
 
 **Qué puede hacer:**
 
@@ -33,6 +33,21 @@ El último paso del formulario pregunta dos cosas.
 |---|---|
 | **Isolated** | El perfil limpio de Aqorin. |
 | **Your configuration** | Tus ajustes, plugins, extensiones y servidores MCP. El runtime los lee; Aqorin nunca los escribe. Lo que ya permitan se ejecuta sin preguntar, como en tu terminal. |
+
+**Esfuerzo (*Effort*):** cuánto razona el modelo, en los niveles propios del runtime. **Default** lo deja al
+runtime.
+
+| Runtime | Niveles | El control del runtime |
+|---|---|---|
+| Claude Code | low, medium, high, xhigh, max | `--effort` |
+| Codex | minimal, low, medium, high, xhigh | `model_reasoning_effort` |
+| Pi | off, minimal, low, medium, high, xhigh, max | `--thinking` |
+| OpenCode | — | su esfuerzo es una variante del modelo de su proveedor, y las conexiones de Aqorin no declaran ninguna |
+
+En el chat, `/effort <nivel>` (o `/effort`, para elegirlo; `/effort default`) lo cambia desde tu siguiente
+mensaje; la cabecera del chat lo muestra. Es una petición: el modelo aplica lo que admite. Un chat de Pi con
+*Your configuration* mantiene el nivel una vez elegido (Pi conserva el nivel de una sesión, y su valor por defecto
+es el de tus ajustes): elige otro nivel en lugar de Default.
 
 ### Por runtime
 
@@ -117,6 +132,7 @@ la lista.
 | `/interrupt` o Ctrl+C | Detener el turno, donde el runtime lo admita. |
 | `/allow`, `/deny` | Responder a una petición de permiso. |
 | `/answer <text>` | Responder a una pregunta. |
+| `/effort <level>` | El esfuerzo del modelo desde tu siguiente mensaje (`default`: el del runtime). |
 | `/finish` | Terminar el chat, tras preguntar, y volver a Runs. También en la paleta y en F1. |
 | `/cancel` | Cancelar el Run del chat, tras preguntar: para un turno que nunca responde, que el chat señala; `/follow-up` lo continúa después. También *Cancel the chat…* en el pie, la paleta y F1. |
 | `/follow-up` | Empezar otro chat después de este. |
@@ -125,5 +141,6 @@ la lista.
 ```bash
 aqorin conversation create --free-chat --runtime claude-code --permission-mode ask --runtime-config isolated
 aqorin conversation send <conversation> "Explain src/index.ts"
+aqorin conversation send <conversation> --effort high -- "Now refactor it"
 aqorin conversation finish <conversation>
 ```
