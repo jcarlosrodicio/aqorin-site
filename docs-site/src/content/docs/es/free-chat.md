@@ -13,8 +13,10 @@ nunca *None*— y luego uno de sus modelos.
 
 Los Free chats no se esperan entre sí ni esperan a un workflow: puedes tener varios abiertos, y un
 workflow se ejecuta a su lado. Si un mensaje falla —un error del proveedor—, el chat dice por qué con
-las palabras del runtime y sigue: vuelve a enviar o termínalo. Un chat que no arranca dice por qué en un
-diálogo.
+las palabras del runtime y sigue: vuelve a enviar o termínalo. Si el proceso que envió un turno termina
+antes que él —se cerró la terminal, se mató `aqorin conversation send`—, el turno aparece como *Turn failed*,
+con lo que había hecho, y se acepta el siguiente mensaje; el chat no se
+cancela. Un chat que no arranca dice por qué en un diálogo.
 
 ## Cómo funciona
 
