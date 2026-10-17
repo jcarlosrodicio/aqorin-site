@@ -206,7 +206,10 @@ Aqorin’s own files, or your keys and settings. A Pi chat on <em>Your configura
 <a href="../security/">Security</a>.</p>
 <p>An OpenCode chat runs in Aqorin’s own OpenCode home, on its connection only: never your OpenCode
 configuration, its login, a repository’s <code dir="auto">opencode.json</code> or the variables your configuration reads. The
-connection’s key reaches it by name, is never stored, and is hidden from what Aqorin shows and keeps.
+connection’s key reaches it by name, is never stored, and is hidden from what Aqorin shows and keeps. That home
+holds the chat’s session while it goes on, and is removed once the chat is over (about 70 MB each) — when you
+finish it, or, cancelled, when the next chat in that project is started, followed up or finished; a follow-up starts
+its own.
 With no OpenCode connection set up, the chat is not started and Aqorin says how to add one. If a message
 fails, the error says the provider’s reason. A chat started before this version has no connection: start
 a new one.</p>

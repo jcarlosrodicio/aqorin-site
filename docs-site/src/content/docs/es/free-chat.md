@@ -76,7 +76,9 @@ puede ejecutarse en él. Mira [Seguridad](../security/).
 Un chat de OpenCode corre en el home de OpenCode propio de Aqorin y solo sobre su conexión: nunca con tu
 configuración de OpenCode, su inicio de sesión, el `opencode.json` de un repositorio ni las variables que
 lee tu configuración. La clave de la conexión le llega por nombre, nunca se guarda y se oculta en lo que
-Aqorin muestra y guarda. Si no tienes ninguna conexión de OpenCode, el chat no empieza y Aqorin te dice
+Aqorin muestra y guarda. Ese home guarda la sesión del chat mientras sigue, y se borra cuando el chat termina
+(unos 70 MB cada uno): al terminarlo o, si lo cancelaste, cuando en ese proyecto se empieza, se continúa
+(*follow-up*) o se termina el siguiente chat; un follow-up empieza el suyo. Si no tienes ninguna conexión de OpenCode, el chat no empieza y Aqorin te dice
 cómo añadir una. Si un mensaje falla, el error dice el motivo del proveedor. Un chat empezado antes de
 esta versión no tiene conexión: empieza uno nuevo.
 
