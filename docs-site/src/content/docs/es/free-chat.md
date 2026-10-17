@@ -87,7 +87,7 @@ sin que las vieras.
 El chat muestra:
 
 - tus mensajes, tras una barra a la izquierda, y las respuestas del runtime;
-- sus herramientas, como filas grises de una línea con su ✓ o ✗ en color — si hay más de tres
+- sus herramientas, como filas grises de una línea con su ✓ o ✗ en color — si hay cinco o más
   seguidas, se ven las tres últimas bajo una línea que resume las anteriores (*✓ 9 earlier tools:
   shell ×8, apply_patch*; la actividad de la Run, Ctrl+T, las lista todas);
 - una caja al final donde escribes, con el cursor ya en ella.
@@ -95,7 +95,8 @@ El chat muestra:
 Todo se lee en el orden en que pasó: el texto y las herramientas de la respuesta, por turnos, y una
 respuesta tuya, o un mensaje que envías durante el turno, entre las partes de la respuesta que vinieron
 antes y después, también mientras el turno sigue en marcha. Un enlace de la respuesta se ve como su
-texto y a dónde apunta: una ruta relativa al proyecto (`~` fuera de él).
+texto y a dónde apunta: una ruta relativa al proyecto (`~` fuera de él). `aqorin conversation inspect`
+lista los mensajes en ese mismo orden.
 
 El marco de la caja dice de quién es el turno y qué está haciendo el agente: *Thinking…*, *Running
 tool… npm test*, *Waiting for you* o *Ready*. Lo que envías se muestra al

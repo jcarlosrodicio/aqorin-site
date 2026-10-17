@@ -83,7 +83,7 @@ requests would come from a session the chat does not follow, so they would wait 
 The chat shows:
 
 - your messages, behind a bar on the left, and the runtime's replies;
-- its tools, as grey one-line rows with their ✓ or ✗ in colour — more than three in a row show their
+- its tools, as grey one-line rows with their ✓ or ✗ in colour — five or more in a row show their
   last three under one line for the earlier ones (*✓ 9 earlier tools: shell ×8, apply_patch*; the
   Run's activity, Ctrl+T, lists every one);
 - a box at the bottom where you write, its cursor already there.
@@ -91,7 +91,7 @@ The chat shows:
 Everything reads in the order it happened: the reply's text and tools in turn, and an answer you give, or
 a message you send into a turn, between the parts of the reply that came before and after it — while
 the turn runs too. A link in a reply reads as its text and where it points, a path relative to the
-project (`~` outside it).
+project (`~` outside it). `aqorin conversation inspect` lists the messages in the same order.
 
 The box's frame says whose turn it is and what the agent is doing: *Thinking…*, *Running tool… npm
 test*, *Waiting for you* or *Ready*. What you send shows at once, marked *sending…* until
