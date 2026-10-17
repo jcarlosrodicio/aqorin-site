@@ -47,14 +47,26 @@ Sus acciones:
 
 ## Ejecución por defecto
 
-La **ejecución por defecto** de un agente es un runtime, una conexión (o la propia del runtime) y un
-modelo. Es tu preferencia: los agentes que Aqorin incluye vienen sin ninguna.
+La **ejecución por defecto** de un agente es un runtime, una conexión (o la propia del runtime), un
+modelo y el esfuerzo del modelo. Es tu preferencia: los agentes que Aqorin incluye vienen sin ninguna.
 
 - **Configure default** (`c`) la elige. El modelo se escoge entre los de la conexión, o entre los
   que lista el runtime (también los de Claude Code y Codex), o con **Another model id…** si no está
   en la lista. Para un agente
   integrado, se guarda en la configuración de
   este proyecto; para un agente tuyo, en el archivo del agente.
+- **Effort**, en el mismo formulario, es cuánto razona el modelo en los pasos que coloca esta ejecución
+  por defecto, en los niveles propios del runtime. **Default** lo deja en manos del runtime.
+
+  | Runtime | Niveles |
+  |---|---|
+  | Claude Code | low, medium, high, xhigh, max |
+  | Codex | minimal, low, medium, high, xhigh |
+  | Pi | off, minimal, low, medium, high, xhigh, max |
+  | OpenCode | ninguno: su esfuerzo es una variante que declara su proveedor, y las conexiones de Aqorin no declaran ninguna |
+
+  Cada intento de esos pasos se ejecuta con él, y el Run lo conserva al reanudarse. Un paso colocado por
+  una asignación explícita usa el esfuerzo por defecto de su runtime.
 - **Clear default** la quita.
 
 ## Agentes integrados

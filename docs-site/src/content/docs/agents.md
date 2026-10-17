@@ -42,14 +42,26 @@ Its actions:
 
 ## Default execution
 
-An agent's **default execution** is a runtime, a connection (or the runtime's own) and a model.
-It is your preference — the agents Aqorin ships come with none.
+An agent's **default execution** is a runtime, a connection (or the runtime's own), a model and the
+model's effort. It is your preference — the agents Aqorin ships come with none.
 
 - **Configure default** (`c`) chooses it. The model is picked from the connection's models, or the
   ones the runtime lists (Claude Code's and Codex's included), or **Another model id…** for one the
   list does not name. For a built-in
   agent, it is kept in this project's
   configuration; for your own agent, in the agent's file.
+- **Effort**, in the same form, is how hard the model reasons in the steps this default places, in the
+  runtime's own levels. **Default** leaves it to the runtime.
+
+  | Runtime | Levels |
+  |---|---|
+  | Claude Code | low, medium, high, xhigh, max |
+  | Codex | minimal, low, medium, high, xhigh |
+  | Pi | off, minimal, low, medium, high, xhigh, max |
+  | OpenCode | none — its effort is a variant its provider declares, and Aqorin's connections declare none |
+
+  Every attempt of those steps runs with it, and the Run keeps it when it is resumed. A step placed by
+  an explicit assignment runs at its runtime's own effort.
 - **Clear default** removes it.
 
 ## Built-in agents
