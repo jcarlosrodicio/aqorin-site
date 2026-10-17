@@ -219,7 +219,7 @@ sin que las vieras.</p>
 <p>El chat muestra:</p>
 <ul>
 <li>tus mensajes, tras una barra a la izquierda, y las respuestas del runtime;</li>
-<li>sus herramientas, como filas grises de una línea con su ✓ o ✗ en color — si hay más de tres
+<li>sus herramientas, como filas grises de una línea con su ✓ o ✗ en color — si hay cinco o más
 seguidas, se ven las tres últimas bajo una línea que resume las anteriores (<em>✓ 9 earlier tools:
 shell ×8, apply_patch</em>; la actividad de la Run, Ctrl+T, las lista todas);</li>
 <li>una caja al final donde escribes, con el cursor ya en ella.</li>
@@ -227,7 +227,8 @@ shell ×8, apply_patch</em>; la actividad de la Run, Ctrl+T, las lista todas);</
 <p>Todo se lee en el orden en que pasó: el texto y las herramientas de la respuesta, por turnos, y una
 respuesta tuya, o un mensaje que envías durante el turno, entre las partes de la respuesta que vinieron
 antes y después, también mientras el turno sigue en marcha. Un enlace de la respuesta se ve como su
-texto y a dónde apunta: una ruta relativa al proyecto (<code dir="auto">~</code> fuera de él).</p>
+texto y a dónde apunta: una ruta relativa al proyecto (<code dir="auto">~</code> fuera de él). <code dir="auto">aqorin conversation inspect</code>
+lista los mensajes en ese mismo orden.</p>
 <p>El marco de la caja dice de quién es el turno y qué está haciendo el agente: <em>Thinking…</em>, <em>Running
 tool… npm test</em>, <em>Waiting for you</em> o <em>Ready</em>. Lo que envías se muestra al
 instante, marcado <em>sending…</em> hasta que el runtime lo tiene. La respuesta aparece según la escribe el
