@@ -72,6 +72,7 @@ El editor de workflows tiene más teclas: `i` edita la descripción, `b` el pres
 | `Enter` | Enviar; mientras el agente trabaja, lo pone en cola para el siguiente turno. |
 | `Tab` | Mientras el agente trabaja, enviarlo ya, dentro del turno en curso (Codex, Pi, OpenCode). |
 | `\` y luego `Enter`, o Shift+Enter | Una línea nueva. |
+| `/` | Al principio de un mensaje, los comandos del chat: `Enter` ejecuta uno, `Tab` lo escribe, `Esc` cierra la lista. |
 | Ctrl+C o `/interrupt` | Detener el turno, donde el runtime lo admita. |
 | Ctrl+T | Los pasos y la actividad del Run. |
 
