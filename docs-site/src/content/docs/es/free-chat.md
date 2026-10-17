@@ -74,14 +74,26 @@ El chat muestra:
 - una caja al final donde escribes, con el cursor ya en ella.
 
 El marco de la caja dice de quién es el turno y qué está haciendo el agente: *Thinking…*, *Running
-tool… npm test*, *Waiting for you* o *Ready*. Mientras el agente trabaja, lo que escribes se guarda
-como borrador hasta que sea tu turno; no se envía nada por su cuenta. Lo que envías se muestra al
+tool… npm test*, *Waiting for you* o *Ready*. Lo que envías se muestra al
 instante, marcado *sending…* hasta que el runtime lo tiene. La respuesta aparece según la escribe el
 modelo, en todos los runtimes; la última palabra de una línea puede esperar al siguiente espacio,
 porque Aqorin solo muestra el texto donde ningún secreto puede quedar partido en dos.
 
 La cabecera muestra el modo y de quién es la configuración en uso. Para Claude Code y Codex,
 muestra también cuánto de la ventana de contexto del modelo está usado.
+
+## Escribir mientras el agente trabaja
+
+- **Enter lo pone en cola**: se muestra debajo como *queued* y se envía como el siguiente mensaje
+  cuando el turno acaba con una respuesta; varios mensajes en cola van juntos, en orden. Si el turno
+  acaba de otra forma (te espera una pregunta, falló, lo interrumpiste), no se envía nada por su
+  cuenta: lo que tenías en cola vuelve a la caja.
+- **Tab lo envía ya**, dentro del turno en curso, donde el runtime acepta un mensaje mientras
+  trabaja: Codex, Pi y OpenCode, cada uno en su siguiente paso —tras las herramientas en marcha,
+  antes de que el modelo vuelva a escribir—, nunca a mitad de frase. Claude Code no acepta ninguno,
+  así que sus mensajes van a la cola. Si el runtime no lo acepta, o el turno acaba antes, queda en
+  cola y el chat lo dice.
+- La cola vive en esa ventana: si sales con algo en cola, se te avisa de que no se envía.
 
 ## Permisos y preguntas
 
@@ -96,7 +108,8 @@ muestra también cuánto de la ventana de contexto del modelo está usado.
 
 | Comando | Hace |
 |---|---|
-| `Enter` | Enviar. `\` y luego `Enter`, o Shift+Enter, añade una línea. |
+| `Enter` | Enviar; mientras el agente trabaja, lo pone en cola para el siguiente turno. `\` y luego `Enter`, o Shift+Enter, añade una línea. |
+| `Tab` | Mientras el agente trabaja, enviarlo ya, dentro del turno en curso (Codex, Pi, OpenCode). |
 | `/interrupt` o Ctrl+C | Detener el turno, donde el runtime lo admita. |
 | `/allow`, `/deny` | Responder a una petición de permiso. |
 | `/answer <text>` | Responder a una pregunta. |

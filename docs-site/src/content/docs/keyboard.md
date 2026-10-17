@@ -67,7 +67,8 @@ step that runs the checks, and `v` the review step. See [Workflows](../workflows
 
 | Key | Does |
 |---|---|
-| `Enter` | Send. |
+| `Enter` | Send — while the agent works, queue it for the next turn. |
+| `Tab` | While the agent works, send it now, into the running turn (Codex, Pi, OpenCode). |
 | `\` then `Enter`, or Shift+Enter | A new line. |
 | Ctrl+C or `/interrupt` | Stop the turn, where the runtime supports it. |
 | Ctrl+T | The Run's steps and activity. |
