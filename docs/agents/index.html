@@ -124,15 +124,51 @@ your own version.</li>
 <li><strong>Delete</strong> asks first, and says what uses the agent.</li>
 </ul>
 <div class="sl-heading-wrapper level-h2"><h2 id="default-execution">Default execution</h2><a class="sl-anchor-link" href="#default-execution"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Default execution”</span></a></div>
-<p>An agent’s <strong>default execution</strong> is a runtime, a connection (or the runtime’s own) and a model.
-It is your preference — the agents Aqorin ships come with none.</p>
+<p>An agent’s <strong>default execution</strong> is a runtime, a connection (or the runtime’s own), a model and the
+model’s effort. It is your preference — the agents Aqorin ships come with none.</p>
 <ul>
-<li><strong>Configure default</strong> (<code dir="auto">c</code>) chooses it. The model is picked from the connection’s models, or the
+<li>
+<p><strong>Configure default</strong> (<code dir="auto">c</code>) chooses it. The model is picked from the connection’s models, or the
 ones the runtime lists (Claude Code’s and Codex’s included), or <strong>Another model id…</strong> for one the
 list does not name. For a built-in
 agent, it is kept in this project’s
-configuration; for your own agent, in the agent’s file.</li>
-<li><strong>Clear default</strong> removes it.</li>
+configuration; for your own agent, in the agent’s file.</p>
+</li>
+<li>
+<p><strong>Effort</strong>, in the same form, is how hard the model reasons in the steps this default places, in the
+runtime’s own levels. <strong>Default</strong> leaves it to the runtime.</p>
+<table>
+<thead>
+<tr>
+<th>Runtime</th>
+<th>Levels</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Code</td>
+<td>low, medium, high, xhigh, max</td>
+</tr>
+<tr>
+<td>Codex</td>
+<td>minimal, low, medium, high, xhigh</td>
+</tr>
+<tr>
+<td>Pi</td>
+<td>off, minimal, low, medium, high, xhigh, max</td>
+</tr>
+<tr>
+<td>OpenCode</td>
+<td>none — its effort is a variant its provider declares, and Aqorin’s connections declare none</td>
+</tr>
+</tbody>
+</table>
+<p>Every attempt of those steps runs with it, and the Run keeps it when it is resumed. A step placed by
+an explicit assignment runs at its runtime’s own effort.</p>
+</li>
+<li>
+<p><strong>Clear default</strong> removes it.</p>
+</li>
 </ul>
 <div class="sl-heading-wrapper level-h2"><h2 id="built-in-agents">Built-in agents</h2><a class="sl-anchor-link" href="#built-in-agents"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Built-in agents”</span></a></div>
 <p><code dir="auto">specifier</code>, <code dir="auto">developer</code> and <code dir="auto">reviewer</code> are the roles of the built-in <code dir="auto">feature</code> workflow. The

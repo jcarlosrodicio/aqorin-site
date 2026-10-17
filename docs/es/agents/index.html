@@ -128,15 +128,51 @@ tus comentarios.</li>
 </ul>
 <p><a id="default-execution"></a></p>
 <div class="sl-heading-wrapper level-h2"><h2 id="ejecución-por-defecto">Ejecución por defecto</h2><a class="sl-anchor-link" href="#ejecución-por-defecto"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Sección titulada «Ejecución por defecto»</span></a></div>
-<p>La <strong>ejecución por defecto</strong> de un agente es un runtime, una conexión (o la propia del runtime) y un
-modelo. Es tu preferencia: los agentes que Aqorin incluye vienen sin ninguna.</p>
+<p>La <strong>ejecución por defecto</strong> de un agente es un runtime, una conexión (o la propia del runtime), un
+modelo y el esfuerzo del modelo. Es tu preferencia: los agentes que Aqorin incluye vienen sin ninguna.</p>
 <ul>
-<li><strong>Configure default</strong> (<code dir="auto">c</code>) la elige. El modelo se escoge entre los de la conexión, o entre los
+<li>
+<p><strong>Configure default</strong> (<code dir="auto">c</code>) la elige. El modelo se escoge entre los de la conexión, o entre los
 que lista el runtime (también los de Claude Code y Codex), o con <strong>Another model id…</strong> si no está
 en la lista. Para un agente
 integrado, se guarda en la configuración de
-este proyecto; para un agente tuyo, en el archivo del agente.</li>
-<li><strong>Clear default</strong> la quita.</li>
+este proyecto; para un agente tuyo, en el archivo del agente.</p>
+</li>
+<li>
+<p><strong>Effort</strong>, en el mismo formulario, es cuánto razona el modelo en los pasos que coloca esta ejecución
+por defecto, en los niveles propios del runtime. <strong>Default</strong> lo deja en manos del runtime.</p>
+<table>
+<thead>
+<tr>
+<th>Runtime</th>
+<th>Niveles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Code</td>
+<td>low, medium, high, xhigh, max</td>
+</tr>
+<tr>
+<td>Codex</td>
+<td>minimal, low, medium, high, xhigh</td>
+</tr>
+<tr>
+<td>Pi</td>
+<td>off, minimal, low, medium, high, xhigh, max</td>
+</tr>
+<tr>
+<td>OpenCode</td>
+<td>ninguno: su esfuerzo es una variante que declara su proveedor, y las conexiones de Aqorin no declaran ninguna</td>
+</tr>
+</tbody>
+</table>
+<p>Cada intento de esos pasos se ejecuta con él, y el Run lo conserva al reanudarse. Un paso colocado por
+una asignación explícita usa el esfuerzo por defecto de su runtime.</p>
+</li>
+<li>
+<p><strong>Clear default</strong> la quita.</p>
+</li>
 </ul>
 <div class="sl-heading-wrapper level-h2"><h2 id="agentes-integrados">Agentes integrados</h2><a class="sl-anchor-link" href="#agentes-integrados"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Sección titulada «Agentes integrados»</span></a></div>
 <p><code dir="auto">specifier</code>, <code dir="auto">developer</code> y <code dir="auto">reviewer</code> son los roles del workflow integrado <code dir="auto">feature</code>. Las
