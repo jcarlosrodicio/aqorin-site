@@ -93,8 +93,17 @@ aplica el motor, no un prompt.
 
 La lista nombra cada workflow con sus pasos, su garantía y su origen: **built-in** (viene con Aqorin),
 **project** (un archivo en `.aqorin/workflows/`) o **advanced**. El inspector de uno integrado empieza
-por para qué sirve, su flujo y sus agentes. **Customize…** (`d`) lo copia al proyecto con un nombre
-libre; la copia es tuya para editarla, y el integrado queda como está.
+por para qué sirve, su flujo y sus agentes.
+
+- **Edit (your copy)** (`e`) lo escribe en este proyecto con su mismo nombre. Esa copia sustituye aquí al
+  integrado y es tuya para cambiarla; si la borras, vuelve el integrado.
+- **Hide…** (`x`) quita un integrado de las listas de este proyecto (sigue ejecutándose si lo nombras);
+  **Restore hidden…** (`h`) lo vuelve a mostrar.
+- **Duplicate…** (`d`) lo copia con un nombre libre. `feature`, que se mantiene por compatibilidad, se copia
+  con **Customize…** (`d`).
+
+Desde el CLI: `aqorin workflows override <id>`, `aqorin workflows delete <id>` (un integrado: se oculta) y
+`aqorin workflows restore <id>`.
 
 La pantalla lee cada workflow de arriba abajo:
 

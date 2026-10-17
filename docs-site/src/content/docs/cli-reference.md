@@ -68,6 +68,7 @@ aqorin agents new <id> --access-class <read_only|workspace_write|review> [--desc
 aqorin agents duplicate <id> <new-id> | delete <id>
 aqorin workflows list | show <id> | validate [<id>] | new <id> [--description <text>]
 aqorin workflows duplicate <id> <new-id> | delete <id>
+aqorin workflows override <built-in> | restore <built-in>
 aqorin workflows default <id> [--assign <name> | --clear]
 aqorin skills list | inspect <id> | add <directory> [--id <id>] | remove <id>
 aqorin skills assign <id> --scope project|workflow:<id>|agent:<id> [--optional | --unassign]
