@@ -49,7 +49,9 @@ runtime.
 En el chat, `/effort <nivel>` (o `/effort`, para elegirlo; `/effort default`) lo cambia desde tu siguiente
 mensaje; la cabecera del chat lo muestra. Es una petición: el modelo aplica lo que admite. Un chat de Pi con
 *Your configuration* mantiene el nivel una vez elegido (Pi conserva el nivel de una sesión, y su valor por defecto
-es el de tus ajustes): elige otro nivel en lugar de Default.
+es el de tus ajustes): elige otro nivel en lugar de Default. Lo mismo un chat de Codex cuyo modelo no tiene un esfuerzo
+por defecto que Codex indique: Codex conserva el último nivel, y el mensaje se rechaza
+(`codex_effort_default_unknown`): elige un nivel.
 
 ### Por runtime
 

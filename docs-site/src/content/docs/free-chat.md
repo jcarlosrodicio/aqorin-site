@@ -46,7 +46,8 @@ The last step of the form asks three things.
 In the chat, `/effort <level>` (or `/effort`, to pick one; `/effort default`) changes it from your next message
 on; the chat's header shows it. It is a request: the model applies what it supports. A Pi chat on *Your
 configuration* keeps the level once one is chosen (Pi keeps a session's level, and its default is your settings'):
-choose another level instead of Default.
+choose another level instead of Default. So does a Codex chat whose model Codex gives no default effort for: Codex
+keeps the last level, and the message is refused (`codex_effort_default_unknown`) — choose a level.
 
 ### Per runtime
 
