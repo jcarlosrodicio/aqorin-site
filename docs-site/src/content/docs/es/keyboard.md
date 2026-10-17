@@ -50,6 +50,7 @@ borra.
 | `z` | Mostrar solo el panel enfocado, para que una selección con el ratón coja solo sus líneas; `z` otra vez los muestra todos. |
 | `y` | Enviar los mensajes del paso seleccionado al portapapeles de la terminal, si la terminal lo permite (no puede confirmarlo). |
 | Ctrl+T | [Trace](../trace/): Activity, Flow, Trace y Raw. |
+| `f` | Flow: el workflow dibujado (otra vez: vuelta al Run). |
 | `c` `c` | Cancelar el Run. |
 | `I` `K` `X` `U` | Un Run terminado en un worktree propio: integrarlo, conservar la rama, descartarlo o deshacer una integración — cada una tras preguntar, y solo cuando se puede hacer. Mira [Runs](../runs/). |
 

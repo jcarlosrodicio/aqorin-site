@@ -92,8 +92,17 @@ prompt.
 
 The list names each workflow with its steps, its assurance and where it comes from: **built-in**
 (shipped with Aqorin), **project** (a file in `.aqorin/workflows/`) or **advanced**. A built-in's
-inspector starts with what it is for, its flow and its agents. **Customize…** (`d`) copies it into
-the project under a name not taken; the copy is yours to edit, and the built-in stays as it is.
+inspector starts with what it is for, its flow and its agents.
+
+- **Edit (your copy)** (`e`) writes it into this project under its own name. That copy replaces the built-in
+  here and is yours to change; deleting it brings the built-in back.
+- **Hide…** (`x`) takes a built-in off this project's lists (it still runs when named); **Restore hidden…**
+  (`h`) lists it again.
+- **Duplicate…** (`d`) copies it under a name not taken. `feature`, kept for compatibility, is copied with
+  **Customize…** (`d`).
+
+From the CLI: `aqorin workflows override <id>`, `aqorin workflows delete <id>` (a built-in: hidden) and
+`aqorin workflows restore <id>`.
 
 The screen reads each workflow top to bottom:
 

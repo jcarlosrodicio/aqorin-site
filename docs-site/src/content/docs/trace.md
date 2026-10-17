@@ -9,7 +9,7 @@ between four levels:
 | Level | Shows |
 |---|---|
 | **Activity** | The transcript: messages, tools and turns, as you read them in the Run. |
-| **Flow** | The workflow drawn: each step a box with its agent and state, arrows to the next, the end, and each loop back (a review or a verification asking for changes) with how many times it was taken. The step working now pulses; after a handoff a dot travels the arrow it took. Left to right when the steps fit, else top to bottom. Nothing moves with `AQORIN_TUI_MOTION=0`. |
+| **Flow** (also `f` in a Run) | The workflow drawn, centred: each step a box with its agent, its state and its time, coloured by its state; arrows to the next, the end, and each loop back (a review or a verification asking for changes) with how many times it was taken. The step working now pulses; after a handoff a dot travels the arrow it took. Steps that do not fit a row go on to the next, the other way; what cannot be drawn is said in words under it. Nothing moves with `AQORIN_TUI_MOTION=0`. |
 | **Trace** | Every recorded entry, with its kind, where it happened and what it says. The selected entry is shown as stored. |
 | **Raw** | The records as stored, with their canonical UTC time marked `Z`. |
 
