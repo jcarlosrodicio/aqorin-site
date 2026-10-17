@@ -12,7 +12,9 @@ OpenCode connections — OpenCode's default first, never *None* — and then one
 
 Free chats do not wait for each other or for a workflow: several can be open, and a workflow runs
 beside them. If a message fails — a provider error — the chat says why in the runtime's words and goes
-on: send again, or finish it. A chat that does not start says why in a dialog.
+on: send again, or finish it. If the process that sent a turn ends before it does — the terminal closed,
+`aqorin conversation send` killed — the turn reads *Turn failed*, with what it had done, and the next message is taken; the chat is not cancelled. A chat that does not start says why in a
+dialog.
 
 ## How it works
 
