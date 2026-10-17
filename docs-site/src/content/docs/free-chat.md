@@ -71,13 +71,24 @@ The chat shows:
 - a box at the bottom where you write, its cursor already there.
 
 The box's frame says whose turn it is and what the agent is doing: *Thinking…*, *Running tool… npm
-test*, *Waiting for you* or *Ready*. While the agent works, what you type is kept as a draft until
-it is your turn — nothing is sent on its own. What you send shows at once, marked *sending…* until
+test*, *Waiting for you* or *Ready*. What you send shows at once, marked *sending…* until
 the runtime has it. The reply shows as the model writes it, on every runtime; a line's last word may
 wait for the next space, because Aqorin shows text only where no secret can be cut in two.
 
 The header shows the mode and whose configuration is in use. For Claude Code and Codex, it also
 shows how much of the model's context window is used.
+
+## Writing while the agent works
+
+- **Enter queues** what you write: it shows below as *queued*, and is sent as the next message once
+  the turn ends with a reply — several queued messages go together, in order. If the turn ends
+  otherwise (a question waits for you, it failed, you interrupted it), nothing is sent on its own:
+  what you queued comes back to the box.
+- **Tab sends it now**, into the running turn, where the runtime takes a message while it works:
+  Codex, Pi and OpenCode, each at its next step — after the tools under way, before the model writes
+  again — never mid-sentence. Claude Code takes none, so its messages queue. If the runtime does not
+  take it, or the turn ends first, it is queued instead and the chat says so.
+- The queue lives in that window: quitting with something queued tells you it is not sent.
 
 ## Permissions and questions
 
@@ -92,7 +103,8 @@ shows how much of the model's context window is used.
 
 | Command | Does |
 |---|---|
-| `Enter` | Send. `\` then `Enter`, or Shift+Enter, adds a line. |
+| `Enter` | Send — while the agent works, queue it for the next turn. `\` then `Enter`, or Shift+Enter, adds a line. |
+| `Tab` | While the agent works, send it now, into the running turn (Codex, Pi, OpenCode). |
 | `/interrupt` or Ctrl+C | Stop the turn, where the runtime supports it. |
 | `/allow`, `/deny` | Answer a permission request. |
 | `/answer <text>` | Answer a question. |
