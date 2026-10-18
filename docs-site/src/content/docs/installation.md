@@ -56,6 +56,6 @@ Nothing of your runtimes' installations or configuration is touched, either way.
 ## Check the installation
 
 ```bash
-aqorin doctor                       # read-only checks, every runtime's installation included
+aqorin doctor                       # read-only checks, grouped, each with its next step
 aqorin doctor --live --runtime pi   # one real model call; it asks first
 ```

@@ -4,8 +4,23 @@ description: Las situaciones que es más probable que encuentres, qué dice Aqor
 ---
 
 Empieza con `aqorin doctor`. Ejecuta comprobaciones de solo lectura, incluida la instalación de cada
-runtime. La mayoría de los rechazos nombran el siguiente paso, en la TUI y en `--json`
-(`safe_next`).
+runtime, agrupadas en System, Project y Runtimes: `✓` está bien, `!` es un aviso, `✗` un fallo, y
+bajo una comprobación que necesita algo, el siguiente paso (`→`). La última línea cuenta lo que falla
+y lo que avisa:
+
+```text
+Runtimes
+  ✓ Claude Code 2.1.302 is available (~/.local/bin/claude)
+  ✓ Codex 0.163.0 is available (~/.local/bin/codex)
+  ✓ OpenCode 1.18.32 (on PATH)
+  ! Pi has a same-level installation conflict
+      → choose the Pi to use on Home or Runtimes (Choose installation) — or aqorin runtimes select pi <path>
+
+! 1 warning · nothing fails
+```
+
+`aqorin doctor --json` lista todas las comprobaciones, las de jcode incluidas. La mayoría de los
+rechazos también nombran el siguiente paso, en la TUI y en `--json` (`safe_next`).
 
 ## No se encuentra un runtime
 
