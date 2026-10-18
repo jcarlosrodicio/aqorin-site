@@ -38,6 +38,23 @@ En Runs, Agents, Workflows y Resources, `/` conserva solo las filas que contiene
 palabras que escribes. El título del panel muestra el filtro y cuántas filas coinciden. `Esc` lo
 borra.
 
+## El ratón
+
+Un clic hace lo que hace una tecla:
+
+- una sección del raíl la abre;
+- una fila de una lista queda seleccionada, y un clic en la fila ya seleccionada la abre, como `Enter` (así que un doble clic abre una fila);
+- un paso de un Run queda seleccionado;
+- un botón, una tecla del pie, una pestaña de Resources o un nivel de traza en el borde de un panel del Run hace lo
+  que hace su tecla;
+- en un selector, la paleta, una confirmación o un formulario, un clic en una opción la elige y un clic en un botón
+  lo pulsa.
+
+La rueda mueve la selección de una lista, desplaza el panel de la derecha y mueve la lista de un selector. Sobre un diálogo abierto o la ayuda, nada de lo que hay detrás responde a un clic (la rueda aún puede desplazar el texto de detrás). Arrastrar sobre cualquier otra cosa selecciona su
+texto, y al soltar se copia al portapapeles donde el terminal lo permite. La selección propia del terminal sigue ahí,
+normalmente manteniendo Shift (Option en algunos terminales de macOS) mientras arrastras. Las listas de campos y
+nodos de un editor, las entradas de Trace, el compositor del chat y la ayuda son solo teclado.
+
 ## En un Run
 
 | Tecla | Hace |
