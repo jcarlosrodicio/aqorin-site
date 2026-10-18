@@ -93,7 +93,10 @@ El chat muestra:
 - tus mensajes, tras una barra a la izquierda, y las respuestas del runtime;
 - sus herramientas, como filas grises de una línea con su ✓ o ✗ en color — si hay cinco o más
   seguidas, se ven las tres últimas bajo una línea que resume las anteriores (*✓ 9 earlier tools:
-  shell ×8, apply_patch*; la actividad de la Run, Ctrl+T, las lista todas);
+  shell ×8, apply_patch*; la actividad de la Run, Ctrl+T, las lista todas); las herramientas de un
+  subagente, sangradas bajo la llamada que lo lanzó, que sigue en marcha mientras ellas trabajan (el
+  `Agent` de Claude Code; la respuesta del subagente no se muestra como del agente: el agente la lee y
+  dice lo que necesita);
 - una caja al final donde escribes, con el cursor ya en ella.
 
 Todo se lee en el orden en que pasó: el texto y las herramientas de la respuesta, por turnos, y una

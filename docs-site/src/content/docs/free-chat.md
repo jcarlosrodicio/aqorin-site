@@ -89,7 +89,9 @@ The chat shows:
 - your messages, behind a bar on the left, and the runtime's replies;
 - its tools, as grey one-line rows with their ✓ or ✗ in colour — five or more in a row show their
   last three under one line for the earlier ones (*✓ 9 earlier tools: shell ×8, apply_patch*; the
-  Run's activity, Ctrl+T, lists every one);
+  Run's activity, Ctrl+T, lists every one); a subagent's tools under the call that launched it,
+  indented, that call running while they do (Claude Code's `Agent`; the subagent's own answer is not
+  shown as the agent's — the agent reads it and says what it needs);
 - a box at the bottom where you write, its cursor already there.
 
 Everything reads in the order it happened: the reply's text and tools in turn, and an answer you give, or

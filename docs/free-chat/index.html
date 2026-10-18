@@ -221,7 +221,9 @@ requests would come from a session the chat does not follow, so they would wait 
 <li>your messages, behind a bar on the left, and the runtime’s replies;</li>
 <li>its tools, as grey one-line rows with their ✓ or ✗ in colour — five or more in a row show their
 last three under one line for the earlier ones (<em>✓ 9 earlier tools: shell ×8, apply_patch</em>; the
-Run’s activity, Ctrl+T, lists every one);</li>
+Run’s activity, Ctrl+T, lists every one); a subagent’s tools under the call that launched it,
+indented, that call running while they do (Claude Code’s <code dir="auto">Agent</code>; the subagent’s own answer is not
+shown as the agent’s — the agent reads it and says what it needs);</li>
 <li>a box at the bottom where you write, its cursor already there.</li>
 </ul>
 <p>Everything reads in the order it happened: the reply’s text and tools in turn, and an answer you give, or

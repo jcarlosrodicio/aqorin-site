@@ -67,7 +67,7 @@ A Run's view is a dashboard:
   first shows the attempt that asked: what it said, its questions and what you answered. Then come its messages, under who says them — *◆ the agent*, *› you* for your answers, *? Asked* for
   its questions, *◈ Aqorin · verdict* for the verdict a review, verification or check step ends on (its
   decision and findings in words) — each attempt under its own rule, the agent's Markdown formatted where your terminal has colour (headings, bold and italics, lists, quotes, code blocks, tables; without colour, as written). The tool calls between two messages are folded into one muted line, with
-  their count and any that failed: `t` shows each one. Under them, kept in sight as they scroll: who runs
+  their count and any that failed: `t` shows each one, a subagent's under the call that launched it. Under them, kept in sight as they scroll: who runs
   the step, with the model the runtime reports, the context it has used where the runtime says it
   (Claude Code's of its window, once the step ends; Pi's and OpenCode's last request) and the tokens it
   has spent, in and out.
