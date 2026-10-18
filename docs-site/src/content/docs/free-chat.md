@@ -102,8 +102,8 @@ as its text and where it points, a path relative to the project (`~` outside it)
 lists the messages in the same order.
 
 The box's frame says whose turn it is and what the agent is doing: *Thinking…*, *Running tool… npm
-test*, *Waiting for you* or *Ready*. The keys are in the footer; the box names them only when a narrow
-footer has no room for them. What you send shows at once, marked *sending…* until
+test*, *Waiting for you* or *Ready*. The keys are in the footer where it has room, and always in F1's
+help; on your turn the box names none. What you send shows at once, marked *sending…* until
 the runtime has it. The reply shows as the model writes it, on every runtime; a line's last word may
 wait for the next space, because Aqorin shows text only where no secret can be cut in two.
 

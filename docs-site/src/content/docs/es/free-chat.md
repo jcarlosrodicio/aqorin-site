@@ -107,8 +107,8 @@ muestra tal cual. Un enlace de la respuesta se ve como su texto y a dónde apunt
 proyecto (`~` fuera de él). `aqorin conversation inspect` lista los mensajes en ese mismo orden.
 
 El marco de la caja dice de quién es el turno y qué está haciendo el agente: *Thinking…*, *Running
-tool… npm test*, *Waiting for you* o *Ready*. Las teclas están en el pie; la caja solo las nombra cuando
-un pie estrecho no tiene sitio para ellas. Lo que envías se muestra al
+tool… npm test*, *Waiting for you* o *Ready*. Las teclas están en el pie cuando cabe, y siempre en la ayuda de
+F1; en tu turno la caja no nombra ninguna. Lo que envías se muestra al
 instante, marcado *sending…* hasta que el runtime lo tiene. La respuesta aparece según la escribe el
 modelo, en todos los runtimes; la última palabra de una línea puede esperar al siguiente espacio,
 porque Aqorin solo muestra el texto donde ningún secreto puede quedar partido en dos.
