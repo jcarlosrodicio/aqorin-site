@@ -67,8 +67,8 @@ La vista de un Run es un panel:
   paso que se ejecuta de nuevo con tu respuesta a sus preguntas muestra antes el intento que preguntó:
   lo que dijo, sus preguntas y lo que respondiste. Luego vienen sus mensajes, bajo quién los dice —*◆ el agente*, *› you* para tus respuestas, *? Asked*
   para sus preguntas, *◈ Aqorin · verdict* para el veredicto con que acaba un paso de revisión,
-  verificación o comprobación (su decisión y sus hallazgos, en palabras)—, cada intento bajo su propia línea, con las negritas, el `código` y las viñetas del
-  agente mostrados como tales. Las llamadas a herramientas entre dos mensajes se
+  verificación o comprobación (su decisión y sus hallazgos, en palabras)—, cada intento bajo su propia línea, con el Markdown del
+  agente formateado si tu terminal tiene color (títulos, negrita y cursiva, listas, citas, bloques de código, tablas; sin color, tal cual). Las llamadas a herramientas entre dos mensajes se
   pliegan en una sola línea atenuada, con cuántas son y las que fallaron: `t` las muestra una a una.
   Debajo, siempre a la vista aunque se desplacen: quién ejecuta el paso, con el modelo que informa el
   runtime, el contexto que lleva usado donde el runtime lo dice (en Claude Code, de su ventana al
