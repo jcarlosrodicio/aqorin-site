@@ -27,8 +27,23 @@ export default defineConfig({
         es: { label: "Español", lang: "es" },
       },
       customCss: ["./src/styles/brand.css"],
-      // the landing's cookieless PostHog, the same file it loads
-      head: [{ tag: "script", attrs: { src: "/assets/analytics.js", defer: true } }],
+      // the landing's cookieless PostHog, the same file it loads; the landing's two faces
+      head: [
+        { tag: "script", attrs: { src: "/assets/analytics.js", defer: true } },
+        { tag: "link", attrs: { rel: "preconnect", href: "https://fonts.googleapis.com" } },
+        { tag: "link", attrs: { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: true } },
+        { tag: "link", attrs: { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Manrope:wght@400;500;600;700;800&display=swap" } },
+      ],
+      expressiveCode: {
+        styleOverrides: {
+          borderRadius: "10px",
+          borderColor: "var(--sl-color-gray-5)",
+          codeFontFamily: "var(--sl-font-mono)",
+          uiFontFamily: "var(--sl-font)",
+          codeFontSize: "0.8125rem",
+          codeLineHeight: "1.65",
+        },
+      },
       lastUpdated: false,
       pagination: true,
       sidebar: [

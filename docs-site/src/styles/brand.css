@@ -1,19 +1,101 @@
-/* Aqorin's brand (docs/brand.md in the product): teal on dark, deep teal on light — never teal on white. */
+/* Aqorin's brand (docs/brand.md in the product), the same as the landing's (assets/site.css): Manrope for text,
+   JetBrains Mono for code, neutrals tinted toward the brand's ground, teal on dark and deep teal on light,
+   never teal on white. */
+/* Google Fonts' JetBrains Mono has no box drawing or geometric shapes: those come from a subset of the same
+   font (OFL, /assets/fonts/OFL.txt), so a terminal rule or a bold card border keeps the cell's width. */
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("/assets/fonts/jetbrains-mono-glyphs-400.woff2") format("woff2"); unicode-range: U+2192, U+2500-25FF, U+2713; }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 700; font-display: swap;
+  src: url("/assets/fonts/jetbrains-mono-glyphs-700.woff2") format("woff2"); unicode-range: U+2192, U+2500-25FF, U+2713; }
+
 :root {
-  --sl-color-accent-low: #0b3a32;
-  --sl-color-accent: #19c7a5;
-  --sl-color-accent-high: #b4f1e3;
-  --sl-color-black: #0f1216;
+  --sl-font: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --sl-font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --sl-color-white: oklch(0.975 0.004 264);
+  --sl-color-gray-1: oklch(0.937 0.006 264.5);   /* #e8eaee */
+  --sl-color-gray-2: oklch(0.83 0.008 260);
+  --sl-color-gray-3: oklch(0.70 0.010 258);
+  --sl-color-gray-4: oklch(0.50 0.010 256);
+  --sl-color-gray-5: oklch(0.30 0.010 255);
+  --sl-color-gray-6: oklch(0.212 0.011 255);
+  --sl-color-black: oklch(0.181 0.010 255.6);    /* #0f1216 */
+  --sl-color-bg-nav: var(--sl-color-black);
+  --sl-color-bg-sidebar: var(--sl-color-black);
+
+  --sl-color-accent-low: oklch(0.32 0.055 175);
+  --sl-color-accent: oklch(0.742 0.137 174.1);   /* #19c7a5 */
+  --sl-color-accent-high: oklch(0.90 0.07 174);
 }
 
 :root[data-theme="light"] {
-  --sl-color-accent-low: #cdeee6;
-  --sl-color-accent: #087a66;
-  --sl-color-accent-high: #04463b;
-  --sl-color-black: #ffffff;
+  --sl-color-white: oklch(0.205 0.010 268);      /* #15171c, the ink */
+  --sl-color-gray-1: oklch(0.28 0.012 264);
+  --sl-color-gray-2: oklch(0.36 0.012 262);
+  --sl-color-gray-3: oklch(0.47 0.012 260);
+  --sl-color-gray-4: oklch(0.62 0.010 258);
+  --sl-color-gray-5: oklch(0.885 0.008 255);
+  --sl-color-gray-6: oklch(0.952 0.006 255);
+  --sl-color-gray-7: oklch(0.965 0.005 255);
+  --sl-color-black: oklch(0.976 0.004 255);
+  --sl-color-bg-nav: var(--sl-color-black);
+  --sl-color-bg-sidebar: var(--sl-color-black);
+
+  --sl-color-accent-low: oklch(0.93 0.035 175);
+  --sl-color-accent: oklch(0.518 0.095 175.7);   /* #087a66 */
+  --sl-color-accent-high: oklch(0.36 0.07 176);
 }
 
+body { -webkit-font-smoothing: antialiased; }
+
 .site-title img {
-  height: 1.6rem;
+  height: 1.375rem;
   width: auto;
 }
+
+/* the header and the sidebar as the landing's: one ground, a hairline between */
+header.header { border-bottom: 1px solid var(--sl-color-gray-5); }
+.sidebar-pane { border-inline-end: 1px solid var(--sl-color-gray-5); }
+
+/* headings: Manrope heavy and tight, as on the landing */
+.sl-markdown-content :is(h1, h2, h3, h4),
+h1#_top {
+  font-weight: 800;
+  letter-spacing: -0.022em;
+  color: var(--sl-color-white);
+}
+h1#_top { letter-spacing: -0.03em; line-height: 1.08; }
+.sl-markdown-content h2 { margin-top: 2.25em; }
+.sl-markdown-content :is(h3, h4) { font-weight: 700; letter-spacing: -0.012em; }
+.sl-markdown-content { line-height: 1.7; }
+.sl-markdown-content :is(p, li) { text-wrap: pretty; }
+
+/* links: underlined, the accent, the landing's offset */
+.sl-markdown-content a:not(:where(.not-content *)) {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+.sl-markdown-content a:not(:where(.not-content *)):hover { text-decoration-thickness: 2px; }
+
+/* code: the landing's mono, its quiet ground */
+.sl-markdown-content :not(pre) > code {
+  font-size: 0.875em;
+  padding: 0.12em 0.36em;
+  border-radius: 5px;
+  background: var(--sl-color-gray-6);
+  border: 1px solid var(--sl-color-gray-5);
+}
+
+/* tables: hairlines, no zebra */
+.sl-markdown-content table { font-size: 0.9375rem; }
+.sl-markdown-content :is(th, td) { border-color: var(--sl-color-gray-5); }
+.sl-markdown-content th { font-weight: 700; background: transparent; }
+.sl-markdown-content tr:nth-child(2n) { background: transparent; }
+
+/* the current page in the sidebar: weight and the accent, no filled pill */
+.sidebar-content a[aria-current="page"] {
+  background: transparent;
+  color: var(--sl-color-accent);
+  font-weight: 700;
+}
+.sidebar-content a[aria-current="page"]:hover { color: var(--sl-color-accent-high); }

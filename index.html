@@ -9,7 +9,9 @@
 <link rel="alternate" hreflang="en" href="https://aqorin.rcuadrado.es/">
 <link rel="alternate" hreflang="es" href="https://aqorin.rcuadrado.es/es/">
 <link rel="alternate" hreflang="x-default" href="https://aqorin.rcuadrado.es/">
-<meta name="theme-color" content="#ecebe5">
+<meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1216" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Aqorin">
 <meta property="og:locale" content="en_US">
@@ -20,7 +22,7 @@
 <meta property="og:image" content="https://aqorin.rcuadrado.es/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Aqorin — one workflow, any coding agent. Roles patched to runtimes on a patch bay.">
+<meta property="og:image:alt" content="Aqorin — one workflow, any coding agent. The Flow of a real Run in the Aqorin TUI.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@JuancaRodicio">
 <meta name="twitter:creator" content="@JuancaRodicio">
@@ -30,7 +32,7 @@
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/analytics.js"></script>
 <script type="application/ld+json">
@@ -52,213 +54,446 @@
 </head>
 <body>
 
+<a class="skip" href="#main">Skip to content</a>
+
 <header class="top">
-  <div class="wrap">
-    <a class="mark" href="/" aria-label="Aqorin home"><img src="/assets/brand/aqorin-lockup-light.svg" alt="Aqorin" width="92" height="24"></a>
-    <ul class="links">
-      <li><a href="#why"><span>01</span>Why</a></li>
-      <li><a href="#how"><span>02</span>How</a></li>
-      <li><a href="#rules"><span>03</span>Rules</a></li>
-      <li><a href="#status"><span>04</span>Status</a></li>
-      <li><a href="#feedback"><span>05</span>Feedback</a></li>
-      <li><a href="/docs/"><span>→</span>Docs</a></li>
-    </ul>
+  <div class="wrap top-in">
+    <a class="brand" href="/" aria-label="Aqorin home">
+      <picture>
+        <source srcset="/assets/brand/aqorin-lockup-dark.svg" media="(prefers-color-scheme: dark)">
+        <img src="/assets/brand/aqorin-lockup-light.svg" alt="Aqorin" width="92" height="24">
+      </picture>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#how">How it works</a>
+      <a href="#limits">Limits</a>
+      <a href="#status">Status</a>
+      <a class="nav-docs" href="/docs/">Docs</a>
+    </nav>
     <nav class="lang" aria-label="Language"><a href="/" hreflang="en" lang="en" aria-current="page">EN</a><a href="/es/" hreflang="es" lang="es">ES</a></nav>
   </div>
 </header>
 
-<div class="spec">
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap hero-in">
+    <h1 id="hero-title" class="enter"><span class="ln">One workflow.</span> <span class="ln">Any coding agent.</span></h1>
+    <div class="hero-copy">
+      <p class="lede enter">Aqorin runs your engineering workflow through Claude Code, Codex, OpenCode or Pi, and keeps the Run, its checks and its evidence. The agent you already use does the work, with its own strengths. Your setup stays yours.</p>
+      <div class="install enter">
+        <code id="install-cmd">npm i -g @aqorin/cli</code>
+        <button type="button" id="copy" data-done="Copied" data-fail="Select and copy"><span>Copy</span></button>
+      </div>
+      <p class="hero-links enter"><a href="/docs/">Read the guide</a></p>
+      <p class="fine enter">Version 0.3.0. Demonstrated on macOS with Apple silicon only. MIT licence.</p>
+    </div>
+
+    <figure class="term enter" id="term">
+      <div class="term-bar">
+        <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="term-title">aqorin · acme-app</span>
+        <button type="button" class="term-pause" id="term-pause" aria-pressed="false" data-play="Play" data-pause="Pause" hidden>Pause</button>
+      </div>
+      <div class="term-tabs" role="tablist" aria-label="TUI screens">
+        <button type="button" role="tab" id="tab-home" aria-controls="scr-home" aria-selected="true" data-ms="6000">Home</button>
+        <button type="button" role="tab" id="tab-run" aria-controls="scr-run" aria-selected="false" tabindex="-1" data-replay="/assets/replay-flow-">A Run</button>
+        <button type="button" role="tab" id="tab-chat" aria-controls="scr-chat" aria-selected="false" tabindex="-1" data-ms="7000">A chat</button>
+        <span class="tab-mark" aria-hidden="true"><i></i></span>
+      </div>
+      <div class="term-screen">
+        <div class="scr" id="scr-home" role="tabpanel" aria-labelledby="tab-home">
+          <pre class="w72" role="img" aria-label="Aqorin home screen: four runtimes found, two recent Runs"> <span class="ac"><span class="g">◈</span></span> <span class="b">aqorin</span>  <span class="mu">│</span>  Home                                      <span class="mu">acme-app <span class="g">·</span> main</span>
+<span class="ac"><span class="g">╭</span>─</span><span class="b"> Overview </span><span class="ac">───────────────────────────────────────────────────────────<span class="g">╮</span></span>
+<span class="ac">│</span> <span class="mu">Project</span>  <span class="b">acme-app</span>   <span class="mu">branch</span> main                                      <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">Status</span>   <span class="ok"><span class="g">✓</span> Ready to run</span>   <span class="wn">!</span> <span class="mu">1 notice   default runtime Claude Code</span>   <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac">│</span> <span class="b">Runtimes</span>                                                             <span class="ac">│</span>
+<span class="ac">│</span>   <span class="ok"><span class="g">✓</span></span> <span class="rt">Claude Code </span> 2.1.302    <span class="mu">its own configuration</span>                    <span class="ac">│</span>
+<span class="ac">│</span>   <span class="ok"><span class="g">✓</span></span> <span class="rt">Codex       </span> 0.163.0    <span class="mu">its own configuration</span>                    <span class="ac">│</span>
+<span class="ac">│</span>   <span class="ok"><span class="g">✓</span></span> <span class="rt">OpenCode    </span> 1.18.32    <span class="mu">its own configuration</span>                    <span class="ac">│</span>
+<span class="ac">│</span>   <span class="wn">!</span> <span class="rt">Pi          </span> 1.3.0      <span class="wn">new to Aqorin: its first step checks it</span>  <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac">│</span> <span class="b">Recent Runs</span>                                                          <span class="ac">│</span>
+<span class="ac">│</span> <span class="ac sel"><span class="g">▸</span></span><span class="sel"> </span><span class="ac sel"><span class="g spin">◒</span></span><span class="sel"> #2 free_chat           converse <span class="g">·</span> developer <span class="g">·</span> Claude Code </span><span class="mu sel">2026-</span><span class="g">…</span> <span class="ac">│</span>
+<span class="ac">│</span>   <span class="ok"><span class="g">✓</span> #1 quick-change        succeeded                      </span><span class="mu">2026-10-1</span><span class="g">…</span> <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac"><span class="g">╰</span>──────────────────────────────────────────────────────────────────────<span class="g">╯</span></span>
+ <span class="ac"><span class="g spin">◒</span></span> <span class="ac">running</span> <span class="mu"><span class="g">·</span></span> #2 converse<span class="mu"> <span class="g">·</span> </span><span class="ag b">developer</span><span class="mu"> <span class="g">·</span> </span><span class="rt">Claude Code</span><span class="mu"> <span class="g">·</span> </span>attempt 1 <span class="mu"><span class="g">·</span> 3:04</span>
+ <span class="b">Enter</span> <span class="mu">open</span>   <span class="b">n</span> <span class="mu">new task</span>   <span class="b">c</span> <span class="mu">free chat</span>   <span class="b">Esc</span> <span class="mu">back</span>   <span class="b">?</span> <span class="mu">help</span>   <span class="b">q</span> <span class="mu">quit</span></pre>
+          <pre class="w46" role="img" aria-label="Aqorin home screen: four runtimes found, two recent Runs"> <span class="ac"><span class="g">◈</span></span> <span class="b">aqorin</span>  <span class="mu">│</span>  Home            <span class="mu">acme-app <span class="g">·</span> main</span>
+<span class="ac"><span class="g">╭</span>─</span><span class="b"> Overview </span><span class="ac">─────────────────────────────────<span class="g">╮</span></span>
+<span class="ac">│</span> <span class="mu">Project</span>  <span class="b">acme-app</span>   <span class="mu">branch</span> main            <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">Status</span>   <span class="ok"><span class="g">✓</span> Ready to run</span>   <span class="wn">!</span> <span class="mu">1 notice   de</span><span class="g">…</span> <span class="ac">│</span>
+<span class="ac">│</span>                                            <span class="ac">│</span>
+<span class="ac">│</span> <span class="b">Runtimes</span>                                   <span class="ac">│</span>
+<span class="ac">│</span>   <span class="ok"><span class="g">✓</span></span> <span class="rt">Claude Code </span> 2.1.302    <span class="mu">its own confi</span><span class="g">…</span> <span class="ac">│</span>
+<span class="ac">│</span>   <span class="ok"><span class="g">✓</span></span> <span class="rt">Codex       </span> 0.163.0    <span class="mu">its own confi</span><span class="g">…</span> <span class="ac">│</span>
+<span class="ac">│</span>   <span class="ok"><span class="g">✓</span></span> <span class="rt">OpenCode    </span> 1.18.32    <span class="mu">its own confi</span><span class="g">…</span> <span class="ac">│</span>
+<span class="ac">│</span>   <span class="wn">!</span> <span class="rt">Pi          </span> 1.3.0      <span class="wn">new to Aqorin</span><span class="g">…</span> <span class="ac">│</span>
+<span class="ac">│</span>                                            <span class="ac">│</span>
+<span class="ac">│</span> <span class="b">Recent Runs</span>                                <span class="ac">│</span>
+<span class="ac">│</span> <span class="ac sel"><span class="g">▸</span></span><span class="sel"> </span><span class="ac sel"><span class="g spin">◑</span></span><span class="sel"> #2 free_chat           converse <span class="g">·</span> dev</span><span class="g">…</span> <span class="ac">│</span>
+<span class="ac">│</span>   <span class="ok"><span class="g">✓</span> #1 quick-change        succeeded     </span><span class="g">…</span> <span class="ac">│</span>
+<span class="ac">│</span>                                            <span class="ac">│</span>
+<span class="ac">│</span>                                            <span class="ac">│</span>
+<span class="ac">│</span>                                            <span class="ac">│</span>
+<span class="ac">│</span>                                            <span class="ac">│</span>
+<span class="ac">│</span>                                            <span class="ac">│</span>
+<span class="ac">│</span>                                            <span class="ac">│</span>
+<span class="ac">│</span>                                            <span class="ac">│</span>
+<span class="ac"><span class="g">╰</span>────────────────────────────────────────────<span class="g">╯</span></span>
+ <span class="ac"><span class="g spin">◑</span></span> <span class="ac">running</span> <span class="mu"><span class="g">·</span></span> #2 converse<span class="mu"> <span class="g">·</span> </span><span class="ag b">developer</span><span class="mu"> <span class="g">·</span> </span><span class="rt">Claude</span><span class="g">…</span>
+ <span class="b">Enter</span> <span class="mu">open</span>   <span class="b">Esc</span> <span class="mu">back</span>   <span class="b">?</span> <span class="mu">help</span>   <span class="b">q</span> <span class="mu">quit</span></pre>
+        </div>
+        <div class="scr" id="scr-run" role="tabpanel" aria-labelledby="tab-run" hidden>
+          <pre class="w72" role="img" aria-label="A quick-change Run: implement, then review, succeeded in 50 seconds"> <span class="ac"><span class="g">◈</span></span> <span class="b">aqorin</span>  <span class="mu">│</span>  Runs<span class="mu"> <span class="g">›</span> </span>#1 quick-change              succeeded <span class="mu"><span class="g">·</span></span> <span class="wn">advisory</span>
+<span class="ac"><span class="g">╭</span>─</span><span class="b"> Flow </span><span class="ac">─────────────────────────────</span><span class="mu"> Activity <span class="g">·</span> [Flow] <span class="g">·</span> Trace <span class="g">·</span> Raw </span><span class="ac">─<span class="g">╮</span></span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac">│</span>                           <span class="mu">succeeded <span class="g">·</span> 0:50</span>                           <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac">│</span>        <span class="ok"><span class="g">╭</span>─────────────<span class="g">╮</span></span>    <span class="ok"><span class="g">╭</span>─────────────<span class="g">╮</span></span>    <span class="ok"><span class="g">╭</span>─────────────<span class="g">╮</span></span>         <span class="ac">│</span>
+<span class="ac">│</span>        <span class="ok">│</span> <span class="ok"><span class="g">✓</span></span> <span class="b">implement</span> <span class="ok">│</span>    <span class="ok">│</span> <span class="ok"><span class="g">✓</span></span> <span class="b">review</span>    <span class="ok">│</span>    <span class="ok">│</span> <span class="ok"><span class="g">✓</span></span> <span class="ok">done</span>      <span class="ok">│</span>         <span class="ac">│</span>
+<span class="ac">│</span>        <span class="ok">│</span> <span class="ag b">developer</span>   <span class="ok">│</span><span class="ac"> ─<span class="g">▶</span> </span><span class="ok">│</span> <span class="ag b">reviewer</span>    <span class="ok">│</span><span class="mu"> ─<span class="g">▶</span> </span><span class="ok">│</span> <span class="ok">succeeded</span>   <span class="ok">│</span>         <span class="ac">│</span>
+<span class="ac">│</span>        <span class="ok">│</span> <span class="mu">done</span>        <span class="ok">│</span>    <span class="ok">│</span> <span class="mu">done</span>        <span class="ok">│</span>    <span class="ok">│</span>             <span class="ok">│</span>         <span class="ac">│</span>
+<span class="ac">│</span>        <span class="ok">│</span> <span class="mu">0:27</span>        <span class="ok">│</span>    <span class="ok">│</span> <span class="mu">0:21</span>        <span class="ok">│</span>    <span class="ok">│</span>             <span class="ok">│</span>         <span class="ac">│</span>
+<span class="ac">│</span>        <span class="ok"><span class="g">╰</span>─────────────<span class="g">╯</span></span>    <span class="ok"><span class="g">╰</span>─────────────<span class="g">╯</span></span>    <span class="ok"><span class="g">╰</span>─────────────<span class="g">╯</span></span>         <span class="ac">│</span>
+<span class="ac">│</span>               <span class="mu"><span class="g">▲</span></span>                  <span class="mu">│</span>                                   <span class="ac">│</span>
+<span class="ac">│</span>               <span class="mu"><span class="g">╰</span>───── changes ────<span class="g">╯</span></span>                                   <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac">│</span>   <span class="mu"><span class="g">✓</span> done   <span class="g spin">◐</span> running   <span class="g">○</span> queued   <span class="g">▲</span> back to a step (changes asked)</span>   <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac"><span class="g">╰</span>──────────────────────────────────────────────────────────────────────<span class="g">╯</span></span>
+ <span class="ac"><span class="g spin">◒</span></span> <span class="ac">running</span> <span class="mu"><span class="g">·</span></span> #2 converse<span class="mu"> <span class="g">·</span> </span><span class="ag b">developer</span><span class="mu"> <span class="g">·</span> </span><span class="rt">Claude Code</span><span class="mu"> <span class="g">·</span> </span>attempt 1 <span class="mu"><span class="g">·</span> 3:20</span>
+ <span class="b">[ ]</span> <span class="mu">level</span>   <span class="b">Ctrl+T</span> <span class="mu">dashboard</span>   <span class="b">f</span> <span class="mu">dashboard</span>   <span class="b">Esc</span> <span class="mu">back</span>   <span class="b">?</span> <span class="mu">help</span>   <span class="b">q</span> <span class="mu">quit</span></pre>
+          <pre class="w46" role="img" aria-label="A quick-change Run: implement, then review, succeeded in 50 seconds"> <span class="ac"><span class="g">◈</span></span> <span class="b">aqorin</span>  <span class="mu">│</span>  Runs<span class="mu"> <span class="g">›</span> </span>#1 quick-change
+<span class="ac"><span class="g">╭</span>─</span><span class="b"> Flow </span><span class="ac">───</span><span class="mu"> Activity <span class="g">·</span> [Flow] <span class="g">·</span> Trace <span class="g">·</span> Raw </span><span class="ac">─<span class="g">╮</span></span>
+<span class="ac">│</span>              <span class="mu">succeeded <span class="g">·</span> 0:50</span>              <span class="ac">│</span>
+<span class="ac">│</span>                                            <span class="ac">│</span>
+<span class="ac">│</span>     <span class="ok"><span class="g">╭</span>─────────────<span class="g">╮</span></span>    <span class="ok"><span class="g">╭</span>─────────────<span class="g">╮</span></span>     <span class="ac">│</span>
+<span class="ac">│</span>     <span class="ok">│</span> <span class="ok"><span class="g">✓</span></span> <span class="b">implement</span> <span class="ok">│</span>    <span class="ok">│</span> <span class="ok"><span class="g">✓</span></span> <span class="b">review</span>    <span class="ok">│</span>     <span class="ac">│</span>
+<span class="ac">│</span>     <span class="ok">│</span> <span class="ag b">developer</span>   <span class="ok">│</span><span class="ac"> ─<span class="g">▶</span> </span><span class="ok">│</span> <span class="ag b">reviewer</span>    <span class="ok">│</span><span class="mu">─<span class="g">╮</span></span>   <span class="ac">│</span>
+<span class="ac">│</span>     <span class="ok">│</span> <span class="mu">done</span>        <span class="ok">│</span>    <span class="ok">│</span> <span class="mu">done</span>        <span class="ok">│</span> <span class="mu">│</span>   <span class="ac">│</span>
+<span class="ac">│</span>     <span class="ok">│</span> <span class="mu">0:27</span>        <span class="ok">│</span>    <span class="ok">│</span> <span class="mu">0:21</span>        <span class="ok">│</span> <span class="mu">│</span>   <span class="ac">│</span>
+<span class="ac">│</span>     <span class="ok"><span class="g">╰</span>─────────────<span class="g">╯</span></span>    <span class="ok"><span class="g">╰</span>─────────────<span class="g">╯</span></span> <span class="mu">│</span>   <span class="ac">│</span>
+<span class="ac">│</span>            <span class="mu"><span class="g">▲</span></span>                  <span class="mu">│</span>        <span class="mu">│</span>   <span class="ac">│</span>
+<span class="ac">│</span>            <span class="mu"><span class="g">╰</span>───── changes ────<span class="g">╯</span></span>        <span class="mu">│</span>   <span class="ac">│</span>
+<span class="ac">│</span>                                        <span class="mu">│</span>   <span class="ac">│</span>
+<span class="ac">│</span>                        <span class="ok"><span class="g">╭</span>─────────────<span class="g">╮</span></span> <span class="mu">│</span>   <span class="ac">│</span>
+<span class="ac">│</span>                        <span class="ok">│</span> <span class="ok"><span class="g">✓</span></span> <span class="ok">done</span>      <span class="ok">│</span> <span class="mu">│</span>   <span class="ac">│</span>
+<span class="ac">│</span>                        <span class="ok">│</span> <span class="ok">succeeded</span>   <span class="ok">│</span><span class="mu"><span class="g">◀</span><span class="g">╯</span></span>   <span class="ac">│</span>
+<span class="ac">│</span>                        <span class="ok">│</span>             <span class="ok">│</span>     <span class="ac">│</span>
+<span class="ac">│</span>                        <span class="ok">│</span>             <span class="ok">│</span>     <span class="ac">│</span>
+<span class="ac">│</span>                        <span class="ok"><span class="g">╰</span>─────────────<span class="g">╯</span></span>     <span class="ac">│</span>
+<span class="ac">│</span>                                            <span class="ac">│</span>
+<span class="ac">│</span>        <span class="mu"><span class="g">✓</span> done  <span class="g spin">◐</span> running  <span class="g">○</span> queued</span>         <span class="ac">│</span>
+<span class="ac"><span class="g">╰</span>────────────────────────────────────────────<span class="g">╯</span></span>
+ <span class="ac"><span class="g spin">◐</span></span> <span class="ac">running</span> <span class="mu"><span class="g">·</span></span> #2 converse<span class="mu"> <span class="g">·</span> </span><span class="ag b">developer</span><span class="mu"> <span class="g">·</span> </span><span class="rt">Claude</span><span class="g">…</span>
+ <span class="b">[ ]</span> <span class="mu">level</span>   <span class="b">Esc</span> <span class="mu">back</span>   <span class="b">?</span> <span class="mu">help</span>   <span class="b">q</span> <span class="mu">quit</span></pre>
+        </div>
+        <div class="scr" id="scr-chat" role="tabpanel" aria-labelledby="tab-chat" hidden>
+          <pre class="w72" role="img" aria-label="A free chat with Claude Code about the change"> <span class="ac"><span class="g">◈</span></span> <span class="b">aqorin</span>  <span class="mu">│</span>  Runs<span class="mu"> <span class="g">›</span> </span>#2 free_chat   running <span class="mu"><span class="g">·</span></span> <span class="wn">advisory</span>  <span class="mu">acme-app <span class="g">·</span> main</span>
+<span class="bd"><span class="g">╭</span>─</span><span class="mu"> Chat </span><span class="bd">───────────────────</span><span class="mu"> Claude Code <span class="g">·</span> Ask <span class="g">·</span> 20k of 1M tokens (2%)</span> <span class="bd">─<span class="g">╮</span></span>
+<span class="bd">│</span> <span class="mu">A question Claude Code asks waits here: /answer answers it. /finish </span> <span class="bd">│</span>
+<span class="bd">│</span> <span class="mu">ends the chat.</span>                                                       <span class="bd">│</span>
+<span class="bd">│</span>                                                                      <span class="bd">│</span>
+<span class="bd">│</span> <span class="ac"><span class="g">▎</span></span> <span class="ac">You</span>  <span class="mu">20:10</span>                                                         <span class="bd">│</span>
+<span class="bd">│</span> <span class="ac"><span class="g">▎</span></span> What does --dry-run do in acme export now? Two sentences.          <span class="bd">│</span>
+<span class="bd">│</span>                                                                      <span class="bd">│</span>
+<span class="bd">│</span> <span class="ag b">Claude Code</span>  <span class="mu">20:10</span>                                                   <span class="bd">│</span>
+<span class="bd">│</span>   <span class="ok"><span class="g">✓</span></span> <span class="mu">Bash</span>                                                             <span class="bd">│</span>
+<span class="bd">│</span>                                                                      <span class="bd">│</span>
+<span class="bd">│</span> With your uncommitted changes, <span class="rt">acme export --dry-run [file]</span> counts   <span class="bd">│</span>
+<span class="bd">│</span> the rows but skips writing the CSV, and prints <span class="rt">would export N rows  </span> <span class="bd">│</span>
+<span class="bd">│</span> <span class="rt">to &lt;file&gt;</span> (for example, <span class="rt">would export 2 rows to out.csv</span>). The flag    <span class="bd">│</span>
+<span class="bd">│</span> can go anywhere in the arguments because <span class="rt">src/cli.js:5-6</span> strips it    <span class="bd">│</span>
+<span class="bd">│</span> out before reading the command and file, and two new tests in        <span class="bd">│</span>
+<span class="bd">│</span> <span class="rt">test/export.test.js</span> cover this, though I didn&#x27;t run them.            <span class="bd">│</span>
+<span class="bd">│</span>                                                                      <span class="bd">│</span>
+<span class="bd"><span class="g">╰</span>──────────────────────────────────────────────────────────────────────<span class="g">╯</span></span>
+<span class="ac"><span class="g">╭</span>─</span><span class="b"> </span><span class="ok b"><span class="g">●</span></span> <span class="b">Ready</span>  <span class="mu">your turn</span> <span class="ac">─────────────────────────────────────────────────<span class="g">╮</span></span>
+<span class="ac">│</span> <span class="g">›</span>  <span class="mu"><span class="cur">W</span>rite a message<span class="g">…</span></span>                                                  <span class="ac">│</span>
+<span class="ac"><span class="g">╰</span>──────────────────────────────────────────────────────────────────────<span class="g">╯</span></span>
+ <span class="ok"><span class="g">●</span></span> <span class="rt">Claude Code</span> <span class="mu"><span class="g">·</span></span> Ready
+ <span class="b">Enter</span> <span class="mu">send</span>   <span class="b">Esc</span> <span class="mu">back</span>   <span class="b">F1</span> <span class="mu">help</span>   <span class="b">Ctrl+C</span> <span class="mu">quit</span></pre>
+          <pre class="w46" role="img" aria-label="A free chat with Claude Code about the change"> <span class="ac"><span class="g">◈</span></span> <span class="b">aqorin</span>  <span class="mu">│</span>  Runs<span class="mu"> <span class="g">›</span> </span>#2 free_chat
+<span class="bd"><span class="g">╭</span>─</span><span class="mu"> Chat </span><span class="bd">─────────────────────────────────────<span class="g">╮</span></span>
+<span class="bd">│</span> <span class="ac"><span class="g">▎</span></span> What does --dry-run do in acme export    <span class="bd">│</span>
+<span class="bd">│</span> <span class="ac"><span class="g">▎</span></span> now? Two sentences.                      <span class="bd">│</span>
+<span class="bd">│</span>                                            <span class="bd">│</span>
+<span class="bd">│</span> <span class="ag b">Claude Code</span>  <span class="mu">20:10</span>                         <span class="bd">│</span>
+<span class="bd">│</span>   <span class="ok"><span class="g">✓</span></span> <span class="mu">Bash</span>                                   <span class="bd">│</span>
+<span class="bd">│</span>                                            <span class="bd">│</span>
+<span class="bd">│</span> With your uncommitted changes, <span class="rt">acme export</span> <span class="bd">│</span>
+<span class="bd">│</span> <span class="rt">--dry-run [file]</span> counts the rows but skips <span class="bd">│</span>
+<span class="bd">│</span> writing the CSV, and prints <span class="rt">would export N</span> <span class="bd">│</span>
+<span class="bd">│</span> <span class="rt">rows to &lt;file&gt;</span> (for example, <span class="rt">would export </span> <span class="bd">│</span>
+<span class="bd">│</span> <span class="rt">2 rows to out.csv</span>). The flag can go        <span class="bd">│</span>
+<span class="bd">│</span> anywhere in the arguments because          <span class="bd">│</span>
+<span class="bd">│</span> <span class="rt">src/cli.js:5-6</span> strips it out before        <span class="bd">│</span>
+<span class="bd">│</span> reading the command and file, and two new  <span class="bd">│</span>
+<span class="bd">│</span> tests in <span class="rt">test/export.test.js</span> cover this,   <span class="bd">│</span>
+<span class="bd">│</span> though I didn&#x27;t run them.                  <span class="bd">│</span>
+<span class="bd"><span class="g">╰</span>────────────────────────────────────────────<span class="g">╯</span></span>
+<span class="ac"><span class="g">╭</span>─</span><span class="b"> </span><span class="ok b"><span class="g">●</span></span> <span class="b">Ready</span>  <span class="mu">your turn</span> <span class="ac">───────────────────────<span class="g">╮</span></span>
+<span class="ac">│</span> <span class="g">›</span>  <span class="mu"><span class="cur">W</span>rite a message<span class="g">…</span></span>                        <span class="ac">│</span>
+<span class="ac"><span class="g">╰</span>────────────────────────────────────────────<span class="g">╯</span></span>
+ <span class="ok"><span class="g">●</span></span> <span class="rt">Claude Code</span> <span class="mu"><span class="g">·</span></span> Ready
+ <span class="b">Enter</span> <span class="mu">send</span>   <span class="b">Esc</span> <span class="mu">back</span>   <span class="b">F1</span> <span class="mu">help</span>   <span class="b">Ctrl+C</span> <span class="mu">quit</span></pre>
+        </div>
+      </div>
+      <figcaption>The TUI of 0.3.0 from a real session: a quick-change Run on Claude Code, then a chat about it. The Run plays back from its own records at six times speed, drawn by the TUI's code.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="problem" id="problem" aria-labelledby="problem-title">
+  <div class="wrap problem-in">
+    <div class="problem-copy">
+      <h2 id="problem-title" class="rv">Your process lives in one agent's config folder.</h2>
+      <p class="rv">Every coding agent ships its own agents, commands, skills, hooks and permissions. A real workflow (specify, implement, review, fix) ends up written for one runtime and held together by a prompt that asks the model to remember.</p>
+      <dl class="where rv-list">
+        <div><dt>Claude Code</dt><dd><code>.claude/</code>, <code>CLAUDE.md</code></dd></div>
+        <div><dt>Codex</dt><dd><code>~/.codex/config.toml</code>, <code>AGENTS.md</code></dd></div>
+        <div><dt>OpenCode</dt><dd><code>opencode.json</code>, <code>.opencode/</code></dd></div>
+        <div><dt>Pi</dt><dd><code>~/.pi/agent/</code></dd></div>
+      </dl>
+      <p class="rv">In Aqorin the workflow is a file and the runtime is a choice per role. Before anything runs, the plan says which runtime takes each role and what Aqorin can enforce there. What it cannot enforce, it calls advisory.</p>
+    </div>
+
+    <figure class="out rv">
+      <pre class="print" data-print><span class="l cmd"><span class="prompt">$ </span><span class="typed">aqorin run engineering-change --task-file .aqorin/tasks/add-a-dry-run.task.yaml --assign mixed --plan-only</span></span>
+<span class="l">Workflow   engineering-change@1.0.0 (hash f7d696a472c2)</span>
+<span class="l">Assignment .aqorin/assignments/mixed.profile.yaml (hash 9059ff3d27cb)</span>
+<span class="l">Steps      research → plan → implement → verify → review → docs</span>
+<span class="l">Checks     Aqorin runs the task&#x27;s 1 command; no agent checks the work (--agent-check asks for it)</span>
+
+<span class="l">developer — workspace_write on <b>codex 0.163.0</b>, model the runtime&#x27;s own default: admitted</span>
+<span class="l">documenter — workspace_write on <b>pi 1.3.0</b>, model the runtime&#x27;s own default: admitted</span>
+<span class="l">planner — workspace_write on <b>claude-code 2.1.302</b>, model the runtime&#x27;s own default: admitted</span>
+<span class="l">researcher — read_only on <b>claude-code 2.1.302</b>, model the runtime&#x27;s own default: ADVISORY — writes held by Aqorin&#x27;s sandbox (kernel) to its runtime&#x27;s own state, commands not verified</span>
+<span class="l">reviewer — review on <b>claude-code 2.1.302</b>, model the runtime&#x27;s own default: ADVISORY — writes held by Aqorin&#x27;s sandbox (kernel) to its runtime&#x27;s own state, commands not verified</span>
+<span class="l">verifier — workspace_write on <b>codex 0.163.0</b>, model the runtime&#x27;s own default: admitted</span>
+
+<span class="l">Advisory: 2 required control(s) are not enforced as validated here. Those roles run anyway, told not to write or run commands, with their runtime&#x27;s own restricting projection where it has one; their result is never presented as validated.</span></pre>
+      <figcaption>An excerpt of the real plan: six roles on Claude Code, Codex and Pi, checked without calling a model. Two restricted roles are advisory, and the plan says why.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="how" id="how" aria-labelledby="how-title">
   <div class="wrap">
-    <span><i class="lamp"></i>Terminal Alpha · built</span>
-    <span><em>Rev</em> 2026-10-18</span>
-    <span><em>Platform</em> darwin-arm64</span>
-    <span><em>Package</em> @aqorin/cli 0.3.0</span>
-    <span><em>License</em> MIT</span>
-  </div>
-</div>
+    <header class="sec-head">
+      <h2 id="how-title" class="rv">How a Run goes</h2>
+      <p class="rv">Aqorin owns the workflow, the Run's state and its evidence. The runtime owns the execution, in its own way.</p>
+    </header>
 
-<main>
-  <div class="wrap hero">
-    <h1 class="h1"><span class="l"><span>One workflow<span class="dot">.</span></span></span><span class="l"><span>Any coding agent<span class="dot">.</span></span></span></h1>
-
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <p>Aqorin is a <b>runtime-agnostic orchestration layer</b> for coding agents. Define how work is specified, implemented, validated and reviewed <b>once</b>. Claude Code, Codex, OpenCode or Pi execute it. Your setup stays yours.</p>
-        <div class="install"><code>npm i -g @aqorin/cli</code><button id="copy" type="button" data-done="copied" data-fail="select it">copy</button></div>
-        <a class="go" href="#feedback">Help shape it ↓</a>
-        <p class="hero-note">Pronounced “A-cor-in”. An experiment built in public: this page shows the idea and where it is heading.</p>
-      </div>
-
-      <div class="module">
-        <div class="board-head"><span><b>Patch bay</b> · assignment</span><span id="mode"></span></div>
-        <div class="sw" id="switchboard" data-label="Patch bay: roles on the left, runtimes on the right. Select a role, then a runtime." data-single="one runtime for every role" data-mixed="a runtime per role"></div>
-        <div class="readout">
-          <div><h5><span>workflow</span><span class="ok">● unchanged</span></h5><pre>feature@1
-specify → implement
-→ validate → review
-<span class="k">no runtime inside</span></pre></div>
-          <div><h5><span>assignment</span><span class="k">per role</span></h5><pre id="assign"></pre></div>
+    <ol class="steps">
+      <li class="step">
+        <div class="step-copy rv">
+          <span class="step-n" aria-hidden="true">1</span>
+          <h3>Write the task once</h3>
+          <p>A task file holds the request and the commands that decide it. The workflow, built in or your own file in <code>.aqorin/workflows/</code>, says which steps run, in what order, and where the work goes back when a review asks for changes. Both are validated and frozen with the Run.</p>
         </div>
-        <div class="board-foot"><span>Click a role, then a runtime.</span><span class="tag warn">illustrative · limits it can't enforce are said advisory</span></div>
-      </div>
-    </div>
-  </div>
+        <figure class="art rv">
+          <pre class="code print" data-print><span class="l"><span class="c"># An Aqorin task (aqorin.task v1): the request and its Acceptance Plan — commands Aqorin runs, as argument arrays, never through a shell.</span></span>
+<span class="l"><span class="k">kind</span>: aqorin.task</span>
+<span class="l"><span class="k">schema_version</span>: 1</span>
+<span class="l"><span class="k">request</span>: &quot;Add a --dry-run flag to acme export: it prints how many rows it would write and writes nothing. Cover it with a test.&quot;</span>
+<span class="l"><span class="k">acceptance</span>:</span>
+<span class="l">  - <span class="k">id</span>: npm-test</span>
+<span class="l">    <span class="k">argv</span>:</span>
+<span class="l">      - npm</span>
+<span class="l">      - test</span>
+<span class="l">    <span class="k">timeout_s</span>: 120</span></pre>
+          <figcaption><code>.aqorin/tasks/add-a-dry-run.task.yaml</code>, the task of the Run above.</figcaption>
+        </figure>
+      </li>
 
-  <div class="tape" aria-hidden="true"><span class="lbl">Event log · append-only</span><div class="run" id="tape"></div></div>
-
-  <section id="film">
-    <div class="wrap">
-      <div class="sh rv"><span class="n">§00</span><span>The idea in 60 seconds</span><span class="ref">film · with music</span></div>
-      <div class="module film rv">
-        <div class="board-head"><span><b>Film</b> · one workflow, any coding agent</span><span><span class="note">roadmap shown as roadmap</span> <button class="sound" id="film-sound" type="button" aria-pressed="false" data-on="♪ sound on" data-off="♪ sound off">♪ sound off</button></span></div>
-        <video id="film-video" src="/assets/film/aqorin-60s.mp4" poster="/assets/film/aqorin-60s.jpg" controls muted loop playsinline preload="none" aria-label="A 60-second film: one workflow written once, run by any coding agent, and where Aqorin is heading after the alpha."></video>
-      </div>
-    </div>
-  </section>
-
-  <section id="why">
-    <div class="wrap">
-      <div class="sh rv"><span class="n">§01</span><span>The problem</span><span class="ref">ref · docs/01-product-vision</span></div>
-      <div class="cols">
-        <h2 class="h2 rv">Your process lives in <em>one agent's</em> config folder.</h2>
-        <p class="lede rv">Every coding agent ships its own agents, commands, skills, hooks and permission model. Write a real workflow — spec, implement, review, fix — and it exists in one runtime only, held together by a prompt asking the model to remember.</p>
-      </div>
-      <div class="sprawl rv">
-        <div class="r head"><span>Runtime</span><span>Where your workflow lives</span><span>When you switch</span></div>
-        <div class="r"><span class="rt">OpenCode</span><span class="paths"><span>opencode.json</span><span>.opencode/</span></span><span class="fate"><s>rewrite it</s></span></div>
-        <div class="r"><span class="rt">Pi</span><span class="paths"><span>~/.pi/agent/</span></span><span class="fate"><s>rewrite it</s></span></div>
-        <div class="r"><span class="rt">Codex</span><span class="paths"><span>~/.codex/config.toml</span><span>AGENTS.md</span></span><span class="fate"><s>rewrite it</s></span></div>
-        <div class="r"><span class="rt">Claude Code</span><span class="paths"><span>.claude/settings.json</span><span>.claude/skills/</span><span>CLAUDE.md</span></span><span class="fate"><s>rewrite it</s></span></div>
-        <div class="r aq"><span class="rt">a<b>q</b>orin</span><span class="paths"><span>workflow</span><span>+ assignment</span><span>+ task</span></span><span class="fate">change one line: the runtime</span></div>
-      </div>
-      <p class="neq-note rv">Aqorin is designed never to replace those files: it projects its own namespaced overlay beside them.</p>
-    </div>
-  </section>
-
-  <section id="how">
-    <div class="wrap">
-      <div class="sh rv"><span class="n">§02</span><span>How it works</span><span class="ref">ref · docs/30-architecture · docs/33-execution-state</span></div>
-      <div class="cols">
-        <h2 class="h2 rv">Aqorin owns the <em>semantics</em>. Runtimes own the execution.</h2>
-        <p class="lede rv">The Orchestration Engine holds the Run — its state, its policies, its evidence — as an append-only event log. Adapters turn each step into whatever the runtime does natively. When a step tries to cut a corner, the reducer says no, not a prompt.</p>
-      </div>
-
-      <div class="module line-mod rv">
-        <div class="board-head"><span><b>Interlocking</b> · one Run, step by step</span><span id="metro-rt">runtime: codex</span></div>
-        <div class="grid">
-          <div class="metro" id="metro" data-label="A Run moves specify, implement, validate, review. A shortcut from implement to done is rejected by the reducer. Review asks for changes once, the budget counts one cycle, then the Run succeeds."></div>
-          <div class="log" id="log"></div>
+      <li class="step">
+        <div class="step-copy rv">
+          <span class="step-n" aria-hidden="true">2</span>
+          <h3>Checks decide, not the model</h3>
+          <p>With an Acceptance Plan, Aqorin runs the commands itself and only their exit status decides validation. A step whose checks fail does not pass. Without one, the Run is advisory, and the result says so instead of calling itself validated.</p>
         </div>
-        <div class="locks">
-          <div class="lock" id="lk-trans"><i></i>Transition legal</div>
-          <div class="lock" id="lk-valid"><i></i>Validation passed</div>
-          <div class="lock" id="lk-review"><i></i>Independent review</div>
-          <div class="lock" id="lk-budget"><i></i>Review budget <b>0/3</b></div>
-        </div>
-        <div class="board-foot"><span>Illustrative Run. The guard is real: <code>required_validations_passed</code> in the core reducer.</span><span class="tag">illustrative</span></div>
-      </div>
-
-      <p class="neq rv">Role <span>≠</span> Runtime <span>≠</span> Model</p>
-      <p class="neq-note rv">Three independent concepts: no canonical role implies a runtime or a model. A Run can assign a runtime and a model per role, and when Aqorin cannot enforce a role's limits on its runtime, the plan and the result say they are only advisory.</p>
-    </div>
-  </section>
-
-  <section id="rules">
-    <div class="wrap">
-      <div class="sh rv"><span class="n">§03</span><span>Non-negotiables</span><span class="ref">ref · docs/02-product-principles</span></div>
-      <h2 class="h2 wide rv">Rules for the <em>engine</em>, not rules a model should remember.</h2>
-      <p class="lede rv">These are the design rules Aqorin is built against. Some are enforced in code today; the rest are known gaps being closed.</p>
-      <div class="spec-list">
-        <div class="pr rv"><span class="num">01</span><h3>Never touches your config</h3><p>Aqorin projects an isolated, namespaced overlay beside your files. Agents, commands, skills, MCP and settings are never overwritten or deleted.</p><dl class="where"><dt>Lives in</dt><dd>Configuration Overlay · adapter</dd></dl></div>
-        <div class="pr rv"><span class="num">02</span><h3>Your native UX stays</h3><p>Keep running <code>opencode</code>, <code>pi</code> or <code>codex</code> exactly as today. Aqorin is opt-in, per task.</p><dl class="where"><dt>Lives in</dt><dd>By construction · a separate CLI</dd></dl></div>
-        <div class="pr rv"><span class="num">03</span><h3>Invariants in code</h3><p>Phase order, budgets, required review, approval gates and legal transitions belong to a reducer, not to a system prompt.</p><dl class="where"><dt>Lives in</dt><dd>Reducer · packages/core</dd></dl></div>
-        <div class="pr rv"><span class="num">04</span><h3>State belongs to the Run</h3><p>A runtime session is one attempt, not the Run. Events are durable, so a crashed runtime does not erase what happened.</p><dl class="where"><dt>Lives in</dt><dd>Event store</dd></dl></div>
-        <div class="pr rv"><span class="num">05</span><h3>Honest guarantees</h3><p>Every permission is labelled: runtime-native, Aqorin-enforced, OS-sandboxed, external — or not enforceable. Nothing is elevated silently.</p><dl class="where"><dt>Lives in</dt><dd>Each adapter's permission guide</dd></dl></div>
-        <div class="pr rv"><span class="num">06</span><h3>No lowest common denominator</h3><p>Use a runtime's best primitive natively, emulate safely, degrade visibly — or refuse to run. Features are not dropped for symmetry.</p><dl class="where"><dt>Lives in</dt><dd>Capability negotiation · engine</dd></dl></div>
-      </div>
-
-      <div class="module signals rv">
-        <div class="board-head"><span><b>Signals</b> · capability negotiation</span><span>four answers, none silent</span></div>
-        <div class="sig-row h"><div>Capability</div><div data-s="N">Native</div><div data-s="E">Emulated</div><div data-s="D">Degraded</div><div data-s="R">Rejected</div></div>
-        <div class="sig-row" data-k="native"><div class="cap">independent review</div><div class="sig native"><i></i><span>native</span></div><div class="sig emulated"><i></i><span>emulated</span></div><div class="sig degraded"><i></i><span>degraded</span></div><div class="sig rejected"><i></i><span>rejected</span></div></div>
-        <div class="sig-row" data-k="emulated"><div class="cap">session resume</div><div class="sig native"><i></i><span>native</span></div><div class="sig emulated"><i></i><span>emulated</span></div><div class="sig degraded"><i></i><span>degraded</span></div><div class="sig rejected"><i></i><span>rejected</span></div></div>
-        <div class="sig-row" data-k="degraded"><div class="cap">skill projection</div><div class="sig native"><i></i><span>native</span></div><div class="sig emulated"><i></i><span>emulated</span></div><div class="sig degraded"><i></i><span>degraded</span></div><div class="sig rejected"><i></i><span>rejected</span></div></div>
-        <div class="sig-row" data-k="rejected"><div class="cap">filesystem sandbox</div><div class="sig native"><i></i><span>native</span></div><div class="sig emulated"><i></i><span>emulated</span></div><div class="sig degraded"><i></i><span>degraded</span></div><div class="sig rejected"><i></i><span>rejected</span></div></div>
-        <div class="sig-row" data-k="native"><div class="cap">MCP selection</div><div class="sig native"><i></i><span>native</span></div><div class="sig emulated"><i></i><span>emulated</span></div><div class="sig degraded"><i></i><span>degraded</span></div><div class="sig rejected"><i></i><span>rejected</span></div></div>
-        <div class="board-foot"><span>Illustrative cycle. Real per-runtime answers live in each adapter's guide and version matrix.</span><span class="tag">illustrative</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="status">
-    <div class="wrap">
-      <div class="sh rv"><span class="n">§04</span><span>Where it is heading</span><span class="ref">ref · docs/exits/README.md · ADR-0049</span></div>
-      <div class="cols">
-        <h2 class="h2 rv">Thesis partially validated. Alpha built. Now: <em>comfortable</em>.</h2>
-        <p class="lede rv">The Thesis Validation Track asked whether one workflow can run durably across runtimes and models, mixed in one Run. The answer was partially validated, and that verdict stays as recorded. The Terminal Alpha track then built the first version a person can use — a terminal UI and a CLI, on macOS arm64, over Claude Code, Codex, OpenCode and Pi — and its technical acceptance passed. Now the post-alpha track makes it comfortable: a redesigned TUI, a visual identity and documentation.</p>
-      </div>
-
-      <div class="status-grid">
-        <div class="module flapboard rv" id="flapboard">
-          <div class="board-head"><span><b>Departures</b> · Terminal Alpha</span><span>darwin-arm64 · 4 runtimes</span></div>
-          <div class="fb-row h"><span>Track</span><span>Destination</span><span>Status</span></div>
-          <div class="fb-row"><span class="flap" data-text="TV" data-len="4"></span><span class="fb-dest">Thesis Validation · TV0–TV7</span><span class="flap st s-ok" data-text="CLOSED" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="V1" data-len="4"></span><span class="fb-dest">Thesis verdict v1</span><span class="flap st s-cond" data-text="PARTIAL" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TA1" data-len="4"></span><span class="fb-dest">Runtime inventory</span><span class="flap st s-ok" data-text="CLOSED" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TA2" data-len="4"></span><span class="fb-dest">Live Run feed</span><span class="flap st s-ok" data-text="CLOSED" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TA9" data-len="4"></span><span class="fb-dest">TUI foundation</span><span class="flap st s-ok" data-text="CLOSED" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TA3" data-len="4"></span><span class="fb-dest">Durable sessions</span><span class="flap st s-ok" data-text="CLOSED" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TA4" data-len="4"></span><span class="fb-dest">Free chat on four runtimes</span><span class="flap st s-ok" data-text="CLOSED" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TA5" data-len="4"></span><span class="fb-dest">Your own agents and workflows</span><span class="flap st s-ok" data-text="CLOSED" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TA6" data-len="4"></span><span class="fb-dest">Skills and MCP</span><span class="flap st s-ok" data-text="CLOSED" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TA7" data-len="4"></span><span class="fb-dest">One Run across four runtimes</span><span class="flap st s-ok" data-text="CLOSED" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TA8a" data-len="4"></span><span class="fb-dest">Restricted roles, refreshed locally</span><span class="flap st s-ok" data-text="CLOSED" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TA10" data-len="4"></span><span class="fb-dest">Authoring in the TUI</span><span class="flap st s-ok" data-text="CLOSED" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TA11" data-len="4"></span><span class="fb-dest">Supervising Runs in the TUI</span><span class="flap st s-ok" data-text="CLOSED" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="TA12" data-len="4"></span><span class="fb-dest">Packaging and alpha acceptance</span><span class="flap st s-ok" data-text="CLOSED" data-len="11"></span></div>
-          <div class="fb-row"><span class="flap" data-text="PA" data-len="4"></span><span class="fb-dest">Product UX: redesign, brand, docs</span><span class="flap st s-next" data-text="IN PROGRESS" data-len="11"></span></div>
-        </div>
-
-        <div>
-          <div class="report rv">
-            <h4><span>Field notes · Terminal Alpha</span><span>2026-10-18</span></h4>
-            <span class="stamp ok">Built</span>
-            <p class="lead-note">The Alpha is built. From <code>aqorin</code> you set up the four runtimes, their connections and models; write your agents and workflows; add skills and MCP servers; chat with any runtime; launch a Run, follow it, answer it, and recover it when a step fails. Every action is also a CLI verb. Its technical acceptance passed, walked as a new user would.</p>
-            <p class="foot">Now: a hands-on review of the redesigned TUI, and the <a href="/docs/">documentation</a>. Shown on macOS arm64 only; on npm as <code>@aqorin/cli</code> 0.3.0.</p>
+        <figure class="art rv">
+          <div class="term small">
+            <div class="term-screen">
+              <div class="scr">
+                <pre class="w72 paint" role="img" aria-label="The Run's result: review approved, checks passed, took 50 seconds, advisory"> <span class="ac"><span class="g">◈</span></span> <span class="b">aqorin</span>  <span class="mu">│</span>  Runs<span class="mu"> <span class="g">›</span> </span>#1 quick-change              succeeded <span class="mu"><span class="g">·</span></span> <span class="wn">advisory</span>
+<span class="ac"><span class="g">╭</span>─</span><span class="b"> Result </span><span class="ac">─────────────────────────────────────────────────────────────<span class="g">╮</span></span>
+<span class="ac">│</span> <span class="ok"><span class="g">✓</span> completed <span class="g">—</span> advisory (not presented as validated or independently </span> <span class="ac">│</span>
+<span class="ac">│</span> <span class="ok">approved)</span>                                                            <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">Review     </span>approved<span class="mu"> <span class="g">·</span> 0 of 3 cycles</span>                                  <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">Checks     </span>passed<span class="mu"> <span class="g">·</span> 1 declared</span>                                       <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">Work tree  </span>3 files +30 -8<span class="mu"> <span class="g">·</span> now, changes made outside this Run      </span> <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">included</span>                                                             <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">Handoffs   </span>1                                                         <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">Assurance  </span>advisory<span class="mu"> <span class="g">—</span> never presented as validated <span class="g">·</span> ! says why</span>      <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">Took       </span>0:50                                                      <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">Next: P commits it and opens a pull request (an agent drafts the    </span> <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">message; you confirm); Esc, then n, starts a new task. Ctrl+T shows </span> <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">the Run&#x27;s transcript.</span>                                                <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac">│</span>                                                                      <span class="ac">│</span>
+<span class="ac"><span class="g">╰</span>──────────────────────────────────────────────────────────────────────<span class="g">╯</span></span>
+ <span class="ac"><span class="g spin">◓</span></span> <span class="ac">running</span> <span class="mu"><span class="g">·</span></span> #2 converse<span class="mu"> <span class="g">·</span> </span><span class="ag b">developer</span><span class="mu"> <span class="g">·</span> </span><span class="rt">Claude Code</span><span class="mu"> <span class="g">·</span> </span>attempt 1 <span class="mu"><span class="g">·</span> 3:18</span>
+ <span class="b">Ctrl+T</span> <span class="mu">trace</span>   <span class="b">f</span> <span class="mu">flow</span>   <span class="b">c</span> <span class="mu">cancel run<span class="g">…</span></span>   <span class="b">Esc</span> <span class="mu">back</span>   <span class="b">?</span> <span class="mu">help</span>   <span class="b">q</span> <span class="mu">quit</span></pre>
+                <pre class="w46 paint" role="img" aria-label="The Run's result: review approved, checks passed, took 50 seconds, advisory"> <span class="ac"><span class="g">◈</span></span> <span class="b">aqorin</span>  <span class="mu">│</span>  Runs<span class="mu"> <span class="g">›</span> </span>#1 quick-change
+<span class="ac"><span class="g">╭</span>─</span><span class="b"> Result </span><span class="ac">───────────────────────────────────<span class="g">╮</span></span>
+<span class="ac">│</span> <span class="ok"><span class="g">✓</span> completed <span class="g">—</span> advisory (not presented as  </span> <span class="ac">│</span>
+<span class="ac">│</span> <span class="ok">validated or independently approved)</span>       <span class="ac">│</span>
+<span class="ac">│</span>                                            <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">Review     </span>approved<span class="mu"> <span class="g">·</span> 0 of 3 cycles</span>        <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">Checks     </span>passed<span class="mu"> <span class="g">·</span> 1 declared</span>             <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">Work tree  </span>3 files +30 -8<span class="mu"> <span class="g">·</span> now, changes  </span> <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">made outside this Run included</span>             <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">Handoffs   </span>1                               <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">Assurance  </span>advisory<span class="mu"> <span class="g">—</span> never presented as  </span> <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">validated <span class="g">·</span> ! says why</span>                     <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">Took       </span>0:50                            <span class="ac">│</span>
+<span class="ac">│</span>                                            <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">Next: P commits it and opens a pull       </span> <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">request (an agent drafts the message; you </span> <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">confirm); Esc, then n, starts a new task. </span> <span class="ac">│</span>
+<span class="ac">│</span> <span class="mu">Ctrl+T shows the Run&#x27;s transcript.</span>         <span class="ac">│</span>
+<span class="ac">│</span>                                            <span class="ac">│</span>
+<span class="ac">│</span>                                            <span class="ac">│</span>
+<span class="ac">│</span>                                            <span class="ac">│</span>
+<span class="ac"><span class="g">╰</span>────────────────────────────────────────────<span class="g">╯</span></span>
+ <span class="ac"><span class="g spin">◓</span></span> <span class="ac">running</span> <span class="mu"><span class="g">·</span></span> #2 converse<span class="mu"> <span class="g">·</span> </span><span class="ag b">developer</span><span class="mu"> <span class="g">·</span> </span><span class="rt">Claude</span><span class="g">…</span>
+ <span class="b">Ctrl+T</span> <span class="mu">trace</span>   <span class="b">Esc</span> <span class="mu">back</span>   <span class="b">?</span> <span class="mu">help</span>   <span class="b">q</span> <span class="mu">quit</span></pre>
+              </div>
+            </div>
           </div>
-          <div class="ledger rv">
-            <div class="yes"><h4>Exists today · 0.3.0 on npm</h4><ul><li>A terminal UI, and a CLI that does everything it does</li><li>Four runtimes: Claude Code, Codex, OpenCode and Pi</li><li>Your own agents and workflows, in the TUI or by hand</li><li>Built-in workflows for daily work: an engineering change (research → plan → implement → verify → review → docs), a quick change, a bug fix, an investigation, a code review, a docs change — steps that ask you before they guess</li><li>A runtime, connection and model per role, inside one Run</li><li>Any agent on any runtime: a role's limits enforced where verified, said advisory where not</li><li>With checks, validation decided by them, not by the model</li><li>Free chat on the four runtimes, permissions asked in the open where the runtime asks</li><li>Runs that outlive the terminal; retry, replan or cancel when a step fails</li><li>Several workflows at once in one repository, each beside the first in a git worktree of its own that you integrate, keep or discard</li><li><code>@aqorin/cli</code> 0.3.0 on npm, MIT</li></ul></div>
-            <div class="no"><h4>Next on the track</h4><ul><li>A hands-on review of the redesigned TUI</li><li>Verified read-only limits on Codex and Pi — deferred</li></ul></div>
+          <figcaption>The same Run's result. Advisory here because its reviewer's commands are not enforced; the checks still decided.</figcaption>
+        </figure>
+      </li>
+
+      <li class="step">
+        <div class="step-copy rv">
+          <span class="step-n" aria-hidden="true">3</span>
+          <h3>Agents write inside the Run</h3>
+          <p>On macOS, Aqorin's own sandbox is on by default for Claude Code, OpenCode and Pi, in Runs and in chats. Codex keeps its own sandbox. Where the sandbox cannot be set up, the Run is refused rather than run without it.</p>
+        </div>
+        <div class="art fence rv">
+          <div>
+            <h4>Writes refused</h4>
+            <ul>
+              <li>The rest of the repository, its <code>.git</code> and <code>.aqorin</code></li>
+              <li>Your keys and credentials</li>
+              <li>Your shell, git and package manager configuration</li>
+              <li>The coding agents' own settings</li>
+              <li>The usual PATH folders, such as <code>/opt/homebrew/bin</code></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Not limited</h4>
+            <ul>
+              <li>Reads: a sandboxed agent can still read a secret</li>
+              <li>The network</li>
+              <li>What an MCP server does</li>
+              <li>Other projects, caches and temporary files</li>
+            </ul>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </li>
 
-  <section id="feedback">
-    <div class="wrap">
-      <div class="sh rv"><span class="n">§05</span><span>Help shape it</span><span class="ref">ref · x.com/JuancaRodicio</span></div>
-      <div class="cols">
-        <h2 class="h2 rv">Run more than one coding agent? <em>Talk to me.</em></h2>
-        <p class="lede rv">This page exists to put the idea in front of developers while it can still change. The most useful answers are the uncomfortable ones.</p>
-      </div>
-      <div class="qs">
-        <div class="q rv"><p>Which workflow would you define once and never rewrite per agent?</p></div>
-        <div class="q rv"><p>Would you mix runtimes in one task — implement with one, review with another?</p></div>
-        <div class="q rv"><p>Where would you draw the line between what the engine enforces and what the model decides?</p></div>
-        <div class="q rv"><p>What would make you trust an orchestrator next to your repo and your credentials?</p></div>
-      </div>
-      <a class="reply rv" href="https://x.com/JuancaRodicio" rel="noopener"><strong>Reply on X →</strong><span>@JuancaRodicio<br>build log and open questions</span></a>
+      <li class="step">
+        <div class="step-copy rv">
+          <span class="step-n" aria-hidden="true">4</span>
+          <h3>The Run outlives the terminal</h3>
+          <p>Every transition is an event in the Run's own log, checked by the engine's reducer. Close the terminal and the Run is still there: follow it, answer it, resume it, retry or replan a step that failed. Recovery restarts a step, so an effect may repeat.</p>
+        </div>
+        <figure class="art rv">
+          <pre class="code log print" data-print><span class="ll" data-t="18:09:01"><span class="mu">    1  18:09:01</span>  <b>run.created</b>  engine<span class="mu"></span></span><span class="ll" data-t="18:09:01"><span class="mu">    2  18:09:01</span>  <b>run.plan_frozen</b>  engine<span class="mu">  developer:claude-code/default, reviewer:claude-code/default</span></span><span class="ll" data-t="18:09:01"><span class="mu">    3  18:09:01</span>  <b>run.preparing</b>  engine<span class="mu">  QUEUED→PREPARING</span></span><span class="ll" data-t="18:09:01"><span class="mu">    4  18:09:01</span>  <b>run.started</b>  runtime:claude-code:developer<span class="mu">  PREPARING→RUNNING</span></span><span class="ll" data-t="18:09:01"><span class="mu">    5  18:09:01</span>  <b>attempt.planned</b>  runtime:claude-code:developer<span class="mu">  step=implement role=developer runtime=claude-code attempt=attempt_…869ae18f</span></span><span class="ll" data-t="18:09:01"><span class="mu">    6  18:09:01</span>  <b>attempt.started</b>  runtime:claude-code:developer<span class="mu">  step=implement role=developer runtime=claude-code attempt=attempt_…869ae18f</span></span><span class="ll" data-t="18:09:29"><span class="mu">    7  18:09:29</span>  <b>attempt.completed</b>  runtime:claude-code:developer<span class="mu">  step=implement role=developer runtime=claude-code attempt=attempt_…869ae1</span></span><span class="ll" data-t="18:09:29"><span class="mu">    8  18:09:29</span>  <b>execution.result_recorded</b>  runtime:claude-code:developer<span class="mu">  outcome=completed output=1723 chars sha256 6e1f91fa51c5…</span></span><span class="ll" data-t="18:09:29"><span class="mu">    9  18:09:29</span>  <b>validation.completed</b>  engine<span class="mu">  passed=true authority=local evidence=evidence_…9b5447b0</span></span><span class="ll" data-t="18:09:29"><span class="mu">   10  18:09:29</span>  <b>handoff.created</b>  engine<span class="mu">  handoff_…9d8bb6f4 implement→review content 22b9dc8d7b65… (v2 document)</span></span><span class="ll" data-t="18:09:29"><span class="mu">   11  18:09:29</span>  <b>attempt.planned</b>  runtime:claude-code:reviewer<span class="mu">  step=review role=reviewer runtime=claude-code attempt=attempt_…bef68e5c</span></span><span class="ll" data-t="18:09:29"><span class="mu">   12  18:09:29</span>  <b>attempt.started</b>  runtime:claude-code:reviewer<span class="mu">  step=review role=reviewer runtime=claude-code attempt=attempt_…bef68e5c rece</span></span><span class="ll" data-t="18:09:51"><span class="mu">   13  18:09:51</span>  <b>attempt.completed</b>  runtime:claude-code:reviewer<span class="mu">  step=review role=reviewer runtime=claude-code attempt=attempt_…bef68e5c</span></span><span class="ll" data-t="18:09:51"><span class="mu">   14  18:09:51</span>  <b>execution.result_recorded</b>  runtime:claude-code:reviewer<span class="mu">  outcome=completed output=5279 chars sha256 bf13247bfe67…</span></span><span class="ll" data-t="18:09:51"><span class="mu">   15  18:09:51</span>  <b>validation.completed</b>  engine<span class="mu">  passed=true authority=local evidence=evidence_…783b28b7</span></span><span class="ll" data-t="18:09:51"><span class="mu">   16  18:09:51</span>  <b>review.approved</b>  runtime:claude-code:reviewer<span class="mu">  decision=approved subject=attempt_…869ae18f</span></span><span class="ll" data-t="18:09:51"><span class="mu">   17  18:09:51</span>  <b>run.succeeded</b>  runtime:claude-code:reviewer<span class="mu">  RUNNING→SUCCEEDED</span></span></pre>
+          <figcaption><code>aqorin logs</code> for the same Run: seventeen events, fifty seconds.</figcaption>
+        </figure>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="rules" id="rules" aria-labelledby="rules-title">
+  <div class="wrap rules-in">
+    <h2 id="rules-title" class="rv">Rules for the engine, not for a model to remember</h2>
+    <ol class="rule-list rv-list">
+      <li><h3>Your configuration stays yours</h3><p>Aqorin's agents, commands and settings live in its own namespaced overlay. It never writes your runtime's configuration, PATH or symlinks.</p></li>
+      <li><h3>Your runtime stays as it is</h3><p>Keep running <code>claude</code>, <code>codex</code>, <code>opencode</code> or <code>pi</code> exactly as today. Aqorin is a separate command you use when you want it.</p></li>
+      <li><h3>Invariants live in code</h3><p>Step order, budgets, required review and legal transitions are enforced by the reducer, not asked of a model in a prompt.</p></li>
+      <li><h3>State belongs to the Run</h3><p>A runtime session is one attempt. The Run is durable, so a crashed runtime does not erase what happened.</p></li>
+      <li><h3>Every guarantee says where it is enforced</h3><p>Enforced by Aqorin, by the runtime, by the kernel, or not at all and said advisory. Nothing is elevated silently.</p></li>
+      <li><h3>No lowest common denominator</h3><p>A runtime's best primitive is used natively, emulated safely, degraded visibly or refused. Features are not dropped for symmetry.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="limits" id="limits" aria-labelledby="limits-title">
+  <div class="wrap limits-in">
+    <div class="limits-copy">
+      <h2 id="limits-title" class="rv">What it does not claim</h2>
+      <p class="rv">Said here with the same weight as the features, because you should know before you install.</p>
     </div>
-  </section>
+    <dl class="claims rv-list">
+      <div><dt>Platform</dt><dd>Demonstrated on macOS with Apple silicon only. Linux is not demonstrated and has no sandbox; on Windows npm refuses the install. macOS on Intel is untested.</dd></div>
+      <div><dt>Runtimes</dt><dd>Claude Code, Codex, OpenCode and Pi, each from a minimum version. Admission is not evidence: a version is recorded as verified on your machine by <code>aqorin doctor --live</code>, with your consent and one model call.</dd></div>
+      <div><dt>Restricted roles</dt><dd>A read-only or review role's writes are held by the sandbox; its commands are asked of the agent, not enforced. Such a Run is advisory.</dd></div>
+      <div><dt>Recovery</dt><dd>At least once. A restarted step may repeat an external effect the interrupted one already had.</dd></div>
+      <div><dt>Not yet</dt><dd>jcode as an alpha runtime, Linux and Windows support, and a public Runtime Adapter SDK.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="status" id="status" aria-labelledby="status-title">
+  <div class="wrap status-in">
+    <div class="status-copy">
+      <h2 id="status-title" class="rv">Where it stands</h2>
+      <p class="rv">Built in public, phase by phase, each one closed against its own record.</p>
+    </div>
+    <ol class="track rv-list">
+      <li class="done"><span class="when">Closed</span><h3>Thesis Validation</h3><p>Can one workflow run durably across runtimes and models, mixed in one Run? Partially validated, and that verdict stays as recorded.</p></li>
+      <li class="done"><span class="when">Built</span><h3>Terminal Alpha</h3><p>The first version a person can use: a TUI and a CLI over four runtimes, on macOS. Its acceptance was walked as a new user would.</p></li>
+      <li class="now"><span class="when">Now</span><h3>Post-alpha product</h3><p>A redesigned TUI, a visual identity and the guide. <code>@aqorin/cli</code> 0.3.0 is on npm since 2026-10-18.</p></li>
+      <li class="next"><span class="when">Later</span><h3>Generalization</h3><p>jcode, Linux, Windows and a public adapter SDK, each claimed only once it is demonstrated.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="feedback" id="feedback" aria-labelledby="feedback-title">
+  <div class="wrap feedback-in">
+    <h2 id="feedback-title" class="rv">Run more than one coding agent? Tell me how.</h2>
+    <ul class="qs rv-list">
+      <li>Which workflow would you define once and never rewrite per agent?</li>
+      <li>Would you mix runtimes in one task, implementing with one and reviewing with another?</li>
+      <li>Where would you draw the line between what the engine enforces and what the model decides?</li>
+      <li>What would make you trust an orchestrator next to your repository and your credentials?</li>
+    </ul>
+    <p class="rv"><a class="reply" href="https://x.com/JuancaRodicio" rel="noopener">Reply on X, @JuancaRodicio</a></p>
+  </div>
+</section>
+
 </main>
 
-<footer>
-  <div class="wrap">
-    <dl><dt>Aqorin</dt><dd>Runtime-agnostic orchestration for coding agents</dd></dl>
-    <dl><dt>Status</dt><dd>Thesis v1 · partially validated · Terminal Alpha built · rev 2026-10-18</dd></dl>
-    <dl><dt>Author</dt><dd><a href="https://x.com/JuancaRodicio" rel="noopener">@JuancaRodicio</a> · <a href="https://www.npmjs.com/package/@aqorin/cli" rel="noopener">npm</a></dd></dl>
-    <dl><dt>Colophon</dt><dd>Set in Archivo &amp; IBM Plex Mono. MIT. Not affiliated with any runtime vendor.<br>Visits are counted with cookieless PostHog (EU); nothing is stored on your device.</dd></dl>
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p><img src="/assets/favicon.svg" alt="" width="16" height="16"> Aqorin. Runtime-agnostic orchestration for coding agents, built in public by <a href="https://x.com/JuancaRodicio" rel="noopener">@JuancaRodicio</a>. <a href="https://www.npmjs.com/package/@aqorin/cli" rel="noopener">npm</a> · <a href="/docs/">Docs</a></p>
+    <p>MIT. Not affiliated with any runtime vendor. Visits are counted with cookieless PostHog (EU); nothing is stored on your device.</p>
   </div>
 </footer>
 
