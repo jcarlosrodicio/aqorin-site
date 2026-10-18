@@ -1,70 +1,67 @@
 <!doctype html>
-<!-- Source of og.png / es/og.png. Rendered by tools/og.sh at 1200x630. -->
+<!-- Source of og.png / es/og.png. Rendered by tools/og.sh at 1200x630. The screen is the real Flow of the
+     landing's Run (Run #1, quick-change on Claude Code), the 46-column capture. -->
 <html>
 <head>
 <meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Manrope:wght@500;800&display=swap" rel="stylesheet">
 <style>
+@font-face{font-family:"JetBrains Mono";font-weight:400;src:url("../assets/fonts/jetbrains-mono-glyphs-400.woff2") format("woff2");unicode-range:U+2192,U+2500-25FF,U+2713}
+@font-face{font-family:"JetBrains Mono";font-weight:700;src:url("../assets/fonts/jetbrains-mono-glyphs-700.woff2") format("woff2");unicode-range:U+2192,U+2500-25FF,U+2713}
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:1200px;height:630px;overflow:hidden}
-body{background:#ecebe5;color:#121211;font-family:Archivo,sans-serif;position:relative;
-  background-image:radial-gradient(rgba(18,18,17,.07) 1px,transparent 1.2px);background-size:6px 6px}
-.bar{position:absolute;left:0;right:0;top:0;height:64px;border-bottom:2px solid #121211;display:flex;align-items:center;justify-content:space-between;padding:0 56px}
-.mark{height:32px;width:auto;display:block}
-.meta{font-family:"IBM Plex Mono";font-size:15px;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
-.meta i{width:11px;height:11px;border-radius:50%;background:#ff4f1a}
-h1{position:absolute;left:52px;top:96px;font-weight:900;font-stretch:66%;text-transform:uppercase;line-height:.84;font-size:110px;letter-spacing:-.01em;width:640px}
-h1 span{color:#ff4f1a}
-.sub{position:absolute;left:56px;bottom:62px;width:560px;font-size:23px;line-height:1.35;color:#3b3a36}
-.board{position:absolute;right:56px;top:108px;width:470px;height:430px;background:#141413;color:#f0eee6}
-.board .h{font-family:"IBM Plex Mono";font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#9b988f;padding:14px 20px;border-bottom:1px solid #2c2c29;display:flex;justify-content:space-between}
-.board .h b{color:#f0eee6;font-weight:500}
-.board svg{display:block;margin-top:6px}
-.board text{font-family:"IBM Plex Mono"}
-.url{position:absolute;right:56px;bottom:40px;font-family:"IBM Plex Mono";font-size:16px;color:#3b3a36}
-.url b{color:#121211;font-weight:500}
-.tape{position:absolute;left:0;right:0;bottom:0;height:18px;background:#ff4f1a;border-top:2px solid #121211}
+body{background:oklch(0.181 0.010 255.6);color:oklch(0.937 0.006 264.5);font-family:Manrope,sans-serif;position:relative}
+.copy{position:absolute;left:64px;top:140px;bottom:56px;width:520px;display:flex;flex-direction:column;gap:24px}
+.mark{position:absolute;left:64px;top:60px;height:30px;width:auto}
+h1{margin-left:-4px;font-weight:800;font-size:var(--h,76px);line-height:1.02;letter-spacing:-.034em}
+.sub{font-size:24px;line-height:1.42;font-weight:500;color:oklch(0.83 0.008 260)}
+.url{margin-top:auto;font-size:19px;font-weight:500;color:oklch(0.70 0.010 258)}
+.url b{color:oklch(0.742 0.137 174.1);font-weight:800}
+.term{position:absolute;right:56px;top:52px;width:532px;border:1px solid oklch(0.30 0.010 255);border-radius:14px;background:oklch(0.150 0.009 255);overflow:hidden}
+.bar{height:38px;display:flex;align-items:center;gap:7px;padding:0 15px;background:oklch(0.185 0.010 255);border-bottom:1px solid oklch(0.30 0.010 255)}
+.bar i{width:11px;height:11px;border-radius:50%;background:oklch(0.30 0.010 255)}
+pre{font-family:"JetBrains Mono",monospace;font-size:17.4px;line-height:1.25;padding:14px 16px 16px;white-space:pre;color:oklch(0.937 0.006 264.5);font-variant-ligatures:none}
+.ac{color:oklch(0.742 0.137 174.1)}.mu{color:oklch(0.67 0.010 255)}.ok{color:oklch(0.79 0.150 148)}.wn{color:oklch(0.81 0.150 76)}
+.ag{color:oklch(0.82 0.110 307)}.rt{color:oklch(0.81 0.095 195)}.bd{color:oklch(0.47 0.010 255)}.b{font-weight:700}
+.g{display:inline-block;width:.6em;text-align:center}
 </style>
 </head>
 <body>
-<div class="bar"><img class="mark" src="../assets/brand/aqorin-lockup-light.svg" alt="Aqorin"><div class="meta" id="meta"></div></div>
+<img class="mark" src="../assets/brand/aqorin-lockup-dark.svg" alt="Aqorin">
+<div class="copy">
 <h1 id="h1"></h1>
 <p class="sub" id="sub"></p>
-<div class="board">
-  <div class="h"><span id="bh"></span><span id="br"></span></div>
-  <svg viewBox="0 0 470 370" width="470" height="370">
-    <rect x="96" y="30" width="48" height="300" rx="5" fill="#1b1b19" stroke="#2c2c29"/>
-    <rect x="336" y="20" width="48" height="320" rx="5" fill="#1b1b19" stroke="#2c2c29"/>
-    <g font-size="13" fill="#f0eee6" text-anchor="end">
-      <text x="84" y="76">specifier</text><text x="84" y="146">developer</text><text x="84" y="216">validator</text><text x="84" y="286">reviewer</text>
-    </g>
-    <g font-size="13" fill="#f0eee6">
-      <text x="396" y="56">opencode</text><text x="396" y="120">pi</text><text x="396" y="184">codex</text><text x="396" y="248">claude</text>
-    </g>
-    <g fill="none" stroke-linecap="round">
-      <path d="M130 72 C230 160,250 300,346 244" stroke="#000" stroke-width="9" opacity=".45" transform="translate(0 5)"/>
-      <path d="M130 72 C230 160,250 300,346 244" stroke="#ff4f1a" stroke-width="5"/>
-      <path d="M130 142 C230 200,250 200,346 180" stroke="#000" stroke-width="9" opacity=".45" transform="translate(0 5)"/>
-      <path d="M130 142 C230 200,250 200,346 180" stroke="#f0eee6" stroke-width="5"/>
-      <path d="M130 212 C230 280,250 150,346 116" stroke="#000" stroke-width="9" opacity=".45" transform="translate(0 5)"/>
-      <path d="M130 212 C230 280,250 150,346 116" stroke="#23a55a" stroke-width="5"/>
-      <path d="M130 282 C230 330,250 120,346 52" stroke="#000" stroke-width="9" opacity=".45" transform="translate(0 5)"/>
-      <path d="M130 282 C230 330,250 120,346 52" stroke="#f2b21b" stroke-width="5"/>
-    </g>
-    <g fill="#0b0b0a" stroke="#4a4944" stroke-width="2">
-      <circle cx="120" cy="72" r="12"/><circle cx="120" cy="142" r="12"/><circle cx="120" cy="212" r="12"/><circle cx="120" cy="282" r="12"/>
-      <circle cx="360" cy="52" r="12"/><circle cx="360" cy="116" r="12"/><circle cx="360" cy="180" r="12"/><circle cx="360" cy="244" r="12"/>
-    </g>
-  </svg>
+<p class="url"><b>aqorin.rcuadrado.es</b> · npm i -g @aqorin/cli</p>
 </div>
-<div class="url"><b>aqorin.rcuadrado.es</b> · @JuancaRodicio</div>
-<div class="tape"></div>
+<div class="term"><div class="bar"><i></i><i></i><i></i></div><pre> <span class="ac"><span class="g">◈</span></span> <span class="b">aqorin</span>  <span class="mu">│</span>  Runs<span class="mu"> <span class="g">›</span> </span>#1 quick-change
+<span class="ac"><span class="g">╭</span>─</span><span class="b"> Flow </span><span class="ac">───</span><span class="mu"> Activity <span class="g">·</span> [Flow] <span class="g">·</span> Trace <span class="g">·</span> Raw </span><span class="ac">─<span class="g">╮</span></span>
+<span class="ac">│</span>              <span class="mu">succeeded <span class="g">·</span> 0:50</span>              <span class="ac">│</span>
+<span class="ac">│</span>                                            <span class="ac">│</span>
+<span class="ac">│</span>     <span class="ok"><span class="g">╭</span>─────────────<span class="g">╮</span></span>    <span class="ok"><span class="g">╭</span>─────────────<span class="g">╮</span></span>     <span class="ac">│</span>
+<span class="ac">│</span>     <span class="ok">│</span> <span class="ok"><span class="g">✓</span></span> <span class="b">implement</span> <span class="ok">│</span>    <span class="ok">│</span> <span class="ok"><span class="g">✓</span></span> <span class="b">review</span>    <span class="ok">│</span>     <span class="ac">│</span>
+<span class="ac">│</span>     <span class="ok">│</span> <span class="ag b">developer</span>   <span class="ok">│</span><span class="ac"> ─<span class="g">▶</span> </span><span class="ok">│</span> <span class="ag b">reviewer</span>    <span class="ok">│</span><span class="mu">─<span class="g">╮</span></span>   <span class="ac">│</span>
+<span class="ac">│</span>     <span class="ok">│</span> <span class="mu">done</span>        <span class="ok">│</span>    <span class="ok">│</span> <span class="mu">done</span>        <span class="ok">│</span> <span class="mu">│</span>   <span class="ac">│</span>
+<span class="ac">│</span>     <span class="ok">│</span> <span class="mu">0:27</span>        <span class="ok">│</span>    <span class="ok">│</span> <span class="mu">0:21</span>        <span class="ok">│</span> <span class="mu">│</span>   <span class="ac">│</span>
+<span class="ac">│</span>     <span class="ok"><span class="g">╰</span>─────────────<span class="g">╯</span></span>    <span class="ok"><span class="g">╰</span>─────────────<span class="g">╯</span></span> <span class="mu">│</span>   <span class="ac">│</span>
+<span class="ac">│</span>            <span class="mu"><span class="g">▲</span></span>                  <span class="mu">│</span>        <span class="mu">│</span>   <span class="ac">│</span>
+<span class="ac">│</span>            <span class="mu"><span class="g">╰</span>───── changes ────<span class="g">╯</span></span>        <span class="mu">│</span>   <span class="ac">│</span>
+<span class="ac">│</span>                                        <span class="mu">│</span>   <span class="ac">│</span>
+<span class="ac">│</span>                        <span class="ok"><span class="g">╭</span>─────────────<span class="g">╮</span></span> <span class="mu">│</span>   <span class="ac">│</span>
+<span class="ac">│</span>                        <span class="ok">│</span> <span class="ok"><span class="g">✓</span></span> <span class="ok">done</span>      <span class="ok">│</span> <span class="mu">│</span>   <span class="ac">│</span>
+<span class="ac">│</span>                        <span class="ok">│</span> <span class="ok">succeeded</span>   <span class="ok">│</span><span class="mu"><span class="g">◀</span><span class="g">╯</span></span>   <span class="ac">│</span>
+<span class="ac">│</span>                        <span class="ok">│</span>             <span class="ok">│</span>     <span class="ac">│</span>
+<span class="ac">│</span>                        <span class="ok">│</span>             <span class="ok">│</span>     <span class="ac">│</span>
+<span class="ac">│</span>                        <span class="ok"><span class="g">╰</span>─────────────<span class="g">╯</span></span>     <span class="ac">│</span>
+<span class="ac">│</span>                                            <span class="ac">│</span>
+<span class="ac">│</span>        <span class="mu"><span class="g">✓</span> done  <span class="g spin">◐</span> running  <span class="g">○</span> queued</span>         <span class="ac">│</span>
+<span class="ac"><span class="g">╰</span>────────────────────────────────────────────<span class="g">╯</span></span></pre></div>
 <script>
 const t = {
-  en: { meta: '<i></i>Terminal Alpha built · made in public', h1: 'One<br>workflow<span>.</span><br>Any coding<br>agent<span>.</span>', sub: 'Runtime-agnostic orchestration for coding agents. Your workflow, your setup — any runtime executes it.', bh: '<b>Patch bay</b> · assignment', br: 'role → runtime' },
-  es: { meta: '<i></i>Terminal Alpha construida · en público', h1: 'Un<br>workflow<span>.</span><br>Cualquier<br>agente<span>.</span>', sub: 'Orquestación para agentes de código, independiente del runtime. Tu workflow y tu configuración, con cualquier runtime.', bh: '<b>Centralita</b> · asignación', br: 'rol → runtime' },
+  en: { h1: 'One workflow.<br>Any coding agent.', sub: 'Claude Code, Codex, OpenCode or Pi run the steps. Aqorin keeps the Run, its checks and its evidence.' },
+  es: { h1: 'Un workflow.<br>Cualquier agente de código.', sub: 'Claude Code, Codex, OpenCode o Pi ejecutan los pasos. Aqorin guarda el Run, sus comprobaciones y su evidencia.', size: '60px' },
 }[new URLSearchParams(location.search).get('lang') || 'en'];
-for (const k in t) document.getElementById(k).innerHTML = t[k];
+for (const k of ['h1', 'sub']) document.getElementById(k).innerHTML = t[k];
+if (t.size) document.body.style.setProperty('--h', t.size);
 </script>
 </body>
 </html>
