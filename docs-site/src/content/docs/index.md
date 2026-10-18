@@ -16,8 +16,8 @@ the TUI does.
 
 - **Platform:** shown on **macOS on Apple silicon (Darwin arm64)** only. Linux and Windows are not
   claimed.
-- **Availability:** the Alpha is not distributed publicly yet, on npm or elsewhere. The `@aqorin/cli` package on npm (0.2.0)
-  predates it and has no TUI.
+- **Availability:** on npm as `@aqorin/cli` 0.3.0 (`npm install -g @aqorin/cli`). The versions
+  before it there (0.1.0, 0.2.0) predate it and have no TUI.
 :::
 
 ## Where to start

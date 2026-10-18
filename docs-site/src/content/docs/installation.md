@@ -21,25 +21,30 @@ Aqorin never signs in for you.
 
 ## Install
 
-:::caution
-The Terminal Alpha is not published on npm. The `@aqorin/cli` 0.2.0 package on npm is an earlier
-CLI, with none of the TUI these pages describe. Both print version 0.2.0, but they are different
-builds.
-:::
+```bash
+npm install -g @aqorin/cli
+aqorin --version        # 0.3.0
+```
 
-The Alpha is not distributed publicly yet: there is no public download. Whoever has its packed
-tarball installs it into a prefix of its own:
+`@aqorin/cli` 0.3.0 on npm is the Terminal Alpha these pages describe. The versions before it on
+npm (0.1.0, 0.2.0) are an earlier CLI, with none of its TUI.
+
+Its one dependency, `better-sqlite3`, is a native addon: npm fetches its prebuilt binary, or builds
+it where there is none (a compiler toolchain needed). The package does not ship `node-pty`: only
+`aqorin open` (a runtime's own UI launched through Aqorin) needs it, and reports `pty_unavailable`
+until `node-pty@1.2.0-beta.15` is installed in the same prefix.
+
+To keep it out of your global prefix, give it one of its own:
 
 ```bash
-npm install -g --prefix ~/.aqorin-alpha ./aqorin-cli-<version>.tgz
+npm install -g --prefix ~/.aqorin-alpha @aqorin/cli
 export PATH="$HOME/.aqorin-alpha/bin:$PATH"
-aqorin --version
 ```
 
 ## Uninstall
 
 ```bash
-npm uninstall -g --prefix ~/.aqorin-alpha @aqorin/cli
+npm uninstall -g @aqorin/cli     # with the same --prefix if you gave it one
 ```
 
 Uninstalling leaves Aqorin's own files in place. Remove them to start fresh:

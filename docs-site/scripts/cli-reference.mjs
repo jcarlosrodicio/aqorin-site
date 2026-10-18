@@ -14,8 +14,8 @@ if (!checkout || (flag !== undefined && flag !== "--check") || rest.length > 0) 
 }
 
 const NOTE = `:::note[Added on this site]
-- This is the Terminal Alpha's CLI, which is not distributed publicly yet. The \`@aqorin/cli\` 0.2.0
-  package on npm is an earlier CLI: it reports the same version but lacks many of these commands.
+- This is the CLI of \`@aqorin/cli\` 0.3.0 on npm, the Terminal Alpha. The versions before it there
+  (0.1.0, 0.2.0) are an earlier CLI that lacks many of these commands.
 - The help still names **jcode**, a runtime the code knows. It is not one of the Terminal Alpha's
   runtimes: those are Claude Code, Codex, OpenCode and Pi.
 :::
