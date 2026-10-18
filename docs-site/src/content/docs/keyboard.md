@@ -37,6 +37,22 @@ not over an open form or picker.
 On Runs, Agents, Workflows and Resources, `/` keeps only the rows that contain every word you type.
 The pane's title shows the filter and how many rows match. `Esc` clears it.
 
+## The mouse
+
+A click does what a key does:
+
+- a section of the rail opens it;
+- a row of a list is selected, and a click on the row already selected opens it, as `Enter` (so a double click opens a row);
+- a Run's step is selected;
+- a button, a key in the footer, a tab of Resources or a trace level on a Run's pane border does what its key does;
+- in a picker, the palette, a confirmation or a form, a click on an option chooses it and a click on a button
+  presses it.
+
+The wheel moves a list's selection, scrolls the panel on the right and moves a picker's list. Over an open dialog or the help, nothing behind them answers a click (the wheel may still scroll the text behind). A drag over anything else selects its text, and releasing copies it to the
+clipboard where your terminal allows it. The terminal's own selection is still there, usually with Shift (Option in
+some macOS terminals) held while you drag. An editor's field and node lists, Trace's entries, the chat's composer and
+the help are keys only.
+
 ## In a Run
 
 | Key | Does |
