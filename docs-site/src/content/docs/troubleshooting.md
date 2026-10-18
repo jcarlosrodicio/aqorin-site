@@ -3,8 +3,23 @@ title: Troubleshooting
 description: The situations you are most likely to meet, what Aqorin says, and what to do.
 ---
 
-Start with `aqorin doctor`. It runs read-only checks, including every runtime's installation. Most
-refusals name the next step, in the TUI and in `--json` (`safe_next`).
+Start with `aqorin doctor`. It runs read-only checks, including every runtime's installation, grouped
+under System, Project and Runtimes: `✓` is fine, `!` a warning, `✗` a failure, and under a check that
+needs something, the next step (`→`). The last line counts what fails and what warns:
+
+```text
+Runtimes
+  ✓ Claude Code 2.1.302 is available (~/.local/bin/claude)
+  ✓ Codex 0.163.0 is available (~/.local/bin/codex)
+  ✓ OpenCode 1.18.32 (on PATH)
+  ! Pi has a same-level installation conflict
+      → choose the Pi to use on Home or Runtimes (Choose installation) — or aqorin runtimes select pi <path>
+
+! 1 warning · nothing fails
+```
+
+`aqorin doctor --json` lists every check, jcode's included. Most refusals name the next step too, in
+the TUI and in `--json` (`safe_next`).
 
 ## A runtime is not found
 

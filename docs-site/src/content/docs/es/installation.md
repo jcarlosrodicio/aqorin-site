@@ -56,6 +56,6 @@ En ningún caso se toca nada de la instalación ni de la configuración de tus r
 ## Comprobar la instalación
 
 ```bash
-aqorin doctor                       # read-only checks, every runtime's installation included
+aqorin doctor                       # read-only checks, grouped, each with its next step
 aqorin doctor --live --runtime pi   # one real model call; it asks first
 ```
