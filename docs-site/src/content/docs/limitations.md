@@ -7,8 +7,8 @@ description: What the Terminal Alpha does not do, and what it does not claim.
 
 - **Platforms:** shown on macOS on Apple silicon (Darwin arm64) only. Linux and Windows are not
   claimed.
-- **Distribution:** the Alpha is not published on npm. `@aqorin/cli` 0.2.0 on npm is an earlier
-  CLI, without the TUI.
+- **Distribution:** npm only (`@aqorin/cli` 0.3.0); no other package manager or download. The
+  versions before it on npm (0.1.0, 0.2.0) are an earlier CLI, without the TUI.
 - **Runtimes:** Claude Code, Codex, OpenCode and Pi. Other runtimes that Aqorin's code knows, such
   as jcode, are not part of the Alpha.
 - **Several workflows in one folder:** one works in the folder; the others run in git worktrees of

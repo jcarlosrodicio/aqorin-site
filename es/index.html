@@ -41,7 +41,7 @@
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "macOS",
   "description": "Capa de orquestación para agentes de código, independiente del runtime. Define workflows de ingeniería una vez y ejecútalos con distintos runtimes de agentes de código.",
-  "softwareVersion": "0.2.0",
+  "softwareVersion": "0.3.0",
   "license": "https://opensource.org/licenses/MIT",
   "url": "https://aqorin.rcuadrado.es/es/",
   "inLanguage": "es",
@@ -70,9 +70,9 @@
 <div class="spec">
   <div class="wrap">
     <span><i class="lamp"></i>Terminal Alpha · construida</span>
-    <span><em>Rev</em> 2026-10-12</span>
+    <span><em>Rev</em> 2026-10-18</span>
     <span><em>Plataforma</em> darwin-arm64</span>
-    <span><em>Paquete</em> @aqorin/cli 0.2.0</span>
+    <span><em>Paquete</em> @aqorin/cli 0.3.0</span>
     <span><em>Licencia</em> MIT</span>
   </div>
 </div>
@@ -221,14 +221,14 @@ specify → implement
 
         <div>
           <div class="report rv">
-            <h4><span>Notas de campo · Terminal Alpha</span><span>2026-10-12</span></h4>
+            <h4><span>Notas de campo · Terminal Alpha</span><span>2026-10-18</span></h4>
             <span class="stamp ok">Construida</span>
             <p class="lead-note">La alfa está construida. Desde <code>aqorin</code> configuras los cuatro runtimes, sus conexiones y modelos; escribes tus agentes y workflows; añades skills y servidores MCP; chateas con cualquier runtime; lanzas un Run, lo sigues, le respondes y lo recuperas cuando un paso falla. Cada acción es también un verbo del CLI. Su aceptación técnica pasó, recorrida como lo haría alguien nuevo.</p>
-            <p class="foot">Ahora: una prueba a fondo de la TUI rediseñada, y la <a href="/docs/es/">documentación</a>. Demostrado solo en macOS arm64; está en main, todavía no en el paquete de npm.</p>
+            <p class="foot">Ahora: una prueba a fondo de la TUI rediseñada, y la <a href="/docs/es/">documentación</a>. Demostrado solo en macOS arm64; en npm como <code>@aqorin/cli</code> 0.3.0.</p>
           </div>
           <div class="ledger rv">
-            <div class="yes"><h4>Existe hoy · en main</h4><ul><li>Una interfaz de terminal, y un CLI que hace todo lo que hace ella</li><li>Cuatro runtimes: Claude Code, Codex, OpenCode y Pi</li><li>Tus propios agentes y workflows, en la TUI o a mano</li><li>Workflows integrados para el día a día: un cambio de ingeniería (research → plan → implement → verify → review → docs), un cambio rápido, una corrección de bug, una investigación, una revisión de código, un cambio de documentación — pasos que te preguntan antes de adivinar</li><li>Un runtime, una conexión y un modelo por rol, dentro de un mismo Run</li><li>Cualquier agente en cualquier runtime: los límites de un rol, efectivos donde están verificados y orientativos donde no</li><li>Con comprobaciones, la validación la deciden ellas, no el modelo</li><li>Chat libre con los cuatro runtimes, con los permisos a la vista donde el runtime pregunta</li><li>Runs que sobreviven a la terminal; reintentar, replanificar o cancelar si un paso falla</li><li>Varios workflows a la vez en un repositorio, cada uno junto al primero en un worktree de git propio que tú integras, conservas o descartas</li><li><code>@aqorin/cli</code> 0.2.0 en npm, MIT, por detrás de main</li></ul></div>
-            <div class="no"><h4>Lo siguiente</h4><ul><li>Una prueba a fondo de la TUI rediseñada</li><li>Publicar la alfa: aún sin decidir</li><li>Límites de solo lectura verificados en Codex y Pi: aplazado</li></ul></div>
+            <div class="yes"><h4>Existe hoy · 0.3.0 en npm</h4><ul><li>Una interfaz de terminal, y un CLI que hace todo lo que hace ella</li><li>Cuatro runtimes: Claude Code, Codex, OpenCode y Pi</li><li>Tus propios agentes y workflows, en la TUI o a mano</li><li>Workflows integrados para el día a día: un cambio de ingeniería (research → plan → implement → verify → review → docs), un cambio rápido, una corrección de bug, una investigación, una revisión de código, un cambio de documentación — pasos que te preguntan antes de adivinar</li><li>Un runtime, una conexión y un modelo por rol, dentro de un mismo Run</li><li>Cualquier agente en cualquier runtime: los límites de un rol, efectivos donde están verificados y orientativos donde no</li><li>Con comprobaciones, la validación la deciden ellas, no el modelo</li><li>Chat libre con los cuatro runtimes, con los permisos a la vista donde el runtime pregunta</li><li>Runs que sobreviven a la terminal; reintentar, replanificar o cancelar si un paso falla</li><li>Varios workflows a la vez en un repositorio, cada uno junto al primero en un worktree de git propio que tú integras, conservas o descartas</li><li><code>@aqorin/cli</code> 0.3.0 en npm, MIT</li></ul></div>
+            <div class="no"><h4>Lo siguiente</h4><ul><li>Una prueba a fondo de la TUI rediseñada</li><li>Límites de solo lectura verificados en Codex y Pi: aplazado</li></ul></div>
           </div>
         </div>
       </div>
@@ -256,7 +256,7 @@ specify → implement
 <footer>
   <div class="wrap">
     <dl><dt>Aqorin</dt><dd>Orquestación independiente del runtime para agentes de código</dd></dl>
-    <dl><dt>Estado</dt><dd>Tesis v1 · parcialmente validada · Terminal Alpha construida · rev 2026-10-12</dd></dl>
+    <dl><dt>Estado</dt><dd>Tesis v1 · parcialmente validada · Terminal Alpha construida · rev 2026-10-18</dd></dl>
     <dl><dt>Autor</dt><dd><a href="https://x.com/JuancaRodicio" rel="noopener">@JuancaRodicio</a> · <a href="https://www.npmjs.com/package/@aqorin/cli" rel="noopener">npm</a></dd></dl>
     <dl><dt>Colofón</dt><dd>Compuesto en Archivo e IBM Plex Mono. MIT. Sin afiliación con ningún proveedor de runtimes.<br>Las visitas se cuentan con PostHog (UE) sin cookies; no se guarda nada en tu dispositivo.</dd></dl>
   </div>
