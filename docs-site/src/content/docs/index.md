@@ -14,8 +14,9 @@ their configuration.
 These pages describe the Terminal Alpha: a full-screen TUI (`aqorin`) and a CLI that does everything
 the TUI does.
 
-- **Platform:** shown on **macOS on Apple silicon (Darwin arm64)** only. Linux and Windows are not
-  claimed.
+- **Platform:** **macOS on Apple silicon (Darwin arm64)** and **Linux** — Linux demonstrated on Ubuntu 26.04 on
+  x86_64 with bubblewrap, on Aqorin's development line: the published 0.3.0 predates it (see
+  [Installation](../installation/)). Windows is not claimed.
 - **Availability:** on npm as `@aqorin/cli` 0.3.0 (`npm install -g @aqorin/cli`). The versions
   before it there (0.1.0, 0.2.0) predate it and have no TUI.
 :::

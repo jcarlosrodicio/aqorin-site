@@ -5,8 +5,10 @@ description: Lo que la Terminal Alpha no hace, y lo que no afirma.
 
 ## No está en la Alpha
 
-- **Plataformas:** demostrada solo en macOS con Apple silicon (Darwin arm64). Linux y Windows no se
-  declaran.
+- **Plataformas:** macOS con Apple silicon (Darwin arm64) y Linux tal como se demostró — Ubuntu 26.04 en x86_64,
+  en la línea de desarrollo (no en la 0.3.0 publicada). No demostrado: Linux en arm64, otras distribuciones, macOS en
+  Intel. Windows no se declara. En Linux un paso de solo lectura o de revisión en Claude Code es advisory, y unos
+  pocos nombres protegidos de `~/.claude` que aún no existen no se pueden cerrar.
 - **Distribución:** solo npm (`@aqorin/cli` 0.3.0); ningún otro gestor de paquetes ni descarga.
   Las versiones anteriores de npm (0.1.0, 0.2.0) son una CLI anterior, sin la TUI.
 - **Runtimes:** Claude Code, Codex, OpenCode y Pi. Otros runtimes que el código de Aqorin conoce,

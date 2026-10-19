@@ -130,8 +130,11 @@ credentials there on Linux: `~/.claude`. A protected file in it that does not ex
 from then on. Your session's services — its bus, systemd's user manager, Docker's socket — are out of a step's
 reach, because a service outside the sandbox would act as you; others, such as a tmux server you run or an ssh
 agent, are not. A read-only or review step on Claude Code is advisory on Linux: its writes stay out of your project
-and files, but its `~/.claude` stays writable for its credentials. Linux support itself is being validated and is not
-claimed yet.
+and files, but its `~/.claude` stays writable for its credentials. Linux is supported as demonstrated on Ubuntu 26.04
+x86_64 ([Installation](../installation/)); there, the sandbox of a Pi reviewer's live Run, replayed with an attack in
+Pi's place, refused every write outside Pi's own state and the temporary directories — the workspace, `.git`,
+`.aqorin`, your home, `~/.ssh`, systemd's user units, Aqorin's data and other worktrees — and escapes by symlink,
+hardlink and rename.
 
 A Free chat on Claude Code, OpenCode or Pi runs in the same sandbox, writing in your project folder: its
 sandbox is chosen when you start (or follow up) the chat, and every turn runs in that one. A chat started

@@ -15,7 +15,8 @@ and a step can run on Claude Code, Codex, OpenCode or Pi without the workflow ch
 
 ## Before you begin
 
-- macOS on Apple silicon, and Node.js 24.14 or later in the 24 line.
+- macOS on Apple silicon — or Linux as [Installation](../installation/) says (Ubuntu on x86_64, bubblewrap, not in
+  the published 0.3.0) — and Node.js 24.14 or later in the 24 line.
 - At least one of the four runtimes, installed and signed in through its own flow. See
   [Installation](../installation/).
 - A project that is a git working tree.

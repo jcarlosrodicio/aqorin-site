@@ -5,8 +5,14 @@ description: What Aqorin needs, how to install and uninstall it, and where it ke
 
 ## What you need
 
-- **macOS on Apple silicon (Darwin arm64).** This is the only platform the Alpha has been shown
-  on. Linux and Windows are not claimed.
+- **macOS on Apple silicon (Darwin arm64), or Linux.** Linux is demonstrated on Ubuntu 26.04 on x86_64 with
+  Claude Code 2.1.303, Codex 0.163.0, OpenCode 1.18.25 and Pi 1.3.0 — on Aqorin's development line, **not in the
+  published 0.3.0**, which predates it (on Linux 0.3.0 runs a Run with no sandbox, said, and refuses Claude Code).
+  No published release carries it yet. On Linux on arm64, another distribution or macOS on Intel it is not demonstrated;
+  Windows is not claimed.
+- **On Linux, bubblewrap** — Aqorin's sandbox, which Aqorin never installs: `sudo apt install bubblewrap` (Fedora:
+  `sudo dnf install bubblewrap`). `aqorin doctor` says whether it works here; without it a workflow Run is refused,
+  never run unsandboxed in silence.
 - **Node.js 24.14 or later in the 24 line.** Check with `node --version`.
 - **At least one runtime**, installed and signed in through its own flow:
 
