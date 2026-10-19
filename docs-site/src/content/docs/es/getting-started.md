@@ -16,8 +16,8 @@ cambie.
 
 ## Antes de empezar
 
-- macOS con Apple silicon — o Linux como dice [Instalación](../installation/) (Ubuntu en x86_64, bubblewrap, no en
-  la 0.3.0 publicada) — y Node.js 24.14 o posterior de la línea 24.
+- macOS con Apple silicon — o Linux como dice [Instalación](../installation/) (Ubuntu en x86_64, bubblewrap, desde
+  la 0.4.0) — y Node.js 24.14 o posterior de la línea 24.
 - Al menos uno de los cuatro runtimes, instalado y con la sesión iniciada por su propio flujo. Mira
   [Instalación](../installation/).
 - Un proyecto que sea un árbol de trabajo de git.

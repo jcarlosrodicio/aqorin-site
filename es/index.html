@@ -41,9 +41,9 @@
   "@type": "SoftwareApplication",
   "name": "Aqorin",
   "applicationCategory": "DeveloperApplication",
-  "operatingSystem": "macOS",
+  "operatingSystem": "macOS, Linux",
   "description": "Capa de orquestación para agentes de código, independiente del runtime. Define workflows de ingeniería una vez y ejecútalos con distintos runtimes de agentes de código.",
-  "softwareVersion": "0.3.0",
+  "softwareVersion": "0.4.0",
   "license": "https://opensource.org/licenses/MIT",
   "url": "https://aqorin.rcuadrado.es/es/",
   "inLanguage": "es",
@@ -86,7 +86,7 @@
         <button type="button" id="copy" data-done="Copiado" data-fail="Selecciona y copia"><span>Copiar</span></button>
       </div>
       <p class="hero-links enter"><a href="/docs/es/">Leer la guía</a></p>
-      <p class="fine enter">Versión 0.3.0, demostrada en macOS con Apple silicon. Linux (Ubuntu, x86_64) demostrado en la línea de desarrollo, aún sin publicar. Licencia MIT.</p>
+      <p class="fine enter">Versión 0.4.0, demostrada en macOS con Apple silicon y en Linux (Ubuntu, x86_64). Licencia MIT.</p>
     </div>
 
     <figure class="term enter" id="term">
@@ -390,7 +390,7 @@
         <div class="step-copy rv">
           <span class="step-n" aria-hidden="true">3</span>
           <h3>Los agentes escriben dentro del Run</h3>
-          <p>En macOS, y en Linux en la línea de desarrollo (con bubblewrap), el sandbox propio de Aqorin está activo por defecto para Claude Code, OpenCode y Pi, en Runs y en chats. Codex mantiene su propio sandbox. Donde el sandbox no se puede montar, el Run se rechaza en vez de ejecutarse sin él.</p>
+          <p>En macOS, y en Linux (con bubblewrap), el sandbox propio de Aqorin está activo por defecto para Claude Code, OpenCode y Pi, en Runs y en chats. Codex mantiene su propio sandbox. Donde el sandbox no se puede montar, el Run se rechaza en vez de ejecutarse sin él.</p>
         </div>
         <div class="art fence rv">
           <div>
@@ -451,11 +451,11 @@
       <p class="rv">Dicho aquí con el mismo peso que las funciones, porque conviene saberlo antes de instalar.</p>
     </div>
     <dl class="claims rv-list">
-      <div><dt>Plataforma</dt><dd>Demostrado en macOS con Apple silicon, y en Linux — Ubuntu 26.04 en x86_64, con bubblewrap como sandbox y un paso restringido de Claude Code advisory allí — en la línea de desarrollo: la 0.3.0 publicada es anterior y no tiene sandbox en Linux. En Windows npm rechaza la instalación. macOS en Intel y Linux en arm64 no están probados.</dd></div>
+      <div><dt>Plataforma</dt><dd>Demostrado en macOS con Apple silicon, y en Linux — Ubuntu 26.04 en x86_64, con bubblewrap como sandbox y un paso restringido de Claude Code advisory allí — desde la 0.4.0 (la 0.3.0 no tiene sandbox en Linux). En Windows npm rechaza la instalación. macOS en Intel y Linux en arm64 no están probados.</dd></div>
       <div><dt>Runtimes</dt><dd>Claude Code, Codex, OpenCode y Pi, cada uno desde una versión mínima. Admitir no es demostrar: una versión queda registrada como verificada en tu máquina con <code>aqorin doctor --live</code>, con tu consentimiento y una llamada al modelo.</dd></div>
       <div><dt>Roles restringidos</dt><dd>El sandbox frena las escrituras de un rol de solo lectura o de revisión; sus comandos se le piden al agente, no se hacen cumplir. Ese Run es orientativo.</dd></div>
       <div><dt>Recuperación</dt><dd>Al menos una vez. Un paso reiniciado puede repetir un efecto externo que el interrumpido ya tuvo.</dd></div>
-      <div><dt>Todavía no</dt><dd>jcode como runtime de la alpha, Linux en una versión publicada, soporte de Windows, y un Runtime Adapter SDK público.</dd></div>
+      <div><dt>Todavía no</dt><dd>jcode como runtime de la alpha, soporte de Windows, y un Runtime Adapter SDK público.</dd></div>
     </dl>
   </div>
 </section>
@@ -469,7 +469,7 @@
     <ol class="track rv-list">
       <li class="done"><span class="when">Cerrada</span><h3>Thesis Validation</h3><p>¿Puede un workflow ejecutarse de forma duradera con varios runtimes y modelos, mezclados en un Run? Validada en parte, y ese veredicto se queda como se registró.</p></li>
       <li class="done"><span class="when">Construida</span><h3>Terminal Alpha</h3><p>La primera versión que una persona puede usar: una TUI y una CLI sobre cuatro runtimes, en macOS. Su aceptación se recorrió como lo haría alguien nuevo.</p></li>
-      <li class="now"><span class="when">Ahora</span><h3>Producto después de la alpha</h3><p>Una TUI rediseñada, una identidad visual y la guía. <code>@aqorin/cli</code> 0.3.0 está en npm desde el 18-10-2026. Linux construido y aceptado en vivo en Ubuntu, con su propio sandbox; aún sin publicar.</p></li>
+      <li class="now"><span class="when">Ahora</span><h3>Producto después de la alpha</h3><p>Una TUI rediseñada, una identidad visual y la guía. <code>@aqorin/cli</code> 0.4.0 está en npm desde el 19-10-2026, con Linux y su propio sandbox.</p></li>
       <li class="next"><span class="when">Después</span><h3>Generalización</h3><p>jcode, Windows, más Linux (arm64, otras distribuciones) y un SDK público de adaptadores, cada uno afirmado solo cuando esté demostrado.</p></li>
     </ol>
   </div>

@@ -42,7 +42,7 @@ pasó con él. Una decisión que empezó y no terminó aparece como *interrumpid
 Un lanzamiento que se paró antes de que existiera su Run puede dejar un worktree. `aqorin worktree list`
 lo nombra como no registrado por ningún Run, y `aqorin worktree discard <rama> --yes` lo borra.
 
-Un worktree separa los checks, la revisión y los cambios de cada Run. En macOS, el sandbox de Aqorin además
+Un worktree separa los checks, la revisión y los cambios de cada Run. En macOS y Linux, el sandbox de Aqorin además
 mantiene a sus agentes fuera de la carpeta de tu proyecto y de los worktrees de otros Runs — mira
 [Seguridad](../security/). Con `sandbox: off` no es un muro: un agente puede escribir donde puedas tú.
 

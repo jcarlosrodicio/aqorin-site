@@ -117,7 +117,7 @@ on its own, and every decision is recorded on the Run (<code dir="auto">aqorin l
 became of it. A decision that was started and never finished reads <em>interrupted</em>; decide again.</p>
 <p>A launch stopped before its Run existed can leave a worktree behind. <code dir="auto">aqorin worktree list</code> names it as
 recorded by no Run, and <code dir="auto">aqorin worktree discard &lt;branch&gt; --yes</code> removes it.</p>
-<p>A worktree keeps each Run’s checks, review and changes apart. On macOS, Aqorin’s sandbox also keeps its
+<p>A worktree keeps each Run’s checks, review and changes apart. On macOS and Linux, Aqorin’s sandbox also keeps its
 agents out of your project folder and other Runs’ worktrees — see <a href="../security/">Security</a>. With
 <code dir="auto">sandbox: off</code>, it is not a wall: an agent can write anywhere you can.</p>
 <p>A project that is not a git repository runs one workflow at a time. Free chats never count.</p>

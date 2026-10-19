@@ -16,10 +16,9 @@ Estas páginas describen la Terminal Alpha: una TUI a pantalla completa (`aqorin
 todo lo que hace la TUI.
 
 - **Plataforma:** **macOS con Apple silicon (Darwin arm64)** y **Linux** — Linux demostrado en Ubuntu 26.04 en
-  x86_64 con bubblewrap, en la línea de desarrollo de Aqorin: la 0.3.0 publicada es anterior (ver
-  [Instalación](../installation/)). Windows no se declara.
-- **Disponibilidad:** en npm como `@aqorin/cli` 0.3.0 (`npm install -g @aqorin/cli`). Las
-  versiones anteriores de npm (0.1.0, 0.2.0) son anteriores a ella y no tienen TUI.
+  x86_64 con bubblewrap, desde la 0.4.0 (ver [Instalación](../installation/)). Windows no se declara.
+- **Disponibilidad:** en npm como `@aqorin/cli` 0.4.0 (`npm install -g @aqorin/cli`). La 0.3.0 es solo de
+  macOS; la 0.1.0 y la 0.2.0 no tienen TUI.
 :::
 
 ## Por dónde empezar

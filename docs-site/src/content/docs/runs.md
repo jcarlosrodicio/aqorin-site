@@ -42,7 +42,7 @@ became of it. A decision that was started and never finished reads *interrupted*
 A launch stopped before its Run existed can leave a worktree behind. `aqorin worktree list` names it as
 recorded by no Run, and `aqorin worktree discard <branch> --yes` removes it.
 
-A worktree keeps each Run's checks, review and changes apart. On macOS, Aqorin's sandbox also keeps its
+A worktree keeps each Run's checks, review and changes apart. On macOS and Linux, Aqorin's sandbox also keeps its
 agents out of your project folder and other Runs' worktrees — see [Security](../security/). With
 `sandbox: off`, it is not a wall: an agent can write anywhere you can.
 
