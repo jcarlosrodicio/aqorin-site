@@ -154,7 +154,7 @@ Show a Run's persisted, redacted event log. --follow keeps printing new events a
 
 ### `cancel`
 
-Request cancellation of a persisted Run. On claude-code the cancel command itself signals nothing and says so; a still-running feature driver tries to signal the child it spawned and reports what it could confirm as runtime_cancel (unconfirmed when it could not)
+Request cancellation of a persisted Run. On claude-code the cancel command itself signals nothing and says so; a workflow's still- running driver (its worker) tries to signal the child it spawned and reports what it could confirm as runtime_cancel (unconfirmed when it could not)
 
 ### `resume`
 
