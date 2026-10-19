@@ -120,8 +120,9 @@ Un Run terminado se abre en su **Result** (uno que sigues hasta el final pasa a 
 
 Un Run que tuvo éxito y dejó cambios ofrece **Commit and PR…** (`P`) en su Result. El runtime y el modelo del
 paso de revisión del Run redactan el mensaje del commit y el pull request, en un turno en un directorio desechable al
-que se le pide que no use herramientas. Ese turno recibe la tarea, lo que dijeron los pasos, la revisión y los ficheros
-cambiados, no el diff. Ves el plan y el borrador (adónde se sube, todos los ficheros y los que parecen una clave
+que se le pide que no use herramientas. Ese turno recibe la tarea, lo que dijeron los pasos, la revisión, lo que Aqorin registró de los checks (cada uno y su
+resultado, y la decisión de cada paso de verificación) y los ficheros cambiados, no el diff; se le pide que diga cómo se
+comprobó el trabajo solo a partir de ese registro. Ves el plan y el borrador (adónde se sube, todos los ficheros y los que parecen una clave
 o un fichero de entorno), con lo que parezca un secreto ya redactado. Puedes editar el mensaje del commit o el
 pull request, y confirmas; si el árbol cambió entretanto, no se entrega nada.
 
