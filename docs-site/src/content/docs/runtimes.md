@@ -31,6 +31,8 @@ npm and one under another Node version. Aqorin does not guess between them. The 
 needing a choice, and **Choose installation** (on Home or Runtimes) lists each one by version and
 path.
 
+A folder your `PATH` names twice — repeated, or `/bin` beside `/usr/bin` on Linux — holds one installation, not two.
+
 Aqorin records your choice in its own configuration only. Your `PATH`, your links and the runtime's
 configuration stay as they are. From then on, Aqorin uses exactly that installation.
 
@@ -84,3 +86,6 @@ version whose help cannot be read at all is still refused until it is validated.
 
 A [Free chat](../free-chat/) can instead run with your own configuration, if you choose that when
 you create it.
+
+Claude Code runs under Aqorin on macOS on Apple silicon and on Linux on x64; on another platform or architecture its
+steps and chats are refused, and Runtimes says so.
