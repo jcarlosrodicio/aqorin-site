@@ -41,9 +41,9 @@
   "@type": "SoftwareApplication",
   "name": "Aqorin",
   "applicationCategory": "DeveloperApplication",
-  "operatingSystem": "macOS",
+  "operatingSystem": "macOS, Linux",
   "description": "Runtime-agnostic orchestration layer for coding agents. Define engineering workflows once and run them through different coding-agent runtimes.",
-  "softwareVersion": "0.3.0",
+  "softwareVersion": "0.4.0",
   "license": "https://opensource.org/licenses/MIT",
   "url": "https://aqorin.rcuadrado.es/",
   "inLanguage": ["en", "es"],
@@ -86,7 +86,7 @@
         <button type="button" id="copy" data-done="Copied" data-fail="Select and copy"><span>Copy</span></button>
       </div>
       <p class="hero-links enter"><a href="/docs/">Read the guide</a></p>
-      <p class="fine enter">Version 0.3.0, demonstrated on macOS with Apple silicon. Linux (Ubuntu, x86_64) demonstrated on the development line, not yet released. MIT licence.</p>
+      <p class="fine enter">Version 0.4.0, demonstrated on macOS with Apple silicon and on Linux (Ubuntu, x86_64). MIT licence.</p>
     </div>
 
     <figure class="term enter" id="term">
@@ -390,7 +390,7 @@
         <div class="step-copy rv">
           <span class="step-n" aria-hidden="true">3</span>
           <h3>Agents write inside the Run</h3>
-          <p>On macOS, and on Linux on the development line (with bubblewrap), Aqorin's own sandbox is on by default for Claude Code, OpenCode and Pi, in Runs and in chats. Codex keeps its own sandbox. Where the sandbox cannot be set up, the Run is refused rather than run without it.</p>
+          <p>On macOS, and on Linux (with bubblewrap), Aqorin's own sandbox is on by default for Claude Code, OpenCode and Pi, in Runs and in chats. Codex keeps its own sandbox. Where the sandbox cannot be set up, the Run is refused rather than run without it.</p>
         </div>
         <div class="art fence rv">
           <div>
@@ -451,11 +451,11 @@
       <p class="rv">Said here with the same weight as the features, because you should know before you install.</p>
     </div>
     <dl class="claims rv-list">
-      <div><dt>Platform</dt><dd>Demonstrated on macOS with Apple silicon, and on Linux — Ubuntu 26.04 on x86_64, with bubblewrap as its sandbox and a restricted Claude Code step advisory there — on the development line: the published 0.3.0 predates it and has no sandbox on Linux. On Windows npm refuses the install. macOS on Intel and Linux on arm64 are untested.</dd></div>
+      <div><dt>Platform</dt><dd>Demonstrated on macOS with Apple silicon, and on Linux — Ubuntu 26.04 on x86_64, with bubblewrap as its sandbox and a restricted Claude Code step advisory there — from 0.4.0 (0.3.0 has no sandbox on Linux). On Windows npm refuses the install. macOS on Intel and Linux on arm64 are untested.</dd></div>
       <div><dt>Runtimes</dt><dd>Claude Code, Codex, OpenCode and Pi, each from a minimum version. Admission is not evidence: a version is recorded as verified on your machine by <code>aqorin doctor --live</code>, with your consent and one model call.</dd></div>
       <div><dt>Restricted roles</dt><dd>A read-only or review role's writes are held by the sandbox; its commands are asked of the agent, not enforced. Such a Run is advisory.</dd></div>
       <div><dt>Recovery</dt><dd>At least once. A restarted step may repeat an external effect the interrupted one already had.</dd></div>
-      <div><dt>Not yet</dt><dd>jcode as an alpha runtime, Linux in a published release, Windows support, and a public Runtime Adapter SDK.</dd></div>
+      <div><dt>Not yet</dt><dd>jcode as an alpha runtime, Windows support, and a public Runtime Adapter SDK.</dd></div>
     </dl>
   </div>
 </section>
@@ -469,7 +469,7 @@
     <ol class="track rv-list">
       <li class="done"><span class="when">Closed</span><h3>Thesis Validation</h3><p>Can one workflow run durably across runtimes and models, mixed in one Run? Partially validated, and that verdict stays as recorded.</p></li>
       <li class="done"><span class="when">Built</span><h3>Terminal Alpha</h3><p>The first version a person can use: a TUI and a CLI over four runtimes, on macOS. Its acceptance was walked as a new user would.</p></li>
-      <li class="now"><span class="when">Now</span><h3>Post-alpha product</h3><p>A redesigned TUI, a visual identity and the guide. <code>@aqorin/cli</code> 0.3.0 is on npm since 2026-10-18. Linux built and accepted live on Ubuntu, with its own sandbox; not yet released.</p></li>
+      <li class="now"><span class="when">Now</span><h3>Post-alpha product</h3><p>A redesigned TUI, a visual identity and the guide. <code>@aqorin/cli</code> 0.4.0 is on npm since 2026-10-19, with Linux and its own sandbox.</p></li>
       <li class="next"><span class="when">Later</span><h3>Generalization</h3><p>jcode, Windows, more Linux (arm64, other distributions) and a public adapter SDK, each claimed only once it is demonstrated.</p></li>
     </ol>
   </div>

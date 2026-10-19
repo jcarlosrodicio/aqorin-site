@@ -6,9 +6,9 @@ description: Qué necesita Aqorin, cómo instalarlo y desinstalarlo, y dónde gu
 ## Qué necesitas
 
 - **macOS con Apple silicon (Darwin arm64), o Linux.** Linux está demostrado en Ubuntu 26.04 en x86_64 con
-  Claude Code 2.1.303, Codex 0.163.0, OpenCode 1.18.25 y Pi 1.3.0 — en la línea de desarrollo de Aqorin, **no en la
-  0.3.0 publicada**, que es anterior (en Linux la 0.3.0 ejecuta un Run sin sandbox, dicho, y rechaza Claude Code).
-  Aún no hay una versión publicada que lo incluya. En Linux en arm64, otra distribución o macOS en Intel no está
+  Claude Code 2.1.303, Codex 0.163.0, OpenCode 1.18.25 y Pi 1.3.0 — **desde `@aqorin/cli` 0.4.0**; la 0.3.0 y las
+  anteriores son previas (en Linux ejecutan un Run sin sandbox, dicho, y rechazan Claude Code). Claude Code se ejecuta
+  solo en macOS con Apple silicon y en Linux en x86_64. En Linux en arm64, otra distribución o macOS en Intel no está
   demostrado; Windows no se declara.
 - **En Linux, bubblewrap** — el sandbox de Aqorin, que Aqorin nunca instala: `sudo apt install bubblewrap` (Fedora:
   `sudo dnf install bubblewrap`). `aqorin doctor` dice si funciona aquí; sin él un Run de workflow se rechaza, nunca se
@@ -29,11 +29,11 @@ Aqorin nunca inicia sesión por ti.
 
 ```bash
 npm install -g @aqorin/cli
-aqorin --version        # 0.3.0
+aqorin --version        # 0.4.0
 ```
 
-`@aqorin/cli` 0.3.0 en npm es la Terminal Alpha que describen estas páginas. Las versiones
-anteriores de npm (0.1.0, 0.2.0) son una CLI anterior, sin nada de su TUI.
+`@aqorin/cli` 0.4.0 en npm es la Terminal Alpha que describen estas páginas, en macOS y Linux. La 0.3.0 es la
+misma Alpha solo en macOS; la 0.1.0 y la 0.2.0 son una CLI anterior, sin nada de su TUI.
 
 Su única dependencia, `better-sqlite3`, es un addon nativo: npm descarga su binario precompilado, o
 lo compila donde no lo hay (hace falta un toolchain de compilación). El paquete no incluye

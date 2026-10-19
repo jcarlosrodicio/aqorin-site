@@ -64,7 +64,7 @@ sandbox is Codex's: Aqorin requests it and checks that Codex reports it in effec
 enforce it itself. Codex's chat runs in Aqorin's own Codex home, with your sign-in linked, never
 copied — never with your configuration.
 
-On macOS, a Claude Code, OpenCode or Pi chat runs in Aqorin's sandbox, whatever its mode: it writes in
+On macOS and Linux, a Claude Code, OpenCode or Pi chat runs in Aqorin's sandbox, whatever its mode: it writes in
 your project and outside it, never in the repository's `.git` or `.aqorin`, other Runs' worktrees,
 Aqorin's own files, or your keys and settings. A Pi chat on *Your configuration* cannot run in it. See
 [Security](../security/).

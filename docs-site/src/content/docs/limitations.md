@@ -5,12 +5,12 @@ description: What the Terminal Alpha does not do, and what it does not claim.
 
 ## Not in the Alpha
 
-- **Platforms:** macOS on Apple silicon (Darwin arm64) and Linux as demonstrated — Ubuntu 26.04 on x86_64, on the
-  development line (not in the published 0.3.0). Not demonstrated: Linux on arm64, other distributions, macOS on
+- **Platforms:** macOS on Apple silicon (Darwin arm64) and Linux as demonstrated — Ubuntu 26.04 on x86_64, from
+  0.4.0 (0.3.0 predates it). Not demonstrated: Linux on arm64, other distributions, macOS on
   Intel. Windows is not claimed. On Linux a read-only or review step on Claude Code is advisory, and a few protected
   names in `~/.claude` that do not exist yet cannot be closed.
-- **Distribution:** npm only (`@aqorin/cli` 0.3.0); no other package manager or download. The
-  versions before it on npm (0.1.0, 0.2.0) are an earlier CLI, without the TUI.
+- **Distribution:** npm only (`@aqorin/cli` 0.4.0); no other package manager or download. 0.3.0 before it is
+  macOS's only; 0.1.0 and 0.2.0 are an earlier CLI, without the TUI.
 - **Runtimes:** Claude Code, Codex, OpenCode and Pi. Other runtimes that Aqorin's code knows, such
   as jcode, are not part of the Alpha.
 - **Several workflows in one folder:** one works in the folder; the others run in git worktrees of

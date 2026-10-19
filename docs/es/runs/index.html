@@ -117,7 +117,7 @@ cada decisión queda registrada en el Run (<code dir="auto">aqorin logs &lt;run&
 pasó con él. Una decisión que empezó y no terminó aparece como <em>interrumpida</em>; decide de nuevo.</p>
 <p>Un lanzamiento que se paró antes de que existiera su Run puede dejar un worktree. <code dir="auto">aqorin worktree list</code>
 lo nombra como no registrado por ningún Run, y <code dir="auto">aqorin worktree discard &lt;rama&gt; --yes</code> lo borra.</p>
-<p>Un worktree separa los checks, la revisión y los cambios de cada Run. En macOS, el sandbox de Aqorin además
+<p>Un worktree separa los checks, la revisión y los cambios de cada Run. En macOS y Linux, el sandbox de Aqorin además
 mantiene a sus agentes fuera de la carpeta de tu proyecto y de los worktrees de otros Runs — mira
 <a href="../security/">Seguridad</a>. Con <code dir="auto">sandbox: off</code> no es un muro: un agente puede escribir donde puedas tú.</p>
 <p>Un proyecto que no es un repositorio git ejecuta un workflow cada vez. Los Free chats nunca cuentan.</p>
