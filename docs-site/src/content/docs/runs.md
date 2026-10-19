@@ -119,7 +119,9 @@ shows:
 A Run that succeeded with changes offers **Commit and PR…** (`P`) on its Result. The runtime and model of
 the Run's review step draft the commit message and the pull request, in one turn in a disposable directory, told
 to use no tool.
-That turn is given the task, what the steps said, the review and the files changed — not the diff. You see the
+That turn is given the task, what the steps said, the review, what Aqorin recorded of the checks (each one and its
+result, and each verification step's decision) and the files changed — not the diff; it is told to say how the work was
+checked from that record only. You see the
 plan and the draft — where it is pushed, every file, and any that looks like a key or an environment file —
 with whatever reads as a secret redacted from the draft. You can edit the commit message or the pull request,
 and confirm; if the tree moved meanwhile, nothing is delivered.
