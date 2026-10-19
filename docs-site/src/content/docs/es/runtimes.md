@@ -34,6 +34,8 @@ npm y otra bajo otra versión de Node. Aqorin no elige entre ellas por su cuenta
 como que necesita una elección, y **Choose installation** (en Home o en Runtimes) lista cada una
 por versión y ruta.
 
+Una carpeta que tu `PATH` nombra dos veces —repetida, o `/bin` junto a `/usr/bin` en Linux— contiene una instalación, no dos.
+
 Aqorin guarda tu elección solo en su propia configuración. Tu `PATH`, tus enlaces y la configuración
 del runtime se quedan como están. A partir de entonces, Aqorin usa exactamente esa instalación.
 
@@ -90,3 +92,6 @@ leer en absoluto se sigue rechazando hasta validarla.
 
 Un [Free chat](../free-chat/) puede ejecutarse, en cambio, con tu propia configuración, si eliges
 eso al crearlo.
+
+Claude Code se ejecuta bajo Aqorin en macOS con Apple silicon y en Linux en x64; en otra plataforma o arquitectura sus
+pasos y chats se rechazan, y Runtimes lo dice.

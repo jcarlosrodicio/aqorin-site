@@ -10,7 +10,7 @@ check you ask for, such as **Discover** or **Validate**:
 | Reference | Means |
 |---|---|
 | `env:VAR` | The environment variable `VAR`, as Aqorin's own environment has it. |
-| `keychain:SERVICE[@ACCOUNT]` | A macOS keychain item. |
+| `keychain:SERVICE[@ACCOUNT]` | A macOS keychain item. On Linux it never resolves — Aqorin says so where you write it and where a Run needs it; use `env:VAR` there. |
 
 The key is resolved only when an attempt runs. It is given to that attempt alone, and scrubbed from
 everything Aqorin shows or records.

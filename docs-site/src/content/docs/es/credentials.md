@@ -10,7 +10,7 @@ para una comprobación que pides, como **Discover** o **Validate**:
 | Referencia | Significa |
 |---|---|
 | `env:VAR` | La variable de entorno `VAR`, tal como la tiene el propio entorno de Aqorin. |
-| `keychain:SERVICE[@ACCOUNT]` | Un elemento del llavero de macOS. |
+| `keychain:SERVICE[@ACCOUNT]` | Un elemento del llavero de macOS. En Linux nunca se resuelve — Aqorin lo dice donde lo escribes y donde un Run lo necesita; usa `env:VAR` allí. |
 
 La clave se resuelve solo cuando se ejecuta un intento. Se le da únicamente a ese intento, y se borra
 de todo lo que Aqorin muestra o registra.

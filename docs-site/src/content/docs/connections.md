@@ -31,7 +31,7 @@ nothing is saved until the last one:
 2. **Endpoint or sign-in:**
    - **Pi and OpenCode** take an endpoint: the base URL of an OpenAI-compatible endpoint, and where
      its key lives. The URL is `https://…`, or `http://` to this machine only. The key is named by
-     an environment variable's **name**, or as a macOS keychain item.
+     an environment variable's **name**, or as a macOS keychain item (on Linux, a variable's name).
    - **Codex and Claude Code** take a sign-in: your existing login, or an API key by reference.
      For Codex, the reference is the name of the variable that holds the key.
 

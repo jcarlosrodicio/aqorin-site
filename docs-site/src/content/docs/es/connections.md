@@ -31,7 +31,7 @@ pasos, y no se guarda nada hasta el último:
 2. **Endpoint o inicio de sesión:**
    - **Pi y OpenCode** piden un endpoint: la URL base de un endpoint compatible con OpenAI, y dónde
      está su clave. La URL es `https://…`, o `http://` solo hacia esta máquina. La clave se nombra
-     con el **nombre** de una variable de entorno, o como un elemento del llavero de macOS.
+     con el **nombre** de una variable de entorno, o como un elemento del llavero de macOS (en Linux, el nombre de una variable).
    - **Codex y Claude Code** piden un inicio de sesión: tu login existente, o una clave de API por
      referencia. En Codex, la referencia es el nombre de la variable que contiene la clave.
 

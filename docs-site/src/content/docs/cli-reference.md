@@ -114,7 +114,7 @@ Show effective, explain, or diff Aqorin configuration
 
 ### `open`
 
-Open a runtime's native TTY (opencode: ephemeral config overlay in Aqorin's own OpenCode home, on OpenCode's default connection; jcode/pi/codex/claude-code: native user experience, no config projection; claude-code is demonstrated on Darwin arm64 only)
+Open a runtime's native TTY (opencode: ephemeral config overlay in Aqorin's own OpenCode home, on OpenCode's default connection; jcode/pi/codex/claude-code: native user experience, no config projection; claude-code is demonstrated on Darwin arm64 and Linux x64 only)
 
 ### `feature`
 
@@ -266,4 +266,4 @@ Conversation send and answer: refuse the command if the conversation has moved p
 
 open/feature/resume/cancel run real workflows; simulate stays a state fixture (its per-run result carries the simulation label).
 
-Claude Code runs a workflow step headless under an isolated profile (--safe-mode, no user settings, MCP or plugins); a Free chat created with --runtime-config own reads your own configuration. Execution and native open refuse on any platform but Darwin arm64. Native open launches YOUR claude with YOUR environment and projects nothing. Resume restarts the interrupted step (at least once); it never resumes a Claude Code conversation.
+Claude Code runs a workflow step headless under an isolated profile (--safe-mode, no user settings, MCP or plugins); a Free chat created with --runtime-config own reads your own configuration. Execution and native open refuse on any platform but Darwin arm64 and Linux x64. Native open launches YOUR claude with YOUR environment and projects nothing. Resume restarts the interrupted step (at least once); it never resumes a Claude Code conversation.
