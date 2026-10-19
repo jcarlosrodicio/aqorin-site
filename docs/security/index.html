@@ -188,7 +188,7 @@ shows or records. Aqorin never stores or prints a key’s value.</li>
 <td>Transitions, budgets, checks, approvals, admission, credential references.</td>
 </tr>
 <tr>
-<td><strong>The macOS kernel</strong></td>
+<td><strong>The kernel (macOS, Linux)</strong></td>
 <td>Aqorin’s sandbox around a workflow Run’s or a Free chat’s Claude Code, OpenCode and Pi: the writes below, refused.</td>
 </tr>
 <tr>
@@ -204,9 +204,9 @@ shows or records. Aqorin never stores or prints a key’s value.</li>
 <p>A sandbox flag that Aqorin has not verified on a runtime is reported as a <strong>request</strong>, not a
 guarantee.</p>
 <div class="sl-heading-wrapper level-h2"><h2 id="the-sandbox-around-a-workflow-run">The sandbox around a workflow Run</h2><a class="sl-anchor-link" href="#the-sandbox-around-a-workflow-run"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “The sandbox around a workflow Run”</span></a></div>
-<p>On macOS, a workflow Run’s Claude Code, OpenCode and Pi run in Aqorin’s sandbox (Seatbelt). Its agents
-write in the Run’s own folder or worktree and anywhere outside your project. These writes fail with
-<code dir="auto">Operation not permitted</code>:</p>
+<p>A workflow Run’s Claude Code, OpenCode and Pi run in Aqorin’s sandbox — Seatbelt on macOS, bubblewrap on
+Linux. Its agents write in the Run’s own folder or worktree and anywhere outside your project. These writes
+fail (<code dir="auto">Operation not permitted</code> on macOS, <code dir="auto">Read-only file system</code> on Linux):</p>
 <ul>
 <li>the repository’s other folders, its <code dir="auto">.git</code> and its <code dir="auto">.aqorin</code> — so an agent cannot commit, move a
 branch, add a hook to <code dir="auto">.git</code> or turn the sandbox off; Aqorin commits when you integrate a worktree;</li>
@@ -221,6 +221,19 @@ sandbox too, and integrating a sandboxed Run’s worktree runs no git hook — i
 one. Reads and the network are not limited. Codex keeps its own sandbox; Claude Code’s own is turned off
 inside Aqorin’s for that Run, without changing your settings. Where the sandbox cannot be set up, the Run
 is refused. <code dir="auto">sandbox: off</code> in <code dir="auto">.aqorin/aqorin.yaml</code> runs without it, and every Run says so.</p>
+<p><strong>On Linux</strong> the sandbox is bubblewrap, a system package: install it (<code dir="auto">sudo apt install bubblewrap</code>) — Aqorin
+never does, and <code dir="auto">aqorin doctor</code> says whether it works here. It also closes the shell and session start-up
+files a Linux login runs (<code dir="auto">~/.bash_login</code>, <code dir="auto">~/.pam_environment</code>, systemd user units, autostart). It holds a
+file, or a path that does not exist yet, by making the folder above it read-only, so while a step runs no
+new file or folder can be made, renamed or removed at the top of your home, <code dir="auto">~/.config</code> or <code dir="auto">~/.local</code>
+(inside them, everything is as without it). One folder is never closed, because Claude Code keeps its
+credentials there on Linux: <code dir="auto">~/.claude</code>. A protected file in it that does not exist yet — <code dir="auto">settings.local.json</code>,
+<code dir="auto">commands</code>… — cannot be closed; the plan names it as <em>not closed</em>, and creating it (<code dir="auto">{}</code> for a <code dir="auto">.json</code>) closes it
+from then on. Your session’s services — its bus, systemd’s user manager, Docker’s socket — are out of a step’s
+reach, because a service outside the sandbox would act as you; others, such as a tmux server you run or an ssh
+agent, are not. A read-only or review step on Claude Code is advisory on Linux: its writes stay out of your project
+and files, but its <code dir="auto">~/.claude</code> stays writable for its credentials. Linux support itself is being validated and is not
+claimed yet.</p>
 <p>A Free chat on Claude Code, OpenCode or Pi runs in the same sandbox, writing in your project folder: its
 sandbox is chosen when you start (or follow up) the chat, and every turn runs in that one. A chat started
 before this runs without it, and says so. A Pi chat on <em>Your configuration</em> cannot run in it — Pi writes

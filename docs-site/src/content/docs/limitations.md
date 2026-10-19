@@ -12,10 +12,12 @@ description: What the Terminal Alpha does not do, and what it does not claim.
 - **Runtimes:** Claude Code, Codex, OpenCode and Pi. Other runtimes that Aqorin's code knows, such
   as jcode, are not part of the Alpha.
 - **Several workflows in one folder:** one works in the folder; the others run in git worktrees of
-  their own, at most four at once. Outside git, one at a time. On macOS Aqorin's sandbox keeps a Run's
+  their own, at most four at once. Outside git, one at a time. On macOS (and Linux) Aqorin's sandbox keeps a Run's
   agents out of the others' folders; a Free chat writes in the project folder, where one of them may work;
   with `sandbox: off` or on Codex beyond its own sandbox, nothing does.
-- **Sandbox:** writes only — reads and the network are not limited.
+- **Sandbox:** writes only — reads and the network are not limited. On Linux it needs bubblewrap; while a
+  step runs no new name is made at the top of your home, `~/.config` or `~/.local`; a protected file in
+  `~/.claude` that does not exist yet is named as not closed rather than claimed.
 - **Free chat:** a connection can be chosen on Pi and OpenCode only, and an OpenCode or Pi chat does not
   show how much context it uses.
 - **OpenCode:** only OpenAI-compatible providers, as Aqorin connections. OpenCode's built-in providers
@@ -29,7 +31,7 @@ description: What the Terminal Alpha does not do, and what it does not claim.
   model and platform. Elsewhere they run with an advisory restriction: told not to write or run
   commands, with the runtime's own read-only setting, and nothing shows they held to it. Today a few
   combinations are validated (OpenCode and Claude Code, each with named models), and
-  `aqorin eligibility refresh` refreshes those two runtimes only. On macOS with the sandbox on, their
+  `aqorin eligibility refresh` refreshes those two runtimes only. On macOS and Linux with the sandbox on, their
   file writes are enforced by Aqorin's sandbox on every runtime but jcode; their commands are not.
 - **An agent's `inputs` and `outputs`** are added to its instructions, not checked.
 - **The model that served a request** is not observed on every runtime.

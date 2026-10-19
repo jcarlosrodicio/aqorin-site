@@ -79,10 +79,12 @@ Las versiones anteriores de npm (0.1.0, 0.2.0) son una CLI anterior, sin la TUI.
 <li><strong>Runtimes:</strong> Claude Code, Codex, OpenCode y Pi. Otros runtimes que el código de Aqorin conoce,
 como jcode, no forman parte de la Alpha.</li>
 <li><strong>Varios workflows en una carpeta:</strong> uno trabaja en la carpeta; los demás, en worktrees de git
-propios, como mucho cuatro a la vez. Fuera de git, uno cada vez. En macOS el sandbox de Aqorin mantiene
+propios, como mucho cuatro a la vez. Fuera de git, uno cada vez. En macOS (y Linux) el sandbox de Aqorin mantiene
 a los agentes de un Run fuera de las carpetas de los demás; un Free chat escribe en la carpeta del proyecto,
 donde puede trabajar uno de ellos; con <code dir="auto">sandbox: off</code> o en Codex más allá de su propio sandbox, nada lo hace.</li>
-<li><strong>Sandbox:</strong> solo escrituras — las lecturas y la red no se limitan.</li>
+<li><strong>Sandbox:</strong> solo escrituras — las lecturas y la red no se limitan. En Linux necesita bubblewrap;
+mientras un paso se ejecuta no se crea nada en la raíz de tu home, de <code dir="auto">~/.config</code> ni de <code dir="auto">~/.local</code>; un
+fichero protegido en <code dir="auto">~/.claude</code> que aún no existe se nombra como no cerrado en vez de afirmarse.</li>
 <li><strong>OpenCode:</strong> solo proveedores compatibles con OpenAI, como conexiones de Aqorin. Los proveedores
 integrados de OpenCode (una clave de Anthropic u OpenAI) y sus inicios de sesión (OpenCode Go, Copilot,
 xAI) no son accesibles desde Aqorin.</li>
@@ -99,7 +101,7 @@ ese runtime, versión, modelo y plataforma. En otros sitios se ejecutan con una 
 orientativa: se les indica que no escriban ni ejecuten comandos, con el modo de solo lectura del
 propio runtime, y nada demuestra que lo hayan respetado. Hoy hay unas pocas combinaciones validadas
 (OpenCode y Claude Code, cada uno con modelos concretos), y <code dir="auto">aqorin eligibility refresh</code> solo
-actualiza esos dos runtimes. En macOS con el sandbox activo, el sandbox de Aqorin impone que no
+actualiza esos dos runtimes. En macOS y Linux con el sandbox activo, el sandbox de Aqorin impone que no
 escriban ficheros en todos los runtimes salvo jcode; que no ejecuten comandos, no.</li>
 <li><strong>Los <code dir="auto">inputs</code> y <code dir="auto">outputs</code> de un agente</strong> se añaden a sus instrucciones, no se comprueban.</li>
 <li><strong>El modelo que atendió una petición</strong> no se observa en todos los runtimes.</li>
