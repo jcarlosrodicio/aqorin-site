@@ -198,7 +198,7 @@ imprime el valor de una clave.</li>
 <td>Transiciones, presupuestos, comprobaciones, aprobaciones, admisión, referencias de credenciales.</td>
 </tr>
 <tr>
-<td><strong>El kernel de macOS</strong></td>
+<td><strong>El kernel (macOS, Linux)</strong></td>
 <td>El sandbox de Aqorin alrededor de Claude Code, OpenCode y Pi en un Run de workflow o en un Free chat: las escrituras de abajo, rechazadas.</td>
 </tr>
 <tr>
@@ -214,9 +214,9 @@ imprime el valor de una clave.</li>
 <p>Una marca de sandbox que Aqorin no ha verificado en un runtime se informa como una <strong>petición</strong>, no
 como una garantía.</p>
 <div class="sl-heading-wrapper level-h2"><h2 id="el-sandbox-alrededor-de-un-run-de-workflow">El sandbox alrededor de un Run de workflow</h2><a class="sl-anchor-link" href="#el-sandbox-alrededor-de-un-run-de-workflow"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Sección titulada «El sandbox alrededor de un Run de workflow»</span></a></div>
-<p>En macOS, Claude Code, OpenCode y Pi en un Run de workflow se ejecutan en el sandbox de Aqorin
-(Seatbelt). Sus agentes escriben en la carpeta o el worktree del propio Run y en cualquier sitio fuera de tu
-proyecto. Estas escrituras fallan con <code dir="auto">Operation not permitted</code>:</p>
+<p>Claude Code, OpenCode y Pi en un Run de workflow se ejecutan en el sandbox de Aqorin — Seatbelt en macOS,
+bubblewrap en Linux. Sus agentes escriben en la carpeta o el worktree del propio Run y en cualquier sitio fuera
+de tu proyecto. Estas escrituras fallan (<code dir="auto">Operation not permitted</code> en macOS, <code dir="auto">Read-only file system</code> en Linux):</p>
 <ul>
 <li>las demás carpetas del repositorio, su <code dir="auto">.git</code> y su <code dir="auto">.aqorin</code> — así un agente no puede hacer commit, mover
 una rama, añadir un hook en <code dir="auto">.git</code> ni apagar el sandbox; Aqorin hace el commit cuando integras un worktree;</li>
@@ -231,6 +231,19 @@ se ejecutan en el sandbox, e integrar el worktree de un Run con sandbox no ejecu
 agentes podrían haberlo escrito. Las lecturas y la red no se limitan. Codex conserva su propio sandbox; el de Claude Code se apaga dentro del
 de Aqorin para ese Run, sin cambiar tu configuración. Donde el sandbox no se puede montar, el Run se rechaza.
 <code dir="auto">sandbox: off</code> en <code dir="auto">.aqorin/aqorin.yaml</code> ejecuta sin él, y cada Run lo dice.</p>
+<p><strong>En Linux</strong> el sandbox es bubblewrap, un paquete del sistema: instálalo (<code dir="auto">sudo apt install bubblewrap</code>) —
+Aqorin nunca lo hace, y <code dir="auto">aqorin doctor</code> dice si funciona aquí. Además cierra los ficheros de arranque de la
+shell y de la sesión que ejecuta un inicio de sesión en Linux (<code dir="auto">~/.bash_login</code>, <code dir="auto">~/.pam_environment</code>, las
+unidades de usuario de systemd, autostart). Sujeta un fichero, o una ruta que aún no existe, haciendo de solo
+lectura la carpeta que lo contiene, así que mientras un paso se ejecuta no se puede crear, renombrar ni borrar
+nada en la raíz de tu home, de <code dir="auto">~/.config</code> ni de <code dir="auto">~/.local</code> (dentro de ellas, todo es como sin él). Hay una
+carpeta que nunca se cierra, porque Claude Code guarda ahí sus credenciales en Linux: <code dir="auto">~/.claude</code>. Un fichero
+protegido dentro de ella que aún no existe —<code dir="auto">settings.local.json</code>, <code dir="auto">commands</code>…— no se puede cerrar; el plan lo
+nombra como <em>no cerrado</em>, y crearlo (<code dir="auto">{}</code> para un <code dir="auto">.json</code>) lo cierra desde entonces. Los servicios de tu sesión —su
+bus, el gestor de usuario de systemd, el socket de Docker— quedan fuera del alcance de un paso, porque un servicio fuera
+del sandbox actuaría como tú; otros, como un servidor de tmux que tengas o un agente ssh, no. Un paso de solo lectura o
+de revisión en Claude Code es advisory en Linux: sus escrituras quedan fuera de tu proyecto y tus ficheros, pero su
+<code dir="auto">~/.claude</code> sigue escribible por sus credenciales. El soporte de Linux en sí se está validando y aún no se afirma.</p>
 <p>Un Free chat en Claude Code, OpenCode o Pi se ejecuta en el mismo sandbox y escribe en la carpeta de tu
 proyecto: su sandbox se decide al empezar (o continuar) el chat, y cada turno se ejecuta en ese. Un chat
 empezado antes de esto se ejecuta sin él, y lo dice. Un chat de Pi con <em>Your configuration</em> no puede ejecutarse

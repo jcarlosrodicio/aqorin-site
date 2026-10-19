@@ -63,6 +63,14 @@ The plan says who cannot run where, and why. The common causes:
   resumed on a version no check covers. Refresh the check (`aqorin eligibility refresh <runtime>`),
   or start a new Run.
 
+## The sandbox cannot be set up (Linux)
+
+A Run or a Free chat is refused with `sandbox_unavailable`, and `aqorin doctor` shows `✗ Aqorin's sandbox
+cannot be set up here`. On Linux Aqorin's sandbox is bubblewrap: install it (Ubuntu, Debian:
+`sudo apt install bubblewrap`; Fedora: `sudo dnf install bubblewrap`). If it is installed, the machine
+refuses it a user namespace (a container that forbids them, a hardened kernel): the doctor's detail says
+which. `sandbox: off` in `.aqorin/aqorin.yaml` runs without it, and every Run says so.
+
 ## The plan says a step is advisory
 
 A read-only or review step on a runtime, version or model no check on this machine covers runs

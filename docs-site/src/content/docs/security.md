@@ -92,7 +92,7 @@ plan says so for each such step. A read-only or review step never gets it.
 | Enforced by | Example |
 |---|---|
 | **Aqorin** | Transitions, budgets, checks, approvals, admission, credential references. |
-| **The macOS kernel** | Aqorin's sandbox around a workflow Run's or a Free chat's Claude Code, OpenCode and Pi: the writes below, refused. |
+| **The kernel (macOS, Linux)** | Aqorin's sandbox around a workflow Run's or a Free chat's Claude Code, OpenCode and Pi: the writes below, refused. |
 | **The runtime, natively** | A runtime's own permission prompts, and its own sandbox — such as Codex's. |
 | **Not enforceable** | Said as such. Aqorin requests it, and says it only requested it. |
 
@@ -101,9 +101,9 @@ guarantee.
 
 ## The sandbox around a workflow Run
 
-On macOS, a workflow Run's Claude Code, OpenCode and Pi run in Aqorin's sandbox (Seatbelt). Its agents
-write in the Run's own folder or worktree and anywhere outside your project. These writes fail with
-`Operation not permitted`:
+A workflow Run's Claude Code, OpenCode and Pi run in Aqorin's sandbox — Seatbelt on macOS, bubblewrap on
+Linux. Its agents write in the Run's own folder or worktree and anywhere outside your project. These writes
+fail (`Operation not permitted` on macOS, `Read-only file system` on Linux):
 
 - the repository's other folders, its `.git` and its `.aqorin` — so an agent cannot commit, move a
   branch, add a hook to `.git` or turn the sandbox off; Aqorin commits when you integrate a worktree;
@@ -118,6 +118,20 @@ sandbox too, and integrating a sandboxed Run's worktree runs no git hook — its
 one. Reads and the network are not limited. Codex keeps its own sandbox; Claude Code's own is turned off
 inside Aqorin's for that Run, without changing your settings. Where the sandbox cannot be set up, the Run
 is refused. `sandbox: off` in `.aqorin/aqorin.yaml` runs without it, and every Run says so.
+
+**On Linux** the sandbox is bubblewrap, a system package: install it (`sudo apt install bubblewrap`) — Aqorin
+never does, and `aqorin doctor` says whether it works here. It also closes the shell and session start-up
+files a Linux login runs (`~/.bash_login`, `~/.pam_environment`, systemd user units, autostart). It holds a
+file, or a path that does not exist yet, by making the folder above it read-only, so while a step runs no
+new file or folder can be made, renamed or removed at the top of your home, `~/.config` or `~/.local`
+(inside them, everything is as without it). One folder is never closed, because Claude Code keeps its
+credentials there on Linux: `~/.claude`. A protected file in it that does not exist yet — `settings.local.json`,
+`commands`… — cannot be closed; the plan names it as *not closed*, and creating it (`{}` for a `.json`) closes it
+from then on. Your session's services — its bus, systemd's user manager, Docker's socket — are out of a step's
+reach, because a service outside the sandbox would act as you; others, such as a tmux server you run or an ssh
+agent, are not. A read-only or review step on Claude Code is advisory on Linux: its writes stay out of your project
+and files, but its `~/.claude` stays writable for its credentials. Linux support itself is being validated and is not
+claimed yet.
 
 A Free chat on Claude Code, OpenCode or Pi runs in the same sandbox, writing in your project folder: its
 sandbox is chosen when you start (or follow up) the chat, and every turn runs in that one. A chat started
