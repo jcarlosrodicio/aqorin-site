@@ -5,8 +5,14 @@ description: Qué necesita Aqorin, cómo instalarlo y desinstalarlo, y dónde gu
 
 ## Qué necesitas
 
-- **macOS con Apple silicon (Darwin arm64).** Es la única plataforma en la que se ha demostrado la
-  Alpha. Linux y Windows no se declaran.
+- **macOS con Apple silicon (Darwin arm64), o Linux.** Linux está demostrado en Ubuntu 26.04 en x86_64 con
+  Claude Code 2.1.303, Codex 0.163.0, OpenCode 1.18.25 y Pi 1.3.0 — en la línea de desarrollo de Aqorin, **no en la
+  0.3.0 publicada**, que es anterior (en Linux la 0.3.0 ejecuta un Run sin sandbox, dicho, y rechaza Claude Code).
+  Aún no hay una versión publicada que lo incluya. En Linux en arm64, otra distribución o macOS en Intel no está
+  demostrado; Windows no se declara.
+- **En Linux, bubblewrap** — el sandbox de Aqorin, que Aqorin nunca instala: `sudo apt install bubblewrap` (Fedora:
+  `sudo dnf install bubblewrap`). `aqorin doctor` dice si funciona aquí; sin él un Run de workflow se rechaza, nunca se
+  ejecuta sin sandbox en silencio.
 - **Node.js 24.14 o posterior de la línea 24.** Compruébalo con `node --version`.
 - **Al menos un runtime**, instalado y con la sesión iniciada por su propio flujo:
 

@@ -142,7 +142,11 @@ nombra como *no cerrado*, y crearlo (`{}` para un `.json`) lo cierra desde enton
 bus, el gestor de usuario de systemd, el socket de Docker— quedan fuera del alcance de un paso, porque un servicio fuera
 del sandbox actuaría como tú; otros, como un servidor de tmux que tengas o un agente ssh, no. Un paso de solo lectura o
 de revisión en Claude Code es advisory en Linux: sus escrituras quedan fuera de tu proyecto y tus ficheros, pero su
-`~/.claude` sigue escribible por sus credenciales. El soporte de Linux en sí se está validando y aún no se afirma.
+`~/.claude` sigue escribible por sus credenciales. Linux está soportado tal como se demostró en Ubuntu 26.04 x86_64
+([Instalación](../installation/)); allí, el sandbox del Run real de un revisor en Pi, reproducido con un ataque en
+lugar de Pi, rechazó toda escritura fuera del estado propio de Pi y los directorios temporales — el workspace, `.git`,
+`.aqorin`, tu home, `~/.ssh`, las unidades de usuario de systemd, los datos de Aqorin y otros worktrees — y las fugas
+por symlink, hardlink y rename.
 
 Un Free chat en Claude Code, OpenCode o Pi se ejecuta en el mismo sandbox y escribe en la carpeta de tu
 proyecto: su sandbox se decide al empezar (o continuar) el chat, y cada turno se ejecuta en ese. Un chat
