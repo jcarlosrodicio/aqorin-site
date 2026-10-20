@@ -3,14 +3,16 @@ title: The TUI
 description: How Aqorin's full-screen terminal interface is laid out, and how it adapts to your terminal.
 ---
 
-Run `aqorin` in a project and the TUI opens. `aqorin --plain` gives a line view instead, and
-`--json` or a pipe give the CLI's own output.
+Run `aqorin` in a project and the TUI opens. Outside a project — your home folder included, but not a git repository
+that is not a project yet, which opens its Setup — it opens on **Global**, every project in your list (see
+[Several projects](../projects/)). `aqorin --plain` gives a line view instead, and `--json` or a pipe give the CLI's
+own output.
 
 ## The layout
 
 - **The header** shows Aqorin's mark (`◈`, or `<>` in ASCII), where you are and the project — and, in an open
   Run or chat, its state. Whether a Run is advisory is said in its details and its Result, not here.
-- **The rail** on the left lists the nine sections. `1`–`9` jump straight to one.
+- **The rail** on the left lists the nine sections, with Global above them. `0`–`9` jump straight to one.
 - **The list** in the middle holds the section's items.
 - **The inspector** on the right explains the selected item. It holds that item's actions as
   buttons.
@@ -24,6 +26,7 @@ Aqorin's until your shell sets another).
 
 | Key | Section | What it holds |
 |---|---|---|
+| `0` | Global | Every project in your list: what waits for you, what runs and what finished, each opened in its own project. |
 | `1` | Home | The first-run checklist, then the control plane. |
 | `2` | Runs | Every Run and chat of this project, in columns: number, workflow, state, when it started. `n` starts a new task, `c` a Free chat. |
 | `3` | Attention | What waits for you: approvals, questions and decisions. |

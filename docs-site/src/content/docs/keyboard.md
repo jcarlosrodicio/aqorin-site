@@ -14,6 +14,7 @@ or a command in the palette.
 | `←` `→` or `Tab` | Move between the rail, the list, and the inspector and its buttons. |
 | `Enter` | Open the item, or do the focused button. |
 | `Esc` | Go back one level. It never quits. |
+| `0` | Global: every project in your list. See [Several projects](../projects/). |
 | `1`–`9` | Home, Runs, Attention, Agents, Workflows, Runtimes, Resources, Credentials, Settings. |
 | `/` | Filter the list: Runs, Agents, Workflows and Resources. `Esc` clears the filter. |
 | `:` or Ctrl+P | The command palette. |

@@ -69,6 +69,28 @@ answers it (`--project <name>` included); and its working and failed Runs and it
 cannot read — damaged, or written by a newer Aqorin — says *unreadable*; the other projects are still listed.
 `--json` gives the same.
 
+## Global: every project in the TUI
+
+`aqorin` opens the project you are in, as before; in a git repository with no project yet, its Setup; anywhere else —
+your home folder included — **Global**. In a project, `0` (or `Esc` at its top level) shows Global; the rail has it
+above Home.
+
+- Global lists **what waits for you first, across projects**, each item naming its project; then the Runs working,
+  waiting, failed or blocked and finished recently (the three newest per project); then each project with its counts,
+  or its state and what to do.
+- The project you opened the TUI in, when it is not in your list, is marked *not added*: `a` adds it. With no project
+  in the list, Global says how to add one.
+- **`Enter`** opens the item in its own project. A Run of the project you are in opens there; a Run or a project of
+  another closes this project's screens and opens that project's — `Esc` and `0` come back to Global. Every action
+  there acts on that project only.
+- Before you leave the project, Aqorin says what is held there: a chat turn it is sending goes on to its end, unseen
+  until you come back (quitting Aqorin before it ends says so first); a message queued for it is not sent; a chat message you have not sent is lost. The same key
+  again leaves.
+- **`n`** in Global asks the project first, then opens New task there.
+- A project that is not *ok* is not opened: its row says what to do, and Global says why if it stopped being *ok* since
+  it was read. Global reads each project without changing it,
+  and only while it is shown.
+
 ## Kept apart
 
 - A Run or a chat in Aqorin's sandbox cannot write your other projects (see [Security](../security/)) — except one
