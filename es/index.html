@@ -397,6 +397,7 @@
             <h4>Escrituras rechazadas</h4>
             <ul>
               <li>El resto del repositorio, su <code>.git</code> y <code>.aqorin</code></li>
+              <li>Tus otros proyectos, los que añadiste</li>
               <li>Tus claves y credenciales</li>
               <li>La configuración de tu shell, de git y de los gestores de paquetes</li>
               <li>Los ajustes de los propios agentes de código</li>
@@ -409,7 +410,7 @@
               <li>Las lecturas: un agente en el sandbox aún puede leer un secreto</li>
               <li>La red</li>
               <li>Lo que haga un servidor MCP</li>
-              <li>Otros proyectos, cachés y ficheros temporales</li>
+              <li>Un proyecto que no has añadido, cachés y ficheros temporales</li>
             </ul>
           </div>
         </div>
@@ -439,6 +440,7 @@
       <li><h3>Las invariantes viven en el código</h3><p>El orden de los pasos, los presupuestos, la revisión obligatoria y las transiciones válidas las hace cumplir el reducer, no se le piden a un modelo en un prompt.</p></li>
       <li><h3>El estado es del Run</h3><p>Una sesión del runtime es un intento. El Run es duradero, así que un runtime que se cae no borra lo que pasó.</p></li>
       <li><h3>Cada garantía dice dónde se aplica</h3><p>La aplica Aqorin, el runtime, el kernel, o nadie, y entonces se dice orientativa. Nada se eleva en silencio.</p></li>
+      <li><h3>Un Aqorin. Varios proyectos. Workflows independientes.</h3><p>Añade tus proyectos una vez y síguelos todos desde una TUI o una CLI: Runs de varios proyectos trabajan a la vez, cada uno con su runtime, en su repositorio, con sus worktrees, su sandbox y sus pull requests, como si cada uno tuviera su propio Aqorin.</p></li>
       <li><h3>Sin mínimo común denominador</h3><p>La mejor primitiva de cada runtime se usa de forma nativa, se emula con seguridad, se degrada a la vista o se rechaza. No se quitan funciones por simetría.</p></li>
     </ol>
   </div>
@@ -451,7 +453,7 @@
       <p class="rv">Dicho aquí con el mismo peso que las funciones, porque conviene saberlo antes de instalar.</p>
     </div>
     <dl class="claims rv-list">
-      <div><dt>Plataforma</dt><dd>Demostrado en macOS con Apple silicon, y en Linux — Ubuntu 26.04 en x86_64, con bubblewrap como sandbox y un paso restringido de Claude Code advisory allí — desde la 0.4.0 (la 0.3.0 no tiene sandbox en Linux). En Windows npm rechaza la instalación. macOS en Intel y Linux en arm64 no están probados.</dd></div>
+      <div><dt>Plataforma</dt><dd>Demostrado en macOS con Apple silicon, y en Linux — Ubuntu 26.04 en x86_64, con bubblewrap como sandbox y un paso restringido de Claude Code advisory allí — desde la 0.4.0 (la 0.3.0 no tiene sandbox en Linux). Varios proyectos a la vez, en <code>master</code> y aún sin publicar: aceptado en vivo en Ubuntu, macOS pendiente. En Windows npm rechaza la instalación. macOS en Intel y Linux en arm64 no están probados.</dd></div>
       <div><dt>Runtimes</dt><dd>Claude Code, Codex, OpenCode y Pi, cada uno desde una versión mínima. Admitir no es demostrar: una versión queda registrada como verificada en tu máquina con <code>aqorin doctor --live</code>, con tu consentimiento y una llamada al modelo.</dd></div>
       <div><dt>Roles restringidos</dt><dd>El sandbox frena las escrituras de un rol de solo lectura o de revisión; sus comandos se le piden al agente, no se hacen cumplir. Ese Run es orientativo.</dd></div>
       <div><dt>Recuperación</dt><dd>Al menos una vez. Un paso reiniciado puede repetir un efecto externo que el interrumpido ya tuvo.</dd></div>
@@ -469,7 +471,7 @@
     <ol class="track rv-list">
       <li class="done"><span class="when">Cerrada</span><h3>Thesis Validation</h3><p>¿Puede un workflow ejecutarse de forma duradera con varios runtimes y modelos, mezclados en un Run? Validada en parte, y ese veredicto se queda como se registró.</p></li>
       <li class="done"><span class="when">Construida</span><h3>Terminal Alpha</h3><p>La primera versión que una persona puede usar: una TUI y una CLI sobre cuatro runtimes, en macOS. Su aceptación se recorrió como lo haría alguien nuevo.</p></li>
-      <li class="now"><span class="when">Ahora</span><h3>Producto después de la alpha</h3><p>Una TUI rediseñada, una identidad visual y la guía. <code>@aqorin/cli</code> 0.5.0 está en npm desde el 20-10-2026: ramas y commits en un chat con acceso total (probado en vivo en Claude Code; la configuración y los hooks de git siguen rechazados) y los arreglos de la TUI, sobre el Linux de la 0.4.0 y su propio sandbox.</p></li>
+      <li class="now"><span class="when">Ahora</span><h3>Producto después de la alpha</h3><p>Una TUI rediseñada, una identidad visual y la guía. <code>@aqorin/cli</code> 0.5.0 está en npm desde el 20-10-2026: ramas y commits en un chat con acceso total (probado en vivo en Claude Code; la configuración y los hooks de git siguen rechazados) y los arreglos de la TUI, sobre el Linux de la 0.4.0 y su propio sandbox. En <code>master</code>, aún sin publicar: un Aqorin sobre varios proyectos, aceptado en vivo en Ubuntu.</p></li>
       <li class="next"><span class="when">Después</span><h3>Generalización</h3><p>jcode, Windows, más Linux (arm64, otras distribuciones) y un SDK público de adaptadores, cada uno afirmado solo cuando esté demostrado.</p></li>
     </ol>
   </div>

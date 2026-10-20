@@ -121,7 +121,8 @@ de tu proyecto. Estas escrituras fallan (`Operation not permitted` en macOS, `Re
 - los worktrees de otros Runs, y los ficheros del propio Aqorin — incluido su registro de tus Runs;
 - tus otros proyectos —cada uno que [añadiste](../projects/) y cuya carpeta existe: su carpeta, su repositorio y su
   `.git`—, según estaba la lista cuando empezó el Run; el plan los nombra. Una lista que no se puede leer rechaza el
-  Run;
+  Run. Un fichero ya enlazado (hard link) entre dos proyectos —un almacén de `node_modules` compartido, `cp -al`— es
+  un solo fichero: el Run que escribe su copia escribe la del otro, en macOS y en Linux;
 - tus claves, credenciales de la nube y configuración de git y de la shell (`~/.ssh`, `~/.aws`,
   `~/.gitconfig`, `~/.zshrc`…, y el fichero al que apunta uno enlazado);
 - la configuración propia de los agentes (`~/.claude/settings.json`, `~/.codex`, `~/.config/opencode`,

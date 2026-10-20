@@ -213,7 +213,8 @@ branch, add a hook to <code dir="auto">.git</code> or turn the sandbox off; Aqor
 <li>other Runs’ worktrees, and Aqorin’s own files — its record of your Runs included;</li>
 <li>your other projects — each one <a href="../projects/">you added</a> whose folder exists: its folder, its repository and
 its <code dir="auto">.git</code> — as the list was when the Run began; the plan names them. A list that cannot be read refuses the
-Run;</li>
+Run. A file already hard-linked between two projects (a shared <code dir="auto">node_modules</code> store, <code dir="auto">cp -al</code>) is one file: the
+Run writing its own copy writes the other’s, on macOS and on Linux;</li>
 <li>your keys, cloud credentials, and git and shell configuration (<code dir="auto">~/.ssh</code>, <code dir="auto">~/.aws</code>, <code dir="auto">~/.gitconfig</code>,
 <code dir="auto">~/.zshrc</code>…, and the file a symlinked one points to);</li>
 <li>the coding agents’ own settings (<code dir="auto">~/.claude/settings.json</code>, <code dir="auto">~/.codex</code>, <code dir="auto">~/.config/opencode</code>, <code dir="auto">~/.pi</code>…)

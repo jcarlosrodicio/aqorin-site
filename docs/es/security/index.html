@@ -223,7 +223,8 @@ una rama, añadir un hook en <code dir="auto">.git</code> ni apagar el sandbox; 
 <li>los worktrees de otros Runs, y los ficheros del propio Aqorin — incluido su registro de tus Runs;</li>
 <li>tus otros proyectos —cada uno que <a href="../projects/">añadiste</a> y cuya carpeta existe: su carpeta, su repositorio y su
 <code dir="auto">.git</code>—, según estaba la lista cuando empezó el Run; el plan los nombra. Una lista que no se puede leer rechaza el
-Run;</li>
+Run. Un fichero ya enlazado (hard link) entre dos proyectos —un almacén de <code dir="auto">node_modules</code> compartido, <code dir="auto">cp -al</code>— es
+un solo fichero: el Run que escribe su copia escribe la del otro, en macOS y en Linux;</li>
 <li>tus claves, credenciales de la nube y configuración de git y de la shell (<code dir="auto">~/.ssh</code>, <code dir="auto">~/.aws</code>,
 <code dir="auto">~/.gitconfig</code>, <code dir="auto">~/.zshrc</code>…, y el fichero al que apunta uno enlazado);</li>
 <li>la configuración propia de los agentes (<code dir="auto">~/.claude/settings.json</code>, <code dir="auto">~/.codex</code>, <code dir="auto">~/.config/opencode</code>,
