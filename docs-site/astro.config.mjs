@@ -50,7 +50,7 @@ export default defineConfig({
         group("Start", "Empezar", ["getting-started", "installation"]),
         group("The TUI", "La TUI", ["tui", "keyboard"]),
         group("Set up", "Configurar", ["runtimes", "connections", "models", "agents", "workflows", "skills", "mcp", "credentials"]),
-        group("Work", "Trabajar", ["new-task", "runs", "free-chat", "attention", "recovery", "trace"]),
+        group("Work", "Trabajar", ["new-task", "runs", "free-chat", "attention", "recovery", "trace", "projects"]),
         group("Reference", "Referencia", ["cli-reference", "configuration", "security", "troubleshooting", "limitations"]),
       ],
     }),

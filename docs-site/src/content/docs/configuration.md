@@ -57,6 +57,8 @@ The global configuration holds:
 - your [connections](../connections/);
 - your OpenCode provider key references ([Credentials](../credentials/)).
 
+Beside it, `projects.yaml` is your list of [projects](../projects/), changed only by `aqorin projects add|remove`.
+
 The project's configuration always wins over the global one.
 
 ```yaml

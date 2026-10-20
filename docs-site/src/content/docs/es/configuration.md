@@ -57,6 +57,8 @@ La configuración global contiene:
 - tus [conexiones](../connections/);
 - las referencias a tus claves de proveedor de OpenCode ([Credenciales](../credentials/)).
 
+A su lado, `projects.yaml` es tu lista de [proyectos](../projects/), que solo cambian `aqorin projects add|remove`.
+
 La configuración del proyecto siempre prevalece sobre la global.
 
 ```yaml
