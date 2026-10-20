@@ -79,8 +79,9 @@ path</strong>: through a symbolic link, or in another letter case on macOS, it i
 <ul>
 <li><strong>A folder you move is a new project.</strong> The old entry says <em>not found</em> and keeps its history; moving the folder back
 brings it back.</li>
-<li><strong>A folder removed and cloned again at the same path</strong> says <em>changed</em> until you add it again; then its history
-includes the earlier folder’s Runs.</li>
+<li><strong>A folder removed and cloned again at the same path</strong> says <em>changed</em> until you add it again (on Linux it may read
+<em>ok</em> at once, when the new folder gets the old one’s inode); either way its history includes the earlier folder’s
+Runs.</li>
 <li><strong>A repository cloned twice</strong> is two projects.</li>
 <li><strong>Your home folder is never a project</strong>, nor anything above it: <code dir="auto">aqorin init</code> refuses it, and a <code dir="auto">.aqorin</code> there is
 ignored.</li>

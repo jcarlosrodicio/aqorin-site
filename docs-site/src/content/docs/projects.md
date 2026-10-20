@@ -20,8 +20,9 @@ path**: through a symbolic link, or in another letter case on macOS, it is the s
 
 - **A folder you move is a new project.** The old entry says *not found* and keeps its history; moving the folder back
   brings it back.
-- **A folder removed and cloned again at the same path** says *changed* until you add it again; then its history
-  includes the earlier folder's Runs.
+- **A folder removed and cloned again at the same path** says *changed* until you add it again (on Linux it may read
+  *ok* at once, when the new folder gets the old one's inode); either way its history includes the earlier folder's
+  Runs.
 - **A repository cloned twice** is two projects.
 - **Your home folder is never a project**, nor anything above it: `aqorin init` refuses it, and a `.aqorin` there is
   ignored.

@@ -21,8 +21,9 @@ carpeta**: a través de un enlace simbólico, o con otras mayúsculas en macOS, 
 
 - **Una carpeta que mueves es un proyecto nuevo.** La entrada antigua dice *no encontrado* y conserva su historial;
   devolver la carpeta a su sitio lo recupera.
-- **Una carpeta borrada y clonada de nuevo en la misma ruta** dice *cambiado* hasta que la añades otra vez; entonces su
-  historial incluye los Runs de la carpeta anterior.
+- **Una carpeta borrada y clonada de nuevo en la misma ruta** dice *cambiado* hasta que la añades otra vez (en Linux
+  puede decir *ok* enseguida, si la nueva carpeta recibe el inodo de la anterior); en ambos casos su historial incluye
+  los Runs de la carpeta anterior.
 - **Un repositorio clonado dos veces** son dos proyectos.
 - **Tu carpeta personal nunca es un proyecto**, ni nada por encima de ella: `aqorin init` lo rechaza, y un `.aqorin`
   allí se ignora.
