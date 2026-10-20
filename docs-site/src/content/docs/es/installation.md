@@ -29,11 +29,11 @@ Aqorin nunca inicia sesión por ti.
 
 ```bash
 npm install -g @aqorin/cli
-aqorin --version        # 0.4.0
+aqorin --version        # 0.5.0
 ```
 
-`@aqorin/cli` 0.4.0 en npm es la Terminal Alpha que describen estas páginas, en macOS y Linux. La 0.3.0 es la
-misma Alpha solo en macOS; la 0.1.0 y la 0.2.0 son una CLI anterior, sin nada de su TUI.
+`@aqorin/cli` 0.5.0 en npm es la Terminal Alpha que describen estas páginas, en macOS y Linux. La 0.4.0 trajo
+Linux; la 0.3.0 es la misma Alpha solo en macOS; la 0.1.0 y la 0.2.0 son una CLI anterior, sin nada de su TUI.
 
 Su única dependencia, `better-sqlite3`, es un addon nativo: npm descarga su binario precompilado, o
 lo compila donde no lo hay (hace falta un toolchain de compilación). El paquete no incluye
