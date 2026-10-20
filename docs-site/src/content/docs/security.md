@@ -141,6 +141,12 @@ sandbox is chosen when you start (or follow up) the chat, and every turn runs in
 before this runs without it, and says so. A Pi chat on *Your configuration* cannot run in it — Pi writes
 in `~/.pi`, which stays closed — so use Aqorin's configuration, or `sandbox: off`.
 
+In **Full access** such a chat works with git — branches, add, commit, new worktrees — but cannot write `.git`'s
+`config`, `config.worktree`, `hooks`, `modules` or `commondir`, nor what points an existing worktree at the repository, so it
+cannot make your own git run its code that way; `git push -u` and `git remote add`, which write the config, stay
+refused. In **Ask** `.git` stays closed. On Linux a closed path that does not exist yet (usually `modules`, `commondir`, `config.worktree`)
+cannot be held: the chat's Run names it, and Aqorin says so if a turn creates it.
+
 ## Free chat
 
 A Free chat runs as its runtime does in its own terminal.
@@ -160,3 +166,11 @@ See [Free chat](../free-chat/).
 - **A role that may edit files.** It can do in its own folder whatever its runtime allows — and, with
   `sandbox: off`, anywhere you can.
 - **What a sandboxed agent reads,** and where it connects.
+- **What a Full access chat does with git** beyond the files above: it can move or delete your workflows'
+  `aqorin/*` branches, write in a worktree made while its turn runs, and leave a rebase under way whose `exec`
+  lines run if you type `git rebase --continue`. It can also add a **submodule** — a
+  repository it makes inside your project — whose own configuration your git runs when it looks into it,
+  `git status` included. After every turn Aqorin checks the index and your local branches for new submodules,
+  without entering them, and names any it finds — or says it could not check: look before you run git. It does
+  not see one in a stash, a tag or a commit no branch points at, nor what a turn whose Aqorin was killed added.
+  Aqorin's own git never looks inside a submodule's working tree.

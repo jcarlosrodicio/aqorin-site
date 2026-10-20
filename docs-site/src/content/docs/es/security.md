@@ -153,6 +153,13 @@ proyecto: su sandbox se decide al empezar (o continuar) el chat, y cada turno se
 empezado antes de esto se ejecuta sin él, y lo dice. Un chat de Pi con *Your configuration* no puede ejecutarse
 en él —Pi escribe en `~/.pi`, que sigue cerrado—, así que usa la configuración de Aqorin, o `sandbox: off`.
 
+En **Full access** ese chat trabaja con git —ramas, add, commit, worktrees nuevos—, pero no puede escribir el
+`config`, el `config.worktree`, los `hooks`, los `modules` ni el `commondir` de `.git`, ni lo que apunta un worktree ya existente al
+repositorio, así que no puede hacer que tu propio git ejecute su código por ahí; `git push -u` y `git remote add`,
+que escriben la configuración, siguen rechazados. En **Ask**, `.git` sigue cerrado. En Linux, una ruta cerrada que
+aún no existe (normalmente `modules`, `commondir`, `config.worktree`) no se puede sujetar: el Run del chat la nombra, y Aqorin lo dice
+si un turno la crea.
+
 ## Free chat
 
 Un Free chat se ejecuta como lo hace su runtime en su propia terminal.
@@ -172,3 +179,11 @@ Mira [Free chat](../free-chat/).
 - **Un rol que puede editar archivos.** Puede hacer en su propia carpeta todo lo que su runtime permita —
   y, con `sandbox: off`, en cualquier sitio donde puedas tú.
 - **Lo que lee un agente con sandbox,** y adónde se conecta.
+- **Lo que hace con git un chat en Full access** más allá de los archivos de arriba: puede mover o borrar las ramas
+  `aqorin/*` de tus workflows, escribir en un worktree creado mientras corre su turno y dejar un rebase a medias
+  cuyas líneas `exec` se ejecutan si escribes `git rebase --continue`. También puede añadir un
+  **submódulo** —un repositorio que crea dentro de tu proyecto— cuya configuración propia ejecuta tu git cuando
+  mira dentro, `git status` incluido. Tras cada turno Aqorin revisa el índice y tus ramas locales en busca de
+  submódulos nuevos, sin entrar en ellos, y nombra los que encuentra —o dice que no pudo comprobarlo—: mira antes de ejecutar git. No
+  ve uno en un stash, una etiqueta o un commit al que no apunte ninguna rama, ni lo que añadió un turno cuyo Aqorin
+  se mató. El git propio de Aqorin nunca mira dentro del árbol de trabajo de un submódulo.
