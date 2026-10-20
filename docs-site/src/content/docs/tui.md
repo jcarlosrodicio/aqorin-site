@@ -8,7 +8,8 @@ Run `aqorin` in a project and the TUI opens. `aqorin --plain` gives a line view 
 
 ## The layout
 
-- **The header** shows Aqorin's mark (`◈`, or `<>` in ASCII), where you are and the project.
+- **The header** shows Aqorin's mark (`◈`, or `<>` in ASCII), where you are and the project — and, in an open
+  Run or chat, its state. Whether a Run is advisory is said in its details and its Result, not here.
 - **The rail** on the left lists the nine sections. `1`–`9` jump straight to one.
 - **The list** in the middle holds the section's items.
 - **The inspector** on the right explains the selected item. It holds that item's actions as
@@ -17,10 +18,14 @@ Run `aqorin` in a project and the TUI opens. `aqorin --plain` gives a line view 
 - **The status bar** says which Run is moving and what waits for you. Its glyph turns while a Run
   works.
 
+While the TUI runs, your terminal's title is `◈ aqorin · <project>`. Quitting (`q`, or Ctrl+C) gives the
+terminal back the screen it had, and asks it for its previous title (a terminal that keeps no title stack keeps
+Aqorin's until your shell sets another).
+
 | Key | Section | What it holds |
 |---|---|---|
 | `1` | Home | The first-run checklist, then the control plane. |
-| `2` | Runs | Every Run and chat of this project. `n` starts a new task, `c` a Free chat. |
+| `2` | Runs | Every Run and chat of this project, in columns: number, workflow, state, when it started. `n` starts a new task, `c` a Free chat. |
 | `3` | Attention | What waits for you: approvals, questions and decisions. |
 | `4` | Agents | The roles a workflow uses: built-in ones, templates and your own. |
 | `5` | Workflows | The graphs of steps, and where each step runs. |

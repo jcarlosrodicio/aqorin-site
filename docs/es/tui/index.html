@@ -74,7 +74,8 @@
 lugar, y <code dir="auto">--json</code> o una tubería dan la salida propia de la CLI.</p>
 <div class="sl-heading-wrapper level-h2"><h2 id="la-disposición">La disposición</h2><a class="sl-anchor-link" href="#la-disposición"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Sección titulada «La disposición»</span></a></div>
 <ul>
-<li><strong>La cabecera</strong> muestra la marca de Aqorin (<code dir="auto">◈</code>, o <code dir="auto">&lt;&gt;</code> en ASCII), dónde estás y el proyecto.</li>
+<li><strong>La cabecera</strong> muestra la marca de Aqorin (<code dir="auto">◈</code>, o <code dir="auto">&lt;&gt;</code> en ASCII), dónde estás y el proyecto, y, en un Run o
+un chat abierto, su estado. Si un Run es advisory lo dicen sus detalles y su Result, no la cabecera.</li>
 <li><strong>El rail</strong> de la izquierda lista las nueve secciones. <code dir="auto">1</code>–<code dir="auto">9</code> saltan directamente a una.</li>
 <li><strong>La lista</strong> del centro contiene los elementos de la sección.</li>
 <li><strong>El inspector</strong> de la derecha explica el elemento seleccionado. Contiene las acciones de ese
@@ -83,6 +84,9 @@ elemento como botones.</li>
 <li><strong>La barra de estado</strong> dice qué Run se está moviendo y qué te espera a ti. Su glifo gira mientras
 un Run trabaja.</li>
 </ul>
+<p>Mientras la TUI está abierta, el título de tu terminal es <code dir="auto">◈ aqorin · &lt;proyecto&gt;</code>. Al salir (<code dir="auto">q</code>, o Ctrl+C) la
+terminal recupera la pantalla que tenía y se le pide su título anterior (una terminal que no guarda una pila de
+títulos mantiene el de Aqorin hasta que tu shell ponga otro).</p>
 <table>
 <thead>
 <tr>
@@ -100,7 +104,7 @@ un Run trabaja.</li>
 <tr>
 <td><code dir="auto">2</code></td>
 <td>Runs</td>
-<td>Todos los Runs y chats de este proyecto. <code dir="auto">n</code> empieza una tarea nueva, <code dir="auto">c</code> un Free chat.</td>
+<td>Todos los Runs y chats de este proyecto, en columnas: número, workflow, estado y cuándo empezó. <code dir="auto">n</code> empieza una tarea nueva, <code dir="auto">c</code> un Free chat.</td>
 </tr>
 <tr>
 <td><code dir="auto">3</code></td>
