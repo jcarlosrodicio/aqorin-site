@@ -119,6 +119,9 @@ de tu proyecto. Estas escrituras fallan (`Operation not permitted` en macOS, `Re
 - las demás carpetas del repositorio, su `.git` y su `.aqorin` — así un agente no puede hacer commit, mover
   una rama, añadir un hook en `.git` ni apagar el sandbox; Aqorin hace el commit cuando integras un worktree;
 - los worktrees de otros Runs, y los ficheros del propio Aqorin — incluido su registro de tus Runs;
+- tus otros proyectos —cada uno que [añadiste](../projects/) y cuya carpeta existe: su carpeta, su repositorio y su
+  `.git`—, según estaba la lista cuando empezó el Run; el plan los nombra. Una lista que no se puede leer rechaza el
+  Run;
 - tus claves, credenciales de la nube y configuración de git y de la shell (`~/.ssh`, `~/.aws`,
   `~/.gitconfig`, `~/.zshrc`…, y el fichero al que apunta uno enlazado);
 - la configuración propia de los agentes (`~/.claude/settings.json`, `~/.codex`, `~/.config/opencode`,

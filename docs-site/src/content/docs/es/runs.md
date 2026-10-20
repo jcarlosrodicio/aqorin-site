@@ -128,18 +128,22 @@ pull request, y confirmas; si el árbol cambió entretanto, no se entrega nada.
 
 Después, Aqorin:
 
-- hace commit de todos los cambios del árbol de trabajo, también los que no hizo el Run (lo avisa antes de que
-  confirmes), en una rama nueva `aqorin/<tarea>-<id>`, en la que se queda tu carpeta (un Run en su propio
+- hace commit de todos los cambios de la carpeta del proyecto, también los que no hizo el Run (lo avisa antes de
+  que confirmes), en una rama nueva `aqorin/<tarea>-<id>`, en la que se queda tu carpeta (un Run en su propio
   worktree, en su rama);
 - la sube a `origin`;
-- abre el pull request con `gh` contra la rama de la que partió, con tu identidad de git y tu sesión de gh.
+- abre el pull request con `gh` en el repositorio de GitHub al que apunta `origin` (`--repo`; un alias de SSH se
+  resuelve con `ssh -G`), contra la rama de la que partió, con tu identidad de git y tu sesión de gh; el plan dice el
+  repositorio y la cuenta de gh.
 
 Nunca lo fusiona. Para un Run que trabajó en el sandbox de Aqorin no se ejecuta ningún hook de git; si no, git
 se comporta como lo hace contigo.
 
 Antes de redactar nada comprueba que puede entregarlo: un repositorio git en una rama, cambios que confirmar, un
-remoto `origin` que tenga la rama base, `gh` instalado y con sesión iniciada (`gh auth login`), y ningún otro
-workflow sin terminar en la carpeta. Una entrega que se quedó a medias (por ejemplo, un push rechazado) sigue
+remoto `origin` en GitHub que tenga la rama base, `gh` instalado y con sesión iniciada (`gh auth login`), ningún
+otro workflow sin terminar en la carpeta y, si tu proyecto es una carpeta dentro de un repositorio mayor, ningún
+cambio fuera de la carpeta del proyecto ni en otro proyecto que añadiste dentro de ella (Aqorin los nombra y no hace
+commit de nada). Una entrega que se quedó a medias (por ejemplo, un push rechazado) sigue
 desde donde se paró al volver a pulsar `P`. El Result dice entonces
 **Delivered**, con el pull request. Desde el CLI: `aqorin deliver <run> --draft` y luego
 `aqorin deliver <run> --yes`, o `--from <borrador.json> --yes` con un borrador tuyo.

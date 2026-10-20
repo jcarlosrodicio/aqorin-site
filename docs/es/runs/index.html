@@ -192,17 +192,21 @@ o un fichero de entorno), con lo que parezca un secreto ya redactado. Puedes edi
 pull request, y confirmas; si el árbol cambió entretanto, no se entrega nada.</p>
 <p>Después, Aqorin:</p>
 <ul>
-<li>hace commit de todos los cambios del árbol de trabajo, también los que no hizo el Run (lo avisa antes de que
-confirmes), en una rama nueva <code dir="auto">aqorin/&lt;tarea&gt;-&lt;id&gt;</code>, en la que se queda tu carpeta (un Run en su propio
+<li>hace commit de todos los cambios de la carpeta del proyecto, también los que no hizo el Run (lo avisa antes de
+que confirmes), en una rama nueva <code dir="auto">aqorin/&lt;tarea&gt;-&lt;id&gt;</code>, en la que se queda tu carpeta (un Run en su propio
 worktree, en su rama);</li>
 <li>la sube a <code dir="auto">origin</code>;</li>
-<li>abre el pull request con <code dir="auto">gh</code> contra la rama de la que partió, con tu identidad de git y tu sesión de gh.</li>
+<li>abre el pull request con <code dir="auto">gh</code> en el repositorio de GitHub al que apunta <code dir="auto">origin</code> (<code dir="auto">--repo</code>; un alias de SSH se
+resuelve con <code dir="auto">ssh -G</code>), contra la rama de la que partió, con tu identidad de git y tu sesión de gh; el plan dice el
+repositorio y la cuenta de gh.</li>
 </ul>
 <p>Nunca lo fusiona. Para un Run que trabajó en el sandbox de Aqorin no se ejecuta ningún hook de git; si no, git
 se comporta como lo hace contigo.</p>
 <p>Antes de redactar nada comprueba que puede entregarlo: un repositorio git en una rama, cambios que confirmar, un
-remoto <code dir="auto">origin</code> que tenga la rama base, <code dir="auto">gh</code> instalado y con sesión iniciada (<code dir="auto">gh auth login</code>), y ningún otro
-workflow sin terminar en la carpeta. Una entrega que se quedó a medias (por ejemplo, un push rechazado) sigue
+remoto <code dir="auto">origin</code> en GitHub que tenga la rama base, <code dir="auto">gh</code> instalado y con sesión iniciada (<code dir="auto">gh auth login</code>), ningún
+otro workflow sin terminar en la carpeta y, si tu proyecto es una carpeta dentro de un repositorio mayor, ningún
+cambio fuera de la carpeta del proyecto ni en otro proyecto que añadiste dentro de ella (Aqorin los nombra y no hace
+commit de nada). Una entrega que se quedó a medias (por ejemplo, un push rechazado) sigue
 desde donde se paró al volver a pulsar <code dir="auto">P</code>. El Result dice entonces
 <strong>Delivered</strong>, con el pull request. Desde el CLI: <code dir="auto">aqorin deliver &lt;run&gt; --draft</code> y luego
 <code dir="auto">aqorin deliver &lt;run&gt; --yes</code>, o <code dir="auto">--from &lt;borrador.json&gt; --yes</code> con un borrador tuyo.</p>

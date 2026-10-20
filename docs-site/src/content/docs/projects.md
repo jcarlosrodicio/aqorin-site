@@ -8,7 +8,7 @@ Each project keeps its own configuration, Runs, worktrees and history, exactly a
 
 ```bash
 aqorin projects add [<path>] [--name <name>]   # the project at or above the folder (the one you are in by default)
-aqorin projects                               # each one with its state
+aqorin projects                               # each one with its state and what its Runs are doing
 aqorin runs --project tally                   # a project by its name, its id or a path, from any folder
 aqorin projects remove tally                  # takes it out of the list; deletes nothing
 ```
@@ -60,6 +60,23 @@ history.
   id (`aqorin runs --project <id>`).
 - A Run's worker starts in its project's folder, with the paths you typed made absolute: where you launched it from no
   longer matters once it runs.
+
+## What each project is doing
+
+`aqorin projects` reads each project's record without changing it and says, per project, how many Runs are
+working, waiting for you, failed or blocked, finished, and its chats; what waits for you, with the command that
+answers it (`--project <name>` included); and its working and failed Runs and its three newest finished. A record it
+cannot read — damaged, or written by a newer Aqorin — says *unreadable*; the other projects are still listed.
+`--json` gives the same.
+
+## Kept apart
+
+- A Run or a chat in Aqorin's sandbox cannot write your other projects (see [Security](../security/)) — except one
+  you added inside its own folder, which is part of what it works on.
+- A delivery commits only its project's folder, never a project you added inside it, and opens the pull request in
+  the repository its `origin` names.
+- `GIT_DIR`, `GIT_WORK_TREE`, `GIT_CONFIG_*`, `GH_REPO` and the other variables that point git or `gh` at another
+  repository are removed before Aqorin runs anything; your git identity, SSH and `gh` login are kept.
 
 ## Good to know
 

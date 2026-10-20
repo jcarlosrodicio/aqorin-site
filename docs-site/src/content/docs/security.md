@@ -108,6 +108,9 @@ fail (`Operation not permitted` on macOS, `Read-only file system` on Linux):
 - the repository's other folders, its `.git` and its `.aqorin` — so an agent cannot commit, move a
   branch, add a hook to `.git` or turn the sandbox off; Aqorin commits when you integrate a worktree;
 - other Runs' worktrees, and Aqorin's own files — its record of your Runs included;
+- your other projects — each one [you added](../projects/) whose folder exists: its folder, its repository and
+  its `.git` — as the list was when the Run began; the plan names them. A list that cannot be read refuses the
+  Run;
 - your keys, cloud credentials, and git and shell configuration (`~/.ssh`, `~/.aws`, `~/.gitconfig`,
   `~/.zshrc`…, and the file a symlinked one points to);
 - the coding agents' own settings (`~/.claude/settings.json`, `~/.codex`, `~/.config/opencode`, `~/.pi`…)

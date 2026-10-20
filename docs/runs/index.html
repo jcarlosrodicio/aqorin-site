@@ -192,17 +192,21 @@ with whatever reads as a secret redacted from the draft. You can edit the commit
 and confirm; if the tree moved meanwhile, nothing is delivered.</p>
 <p>Aqorin then:</p>
 <ul>
-<li>commits every change in the working tree — changes the Run did not make too, which it says before you
+<li>commits every change in the project’s folder — changes the Run did not make too, which it says before you
 confirm — on a new branch <code dir="auto">aqorin/&lt;task&gt;-&lt;id&gt;</code> that your folder stays on (a Run in its own worktree: on its
 branch);</li>
 <li>pushes it to <code dir="auto">origin</code>;</li>
-<li>opens the pull request with <code dir="auto">gh</code> against the branch it came from, with your git identity and your gh login.</li>
+<li>opens the pull request with <code dir="auto">gh</code> in the GitHub repository <code dir="auto">origin</code> points to (<code dir="auto">--repo</code>, an SSH alias
+resolved with <code dir="auto">ssh -G</code>), against the branch it came from, with your git identity and your gh login — the plan
+says the repository and the gh account.</li>
 </ul>
 <p>It never merges. For a Run that worked in Aqorin’s sandbox no git hook runs; otherwise git runs as it does for
 you.</p>
 <p>Before anything is drafted it checks that it can deliver: a git repository on a branch, changes to commit, an
-<code dir="auto">origin</code> remote with the base branch on it, <code dir="auto">gh</code> installed and logged in (<code dir="auto">gh auth login</code>), and no other
-workflow unfinished in the folder. A delivery that stopped — a refused push, say — goes on from where it
+<code dir="auto">origin</code> remote on GitHub with the base branch on it, <code dir="auto">gh</code> installed and logged in (<code dir="auto">gh auth login</code>), no
+other workflow unfinished in the folder, and — when your project is a folder inside a larger repository — no
+change outside the project’s folder nor in another project you added inside it (Aqorin names them and commits
+nothing). A delivery that stopped — a refused push, say — goes on from where it
 stopped when you press <code dir="auto">P</code> again. The Result then says <strong>Delivered</strong>, with
 the pull request. From the CLI: <code dir="auto">aqorin deliver &lt;run&gt; --draft</code>, then <code dir="auto">aqorin deliver &lt;run&gt; --yes</code> — or
 <code dir="auto">--from &lt;draft.json&gt; --yes</code> with a draft of your own.</p>
