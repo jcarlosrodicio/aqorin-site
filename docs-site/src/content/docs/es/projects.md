@@ -71,6 +71,28 @@ esperándote, fallidos o bloqueados, terminados, y sus chats; lo que te espera, 
 puede leer —dañado, o escrito por un Aqorin más nuevo— dice *unreadable*; los demás proyectos se siguen listando.
 `--json` da lo mismo.
 
+## Global: todos los proyectos en la TUI
+
+`aqorin` abre el proyecto en el que estás, como antes; en un repositorio git que aún no es un proyecto, su Setup; en
+cualquier otro sitio —tu carpeta personal incluida— **Global**. En un proyecto, `0` (o `Esc` en su nivel superior)
+muestra Global; la barra lateral lo tiene encima de Home.
+
+- Global lista **primero lo que te espera, de todos los proyectos**, cada elemento con el nombre de su proyecto;
+  después los Runs trabajando, esperando, fallidos o bloqueados y terminados hace poco (los tres últimos de cada
+  proyecto); después cada proyecto con sus cuentas, o su estado y qué hacer.
+- El proyecto en el que abriste la TUI, si no está en tu lista, aparece como *not added*: `a` lo añade. Sin ningún
+  proyecto en la lista, Global dice cómo añadir uno.
+- **`Enter`** abre el elemento en su propio proyecto. Un Run del proyecto en el que estás se abre ahí; un Run o un
+  proyecto de otro cierra las pantallas de este proyecto y abre las de aquel —`Esc` y `0` vuelven a Global. Cada
+  acción allí actúa solo sobre ese proyecto.
+- Antes de salir del proyecto, Aqorin dice lo que queda en él: un turno de chat que está enviando sigue hasta su
+  final, sin que lo veas hasta que vuelvas (salir de Aqorin antes de que acabe lo avisa primero); un mensaje en cola para él no se envía; un mensaje de chat que no has
+  enviado se pierde. La misma tecla otra vez sale.
+- **`n`** en Global pregunta primero el proyecto y después abre New task en él.
+- Un proyecto que no está *ok* no se abre: su fila dice qué hacer, y Global dice por qué si dejó de estar *ok* desde que
+  se leyó. Global lee cada proyecto sin cambiarlo, y solo
+  mientras se muestra.
+
 ## Separados
 
 - Un Run o un chat en el sandbox de Aqorin no puede escribir en tus otros proyectos (ver [Seguridad](../security/)),
