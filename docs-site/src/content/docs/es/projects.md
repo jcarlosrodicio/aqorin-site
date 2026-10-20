@@ -9,7 +9,7 @@ tuviera su propio Aqorin.
 
 ```bash
 aqorin projects add [<ruta>] [--name <nombre>]   # el proyecto en la carpeta o por encima (por defecto, la tuya)
-aqorin projects                                 # cada uno con su estado
+aqorin projects                                 # cada uno con su estado y lo que hacen sus Runs
 aqorin runs --project tally                     # un proyecto por su nombre, su id o una ruta, desde cualquier carpeta
 aqorin projects remove tally                    # lo saca de la lista; no borra nada
 ```
@@ -62,6 +62,23 @@ encima) o el **nombre o id** de un proyecto que has añadido.
   cancelando por su id (`aqorin runs --project <id>`).
 - El worker de un Run arranca en la carpeta de su proyecto, con las rutas que escribiste convertidas en absolutas: desde
   dónde lo lanzaste deja de importar una vez que corre.
+
+## Qué hace cada proyecto
+
+`aqorin projects` lee el registro de cada proyecto sin cambiarlo y dice, por proyecto, cuántos Runs están trabajando,
+esperándote, fallidos o bloqueados, terminados, y sus chats; lo que te espera, con el comando que lo responde
+(`--project <nombre>` incluido); y sus Runs trabajando y fallidos y los tres últimos terminados. Un registro que no
+puede leer —dañado, o escrito por un Aqorin más nuevo— dice *unreadable*; los demás proyectos se siguen listando.
+`--json` da lo mismo.
+
+## Separados
+
+- Un Run o un chat en el sandbox de Aqorin no puede escribir en tus otros proyectos (ver [Seguridad](../security/)),
+  salvo uno que añadiste dentro de su propia carpeta, que forma parte de aquello en lo que trabaja.
+- Una entrega solo hace commit de la carpeta de su proyecto, nunca de un proyecto que añadiste dentro de ella, y abre
+  el pull request en el repositorio que nombra su `origin`.
+- `GIT_DIR`, `GIT_WORK_TREE`, `GIT_CONFIG_*`, `GH_REPO` y las demás variables que dirigen git o `gh` a otro
+  repositorio se quitan antes de que Aqorin ejecute nada; tu identidad de git, SSH y tu sesión de `gh` se mantienen.
 
 ## Conviene saber
 

@@ -128,18 +128,22 @@ and confirm; if the tree moved meanwhile, nothing is delivered.
 
 Aqorin then:
 
-- commits every change in the working tree — changes the Run did not make too, which it says before you
+- commits every change in the project's folder — changes the Run did not make too, which it says before you
   confirm — on a new branch `aqorin/<task>-<id>` that your folder stays on (a Run in its own worktree: on its
   branch);
 - pushes it to `origin`;
-- opens the pull request with `gh` against the branch it came from, with your git identity and your gh login.
+- opens the pull request with `gh` in the GitHub repository `origin` points to (`--repo`, an SSH alias
+  resolved with `ssh -G`), against the branch it came from, with your git identity and your gh login — the plan
+  says the repository and the gh account.
 
 It never merges. For a Run that worked in Aqorin's sandbox no git hook runs; otherwise git runs as it does for
 you.
 
 Before anything is drafted it checks that it can deliver: a git repository on a branch, changes to commit, an
-`origin` remote with the base branch on it, `gh` installed and logged in (`gh auth login`), and no other
-workflow unfinished in the folder. A delivery that stopped — a refused push, say — goes on from where it
+`origin` remote on GitHub with the base branch on it, `gh` installed and logged in (`gh auth login`), no
+other workflow unfinished in the folder, and — when your project is a folder inside a larger repository — no
+change outside the project's folder nor in another project you added inside it (Aqorin names them and commits
+nothing). A delivery that stopped — a refused push, say — goes on from where it
 stopped when you press `P` again. The Result then says **Delivered**, with
 the pull request. From the CLI: `aqorin deliver <run> --draft`, then `aqorin deliver <run> --yes` — or
 `--from <draft.json> --yes` with a draft of your own.
