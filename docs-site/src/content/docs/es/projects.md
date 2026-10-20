@@ -3,6 +3,12 @@ title: Varios proyectos
 description: Tu lista de proyectos, cómo un comando nombra uno desde cualquier carpeta y qué es un proyecto para Aqorin.
 ---
 
+**Un Aqorin. Varios proyectos. Workflows independientes.** Un solo Aqorin —una TUI, una CLI— sigue todos los
+proyectos que añades: Runs de varios proyectos trabajan a la vez, cada uno con su runtime y en su repositorio, y cada
+proyecto conserva sus Runs, sus worktrees, su sandbox y sus pull requests. Aceptado en vivo en Ubuntu con Claude Code,
+Codex, OpenCode y Pi; en macOS corre el mismo código, y su aceptación en vivo está pendiente. Está en `master`, aún no
+en una versión publicada.
+
 Aqorin guarda una lista de tus proyectos —solo los que añades— para que un comando pueda nombrar un proyecto desde
 cualquier carpeta. Cada proyecto conserva su configuración, sus Runs, sus worktrees y su historial, exactamente como si
 tuviera su propio Aqorin.
@@ -19,21 +25,24 @@ aqorin projects remove tally                    # lo saca de la lista; no borra 
 Un proyecto es una carpeta con `.aqorin/aqorin.yaml` (la crea `aqorin init`), y **su identidad es la ruta real de la
 carpeta**: a través de un enlace simbólico, o con otras mayúsculas en macOS, es el mismo proyecto.
 
-- **Una carpeta que mueves es un proyecto nuevo.** La entrada antigua dice *no encontrado* y conserva su historial;
-  devolver la carpeta a su sitio lo recupera.
+- **Una carpeta que mueves es un proyecto nuevo.** `aqorin projects add` en su nueva ruta la añade como tal; la entrada
+  antigua dice *no encontrado* y conserva su historial, y devolver la carpeta a su sitio la recupera.
 - **Una carpeta borrada y clonada de nuevo en la misma ruta** dice *cambiado* hasta que la añades otra vez (en Linux
   puede decir *ok* enseguida, si la nueva carpeta recibe el inodo de la anterior); en ambos casos su historial incluye
   los Runs de la carpeta anterior.
 - **Un repositorio clonado dos veces** son dos proyectos.
 - **Tu carpeta personal nunca es un proyecto**, ni nada por encima de ella: `aqorin init` lo rechaza, y un `.aqorin`
-  allí se ignora.
+  allí se ignora. `aqorin run`, `feature` y `conversation create` se rechazan allí, y en cualquier carpeta que no es
+  un proyecto pero contiene alguno de tus proyectos: un Run allí escribiría en ellos como en su propia carpeta. Lánzalo
+  en un proyecto: entra en él con `cd` o indica `--project <nombre>`.
 
 ## La lista
 
 Nada entra en la lista si no lo añades. `aqorin projects add` toma el proyecto en la carpeta que indicas o por encima,
 con el nombre de la carpeta salvo que `--name` le dé otro (de 1 a 64 caracteres, sin `/`, sin empezar por `.`, `~` ni
 `-`, único sin distinguir mayúsculas; `--name` sobre un proyecto ya en la lista lo renombra). Rechaza una carpeta que no está en un proyecto (indica `aqorin init --project
-<carpeta>`), tu carpeta personal y las carpetas propias de Aqorin, y una carpeta ya en la lista con otra ruta.
+<carpeta>`), tu carpeta personal y las carpetas propias de Aqorin, una carpeta ya en la lista con otra ruta, y una ruta con un salto
+de línea (ningún sandbox puede nombrarla).
 
 `aqorin projects` lista cada proyecto con su estado:
 

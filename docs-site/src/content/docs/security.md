@@ -110,7 +110,8 @@ fail (`Operation not permitted` on macOS, `Read-only file system` on Linux):
 - other Runs' worktrees, and Aqorin's own files — its record of your Runs included;
 - your other projects — each one [you added](../projects/) whose folder exists: its folder, its repository and
   its `.git` — as the list was when the Run began; the plan names them. A list that cannot be read refuses the
-  Run;
+  Run. A file already hard-linked between two projects (a shared `node_modules` store, `cp -al`) is one file: the
+  Run writing its own copy writes the other's, on macOS and on Linux;
 - your keys, cloud credentials, and git and shell configuration (`~/.ssh`, `~/.aws`, `~/.gitconfig`,
   `~/.zshrc`…, and the file a symlinked one points to);
 - the coding agents' own settings (`~/.claude/settings.json`, `~/.codex`, `~/.config/opencode`, `~/.pi`…)

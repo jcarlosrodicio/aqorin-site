@@ -3,6 +3,11 @@ title: Several projects
 description: Your list of projects, how a command names one from anywhere, and what a project is to Aqorin.
 ---
 
+**One Aqorin. Multiple projects. Independent workflows.** One Aqorin — one TUI, one CLI — follows every project you
+add: Runs of several projects work at once, each on its own runtime and in its own repository, and each project keeps
+its own Runs, worktrees, sandbox and pull requests. Accepted live on Ubuntu with Claude Code, Codex, OpenCode and Pi;
+on macOS the same code runs, and its live acceptance is pending. It is on `master`, not yet in a published version.
+
 Aqorin keeps a list of your projects — only the ones you add — so a command can name a project from any folder.
 Each project keeps its own configuration, Runs, worktrees and history, exactly as if it had its own Aqorin.
 
@@ -18,21 +23,24 @@ aqorin projects remove tally                  # takes it out of the list; delete
 A project is a folder with `.aqorin/aqorin.yaml` (made by `aqorin init`), and **its identity is the folder's real
 path**: through a symbolic link, or in another letter case on macOS, it is the same project.
 
-- **A folder you move is a new project.** The old entry says *not found* and keeps its history; moving the folder back
-  brings it back.
+- **A folder you move is a new project.** `aqorin projects add` at its new path adds it as one; the old entry says
+  *not found* and keeps its history, and moving the folder back brings it back.
 - **A folder removed and cloned again at the same path** says *changed* until you add it again (on Linux it may read
   *ok* at once, when the new folder gets the old one's inode); either way its history includes the earlier folder's
   Runs.
 - **A repository cloned twice** is two projects.
 - **Your home folder is never a project**, nor anything above it: `aqorin init` refuses it, and a `.aqorin` there is
-  ignored.
+  ignored. `aqorin run`, `feature` and `conversation create` are refused there, and in any folder that is no project
+  but holds one of your projects: a Run there would write in them as its own folder. Run it in a project — `cd` into it
+  or give `--project <name>`.
 
 ## The list
 
 Nothing enters the list unless you add it. `aqorin projects add` takes the project at or above the folder you give, by
 the folder's name unless `--name` names it (1 to 64 characters, no `/`, not starting with `.`, `~` or `-`, unique
 without regard to case; `--name` on a listed project renames it). It refuses a folder that is not in a project (it names `aqorin init --project <folder>`), your home
-folder and Aqorin's own folders, and a folder already listed under another path.
+folder and Aqorin's own folders, a folder already listed under another path, and a path holding a line break (no
+sandbox can name it).
 
 `aqorin projects` lists each project with its state:
 
