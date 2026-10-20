@@ -93,7 +93,8 @@ aplica el motor, no un prompt.
 
 La lista nombra cada workflow con sus pasos, su garantía y su origen: **built-in** (viene con Aqorin),
 **project** (un archivo en `.aqorin/workflows/`) o **advanced**. El inspector de uno integrado empieza
-por para qué sirve, su flujo y sus agentes.
+por para qué sirve y después dibuja su flujo: cada paso, su agente y dónde se ejecuta. Desde 160 columnas el
+inspector es más ancho en esta pantalla, y cada paso se lee en una línea.
 
 - **Edit (your copy)** (`e`) lo escribe en este proyecto con su mismo nombre. Esa copia sustituye aquí al
   integrado y es tuya para cambiarla; si la borras, vuelve el integrado.

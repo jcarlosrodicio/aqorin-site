@@ -135,7 +135,9 @@ muestra también cuánto de la ventana de contexto del modelo está usado.
   Si encuentras una petición que ya está esperando, el chat la muestra, y respondes con `/allow` o
   `/deny`.
 - Cuando el runtime hace una pregunta (Claude Code, OpenCode y Codex pueden, y también el diálogo de
-  una extensión de Pi), se abre de la misma manera, y espera en el chat un `/answer <text>`.
+  una extensión de Pi), se abre de la misma manera, y espera en el chat un `/answer <text>`. Una pregunta que la
+  respuesta del agente ya escribió (Codex lo hace) no se repite: solo se dice cómo responderla. Tu respuesta
+  aparece como mensaje tuyo debajo de lo que la pidió; no se dice nada más salvo que no se haya aceptado.
 - Las preguntas y las aprobaciones aparecen también en [Attention](../attention/).
 
 ## Comandos

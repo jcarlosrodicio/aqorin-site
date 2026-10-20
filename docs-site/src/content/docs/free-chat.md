@@ -128,7 +128,9 @@ shows how much of the model's context window is used.
   **Deny**. If you find a request already waiting, the chat shows it, and you answer with `/allow`
   or `/deny`.
 - When the runtime asks a question — Claude Code, OpenCode and Codex can, and so can a Pi
-  extension's dialog — it opens the same way, and waits in the chat for `/answer <text>`.
+  extension's dialog — it opens the same way, and waits in the chat for `/answer <text>`. A question the agent's
+  reply already wrote out (Codex does) is not repeated: only how to answer it is. Your answer shows
+  as your message under what asked it; nothing else is said unless it was not taken.
 - Questions and approvals also appear in [Attention](../attention/).
 
 ## Commands

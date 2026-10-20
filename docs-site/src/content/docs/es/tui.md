@@ -8,7 +8,8 @@ lugar, y `--json` o una tubería dan la salida propia de la CLI.
 
 ## La disposición
 
-- **La cabecera** muestra la marca de Aqorin (`◈`, o `<>` en ASCII), dónde estás y el proyecto.
+- **La cabecera** muestra la marca de Aqorin (`◈`, o `<>` en ASCII), dónde estás y el proyecto, y, en un Run o
+  un chat abierto, su estado. Si un Run es advisory lo dicen sus detalles y su Result, no la cabecera.
 - **El rail** de la izquierda lista las nueve secciones. `1`–`9` saltan directamente a una.
 - **La lista** del centro contiene los elementos de la sección.
 - **El inspector** de la derecha explica el elemento seleccionado. Contiene las acciones de ese
@@ -17,10 +18,14 @@ lugar, y `--json` o una tubería dan la salida propia de la CLI.
 - **La barra de estado** dice qué Run se está moviendo y qué te espera a ti. Su glifo gira mientras
   un Run trabaja.
 
+Mientras la TUI está abierta, el título de tu terminal es `◈ aqorin · <proyecto>`. Al salir (`q`, o Ctrl+C) la
+terminal recupera la pantalla que tenía y se le pide su título anterior (una terminal que no guarda una pila de
+títulos mantiene el de Aqorin hasta que tu shell ponga otro).
+
 | Tecla | Sección | Qué contiene |
 |---|---|---|
 | `1` | Home | La lista de comprobación del primer uso y, después, el plano de control. |
-| `2` | Runs | Todos los Runs y chats de este proyecto. `n` empieza una tarea nueva, `c` un Free chat. |
+| `2` | Runs | Todos los Runs y chats de este proyecto, en columnas: número, workflow, estado y cuándo empezó. `n` empieza una tarea nueva, `c` un Free chat. |
 | `3` | Attention | Lo que te espera: aprobaciones, preguntas y decisiones. |
 | `4` | Agents | Los roles que usa un workflow: los integrados, las plantillas y los tuyos. |
 | `5` | Workflows | Los grafos de pasos y dónde se ejecuta cada paso. |

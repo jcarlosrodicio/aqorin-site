@@ -92,7 +92,8 @@ prompt.
 
 The list names each workflow with its steps, its assurance and where it comes from: **built-in**
 (shipped with Aqorin), **project** (a file in `.aqorin/workflows/`) or **advanced**. A built-in's
-inspector starts with what it is for, its flow and its agents.
+inspector starts with what it is for, then draws its flow: each step, its agent and where it runs. From 160
+columns the inspector is wider on this screen, so each step reads on one line.
 
 - **Edit (your copy)** (`e`) writes it into this project under its own name. That copy replaces the built-in
   here and is yours to change; deleting it brings the built-in back.

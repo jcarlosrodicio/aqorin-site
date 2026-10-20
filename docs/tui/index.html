@@ -74,7 +74,8 @@
 <code dir="auto">--json</code> or a pipe give the CLI’s own output.</p>
 <div class="sl-heading-wrapper level-h2"><h2 id="the-layout">The layout</h2><a class="sl-anchor-link" href="#the-layout"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “The layout”</span></a></div>
 <ul>
-<li><strong>The header</strong> shows Aqorin’s mark (<code dir="auto">◈</code>, or <code dir="auto">&lt;&gt;</code> in ASCII), where you are and the project.</li>
+<li><strong>The header</strong> shows Aqorin’s mark (<code dir="auto">◈</code>, or <code dir="auto">&lt;&gt;</code> in ASCII), where you are and the project — and, in an open
+Run or chat, its state. Whether a Run is advisory is said in its details and its Result, not here.</li>
 <li><strong>The rail</strong> on the left lists the nine sections. <code dir="auto">1</code>–<code dir="auto">9</code> jump straight to one.</li>
 <li><strong>The list</strong> in the middle holds the section’s items.</li>
 <li><strong>The inspector</strong> on the right explains the selected item. It holds that item’s actions as
@@ -83,6 +84,9 @@ buttons.</li>
 <li><strong>The status bar</strong> says which Run is moving and what waits for you. Its glyph turns while a Run
 works.</li>
 </ul>
+<p>While the TUI runs, your terminal’s title is <code dir="auto">◈ aqorin · &lt;project&gt;</code>. Quitting (<code dir="auto">q</code>, or Ctrl+C) gives the
+terminal back the screen it had, and asks it for its previous title (a terminal that keeps no title stack keeps
+Aqorin’s until your shell sets another).</p>
 <table>
 <thead>
 <tr>
@@ -100,7 +104,7 @@ works.</li>
 <tr>
 <td><code dir="auto">2</code></td>
 <td>Runs</td>
-<td>Every Run and chat of this project. <code dir="auto">n</code> starts a new task, <code dir="auto">c</code> a Free chat.</td>
+<td>Every Run and chat of this project, in columns: number, workflow, state, when it started. <code dir="auto">n</code> starts a new task, <code dir="auto">c</code> a Free chat.</td>
 </tr>
 <tr>
 <td><code dir="auto">3</code></td>
