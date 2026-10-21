@@ -3,8 +3,10 @@ title: Connections
 description: How a runtime reaches a model, through its own login or through a connection you add to Aqorin.
 ---
 
-Claude Code, Codex and Pi each have a **native connection**: their own login and configuration, exactly
-as when you run them yourself. Aqorin runs Pi **isolated**, without your settings or extensions: a provider you
+Claude Code, Codex and Pi each have a **native connection**. For Claude Code and Codex it is their own login, but a
+step runs them in Aqorin's isolated setup, with none of your settings: Codex in a Codex home of Aqorin's with only your
+login linked, Claude Code with none of your settings or MCP servers (a [Free chat](../free-chat/) on **Your
+configuration** is the one that reads them). For Pi it is Pi's own providers. Aqorin runs Pi **isolated**, without your settings or extensions: a provider you
 reach natively through an extension may not exist inside Aqorin, and Pi, with no model named, would pick a provider by
 itself. So a Pi step needs one of two things before it starts:
 
@@ -19,7 +21,9 @@ itself. So a Pi step needs one of two things before it starts:
   call is made, so a listed model can still fail its first turn. With Pi's default connection chosen, an assignment
   reaches Pi's own providers by naming the connection `pi`.
 
-With neither, Aqorin refuses before anything runs and says both ways.
+With neither, Aqorin refuses before anything runs and says both ways. A Free chat on Pi's own providers, `aqorin
+doctor --live` and the draft of a delivery are held to the same check. A Run you resume keeps the plan it was made
+with: when its model cannot run now, the refusal names `aqorin replan` with a model or a connection.
 
 **OpenCode has no native connection in Aqorin.** Every OpenCode Aqorin starts — a workflow step, a Free
 chat, a check, `aqorin open opencode` — runs in Aqorin's own OpenCode home, never with your OpenCode
@@ -35,13 +39,14 @@ OpenCode outside Aqorin is untouched.
 `aqorin open opencode` starts, Aqorin asks its endpoint for its models — one call to `/models`, with the key for that
 call alone. A key the provider refuses, an endpoint that does not answer, or a model the list does not have stops it
 before anything is created; an endpoint with no list, or one that answers the check with a redirect, a rate limit or
-a server error, passes, its key not proven. **Use by default** and
+a server error, passes, its key not proven; one that answers an empty list took the key, and its models are the ones
+you declared by hand. `aqorin doctor --live` and a delivery's draft ask the same before their turn. **Use by default** and
 `aqorin connections use` ask the same before they make a connection the default, change nothing when it fails, and
-say when the key was not proven. The plan you preview does not ask: it reads no key.
+say when the key was not proven; on a connection with no default model yet, they name the models its endpoint lists. The plan you preview does not ask: it reads no key.
 
 Home and Runtimes say where each runtime runs when a step names no connection: OpenCode and Pi on their default
 connection and its model, Pi otherwise on *its own providers · a step names its model*, Claude Code and Codex on
-*their own configuration*.
+*their own login · Aqorin's isolated setup*.
 
 For any of these — a provider for OpenCode, one Pi reaches through an extension, or an API key instead
 of a login — add a **connection** of Aqorin's own.
