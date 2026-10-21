@@ -14,6 +14,7 @@ or a command in the palette.
 | `←` `→` or `Tab` | Move between the rail, the list, and the inspector and its buttons. |
 | `Enter` | Open the item, or do the focused button. |
 | `Esc` | Go back one level. It never quits. |
+| `Tab` or `↓`, `←` `→` | In a form (New task, a connection): `Tab` or `↓` the next field; on a choice `←` `→` choose, and the form's last line says so while it has the focus (a long, searched choice says it on its search line). |
 | `0` | Global: every project in your list. See [Several projects](../projects/). |
 | `1`–`9` | Home, Runs, Attention, Agents, Workflows, Runtimes, Resources, Credentials, Settings. From an open workflow Run too: it closes as `Esc` would. In a chat, an editor, New task or a form a digit is text or a choice: `Esc` first. |
 | `/` | Filter the list: Runs, Agents, Workflows and Resources. `Esc` clears the filter. |

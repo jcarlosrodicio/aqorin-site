@@ -81,7 +81,7 @@ cannot read — damaged, or written by a newer Aqorin — says *unreadable*; the
 
 `aqorin` opens the project you are in, as before; in a git repository with no project yet, its Setup; anywhere else —
 your home folder included — **Global**. In a project, `0` (or `Esc` at its top level) shows Global; the rail has it
-above Home.
+above Home. Its header says *all projects*, not the project you opened the TUI in.
 
 - Global lists **what waits for you first, across projects**, each item naming its project; then the Runs working,
   waiting, failed or blocked and finished recently (the three newest per project); then each project with its counts,
