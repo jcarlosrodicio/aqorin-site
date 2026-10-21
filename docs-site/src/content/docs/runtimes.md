@@ -62,8 +62,11 @@ It is the same check as `aqorin doctor --live`. Before the call, it says:
 - that your provider may bill the call.
 
 **Cancel** calls nothing. On a Pi connection, Validate checks Pi through that connection. On a
-runtime that has connections, Validate first asks which way: its own configuration, or one of the
-connections — its own default may be the one route whose key does not work.
+runtime that has connections, Validate first asks which way: its own login (for Pi, its own providers, or its
+default connection once you chose one), or one of the connections — its own default may be the one route whose key
+does not work. The check is held to what a step needs first: Pi runs on its default connection or on a model Pi lists,
+and a connection's endpoint is asked for its key; either refusal calls no model and says the way out. In the
+TUI, Pi's model is the one in `AQORIN_PI_MODEL` when you start aqorin.
 
 Updating a runtime within a major version Aqorin has already run needs nothing: Aqorin reads the
 new version's options locally, with no model call. A new major (Pi 0.x → 1.x, say) is flagged as new

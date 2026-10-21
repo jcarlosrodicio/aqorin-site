@@ -3,8 +3,11 @@ title: Conexiones
 description: Cómo llega un runtime a un modelo, mediante su propio inicio de sesión o mediante una conexión que añades a Aqorin.
 ---
 
-Claude Code, Codex y Pi tienen cada uno una **conexión nativa**: su propio inicio de sesión y su propia
-configuración, exactamente como cuando los ejecutas tú. Aqorin ejecuta Pi **aislado**, sin tus ajustes ni tus
+Claude Code, Codex y Pi tienen cada uno una **conexión nativa**. Para Claude Code y Codex es su propio inicio de
+sesión, pero un paso los ejecuta en el entorno aislado de Aqorin, sin ninguno de tus ajustes: Codex en un home de Codex
+de Aqorin con solo tu inicio de sesión enlazado, y Claude Code sin tus ajustes ni tus servidores MCP (un [Free
+chat](../free-chat/) con **Your configuration** es el que sí los lee). Para Pi son los proveedores propios de Pi.
+Aqorin ejecuta Pi **aislado**, sin tus ajustes ni tus
 extensiones: un proveedor al que llegas mediante una extensión puede no existir dentro de Aqorin, y Pi, sin un modelo
 nombrado, elegiría un proveedor por su cuenta. Por eso un paso en Pi necesita una de estas dos cosas antes de empezar:
 
@@ -21,7 +24,10 @@ nombrado, elegiría un proveedor por su cuenta. Por eso un paso en Pi necesita u
   primer turno. Con la conexión por defecto de Pi elegida, una asignación llega a los proveedores propios de Pi
   nombrando la conexión `pi`.
 
-Sin ninguna de las dos, Aqorin se niega antes de lanzar nada y dice las dos salidas.
+Sin ninguna de las dos, Aqorin se niega antes de lanzar nada y dice las dos salidas. Un Free chat sobre los proveedores propios de Pi,
+`aqorin doctor --live` y el borrador de una entrega pasan la misma comprobación. Un Run que reanudas conserva el plan
+con el que se hizo: si su modelo no puede correr ahora, el rechazo nombra `aqorin replan` con un modelo o una
+conexión.
 
 **OpenCode no tiene conexión nativa en Aqorin.** Todo OpenCode que lanza Aqorin —un paso de workflow, un
 Free chat, una comprobación, `aqorin open opencode`— corre en el home de OpenCode propio de Aqorin, nunca
@@ -37,13 +43,16 @@ modelo propio de la conexión si lo tiene. Tu OpenCode fuera de Aqorin no se toc
 chat sobre una o `aqorin open opencode`, Aqorin pregunta a su endpoint por sus modelos —una llamada a `/models`, con la
 clave solo para esa llamada—. Una clave que el proveedor rechaza, un endpoint que no responde o un modelo que la lista
 no tiene lo detienen antes de crear nada; un endpoint sin lista, o uno que responde a la comprobación con una
-redirección, un límite de peticiones o un error del servidor, pasa, sin que su clave quede probada. **Use by
+redirección, un límite de peticiones o un error del servidor, pasa, sin que su clave quede probada; uno que responde
+una lista vacía aceptó la clave, y sus modelos son los que declaraste a mano. `aqorin doctor --live` y el borrador de
+una entrega preguntan lo mismo antes de su turno. **Use by
 default** y `aqorin connections use` preguntan lo mismo antes de hacer de una conexión la de por defecto, no cambian
-nada si falla y avisan cuando la clave no quedó probada. El plan que previsualizas no pregunta: no lee ninguna clave.
+nada si falla y avisan cuando la clave no quedó probada; en una conexión sin modelo por defecto todavía, nombran los
+modelos que lista su endpoint. El plan que previsualizas no pregunta: no lee ninguna clave.
 
 Home y Runtimes dicen dónde corre cada runtime cuando un paso no nombra conexión: OpenCode y Pi, sobre su conexión
 por defecto y su modelo; Pi, si no, sobre *its own providers · a step names its model*; Claude Code y Codex, sobre
-*its own configuration*.
+*its own login · Aqorin's isolated setup* (su propio inicio de sesión, en el entorno aislado de Aqorin).
 
 Para cualquiera de estos casos —un proveedor para OpenCode, uno al que Pi llega mediante una extensión, o
 una clave de API en lugar de un inicio de sesión— añade una **conexión** propia de Aqorin.

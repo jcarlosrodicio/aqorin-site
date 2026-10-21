@@ -67,8 +67,12 @@ real a un modelo. Es la misma comprobación que `aqorin doctor --live`. Antes de
 - que tu proveedor puede facturar la llamada.
 
 **Cancel** no llama a nada. En una conexión de Pi, Validate comprueba Pi a través de esa conexión. En
-un runtime que tiene conexiones, Validate pregunta primero por dónde: su propia configuración o una de
-las conexiones, porque su modelo por defecto puede ser justo el que no tiene una clave que funcione.
+un runtime que tiene conexiones, Validate pregunta primero por dónde: su propio inicio de sesión (en Pi, sus
+proveedores propios, o su conexión por defecto si ya elegiste una) o una de las conexiones, porque su modelo por
+defecto puede ser justo el que no tiene una clave que funcione. Antes, la comprobación pasa lo que necesita un paso: Pi
+corre sobre su conexión por defecto o sobre un modelo que Pi lista, y al endpoint de una conexión se le pregunta por su
+clave; cualquiera de los dos rechazos no llama a ningún modelo y dice la salida. En el TUI, el modelo de Pi es el de
+`AQORIN_PI_MODEL` al arrancar aqorin.
 
 Actualizar un runtime dentro de una versión mayor que Aqorin ya ha ejecutado no requiere nada: Aqorin
 lee en local las opciones de la versión nueva, sin llamar a ningún modelo. Una versión mayor nueva (de
