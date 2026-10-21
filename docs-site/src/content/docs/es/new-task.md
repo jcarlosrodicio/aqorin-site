@@ -15,8 +15,8 @@ description: Un formulario que va de una petición a un plan, y nada se ejecuta 
 
 ## Comprobaciones
 
-- **Con comprobaciones**, **Plan** escribe la tarea en `.aqorin/tasks/`, con un nombre sacado de tu
-  petición. Aqorin ejecuta las comprobaciones por sí mismo, con tus permisos, y solo su código de
+- **Con comprobaciones**, **Plan** escribe la tarea en la carpeta de tareas del proyecto, en la carpeta de datos de
+  Aqorin (nunca en el repositorio), con un nombre sacado de tu petición. Aqorin ejecuta las comprobaciones por sí mismo, con tus permisos, y solo su código de
   salida decide la validación.
 - **Sin comprobaciones**, no se escribe ningún archivo de tarea. Nada comprueba el trabajo: el paso
   sigue enseguida, sus comprobaciones dicen *not checked* y el Run es *advisory* (orientativo). El

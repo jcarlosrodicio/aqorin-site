@@ -31,7 +31,7 @@ and a step can run on Claude Code, Codex, OpenCode or Pi without the workflow ch
    ```
 
 2. **Home is a checklist** until the project is ready to run. Work down it:
-   - set Aqorin up in this project (it writes `.aqorin/` and nothing else);
+   - set Aqorin up in this project (it writes `.aqorin/aqorin.yaml`, the mark that it is one of yours, and nothing else);
    - choose an installation, for any runtime found more than once;
    - choose the **default runtime** — where a step runs when nothing else says so.
 

@@ -60,7 +60,7 @@ Uninstalling leaves Aqorin's own files in place. Remove them to start fresh:
 | Configuration | `~/Library/Application Support/aqorin/` | `AQORIN_CONFIG_HOME` |
 | Runs and evidence | `~/Library/Application Support/aqorin/data/` | `AQORIN_DATA_HOME` |
 | Cache | `~/Library/Caches/aqorin/` | `AQORIN_CACHE_HOME` |
-| A project's own files | `<project>/.aqorin/` | — |
+| A project's mark | `<project>/.aqorin/aqorin.yaml` | — |
 
 Nothing of your runtimes' installations or configuration is touched, either way.
 

@@ -48,7 +48,7 @@ aqorin runtimes select codex /path/to/codex     # choose the installation
 
 ## The default runtime
 
-The project's **default runtime** is where a workflow step runs when nothing else says where. You
+Your **default runtime** is where a workflow step runs when nothing else says where, the same in every project. You
 choose it on Home's checklist or in Settings (`9`); `aqorin use <runtime>` does the same.
 [Where a step runs](../workflows/#where-a-step-runs) explains the order in which Aqorin decides.
 

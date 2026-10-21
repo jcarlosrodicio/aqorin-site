@@ -19,9 +19,9 @@ Aqorin, en una rama nueva `aqorin/<tarea>-<id>` desde tu último commit. El plan
 ejecutarse, y avisa si tu carpeta tiene cambios sin commit (no están en el worktree). Sus checks, su
 revisión y sus cambios son suyos, y Runs lo marca con `⎇`.
 
-Un worktree nuevo no tiene nada instalado. Para prepararlo, pon `worktree_setup` en
-`.aqorin/aqorin.yaml` (mira [Configuración](../configuration/)); sin él no se prepara nada, y el plan
-lo dice.
+Un worktree nuevo no tiene nada instalado. Para prepararlo, dale al proyecto un comando de preparación:
+`aqorin projects setup <proyecto> --set npm ci` (mira [Configuración](../configuration/#la-preparación-de-los-worktrees-de-un-proyecto));
+sin él no se prepara nada, y el plan lo dice.
 
 Como mucho cuatro workflows van en worktrees a la vez; un quinto lanzamiento se rechaza y los nombra.
 

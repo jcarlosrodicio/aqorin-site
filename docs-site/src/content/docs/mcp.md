@@ -26,7 +26,7 @@ kept. Some servers cannot be given back through the form unchanged — for examp
 argument containing a space, or a keychain item containing a space or an `@`. Edit those in their
 file.
 
-**Assign**, **Unassign** and **Remove** work as they do for [skills](../skills/): the project, a
+**Assign**, **Unassign** and **Remove** work as they do for [skills](../skills/): every Run, a
 workflow or an agent; required or optional. **Remove** is refused while anything uses the server.
 
 ## The file

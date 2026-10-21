@@ -15,7 +15,7 @@ A workflow names no runtime and no model. Those belong to an
 ## The built-in workflows
 
 Aqorin ships a library of workflows for everyday development. None names a runtime, a connection or a
-model: each step runs where its assignment, its agent's default or the project's default runtime
+model: each step runs where its assignment, its agent's default or your default runtime
 says.
 
 | Workflow | Flow | Use it for |
@@ -91,13 +91,13 @@ prompt.
 ## The Workflows screen (`5`)
 
 The list names each workflow with its steps, its assurance and where it comes from: **built-in**
-(shipped with Aqorin), **project** (a file in `.aqorin/workflows/`) or **advanced**. A built-in's
+(shipped with Aqorin), **project** (yours: a file in your library's `workflows/`) or **advanced**. A built-in's
 inspector starts with what it is for, then draws its flow: each step, its agent and where it runs. From 160
 columns the inspector is wider on this screen, so each step reads on one line.
 
-- **Edit (your copy)** (`e`) writes it into this project under its own name. That copy replaces the built-in
-  here and is yours to change; deleting it brings the built-in back.
-- **Hide…** (`x`) takes a built-in off this project's lists (it still runs when named); **Restore hidden…**
+- **Edit (your copy)** (`e`) writes it into your library under its own name. That copy replaces the built-in
+  in every project and is yours to change; deleting it brings the built-in back.
+- **Hide…** (`x`) takes a built-in off your lists (it still runs when named); **Restore hidden…**
   (`h`) lists it again.
 - **Duplicate…** (`d`) copies it under a name not taken. `feature`, kept for compatibility, is copied with
   **Customize…** (`d`).
@@ -124,7 +124,8 @@ In the editor:
   and `v` sets the review step.
 - `s` saves.
 
-Workflows live in `.aqorin/workflows/<id>.workflow.yaml`. You can edit them by hand;
+Workflows live in your library, `library/workflows/<id>.workflow.yaml` in Aqorin's configuration folder. You can edit
+them by hand;
 `aqorin workflows validate <id>` says what is wrong, with the line.
 
 ## Enforced and advisory
@@ -149,7 +150,7 @@ On Workflows, **Where it runs** (`g`) opens an **assignment**. For each step, `E
 
 Then:
 
-- `s` saves the assignment to `.aqorin/assignments/<name>.profile.yaml`;
+- `s` saves the assignment to your library, `library/assignments/<name>.profile.yaml`;
 - `p` runs the **preflight** — the plan `aqorin run <workflow> --assign <name> --plan-only` prints;
 - `D` makes the assignment the workflow's default.
 
@@ -180,6 +181,6 @@ Aqorin decides in this order, and the step's inspector shows which layer decided
 
 1. The workflow's explicit assignment, or an explicit `--runtime` / `--model` on the command line.
 2. The agent's [default execution](../agents/#default-execution).
-3. The project's default runtime.
+3. Your default runtime.
 
 Aqorin never switches runtime on its own.

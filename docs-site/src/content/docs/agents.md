@@ -48,8 +48,7 @@ model's effort. It is your preference — the agents Aqorin ships come with none
 - **Configure default** (`c`) chooses it. The model is picked from the connection's models, or the
   ones the runtime lists (Claude Code's and Codex's included), or **Another model id…** for one the
   list does not name. For a built-in
-  agent, it is kept in this project's
-  configuration; for your own agent, in the agent's file.
+  agent, it is kept in your `config.yaml`, the same in every project; for your own agent, in the agent's file.
 - **Effort**, in the same form, is how hard the model reasons in the steps this default places, in the
   runtime's own levels. **Default** leaves it to the runtime.
 
@@ -71,7 +70,8 @@ Portable Feature templates add `researcher`, `advisory-researcher` and `advisory
 
 ## The file
 
-Your agents live in `.aqorin/agents/<id>.agent.yaml`. You can edit them by hand:
+Your agents live in your library, `library/agents/<id>.agent.yaml` in Aqorin's configuration folder, the same in every
+project ([Configuration](../configuration/)). You can edit them by hand:
 
 ```yaml
 kind: aqorin.agent

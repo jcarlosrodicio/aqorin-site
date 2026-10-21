@@ -224,7 +224,7 @@ and the executables on your PATH (<code dir="auto">~/.local/bin</code>, Homebrew
 sandbox too, and integrating a sandboxed Run’s worktree runs no git hook — its agents may have written
 one. Reads and the network are not limited. Codex keeps its own sandbox; Claude Code’s own is turned off
 inside Aqorin’s for that Run, without changing your settings. Where the sandbox cannot be set up, the Run
-is refused. <code dir="auto">sandbox: off</code> in <code dir="auto">.aqorin/aqorin.yaml</code> runs without it, and every Run says so.</p>
+is refused. <code dir="auto">sandbox: off</code> in your <code dir="auto">config.yaml</code> runs without it, in every project, and every Run says so.</p>
 <p><strong>On Linux</strong> the sandbox is bubblewrap, a system package: install it (<code dir="auto">sudo apt install bubblewrap</code>) — Aqorin
 never does, and <code dir="auto">aqorin doctor</code> says whether it works here. It also closes the shell and session start-up
 files a Linux login runs (<code dir="auto">~/.bash_login</code>, <code dir="auto">~/.pam_environment</code>, systemd user units, autostart). It holds a
@@ -275,5 +275,12 @@ repository it makes inside your project — whose own configuration your git run
 without entering them, and names any it finds — or says it could not check: look before you run git. It does
 not see one in a stash, a tag or a commit no branch points at, nor what a turn whose Aqorin was killed added.
 Aqorin’s own git never looks inside a submodule’s working tree.</li>
+<li><strong>Your library, where Aqorin’s sandbox does not run.</strong> Aqorin’s sandbox keeps its configuration folder — and so
+your <a href="../configuration/">library</a>, every project’s agents, workflows, assignments, skills and MCP servers —
+closed to a Run it wraps. A Run whose steps are all Codex (Codex’s own sandbox), a Codex chat (the same), <code dir="auto">sandbox: off</code>
+or a platform with no sandbox of Aqorin’s can write it, and what one project’s Run writes there reaches every
+project’s next Run. A Run already going is not changed by it: its workflow, roles, assignment, skills and MCP
+servers are frozen by hash when it starts, and its record says whether the sandbox wrapped it. Your worktree setup,
+the runtimes’ paths and agent files read at a Run’s start are not checked again.</li>
 </ul>
 </div><footer class="sl-flex astro-ddtxxk7k"><div class="meta sl-flex astro-ddtxxk7k"></div><div class="pagination-links print:hidden astro-b5raizh3" dir="ltr"><a href="/docs/configuration/" rel="prev" class="astro-b5raizh3"><svg aria-hidden="true" class="astro-b5raizh3 astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;"><path d="M17 11H9.41l3.3-3.29a1.004 1.004 0 1 0-1.42-1.42l-5 5a1 1 0 0 0-.21.33 1 1 0 0 0 0 .76 1 1 0 0 0 .21.33l5 5a1.002 1.002 0 0 0 1.639-.325 1 1 0 0 0-.219-1.095L9.41 13H17a1 1 0 0 0 0-2Z"/></svg><span class="astro-b5raizh3">Previous<br class="astro-b5raizh3"><span class="link-title astro-b5raizh3">Configuration</span></span></a><a href="/docs/troubleshooting/" rel="next" class="astro-b5raizh3"><svg aria-hidden="true" class="astro-b5raizh3 astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;"><path d="M17.92 11.62a1.001 1.001 0 0 0-.21-.33l-5-5a1.003 1.003 0 1 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1.002 1.002 0 0 0 .325 1.639 1 1 0 0 0 1.095-.219l5-5a1 1 0 0 0 .21-.33 1 1 0 0 0 0-.76Z"/></svg><span class="astro-b5raizh3">Next<br class="astro-b5raizh3"><span class="link-title astro-b5raizh3">Troubleshooting</span></span></a></div></footer></div></div></main></div></div></div></div></body></html>

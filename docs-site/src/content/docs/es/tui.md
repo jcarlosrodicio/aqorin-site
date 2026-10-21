@@ -35,7 +35,7 @@ títulos mantiene el de Aqorin hasta que tu shell ponga otro).
 | `6` | Runtimes | Los cuatro runtimes tal como se encuentran en esta máquina, y tus conexiones. |
 | `7` | Resources | Las skills y los servidores MCP que pueden usar tus agentes. |
 | `8` | Credentials | Las referencias a tus claves, nunca un valor. |
-| `9` | Settings | La configuración del proyecto, su runtime por defecto, la apariencia y dónde guarda Aqorin sus archivos. |
+| `9` | Settings | La configuración del proyecto, tu runtime por defecto, la apariencia y dónde guarda Aqorin sus archivos. |
 
 ## Home
 

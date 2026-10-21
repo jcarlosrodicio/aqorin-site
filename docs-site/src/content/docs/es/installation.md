@@ -61,7 +61,7 @@ Desinstalar deja en su sitio los archivos propios de Aqorin. Bórralos para empe
 | Configuración | `~/Library/Application Support/aqorin/` | `AQORIN_CONFIG_HOME` |
 | Runs y evidencia | `~/Library/Application Support/aqorin/data/` | `AQORIN_DATA_HOME` |
 | Caché | `~/Library/Caches/aqorin/` | `AQORIN_CACHE_HOME` |
-| Los archivos propios de un proyecto | `<project>/.aqorin/` | — |
+| La marca de un proyecto | `<project>/.aqorin/aqorin.yaml` | — |
 
 En ningún caso se toca nada de la instalación ni de la configuración de tus runtimes.
 

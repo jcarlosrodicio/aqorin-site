@@ -81,9 +81,9 @@ runs in a <strong>git worktree of its own</strong> — outside your repository, 
 <code dir="auto">aqorin/&lt;task&gt;-&lt;id&gt;</code> from your last commit. The plan says so before it runs, and says when your folder
 has uncommitted changes (they are not in the worktree). Its checks, review and changes are its own, and
 Runs marks it <code dir="auto">⎇</code>.</p>
-<p>A new worktree has nothing installed. To prepare each one, set <code dir="auto">worktree_setup</code> in
-<code dir="auto">.aqorin/aqorin.yaml</code> (see <a href="../configuration/">Configuration</a>); without it nothing is prepared, and the
-plan says so.</p>
+<p>A new worktree has nothing installed. To prepare each one, give the project a setup command:
+<code dir="auto">aqorin projects setup &lt;project&gt; --set npm ci</code> (see <a href="../configuration/#a-projects-worktree-setup">Configuration</a>);
+without it nothing is prepared, and the plan says so.</p>
 <p>At most four workflows run in worktrees at once; a fifth launch is refused and names them.</p>
 <p>When such a Run is over, its Result says what became of its worktree, and you decide — nothing happens
 on its own, and every decision is recorded on the Run (<code dir="auto">aqorin logs &lt;run&gt;</code> shows it):</p>

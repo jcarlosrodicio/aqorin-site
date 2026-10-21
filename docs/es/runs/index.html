@@ -81,9 +81,9 @@ ahí se ejecuta en <strong>un worktree de git propio</strong>: fuera de tu repos
 Aqorin, en una rama nueva <code dir="auto">aqorin/&lt;tarea&gt;-&lt;id&gt;</code> desde tu último commit. El plan lo dice antes de
 ejecutarse, y avisa si tu carpeta tiene cambios sin commit (no están en el worktree). Sus checks, su
 revisión y sus cambios son suyos, y Runs lo marca con <code dir="auto">⎇</code>.</p>
-<p>Un worktree nuevo no tiene nada instalado. Para prepararlo, pon <code dir="auto">worktree_setup</code> en
-<code dir="auto">.aqorin/aqorin.yaml</code> (mira <a href="../configuration/">Configuración</a>); sin él no se prepara nada, y el plan
-lo dice.</p>
+<p>Un worktree nuevo no tiene nada instalado. Para prepararlo, dale al proyecto un comando de preparación:
+<code dir="auto">aqorin projects setup &lt;proyecto&gt; --set npm ci</code> (mira <a href="../configuration/#la-preparaci%C3%B3n-de-los-worktrees-de-un-proyecto">Configuración</a>);
+sin él no se prepara nada, y el plan lo dice.</p>
 <p>Como mucho cuatro workflows van en worktrees a la vez; un quinto lanzamiento se rechaza y los nombra.</p>
 <p>Cuando ese Run termina, su Result dice qué pasó con su worktree, y decides tú — nada ocurre solo, y
 cada decisión queda registrada en el Run (<code dir="auto">aqorin logs &lt;run&gt;</code> la muestra):</p>

@@ -27,7 +27,7 @@ comentarios que tenga no se conservan. Algunos servidores no se pueden devolver 
 del formulario, por ejemplo uno con un argumento que contiene un espacio, o un elemento del llavero
 que contiene un espacio o una `@`. Edítalos en su archivo.
 
-**Assign**, **Unassign** y **Remove** funcionan como en las [skills](../skills/): el proyecto, un
+**Assign**, **Unassign** y **Remove** funcionan como en las [skills](../skills/): todos los Runs, un
 workflow o un agente; requerida u opcional. **Remove** se rechaza mientras algo use el servidor.
 
 ## El archivo

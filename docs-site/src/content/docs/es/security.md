@@ -132,7 +132,7 @@ Ninguno de ellos, ni ninguna carpeta por encima, se puede renombrar para apartar
 se ejecutan en el sandbox, e integrar el worktree de un Run con sandbox no ejecuta ningún hook de git — sus
 agentes podrían haberlo escrito. Las lecturas y la red no se limitan. Codex conserva su propio sandbox; el de Claude Code se apaga dentro del
 de Aqorin para ese Run, sin cambiar tu configuración. Donde el sandbox no se puede montar, el Run se rechaza.
-`sandbox: off` en `.aqorin/aqorin.yaml` ejecuta sin él, y cada Run lo dice.
+`sandbox: off` en tu `config.yaml` ejecuta sin él, en todos los proyectos, y cada Run lo dice.
 
 **En Linux** el sandbox es bubblewrap, un paquete del sistema: instálalo (`sudo apt install bubblewrap`) —
 Aqorin nunca lo hace, y `aqorin doctor` dice si funciona aquí. Además cierra los ficheros de arranque de la
@@ -191,3 +191,11 @@ Mira [Free chat](../free-chat/).
   submódulos nuevos, sin entrar en ellos, y nombra los que encuentra —o dice que no pudo comprobarlo—: mira antes de ejecutar git. No
   ve uno en un stash, una etiqueta o un commit al que no apunte ninguna rama, ni lo que añadió un turno cuyo Aqorin
   se mató. El git propio de Aqorin nunca mira dentro del árbol de trabajo de un submódulo.
+- **Tu biblioteca, donde no actúa el sandbox de Aqorin.** El sandbox de Aqorin mantiene su carpeta de configuración
+  —y con ella tu [biblioteca](../configuration/): los agentes, workflows, asignaciones, skills y servidores MCP de
+  todos los proyectos— cerrada para un Run que envuelve. Un Run cuyos pasos son todos de Codex (el sandbox propio de
+  Codex), un chat de Codex (igual), `sandbox: off` o una plataforma sin sandbox de Aqorin pueden escribirla, y lo que
+  escribe ahí el Run de un proyecto llega al siguiente Run de todos los proyectos. Un Run que ya está en marcha no
+  cambia por ello: su workflow, sus roles, su asignación, sus skills y sus servidores MCP se congelan por hash al
+  empezar, y su registro dice si el sandbox lo envolvió. Tu preparación de worktrees, las rutas de los runtimes y los
+  archivos de agente que se leen al empezar un Run no se vuelven a comprobar.

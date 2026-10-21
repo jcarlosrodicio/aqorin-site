@@ -273,9 +273,9 @@
     </div>
 
     <figure class="out rv">
-      <pre class="print" data-print><span class="l cmd"><span class="prompt">$ </span><span class="typed">aqorin run engineering-change --task-file .aqorin/tasks/add-a-dry-run.task.yaml --assign mixed --plan-only</span></span>
+      <pre class="print" data-print><span class="l cmd"><span class="prompt">$ </span><span class="typed">aqorin run engineering-change --task-file add-a-dry-run.task.yaml --assign mixed --plan-only</span></span>
 <span class="l">Workflow   engineering-change@1.0.0 (hash f7d696a472c2)</span>
-<span class="l">Assignment .aqorin/assignments/mixed.profile.yaml (hash 9059ff3d27cb)</span>
+<span class="l">Assignment library/assignments/mixed.profile.yaml (hash 9059ff3d27cb)</span>
 <span class="l">Steps      research → plan → implement → verify → review → docs</span>
 <span class="l">Checks     Aqorin runs the task&#x27;s 1 command; no agent checks the work (--agent-check asks for it)</span>
 
@@ -304,7 +304,7 @@
         <div class="step-copy rv">
           <span class="step-n" aria-hidden="true">1</span>
           <h3>Escribe la tarea una vez</h3>
-          <p>Un fichero de tarea guarda la petición y los comandos que la deciden. El workflow, uno de los incluidos o tu propio fichero en <code>.aqorin/workflows/</code>, dice qué pasos se ejecutan, en qué orden y adónde vuelve el trabajo cuando una revisión pide cambios. Los dos se validan y se congelan con el Run.</p>
+          <p>Un fichero de tarea guarda la petición y los comandos que la deciden. El workflow, uno de los incluidos o tu propio fichero en tu biblioteca —una para todos los proyectos—, dice qué pasos se ejecutan, en qué orden y adónde vuelve el trabajo cuando una revisión pide cambios. Los dos se validan y se congelan con el Run.</p>
         </div>
         <figure class="art rv">
           <pre class="code print" data-print><span class="l"><span class="c"># An Aqorin task (aqorin.task v1): the request and its Acceptance Plan — commands Aqorin runs, as argument arrays, never through a shell.</span></span>
@@ -317,7 +317,7 @@
 <span class="l">      - npm</span>
 <span class="l">      - test</span>
 <span class="l">    <span class="k">timeout_s</span>: 120</span></pre>
-          <figcaption><code>.aqorin/tasks/add-a-dry-run.task.yaml</code>, la tarea del Run de arriba.</figcaption>
+          <figcaption><code>add-a-dry-run.task.yaml</code>, la tarea del Run de arriba.</figcaption>
         </figure>
       </li>
 
