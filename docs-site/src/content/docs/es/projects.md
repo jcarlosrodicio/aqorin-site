@@ -83,7 +83,8 @@ puede leer —dañado, o escrito por un Aqorin más nuevo— dice *unreadable*; 
 
 `aqorin` abre el proyecto en el que estás, como antes; en un repositorio git que aún no es un proyecto, su Setup; en
 cualquier otro sitio —tu carpeta personal incluida— **Global**. En un proyecto, `0` (o `Esc` en su nivel superior)
-muestra Global; la barra lateral lo tiene encima de Home.
+muestra Global; la barra lateral lo tiene encima de Home. Su cabecera dice *all projects*, no el proyecto en el que
+abriste la TUI.
 
 - Global lista **primero lo que te espera, de todos los proyectos**, cada elemento con el nombre de su proyecto;
   después los Runs trabajando, esperando, fallidos o bloqueados y terminados hace poco (los tres últimos de cada
