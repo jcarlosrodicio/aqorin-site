@@ -166,8 +166,9 @@ and so does <code dir="auto">aqorin projects add</code> when it adds one. What i
 <li>
 <p><strong>The preview</strong> shows every entry with what can act (an agent’s access class, an MCP server’s command and the
 secrets it would be given — which variable or keychain item, never a value —, a skill’s files), each setting with its
-value and whether your <code dir="auto">config.yaml</code> already has one, the tasks, and what is skipped (a link, a file that cannot be
-read or does not validate, and a setting that names something skipped).</p>
+value and whether your <code dir="auto">config.yaml</code> already has one, the tasks, and what is skipped (a link, a file or folder that
+cannot be read or does not validate, and a setting that names something skipped). A folder of it (<code dir="auto">skills/</code>, <code dir="auto">tasks/</code>…)
+holding more than 512 files is not read, and said.</p>
 </li>
 <li>
 <p><strong>A conflict</strong> — the same id with other content in two projects, or in a project and your library — keeps the id for

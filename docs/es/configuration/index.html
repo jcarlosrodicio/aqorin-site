@@ -169,7 +169,8 @@ esperando sigue.</p>
 <li><strong>La vista previa</strong> muestra cada entrada con lo que puede actuar (la clase de acceso de un agente, el comando de un
 servidor MCP y los secretos que recibiría —qué variable o qué elemento del llavero, nunca un valor—, los archivos de
 una skill), cada ajuste con su valor y si tu <code dir="auto">config.yaml</code> ya tiene uno, las tareas y lo que se omite (un enlace, un
-archivo que no se puede leer o no valida, y un ajuste que nombra algo omitido).</li>
+archivo o carpeta que no se puede leer o no valida, y un ajuste que nombra algo omitido). Una carpeta suya (<code dir="auto">skills/</code>,
+<code dir="auto">tasks/</code>…) con más de 512 archivos no se lee, y se dice.</li>
 <li><strong>Un conflicto</strong> —el mismo id con otro contenido en dos proyectos, o en un proyecto y tu biblioteca— conserva el id
 para el de tu biblioteca y, si no, para el del primer proyecto de tu lista; los demás pasan a <code dir="auto">&lt;id&gt;-&lt;proyecto&gt;</code>
 (<code dir="auto">-2</code>, <code dir="auto">-3</code> si ya existe) y se reescribe cada referencia a ellos en lo que se importa. <code dir="auto">--rename &lt;tipo&gt;:&lt;id&gt;=&lt;nuevo&gt;</code>

@@ -96,8 +96,9 @@ aqorin migrate --yes --rename agent:critic-api=api-critic --with-setup api
 
 - **The preview** shows every entry with what can act (an agent's access class, an MCP server's command and the
   secrets it would be given — which variable or keychain item, never a value —, a skill's files), each setting with its
-  value and whether your `config.yaml` already has one, the tasks, and what is skipped (a link, a file that cannot be
-  read or does not validate, and a setting that names something skipped).
+  value and whether your `config.yaml` already has one, the tasks, and what is skipped (a link, a file or folder that
+  cannot be read or does not validate, and a setting that names something skipped). A folder of it (`skills/`, `tasks/`…)
+  holding more than 512 files is not read, and said.
 - **A conflict** — the same id with other content in two projects, or in a project and your library — keeps the id for
   your library's, then the first project's in your list; the others become `<id>-<project>` (`-2`, `-3` when taken),
   and every reference to them in what is imported is rewritten. `--rename <kind>:<id>=<new>` chooses the name. A
