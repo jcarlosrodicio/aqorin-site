@@ -6,8 +6,7 @@ description: Tu lista de proyectos, cómo un comando nombra uno desde cualquier 
 **Un Aqorin. Varios proyectos. Workflows independientes.** Un solo Aqorin —una TUI, una CLI— sigue todos los
 proyectos que añades: Runs de varios proyectos trabajan a la vez, cada uno con su runtime y en su repositorio, y cada
 proyecto conserva sus Runs, sus worktrees, su sandbox y sus pull requests. Aceptado en vivo con Claude Code, Codex,
-OpenCode y Pi en macOS 27 (Apple silicon; allí Pi con una conexión de Aqorin) y en Ubuntu 26.04 (x86_64); en macOS
-queda pendiente una comprobación: que los proyectos sigan en `ok` tras reiniciar. Está en `master`, aún no en una versión publicada.
+OpenCode y Pi en macOS 27 (Apple silicon; allí Pi con una conexión de Aqorin) y en Ubuntu 26.04 (x86_64), en macOS también tras reiniciar. Está en `master`, aún no en una versión publicada.
 
 Aqorin guarda una lista de tus proyectos —solo los que añades— para que un comando pueda nombrar un proyecto desde
 cualquier carpeta. Cada proyecto conserva su configuración, sus Runs, sus worktrees y su historial, exactamente como si
