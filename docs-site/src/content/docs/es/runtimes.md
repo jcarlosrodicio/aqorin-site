@@ -88,7 +88,7 @@ leer en absoluto se sigue rechazando hasta validarla.
 | Claude Code | Headless, bajo un perfil aislado: ninguno de tus ajustes, plugins ni servidores MCP. Se añaden las skills y los servidores MCP que das a un agente en Aqorin. |
 | Codex | En el home de Codex propio de Aqorin, con la sesión iniciada con tu login o con una clave de API por referencia. |
 | OpenCode | En el home de OpenCode propio de Aqorin, solo sobre una de tus [conexiones](../connections/): nunca con tu configuración ni tu inicio de sesión de OpenCode. |
-| Pi | Aislado, sin tus extensiones. Un proveedor al que llegas mediante una extensión necesita una [conexión](../connections/). |
+| Pi | Aislado, sin tus ajustes ni extensiones: sobre la [conexión](../connections/) por defecto de Pi, o sobre un modelo que Pi lista, comprobado antes del Run. Un proveedor al que llegas mediante una extensión necesita una conexión. |
 
 Un [Free chat](../free-chat/) puede ejecutarse, en cambio, con tu propia configuración, si eliges
 eso al crearlo.

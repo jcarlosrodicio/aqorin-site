@@ -15,7 +15,7 @@ or a command in the palette.
 | `Enter` | Open the item, or do the focused button. |
 | `Esc` | Go back one level. It never quits. |
 | `0` | Global: every project in your list. See [Several projects](../projects/). |
-| `1`–`9` | Home, Runs, Attention, Agents, Workflows, Runtimes, Resources, Credentials, Settings. |
+| `1`–`9` | Home, Runs, Attention, Agents, Workflows, Runtimes, Resources, Credentials, Settings. From an open workflow Run too: it closes as `Esc` would. In a chat, an editor, New task or a form a digit is text or a choice: `Esc` first. |
 | `/` | Filter the list: Runs, Agents, Workflows and Resources. `Esc` clears the filter. |
 | `:` or Ctrl+P | The command palette. |
 | `?` or F1 | The help of this screen. |

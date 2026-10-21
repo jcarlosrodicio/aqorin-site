@@ -15,7 +15,7 @@ también un botón o un comando de la paleta.
 | `Enter` | Abrir el elemento, o pulsar el botón con el foco. |
 | `Esc` | Volver un nivel. Nunca sale. |
 | `0` | Global: todos los proyectos de tu lista. Ver [Varios proyectos](../projects/). |
-| `1`–`9` | Home, Runs, Attention, Agents, Workflows, Runtimes, Resources, Credentials, Settings. |
+| `1`–`9` | Home, Runs, Attention, Agents, Workflows, Runtimes, Resources, Credentials, Settings. También desde un Run de workflow abierto: se cierra como con `Esc`. En un chat, un editor, New task o un formulario, un dígito es texto o una elección: primero `Esc`. |
 | `/` | Filtrar la lista: Runs, Agents, Workflows y Resources. `Esc` borra el filtro. |
 | `:` o Ctrl+P | La paleta de comandos. |
 | `?` o F1 | La ayuda de esta pantalla. |

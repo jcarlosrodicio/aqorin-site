@@ -74,7 +74,10 @@
 opción de New task, o con <code dir="auto">c</code> en Runs. Elige un runtime y un modelo, y decide cómo funciona. En Pi,
 si configuraste conexiones de Pi en Runtimes, primero eliges <strong>Its connection</strong> —<em>None</em> para los
 proveedores propios de Pi, o una de las tuyas, cuyos modelos se ofrecen después con el suyo por defecto
-primero—: el chat se ejecuta entonces aislado sobre esa conexión, con su clave pasada por nombre. Un chat
+primero—: el chat se ejecuta entonces aislado sobre esa conexión, con su clave pasada por nombre. Con <em>None</em>,
+aislado, el chat necesita un modelo nombrado: <em>Pi’s own default</em> es solo para <em>Your configuration</em>; una conversación
+de Pi con un rol también lo necesita. Un chat sobre una conexión pregunta antes a su endpoint por sus modelos, y una
+clave que rechaza lo detiene antes de que exista. Un chat
 de OpenCode siempre corre sobre una de tus conexiones de OpenCode —primero la de por defecto de OpenCode,
 nunca <em>None</em>— y luego uno de sus modelos.</p>
 <p>Los Free chats no se esperan entre sí ni esperan a un workflow: puedes tener varios abiertos, y un
