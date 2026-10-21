@@ -6,7 +6,8 @@ description: Your list of projects, how a command names one from anywhere, and w
 **One Aqorin. Multiple projects. Independent workflows.** One Aqorin — one TUI, one CLI — follows every project you
 add: Runs of several projects work at once, each on its own runtime and in its own repository, and each project keeps
 its own Runs, worktrees, sandbox and pull requests. Accepted live with Claude Code, Codex, OpenCode and Pi on macOS 27
-(Apple silicon; Pi there on a connection of Aqorin's) and on Ubuntu 26.04 (x86_64). It is on `master`, not yet in a published version.
+(Apple silicon; Pi there on a connection of Aqorin's) and on Ubuntu 26.04 (x86_64); on macOS, one check — that the
+projects still read `ok` after a reboot — is pending. It is on `master`, not yet in a published version.
 
 Aqorin keeps a list of your projects — only the ones you add — so a command can name a project from any folder.
 Each project keeps its own configuration, Runs, worktrees and history, exactly as if it had its own Aqorin.
