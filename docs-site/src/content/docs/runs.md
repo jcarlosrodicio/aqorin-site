@@ -118,7 +118,8 @@ shows:
 
 A Run that succeeded with changes offers **Commit and PR…** (`P`) on its Result. The runtime and model of
 the Run's review step draft the commit message and the pull request, in one turn in a disposable directory, told
-to use no tool.
+to use no tool. On Pi with no connection named, that turn runs on Pi's default connection, or else on a model Pi lists,
+checked first, as a step's is.
 That turn is given the task, what the steps said, the review, what Aqorin recorded of the checks (each one and its
 result, and each verification step's decision) and the files changed — not the diff; it is told to say how the work was
 checked from that record only. You see the

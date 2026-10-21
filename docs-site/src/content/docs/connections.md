@@ -4,8 +4,22 @@ description: How a runtime reaches a model, through its own login or through a c
 ---
 
 Claude Code, Codex and Pi each have a **native connection**: their own login and configuration, exactly
-as when you run them yourself. Aqorin runs Pi **isolated**, without your extensions: a provider you
-reach natively through an extension may not exist inside Aqorin.
+as when you run them yourself. Aqorin runs Pi **isolated**, without your settings or extensions: a provider you
+reach natively through an extension may not exist inside Aqorin, and Pi, with no model named, would pick a provider by
+itself. So a Pi step needs one of two things before it starts:
+
+- **Pi's default connection**: a Pi connection of yours that you made its default — select it on Runtimes and press
+  **Use by default** (`u`), or run `aqorin connections use <name>`. A Pi step that names no connection runs on it,
+  with its default model. Unlike OpenCode, Pi's only connection is not its default until you choose it.
+- **A model Pi lists** on its own providers, named by the step's assignment, the agent's default or
+  `AQORIN_PI_MODEL`. Before the Run, Aqorin asks Pi for its list of models, as the Run will see its providers, and
+  whether the provider that lists it has a credential Pi can use (`pi auth check`). It refuses a model Pi does not
+  list, one whose provider is not ready, and an id Pi could read as another model — one two providers list, or
+  OpenRouter's `deepseek/…`, whose prefix is a provider too (name it `provider/id`: `openrouter/deepseek/…`). No model
+  call is made, so a listed model can still fail its first turn. With Pi's default connection chosen, an assignment
+  reaches Pi's own providers by naming the connection `pi`.
+
+With neither, Aqorin refuses before anything runs and says both ways.
 
 **OpenCode has no native connection in Aqorin.** Every OpenCode Aqorin starts — a workflow step, a Free
 chat, a check, `aqorin open opencode` — runs in Aqorin's own OpenCode home, never with your OpenCode
@@ -16,6 +30,18 @@ you choose: select it on Runtimes and press **Use by default** (`u`), or run `aq
 <name>`. With none, Aqorin refuses before anything runs and says how to add one. A model named the way
 OpenCode names one (`nan/deepseek-v4-flash`) runs as the connection's own model when it has it. Your
 OpenCode outside Aqorin is untouched.
+
+**Before a Run starts on one of your connections** (Pi's or OpenCode's), and before a Free chat on one or
+`aqorin open opencode` starts, Aqorin asks its endpoint for its models — one call to `/models`, with the key for that
+call alone. A key the provider refuses, an endpoint that does not answer, or a model the list does not have stops it
+before anything is created; an endpoint with no list, or one that answers the check with a redirect, a rate limit or
+a server error, passes, its key not proven. **Use by default** and
+`aqorin connections use` ask the same before they make a connection the default, change nothing when it fails, and
+say when the key was not proven. The plan you preview does not ask: it reads no key.
+
+Home and Runtimes say where each runtime runs when a step names no connection: OpenCode and Pi on their default
+connection and its model, Pi otherwise on *its own providers · a step names its model*, Claude Code and Codex on
+*their own configuration*.
 
 For any of these — a provider for OpenCode, one Pi reaches through an extension, or an API key instead
 of a login — add a **connection** of Aqorin's own.
@@ -76,6 +102,8 @@ aqorin connections add nan --runtime pi --provider openai-compatible \
   --base-url https://api.example.com/v1 --credential env:EXAMPLE_API_KEY
 aqorin connections discover nan
 aqorin connections default nan some-model
+aqorin connections use nan          # Pi's default (an OpenCode connection: OpenCode's), once its endpoint answers
+aqorin connections use --clear --runtime pi   # Pi has no default connection again
 aqorin connections                  # the list, with whether each key resolves now
 aqorin doctor --live --runtime pi --connection nan
 ```

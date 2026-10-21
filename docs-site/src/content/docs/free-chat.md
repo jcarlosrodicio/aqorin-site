@@ -7,7 +7,9 @@ description: A conversation with one runtime through Aqorin — as it runs in it
 of New task, or with `c` on Runs. Pick a runtime and a model, then decide how it works. For Pi, when
 you have set up Pi connections in Runtimes, you first choose **Its connection** — *None* for Pi's own
 providers, or one of yours, whose models are then offered with its default first: the chat then runs
-isolated on that connection, its key given by name. An OpenCode chat always runs on one of your
+isolated on that connection, its key given by name. On *None*, isolated, the chat needs a model named: *Pi's own
+default* is for *Your configuration* only; a role's Pi conversation needs one too. A chat on a connection has its
+endpoint asked for its models first, and a key it refuses stops the chat before it exists. An OpenCode chat always runs on one of your
 OpenCode connections — OpenCode's default first, never *None* — and then one of its models.
 
 Free chats do not wait for each other or for a workflow: several can be open, and a workflow runs
