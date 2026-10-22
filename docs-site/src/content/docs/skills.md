@@ -9,7 +9,7 @@ beyond its own instructions.
 ## Add a skill
 
 Skills live on **Resources** (`7`); `[` and `]` switch between the Skills and MCP tabs. **Add skill**
-asks for the skill's directory (a relative one is read from the project's folder, `~/` from your home). Aqorin copies the directory into your library's `skills/` (the same in every project) and pins its
+asks for the skill's directory (a relative one is read from the folder you opened Aqorin in, `~/` from your home). Aqorin copies the directory into your library's `skills/` (the same in every project) and pins its
 content, so a Run always uses exactly what you added.
 
 ## Assign it

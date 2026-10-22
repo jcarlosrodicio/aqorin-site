@@ -62,7 +62,7 @@ the help are keys only.
 | PgUp / PgDn | Scroll the activity. Ctrl+End follows its end again. |
 | `t` | Show each tool call, or fold them again between the messages. |
 | `d` | Show or hide the selected step's details and an advisory Run's reasons, on the right. |
-| `!` | Show the notices — what Aqorin wants you to know about the Run, the plan or, on Home, the project — in the pane's place; `!` again goes back. |
+| `!` | Show the notices — what Aqorin wants you to know about the Run, the plan or, on Home, your setup — in the pane's place; `!` again goes back. |
 | `z` | Show the focused pane alone, so a mouse selection takes only its lines; `z` again shows them all. |
 | `y` | Send the selected step's messages to the terminal's clipboard, where the terminal allows it (it cannot confirm it). |
 | Ctrl+T | [Trace](../trace/): Activity, Flow, Trace and Raw. |
