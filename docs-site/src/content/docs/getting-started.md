@@ -33,8 +33,9 @@ and a step can run on Claude Code, Codex, OpenCode or Pi without the workflow ch
 2. **Home** sums up your setup, and under it is a checklist until you are ready to run. Work down it:
    - choose an installation, for any runtime found more than once;
    - choose the **default runtime** — where a step runs when nothing else says so;
-   - add your project (*Add this folder to your projects* in a git repository, or `aqorin projects add <folder>`,
-     which writes nothing in it; in a git repository it adds the repository's top level).
+   - add your project (*Add ~/that/folder* in a git repository, `a` or **Enter**; anywhere else *Add a project*, or
+     `aqorin projects add <folder>` — none writes anything in it; in a git repository it adds the repository's top
+     level).
 
    The panel on the right explains the highlighted row. **Enter** does it.
 3. **Look at your runtimes** (`6`). Each one shows its version, how it signs in and its models.

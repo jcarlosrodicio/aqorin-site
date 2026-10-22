@@ -35,8 +35,9 @@ cambie.
    Avanza por ella:
    - elige una instalación, para cualquier runtime que se encuentre más de una vez;
    - elige el **runtime por defecto**: dónde se ejecuta un paso cuando nada más lo dice;
-   - añade tu proyecto (*Add this folder to your projects* en un repositorio git, o `aqorin projects add <carpeta>`,
-     que no escribe nada en ella; en un repositorio git añade la raíz del repositorio).
+   - añade tu proyecto (*Add ~/esa/carpeta* en un repositorio git, `a` o **Enter**; en otro sitio *Add a project*, o
+     `aqorin projects add <carpeta>` —ninguno escribe nada en ella; en un repositorio git añade la raíz del
+     repositorio).
 
    El panel de la derecha explica la fila resaltada. **Enter** la ejecuta.
 3. **Mira tus runtimes** (`6`). Cada uno muestra su versión, cómo inicia sesión y sus modelos.

@@ -98,6 +98,13 @@ aqorin migrate --yes                            # imports it
 aqorin migrate --yes --rename agent:critic-api=api-critic --with-setup api
 ```
 
+**In the app**, Home's first row is then *Import your configuration*: **Enter** opens the same preview, one step per
+project waiting for it — what it imports and what can act, each conflict's name in a field (empty, it takes the name
+the preview gives, said beside it; a name you type is checked as you type it, and refused when taken as you go on), and
+its worktree setup, *Not imported* unless you choose *Imported*. Each step plans again; **Import** writes the plan on the
+last step, which names every entry imported under a name that is not its own, and **Not now** writes nothing and
+leaves the row. A project held (below), or one whose folder is gone, is named there with the command for it.
+
 - **The preview** shows every entry with what can act (an agent's access class, an MCP server's command and the
   secrets it would be given — which variable or keychain item, never a value —, a skill's files), each setting with its
   value and whether your `config.yaml` already has one, the tasks, and what is skipped (a link, a file or folder that

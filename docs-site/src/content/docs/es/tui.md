@@ -44,9 +44,12 @@ Home se abre con un resumen de tu configuración, una fila cada cosa —los runt
 defecto, tus conexiones, tu biblioteca, tus proyectos—, y **Enter** en una fila abre su sección. Debajo, mientras no
 estás preparado o ningún proyecto tiene aún un Run o un chat, una **lista de comprobación**: la instalación de un
 runtime encontrado varias veces, tu **runtime por defecto**, un proyecto —en un repositorio git que no está en tu
-lista, *Add this folder to your projects* (no se escribe nada en él)— y después *Start a task* (`n`) y *Start a chat*
-(`c`). Luego, el **plano de control** sobre todos los proyectos: lo que te espera, los Runs trabajando, los chats
-abiertos, lo que falló o se paró y los Runs recientes, cada uno con su proyecto. Cuando Aqorin tiene algo que contarte —por ejemplo, que tu
+lista, *Add ~/esa/carpeta* (`a`; no se escribe nada en él), en otro sitio *Add a project*— y después *Start a task*
+(`n`) y *Start a chat* (`c`). Luego, el **plano de control** sobre todos los proyectos: lo que te espera, los Runs
+trabajando, los chats abiertos, lo que falló o se paró y los Runs recientes, cada uno con su proyecto. Encima de
+ambos, mientras el `.aqorin/` antiguo de un proyecto espera a importarse, va *Import your configuration*
+([Configuración](../configuration/#pasar-el-aqorin-de-un-proyecto-a-tu-biblioteca)), y después *Add ~/esa/carpeta*
+cuando corresponde. Cuando Aqorin tiene algo que contarte —por ejemplo, que tu
 runtime por defecto ejecuta los pasos de revisión y de solo lectura con una restricción advisory—, la
 línea Status muestra `! 1 notice`; `!` lo lee y Esc lo pliega.
 

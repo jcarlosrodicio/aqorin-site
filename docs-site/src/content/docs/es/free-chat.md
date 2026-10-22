@@ -4,7 +4,7 @@ description: Una conversación con un runtime a través de Aqorin, como se ejecu
 ---
 
 El **Free chat** es una conversación con un runtime, a través de Aqorin. Empieza uno con la primera
-opción de New task, o con `c` en Runs. Elige un runtime y un modelo, y decide cómo funciona. En Pi,
+opción de New task, o con `c` en Home, Runs o Projects. Elige el proyecto ([como en New task](../new-task/)), un runtime y un modelo, y decide cómo funciona. En Pi,
 si configuraste conexiones de Pi en Runtimes, primero eliges **Its connection** —*None* para los
 proveedores propios de Pi, o una de las tuyas, cuyos modelos se ofrecen después con el suyo por defecto
 primero—: el chat se ejecuta entonces aislado sobre esa conexión, con su clave pasada por nombre. Con *None*,

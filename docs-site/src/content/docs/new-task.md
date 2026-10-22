@@ -3,13 +3,16 @@ title: New task
 description: One form from a request to a plan, and nothing runs until you press Enter.
 ---
 
-**New task** (`n` on Runs) is one form, filled in this order:
+**New task** (`n` on Home, Runs or Projects) is one form, filled in this order:
 
-1. **What to do:** a [Free chat](../free-chat/), or a workflow.
-2. **Which workflow, and where it runs.** Each is offered by name with its flow and what it is for;
+1. **Project:** the project of the folder you opened Aqorin in, chosen; type to narrow your projects by name or
+   folder. A project that is not *ok* is greyed; one with no git takes a Free chat only. **Add a folder…** adds one and
+   comes back with the form as you left it ([Several projects](../projects/)).
+2. **What to do:** a [Free chat](../free-chat/), or a workflow.
+3. **Which workflow, and where it runs.** Each is offered by name with its flow and what it is for;
    [Engineering change](../workflows/#the-built-in-workflows) comes first.
-3. **What the agents are asked to do:** your request.
-4. **Checked by:** **Nothing** (the default), **Commands**, **The agent**, or **Commands and the
+4. **What the agents are asked to do:** your request.
+5. **Checked by:** **Nothing** (the default), **Commands**, **The agent**, or **Commands and the
    agent**. The command fields appear only with commands: each must pass, such as `npm test`, and
    runs without a shell — an unquoted `&&`, `|` or `>` is refused where you type it.
 

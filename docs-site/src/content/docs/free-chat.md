@@ -4,7 +4,7 @@ description: A conversation with one runtime through Aqorin — as it runs in it
 ---
 
 **Free chat** is a conversation with one runtime, through Aqorin. Start one with the first choice
-of New task, or with `c` on Runs. Pick a runtime and a model, then decide how it works. For Pi, when
+of New task, or with `c` on Home, Runs or Projects. Pick the project ([as New task does](../new-task/)), a runtime and a model, then decide how it works. For Pi, when
 you have set up Pi connections in Runtimes, you first choose **Its connection** — *None* for Pi's own
 providers, or one of yours, whose models are then offered with its default first: the chat then runs
 isolated on that connection, its key given by name. On *None*, isolated, the chat needs a model named: *Pi's own

@@ -175,7 +175,7 @@ its project, and <strong>Projects</strong> (<code dir="auto">0</code>, the last 
 and its Runs working, waiting, failed and finished (<code dir="auto">no git</code> for a folder that is not a git repository), and beside the
 selected one its folder, id, state, whether it is git, its Runs and its worktree setup, or what to do. With no project
 in the list, it says how to add one, and <code dir="auto">Enter</code> adds one. The folder you open Aqorin in only decides which project New task and Free chat
-offer first; in a git repository not in your list, Home offers <em>Add this folder to your projects</em> (nothing is written
+offer first; in a git repository not in your list, Home offers <em>Add ~/that/folder</em>, which <code dir="auto">a</code> adds (nothing is written
 in it).</p>
 <ul>
 <li><strong><code dir="auto">Enter</code></strong> on a Run or chat of any project opens it here, with no relaunch. Every action on it — answer, approve,
@@ -183,9 +183,13 @@ cancel, resume, a worktree’s decision, a delivery — acts on that project, as
 does. A command the TUI offers to copy names its project (<code dir="auto">--project &lt;name&gt;</code>), so it runs from any folder.</li>
 <li>A chat turn sent in one project goes on while you look at another; what you queued for it is sent there when it
 ends. Quitting while a turn is being sent says so first.</li>
-<li><strong><code dir="auto">n</code></strong> and <strong><code dir="auto">c</code></strong> start in the one project that can take a task, or ask which: the project of the folder you
-started in first, then the last one you used, then the others by name. A project that is not <em>ok</em> is not offered.
-The form’s title and the plan’s header name the project.</li>
+<li><strong><code dir="auto">n</code></strong> and <strong><code dir="auto">c</code></strong> ask the project first, as the form’s first step: the project of the folder you started in first
+and chosen, then the last one you used, then the others by name. Type to narrow it by name or by folder (<code dir="auto">work/no</code>);
+the line says how many match. A project that is not <em>ok</em> is listed greyed, with its state, and cannot be chosen. One
+that is not a git repository can be: Free chat works there, and <em>Run a workflow</em> says that a workflow needs git
+before anything is planned. The last entry is <strong>Add a folder…</strong>: it opens Add project and comes back to the form with
+everything you filled kept, the folder added chosen — <code dir="auto">Esc</code> comes back with nothing changed. With no project in your
+list, <code dir="auto">n</code> and <code dir="auto">c</code> open on Add a folder…. The form’s title and the plan’s header name the project.</li>
 <li>The TUI reads each project’s record read-only, every two seconds while it runs: it never migrates nor writes one. A
 record written by a newer Aqorin, or by an older one, is not read — Runs says which, and what to do (any <code dir="auto">aqorin</code>
 command in that project brings an older one up to date). A list that cannot be read is said in Runs, Attention and

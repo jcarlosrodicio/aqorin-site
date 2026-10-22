@@ -115,7 +115,7 @@ its project, and **Projects** (`0`, the last section of the rail) lists the proj
 and its Runs working, waiting, failed and finished (`no git` for a folder that is not a git repository), and beside the
 selected one its folder, id, state, whether it is git, its Runs and its worktree setup, or what to do. With no project
 in the list, it says how to add one, and `Enter` adds one. The folder you open Aqorin in only decides which project New task and Free chat
-offer first; in a git repository not in your list, Home offers *Add this folder to your projects* (nothing is written
+offer first; in a git repository not in your list, Home offers *Add ~/that/folder*, which `a` adds (nothing is written
 in it).
 
 - **`Enter`** on a Run or chat of any project opens it here, with no relaunch. Every action on it — answer, approve,
@@ -123,9 +123,13 @@ in it).
   does. A command the TUI offers to copy names its project (`--project <name>`), so it runs from any folder.
 - A chat turn sent in one project goes on while you look at another; what you queued for it is sent there when it
   ends. Quitting while a turn is being sent says so first.
-- **`n`** and **`c`** start in the one project that can take a task, or ask which: the project of the folder you
-  started in first, then the last one you used, then the others by name. A project that is not *ok* is not offered.
-  The form's title and the plan's header name the project.
+- **`n`** and **`c`** ask the project first, as the form's first step: the project of the folder you started in first
+  and chosen, then the last one you used, then the others by name. Type to narrow it by name or by folder (`work/no`);
+  the line says how many match. A project that is not *ok* is listed greyed, with its state, and cannot be chosen. One
+  that is not a git repository can be: Free chat works there, and *Run a workflow* says that a workflow needs git
+  before anything is planned. The last entry is **Add a folder…**: it opens Add project and comes back to the form with
+  everything you filled kept, the folder added chosen — `Esc` comes back with nothing changed. With no project in your
+  list, `n` and `c` open on Add a folder…. The form's title and the plan's header name the project.
 - The TUI reads each project's record read-only, every two seconds while it runs: it never migrates nor writes one. A
   record written by a newer Aqorin, or by an older one, is not read — Runs says which, and what to do (any `aqorin`
   command in that project brings an older one up to date). A list that cannot be read is said in Runs, Attention and

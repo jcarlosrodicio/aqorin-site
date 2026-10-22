@@ -43,9 +43,12 @@ Aqorin's until your shell sets another).
 Home opens with a summary of your setup, one row each — the runtimes found and your default, your connections, your
 library, your projects — and **Enter** on a row opens its section. Under it, while you are not set up or no project
 has a Run or chat yet, a **checklist**: a runtime's installation where several were found, your **default runtime**,
-a project — in a git repository not in your list, *Add this folder to your projects* (nothing is written in it) — then
-*Start a task* (`n`) and *Start a chat* (`c`). After that, the **control plane** over every project: what waits for
-you, the Runs working, the chats open, what failed or stopped and the recent Runs, each naming its project. When Aqorin
+a project — in a git repository not in your list, *Add ~/that/folder* (`a`; nothing is written in it), anywhere else
+*Add a project* — then *Start a task* (`n`) and *Start a chat* (`c`). After that, the **control plane** over every
+project: what waits for you, the Runs working, the chats open, what failed or stopped and the recent Runs, each naming
+its project. Above both, while a project's old `.aqorin/` waits to be imported, comes *Import your configuration*
+([Configuration](../configuration/#moving-a-projects-aqorin-into-your-library)), and then *Add ~/that/folder* when it
+applies. When Aqorin
 has something to tell you — for example, that your default runtime runs review and
 read-only steps with an advisory restriction — the Status line shows `! 1 notice`; `!` reads it, Esc
 folds it.
