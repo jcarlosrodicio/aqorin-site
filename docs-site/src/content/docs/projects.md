@@ -133,7 +133,8 @@ in it).
 - **Projects changes the list too**, each change `aqorin projects`' own command, so it says and refuses exactly what
   the CLI does:
   - **`a` — Add project.** Type a folder: `~` is your home folder, a relative path starts in the folder you opened
-    Aqorin in, and `Tab` completes a folder's name (twice, it lists the ones that match). Under the line Aqorin says
+    Aqorin in, and `Tab` completes a folder's name (twice, it lists the ones that match; in a folder of more than 200 entries it says
+    only the first 200 were read). Under the line Aqorin says
     what `Enter` would add — the git repository's top level for a folder in one, the real folder through a link — or
     why not: your home folder or above, Aqorin's own folders, already your project, inside one of your projects, not a
     folder. A refusal stays on the line with what you typed. Under it, at most 20 suggestions: the git repository you
@@ -146,7 +147,8 @@ in it).
     move each on.
   - **`s` — Worktree setup**: the one command run in each new worktree of a git project before a workflow's first
     step, typed on one line — words and quotes, never a shell, so `&&`, `|` or `$` are refused unless quoted (put
-    several commands in a script). An empty line clears it.
+    several commands in a script). An empty line clears it. A setup set with `aqorin projects setup` holding what one line
+    cannot show — a line break, a tab — is not offered on the line, so saving can never change it.
 
 ## Kept apart
 

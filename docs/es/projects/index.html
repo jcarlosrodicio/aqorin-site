@@ -197,7 +197,8 @@ en Runs, Attention y Home, nunca como que nada espera.</li>
 exactamente lo mismo que la CLI:
 <ul>
 <li><strong><code dir="auto">a</code> — Add project.</strong> Escribe una carpeta: <code dir="auto">~</code> es tu carpeta personal, una ruta relativa parte de la carpeta en la
-que abriste Aqorin, y <code dir="auto">Tab</code> completa el nombre de una carpeta (dos veces, lista las que coinciden). Bajo la línea,
+que abriste Aqorin, y <code dir="auto">Tab</code> completa el nombre de una carpeta (dos veces, lista las que coinciden; en una carpeta de más de 200
+entradas avisa de que solo se leyeron las 200 primeras). Bajo la línea,
 Aqorin dice qué añadiría <code dir="auto">Enter</code> —la raíz del repositorio git para una carpeta dentro de uno, la carpeta real a
 través de un enlace— o por qué no: tu carpeta personal o algo por encima, las carpetas propias de Aqorin, ya es un
 proyecto tuyo, está dentro de uno de tus proyectos, no es una carpeta. Un rechazo se queda en la línea con lo que
@@ -211,7 +212,9 @@ Su preparación de worktrees se olvida con él. Un proyecto con un Run sin termi
 Runs lo retienen y cómo hacer avanzar cada uno.</li>
 <li><strong><code dir="auto">s</code> — Worktree setup</strong>: el único comando que se ejecuta en cada worktree nuevo de un proyecto git antes del
 primer paso de un workflow, escrito en una línea —palabras y comillas, nunca un shell, así que <code dir="auto">&amp;&amp;</code>, <code dir="auto">|</code> o <code dir="auto">$</code> se
-rechazan salvo entre comillas (pon varios comandos en un script). Una línea vacía lo borra.</li>
+rechazan salvo entre comillas (pon varios comandos en un script). Una línea vacía lo borra. Una preparación fijada con <code dir="auto">aqorin projects setup</code>
+que tenga lo que una línea no puede mostrar —un salto de línea, un tabulador— no se ofrece en la línea, así que
+guardarla nunca la cambia.</li>
 </ul>
 </li>
 </ul>

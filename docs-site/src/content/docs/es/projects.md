@@ -137,7 +137,8 @@ your projects* (no se escribe nada en él).
 - **Projects también cambia la lista**, cada cambio con el propio comando `aqorin projects`, así que dice y rechaza
   exactamente lo mismo que la CLI:
   - **`a` — Add project.** Escribe una carpeta: `~` es tu carpeta personal, una ruta relativa parte de la carpeta en la
-    que abriste Aqorin, y `Tab` completa el nombre de una carpeta (dos veces, lista las que coinciden). Bajo la línea,
+    que abriste Aqorin, y `Tab` completa el nombre de una carpeta (dos veces, lista las que coinciden; en una carpeta de más de 200
+    entradas avisa de que solo se leyeron las 200 primeras). Bajo la línea,
     Aqorin dice qué añadiría `Enter` —la raíz del repositorio git para una carpeta dentro de uno, la carpeta real a
     través de un enlace— o por qué no: tu carpeta personal o algo por encima, las carpetas propias de Aqorin, ya es un
     proyecto tuyo, está dentro de uno de tus proyectos, no es una carpeta. Un rechazo se queda en la línea con lo que
@@ -151,7 +152,9 @@ your projects* (no se escribe nada en él).
     Runs lo retienen y cómo hacer avanzar cada uno.
   - **`s` — Worktree setup**: el único comando que se ejecuta en cada worktree nuevo de un proyecto git antes del
     primer paso de un workflow, escrito en una línea —palabras y comillas, nunca un shell, así que `&&`, `|` o `$` se
-    rechazan salvo entre comillas (pon varios comandos en un script). Una línea vacía lo borra.
+    rechazan salvo entre comillas (pon varios comandos en un script). Una línea vacía lo borra. Una preparación fijada con `aqorin projects setup`
+    que tenga lo que una línea no puede mostrar —un salto de línea, un tabulador— no se ofrece en la línea, así que
+    guardarla nunca la cambia.
 
 ## Separados
 
