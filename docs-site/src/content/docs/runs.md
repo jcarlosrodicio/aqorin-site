@@ -19,9 +19,9 @@ runs in a **git worktree of its own** — outside your repository, in Aqorin's d
 has uncommitted changes (they are not in the worktree). Its checks, review and changes are its own, and
 Runs marks it `⎇`.
 
-A new worktree has nothing installed. To prepare each one, set `worktree_setup` in
-`.aqorin/aqorin.yaml` (see [Configuration](../configuration/)); without it nothing is prepared, and the
-plan says so.
+A new worktree has nothing installed. To prepare each one, give the project a setup command:
+`aqorin projects setup <project> --set npm ci` (see [Configuration](../configuration/#a-projects-worktree-setup));
+without it nothing is prepared, and the plan says so.
 
 At most four workflows run in worktrees at once; a fifth launch is refused and names them.
 

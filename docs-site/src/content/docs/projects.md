@@ -9,18 +9,21 @@ its own Runs, worktrees, sandbox and pull requests. Accepted live with Claude Co
 (Apple silicon; Pi there on a connection of Aqorin's) and on Ubuntu 26.04 (x86_64), on macOS after a reboot too. It is on `master`, not yet in a published version.
 
 Aqorin keeps a list of your projects — only the ones you add — so a command can name a project from any folder.
-Each project keeps its own configuration, Runs, worktrees and history, exactly as if it had its own Aqorin.
+Each project keeps its own Runs, chats, tasks, worktrees and history, exactly as if it had its own Aqorin; your
+[configuration and library](../configuration/) are one, the same in every project.
 
 ```bash
 aqorin projects add [<path>] [--name <name>]   # the project at or above the folder (the one you are in by default)
 aqorin projects                               # each one with its state and what its Runs are doing
 aqorin runs --project tally                   # a project by its name, its id or a path, from any folder
 aqorin projects remove tally                  # takes it out of the list; deletes nothing
+aqorin projects setup tally --set npm ci      # how its new worktrees are prepared (--clear removes it)
+aqorin migrate                                # projects' old .aqorin/ into your library: a preview, then --yes
 ```
 
 ## What a project is
 
-A project is a folder with `.aqorin/aqorin.yaml` (made by `aqorin init`), and **its identity is the folder's real
+A project is a folder with `.aqorin/aqorin.yaml` (made by `aqorin init`, and nothing else in it), and **its identity is the folder's real
 path**: through a symbolic link, or in another letter case on macOS, it is the same project.
 
 - **A folder you move is a new project.** `aqorin projects add` at its new path adds it as one; the old entry says
@@ -50,11 +53,21 @@ sandbox can name it).
 | not found | its folder is gone |
 | changed | another folder is at its path |
 | not initialized | its `.aqorin/aqorin.yaml` is gone |
-| invalid | its configuration does not validate |
+| invalid | its `.aqorin/aqorin.yaml` does not validate |
 
-**Removing a project deletes nothing** — not its `.aqorin`, its Runs, its worktrees or its branches — and is refused
+**Removing a project deletes nothing** — not its `.aqorin`, its Runs, its tasks, its worktrees or its branches — and is refused
 while one of its Runs is unfinished or being launched: cancel it or let it finish. Adding it again shows its whole
 history.
+
+**What is a project's, kept by Aqorin**: its Runs, chats and worktrees, its [tasks](../new-task/) (in Aqorin's data
+folder, never the repository), and its **worktree setup** — the command run in each new worktree of a workflow before
+its first step, set with `aqorin projects setup <project> --set <command>…` (an argument list, never a shell line;
+`--clear` removes it), kept in your list and never read from the repository.
+
+**A project set up before this version** keeps its agents, workflows, settings and tasks in its own `.aqorin/`, which
+Aqorin no longer reads for new work: a new Run, chat or task there is refused (`migration_pending`) until
+`aqorin migrate` imports it into your library — see [Configuration](../configuration/#moving-a-projects-aqorin-into-your-library).
+Nothing in the repository is changed.
 
 ## Naming a project: `--project`
 

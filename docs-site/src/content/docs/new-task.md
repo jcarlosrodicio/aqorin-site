@@ -15,7 +15,8 @@ description: One form from a request to a plan, and nothing runs until you press
 
 ## Checks
 
-- **With checks**, **Plan** writes the task to `.aqorin/tasks/`, named from your request. Aqorin
+- **With checks**, **Plan** writes the task to the project's task folder in Aqorin's data folder (never the
+  repository), named from your request. Aqorin
   runs the checks itself, with your permissions, and only their exit status decides validation.
 - **With no checks**, no task file is written. Nothing checks the work: the step moves on at once,
   its checks read *not checked*, and the Run is *advisory*. The plan says so.

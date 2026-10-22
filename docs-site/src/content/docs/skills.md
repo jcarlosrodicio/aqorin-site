@@ -9,7 +9,7 @@ beyond its own instructions.
 ## Add a skill
 
 Skills live on **Resources** (`7`); `[` and `]` switch between the Skills and MCP tabs. **Add skill**
-asks for the skill's directory (a relative one is read from the project's folder, `~/` from your home). Aqorin copies the directory into `.aqorin/skills/` and pins its
+asks for the skill's directory (a relative one is read from the project's folder, `~/` from your home). Aqorin copies the directory into your library's `skills/` (the same in every project) and pins its
 content, so a Run always uses exactly what you added.
 
 ## Assign it
@@ -18,7 +18,7 @@ content, so a Run always uses exactly what you added.
 
 | Scope | Who gets it |
 |---|---|
-| The project | Every agent of every Run in this project. |
+| Every Run | Every agent of every Run, in every project (`resources` in your `config.yaml`; `--scope project` on the CLI). |
 | A workflow | Every step of that workflow. |
 | An agent | That agent, wherever it runs. |
 

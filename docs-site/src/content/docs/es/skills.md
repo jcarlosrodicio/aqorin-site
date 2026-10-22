@@ -9,7 +9,7 @@ sabe más allá de sus propias instrucciones.
 ## Añadir una skill
 
 Las skills viven en **Resources** (`7`); `[` y `]` cambian entre las pestañas Skills y MCP. **Add
-skill** pide el directorio de la skill (uno relativo se lee desde la carpeta del proyecto, `~/` desde tu carpeta personal). Aqorin copia el directorio en `.aqorin/skills/` y fija su
+skill** pide el directorio de la skill (uno relativo se lee desde la carpeta del proyecto, `~/` desde tu carpeta personal). Aqorin copia el directorio en `skills/` de tu biblioteca (la misma en todos los proyectos) y fija su
 contenido, de modo que un Run usa siempre exactamente lo que añadiste.
 
 ## Asignarla
@@ -18,7 +18,7 @@ contenido, de modo que un Run usa siempre exactamente lo que añadiste.
 
 | Ámbito | Quién la recibe |
 |---|---|
-| El proyecto | Todos los agentes de todos los Runs de este proyecto. |
+| Todos los Runs | Todos los agentes de todos los Runs, en todos los proyectos (`resources` en tu `config.yaml`; `--scope project` en el CLI). |
 | Un workflow | Todos los pasos de ese workflow. |
 | Un agente | Ese agente, dondequiera que se ejecute. |
 

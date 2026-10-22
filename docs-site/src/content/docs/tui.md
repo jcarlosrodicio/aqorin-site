@@ -35,7 +35,7 @@ Aqorin's until your shell sets another).
 | `6` | Runtimes | The four runtimes as found on this machine, and your connections. |
 | `7` | Resources | The skills and MCP servers your agents can use. |
 | `8` | Credentials | The references to your keys, never a value. |
-| `9` | Settings | The project's set-up, its default runtime, appearance, and where Aqorin keeps its files. |
+| `9` | Settings | The project's set-up, your default runtime, appearance, and where Aqorin keeps its files. |
 
 ## Home
 

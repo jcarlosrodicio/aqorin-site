@@ -121,7 +121,7 @@ None of them, nor any folder above them, can be renamed out of the way. The Run'
 sandbox too, and integrating a sandboxed Run's worktree runs no git hook — its agents may have written
 one. Reads and the network are not limited. Codex keeps its own sandbox; Claude Code's own is turned off
 inside Aqorin's for that Run, without changing your settings. Where the sandbox cannot be set up, the Run
-is refused. `sandbox: off` in `.aqorin/aqorin.yaml` runs without it, and every Run says so.
+is refused. `sandbox: off` in your `config.yaml` runs without it, in every project, and every Run says so.
 
 **On Linux** the sandbox is bubblewrap, a system package: install it (`sudo apt install bubblewrap`) — Aqorin
 never does, and `aqorin doctor` says whether it works here. It also closes the shell and session start-up
@@ -178,3 +178,10 @@ See [Free chat](../free-chat/).
   without entering them, and names any it finds — or says it could not check: look before you run git. It does
   not see one in a stash, a tag or a commit no branch points at, nor what a turn whose Aqorin was killed added.
   Aqorin's own git never looks inside a submodule's working tree.
+- **Your library, where Aqorin's sandbox does not run.** Aqorin's sandbox keeps its configuration folder — and so
+  your [library](../configuration/), every project's agents, workflows, assignments, skills and MCP servers —
+  closed to a Run it wraps. A Run whose steps are all Codex (Codex's own sandbox), a Codex chat (the same), `sandbox: off`
+  or a platform with no sandbox of Aqorin's can write it, and what one project's Run writes there reaches every
+  project's next Run. A Run already going is not changed by it: its workflow, roles, assignment, skills and MCP
+  servers are frozen by hash when it starts, and its record says whether the sandbox wrapped it. Your worktree setup,
+  the runtimes' paths and agent files read at a Run's start are not checked again.

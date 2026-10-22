@@ -16,7 +16,7 @@ Un workflow no nombra ningún runtime ni ningún modelo. Eso pertenece a una
 
 Aqorin trae una biblioteca de workflows para el desarrollo de cada día. Ninguno nombra un runtime,
 una conexión ni un modelo: cada paso se ejecuta donde dicen su asignación, el valor por defecto de su
-agente o el runtime por defecto del proyecto.
+agente o tu runtime por defecto.
 
 | Workflow | Flujo | Úsalo para |
 | --- | --- | --- |
@@ -92,13 +92,13 @@ aplica el motor, no un prompt.
 ## La pantalla Workflows (`5`)
 
 La lista nombra cada workflow con sus pasos, su garantía y su origen: **built-in** (viene con Aqorin),
-**project** (un archivo en `.aqorin/workflows/`) o **advanced**. El inspector de uno integrado empieza
+**project** (tuyo: un archivo en `workflows/` de tu biblioteca) o **advanced**. El inspector de uno integrado empieza
 por para qué sirve y después dibuja su flujo: cada paso, su agente y dónde se ejecuta. Desde 160 columnas el
 inspector es más ancho en esta pantalla, y cada paso se lee en una línea.
 
-- **Edit (your copy)** (`e`) lo escribe en este proyecto con su mismo nombre. Esa copia sustituye aquí al
-  integrado y es tuya para cambiarla; si la borras, vuelve el integrado.
-- **Hide…** (`x`) quita un integrado de las listas de este proyecto (sigue ejecutándose si lo nombras);
+- **Edit (your copy)** (`e`) lo escribe en tu biblioteca con su mismo nombre. Esa copia sustituye al integrado
+  en todos los proyectos y es tuya para cambiarla; si la borras, vuelve el integrado.
+- **Hide…** (`x`) quita un integrado de tus listas (sigue ejecutándose si lo nombras);
   **Restore hidden…** (`h`) lo vuelve a mostrar.
 - **Duplicate…** (`d`) lo copia con un nombre libre. `feature`, que se mantiene por compatibilidad, se copia
   con **Customize…** (`d`).
@@ -125,7 +125,8 @@ En el editor:
   comprobaciones y `v` fija el paso de revisión.
 - `s` guarda.
 
-Los workflows viven en `.aqorin/workflows/<id>.workflow.yaml`. Puedes editarlos a mano;
+Los workflows viven en tu biblioteca, `library/workflows/<id>.workflow.yaml` en la carpeta de configuración de
+Aqorin. Puedes editarlos a mano;
 `aqorin workflows validate <id>` dice qué está mal, con la línea.
 
 ## Enforced y advisory
@@ -154,7 +155,7 @@ En Workflows, **Where it runs** (`g`) abre una **asignación**. Para cada paso, 
 
 Después:
 
-- `s` guarda la asignación en `.aqorin/assignments/<name>.profile.yaml`;
+- `s` guarda la asignación en tu biblioteca, `library/assignments/<name>.profile.yaml`;
 - `p` ejecuta el **preflight**: el plan que imprime `aqorin run <workflow> --assign <name> --plan-only`;
 - `D` convierte la asignación en la predeterminada del workflow.
 
@@ -189,6 +190,6 @@ Aqorin lo decide en este orden, y el inspector del paso muestra qué capa decidi
 1. La asignación explícita del workflow, o un `--runtime` / `--model` explícito en la línea de
    comandos.
 2. La [ejecución por defecto](../agents/#default-execution) del agente.
-3. El runtime por defecto del proyecto.
+3. Tu runtime por defecto.
 
 Aqorin nunca cambia de runtime por su cuenta.

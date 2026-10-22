@@ -53,8 +53,7 @@ modelo y el esfuerzo del modelo. Es tu preferencia: los agentes que Aqorin inclu
 - **Configure default** (`c`) la elige. El modelo se escoge entre los de la conexión, o entre los
   que lista el runtime (también los de Claude Code y Codex), o con **Another model id…** si no está
   en la lista. Para un agente
-  integrado, se guarda en la configuración de
-  este proyecto; para un agente tuyo, en el archivo del agente.
+  integrado, se guarda en tu `config.yaml`, el mismo en todos los proyectos; para un agente tuyo, en el archivo del agente.
 - **Effort**, en el mismo formulario, es cuánto razona el modelo en los pasos que coloca esta ejecución
   por defecto, en los niveles propios del runtime. **Default** lo deja en manos del runtime.
 
@@ -76,7 +75,8 @@ plantillas Portable Feature añaden `researcher`, `advisory-researcher` y `advis
 
 ## El archivo
 
-Tus agentes viven en `.aqorin/agents/<id>.agent.yaml`. Puedes editarlos a mano:
+Tus agentes viven en tu biblioteca, `library/agents/<id>.agent.yaml` en la carpeta de configuración de Aqorin, la
+misma en todos los proyectos ([Configuración](../configuration/)). Puedes editarlos a mano:
 
 ```yaml
 kind: aqorin.agent

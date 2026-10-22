@@ -52,8 +52,8 @@ aqorin runtimes select codex /path/to/codex     # choose the installation
 
 ## El runtime por defecto
 
-El **runtime por defecto** del proyecto es donde se ejecuta un paso de workflow cuando nada más dice
-dónde. Lo eliges en la lista de comprobación de Home o en Settings (`9`); `aqorin use <runtime>`
+Tu **runtime por defecto** es donde se ejecuta un paso de workflow cuando nada más dice dónde, el
+mismo en todos los proyectos. Lo eliges en la lista de comprobación de Home o en Settings (`9`); `aqorin use <runtime>`
 hace lo mismo. [Where a step runs](../workflows/#where-a-step-runs) explica el orden en que Aqorin
 lo decide.
 

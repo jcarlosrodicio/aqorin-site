@@ -71,7 +71,7 @@ Un Run o un Free chat se rechaza con `sandbox_unavailable`, y `aqorin doctor` mu
 cannot be set up here`. En Linux el sandbox de Aqorin es bubblewrap: instálalo (Ubuntu, Debian:
 `sudo apt install bubblewrap`; Fedora: `sudo dnf install bubblewrap`). Si ya está instalado, la máquina le
 niega un user namespace (un contenedor que los prohíbe, un kernel endurecido): el detalle del doctor dice
-cuál. `sandbox: off` en `.aqorin/aqorin.yaml` ejecuta sin él, y cada Run lo dice.
+cuál. `sandbox: off` en tu `config.yaml` ejecuta sin él, y cada Run lo dice.
 
 ## El plan dice que un paso es advisory
 

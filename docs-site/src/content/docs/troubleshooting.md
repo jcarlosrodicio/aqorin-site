@@ -69,7 +69,7 @@ A Run or a Free chat is refused with `sandbox_unavailable`, and `aqorin doctor` 
 cannot be set up here`. On Linux Aqorin's sandbox is bubblewrap: install it (Ubuntu, Debian:
 `sudo apt install bubblewrap`; Fedora: `sudo dnf install bubblewrap`). If it is installed, the machine
 refuses it a user namespace (a container that forbids them, a hardened kernel): the doctor's detail says
-which. `sandbox: off` in `.aqorin/aqorin.yaml` runs without it, and every Run says so.
+which. `sandbox: off` in your `config.yaml` runs without it, and every Run says so.
 
 ## The plan says a step is advisory
 

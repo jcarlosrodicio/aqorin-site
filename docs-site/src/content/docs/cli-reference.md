@@ -17,7 +17,7 @@ Generated from `aqorin help` of the Terminal Alpha build, which reports version 
 ```text
 aqorin [--plain] [--json] [--no-color] [--project <path|name|id>]
 aqorin init [--runtime <id>] [--path <executable>] [--check] [--yes] [--project <path>]
-aqorin use <runtime> [--global] [--path <executable>] [--project <path>]
+aqorin use <runtime> [--path <executable>]
 aqorin runtimes [--runtime claude-code|codex|opencode|pi] [--runtime-path <path>]
 aqorin runtimes inspect <claude-code|codex|opencode|pi> [--models] [--capabilities] [--runtime-path <path>]
 aqorin runtimes inspect claude-code [--runtime-path <path>] [--model <id>]
@@ -81,25 +81,27 @@ aqorin credentials list | unset opencode NAME
 aqorin connections [list] | remove <id> | discover <id> | model add|remove <id> <model> | default <id> <model> | use <id> | use --clear [--runtime opencode|pi]
 aqorin connections add <id> --runtime <id> [--provider openai-compatible --base-url <url>] [--credential env:VAR|keychain:SERVICE[@ACCOUNT]] [--replace]
 aqorin projects [list] | add [<path>] [--name <name>] | remove <project>
+aqorin projects setup <project> --set <command>… | --clear
+aqorin migrate [--yes] [--rename <kind>:<id>=<new>]… [--with-setup <project>]… [--project <project>]
 aqorin help
 aqorin --version
 ```
 
-agents and workflows are the project's library (.aqorin/agents/, .aqorin/workflows/) beside the built-ins — engineering-change, quick-change, bug-fix, investigate, code-review, docs-change; feature and the Portable Feature templates (portable-feature-enforced, portable-feature-advisory) for advanced use — and duplicate copies one into the project to change it; validate prints file:line:column for each problem, and delete refuses an agent a workflow still uses. A workflow's saved default assignment is used by aqorin run &lt;workflow> when no --assign, --runtime or --model is given.
+agents, workflows, assignments, skills and MCP servers are your library (library/ in Aqorin's configuration folder), the same in every project, beside the built-ins — engineering-change, quick-change, bug-fix, investigate, code-review, docs-change; feature and the Portable Feature templates (portable-feature-enforced, portable-feature-advisory) for advanced use — and duplicate copies one into your library to change it; validate prints file:line:column for each problem, and delete refuses an agent a workflow still uses. A workflow's saved default assignment is used by aqorin run &lt;workflow> when no --assign, --runtime or --model is given.
 
 In a terminal, aqorin alone opens the TUI: this project's Runs (n launches a new one as aqorin run does; open one to follow it, inspect each node, cancel it), the four runtimes, the agent and workflow editors, each node's assignment and its preflight, Skills and MCP servers, and the credential references — each the CLI's own files and verbs. Quitting (q) leaves every Run going. --plain, --json or a pipe give the line view instead. NO_COLOR turns color off; AQORIN_TUI_ASCII=1 uses ASCII glyphs; AQORIN_TUI_BELL=0 silences the bell that rings when something starts waiting for you.
 
-feature, run and resume drive their Run in a detached worker: closing the terminal leaves it running (aqorin logs &lt;run> --follow, or aqorin, reattaches); Ctrl+C interrupts it resumably at its next step boundary, and a second Ctrl+C stops waiting (the interruption still happens). One Run at a time per working tree: a new Run or conversation is refused while another is unfinished — a Free chat excepted, which neither waits nor holds the tree, and a workflow, which then runs in a git worktree of its own (aqorin worktree). A Run's Claude Code, OpenCode and Pi — a workflow's and its checks, or a Free chat's — run in Aqorin's sandbox (Seatbelt on macOS, bubblewrap on Linux): writes refused in the repository outside the Run's own folder, its .git (a Full access Free chat writes it, but for its config, hooks, modules, commondir and what points its worktrees at it — on Linux one that does not exist yet is said not closed —, is told after a turn what it added that your git runs code from, and the aqorin/\* branches of workflows are not protected from it) and .aqorin, other worktrees, your other projects (aqorin projects), Aqorin's files, your keys, credentials, shell and git configuration, the agents' own settings and the executables on your PATH; reads and the network are not limited; Codex keeps its own sandbox. On Linux no new name is made at the top of your home or of a folder holding a protected path while a step runs, and your session's services (bus, systemd, Docker) are out of its reach. Refused where it cannot be set up (aqorin doctor says why); sandbox: off in .aqorin/aqorin.yaml runs without it (said on every Run).
+feature, run and resume drive their Run in a detached worker: closing the terminal leaves it running (aqorin logs &lt;run> --follow, or aqorin, reattaches); Ctrl+C interrupts it resumably at its next step boundary, and a second Ctrl+C stops waiting (the interruption still happens). One Run at a time per working tree: a new Run or conversation is refused while another is unfinished — a Free chat excepted, which neither waits nor holds the tree, and a workflow, which then runs in a git worktree of its own (aqorin worktree). A Run's Claude Code, OpenCode and Pi — a workflow's and its checks, or a Free chat's — run in Aqorin's sandbox (Seatbelt on macOS, bubblewrap on Linux): writes refused in the repository outside the Run's own folder, its .git (a Full access Free chat writes it, but for its config, hooks, modules, commondir and what points its worktrees at it — on Linux one that does not exist yet is said not closed —, is told after a turn what it added that your git runs code from, and the aqorin/\* branches of workflows are not protected from it) and .aqorin, other worktrees, your other projects (aqorin projects), Aqorin's files, your keys, credentials, shell and git configuration, the agents' own settings and the executables on your PATH; reads and the network are not limited; Codex keeps its own sandbox. On Linux no new name is made at the top of your home or of a folder holding a protected path while a step runs, and your session's services (bus, systemd, Docker) are out of its reach. Refused where it cannot be set up (aqorin doctor says why); sandbox: off in your config.yaml runs without it (said on every Run).
 
 ## Commands
 
 ### `init`
 
-Create Aqorin-owned project configuration
+Mark this folder as an Aqorin project (.aqorin/aqorin.yaml, with nothing else in it); with no default runtime yet, it chooses yours
 
 ### `use`
 
-Set the project or global default runtime
+Set your default runtime, the same in every project (--global is accepted for one release, and is not needed)
 
 ### `runtimes`
 
@@ -123,15 +125,15 @@ Run the canonical Engine-driven feature workflow on a target. Every attempt of a
 
 ### `run`
 
-Run a workflow file from the project's .aqorin/workflows/ (or the built-in feature) with a task file; the workflow is validated before anything runs and frozen with the Run. It sets control flow only: a runtime or model field is refused. Each role is a built-in (specifier, developer, reviewer) or .aqorin/agents/&lt;id>.agent.yaml with an access_class, which selects each runtime's projection. A read_only or review role's restriction is enforced where a passed probe record covers its runtime, version, platform and model; elsewhere it runs with an advisory restriction (told not to write or run commands, not verified), said on the plan and the Run; in Aqorin's sandbox (macOS, Linux) its writes are held to its runtime's own state by the kernel, its commands still only asked; jcode runs only the built-in feature
+Run a workflow of your library (library/workflows/, or the built-in feature) with a task file; the workflow is validated before anything runs and frozen with the Run. It sets control flow only: a runtime or model field is refused. Each role is a built-in (specifier, developer, reviewer) or library/agents/&lt;id>.agent.yaml with an access_class, which selects each runtime's projection. A read_only or review role's restriction is enforced where a passed probe record covers its runtime, version, platform and model; elsewhere it runs with an advisory restriction (told not to write or run commands, not verified), said on the plan and the Run; in Aqorin's sandbox (macOS, Linux) its writes are held to its runtime's own state by the kernel, its commands still only asked; jcode runs only the built-in feature
 
 ### `tasks`
 
-tasks new writes a task to .aqorin/tasks/ from a request and its checks (--check-command, at least one; each id generated from its command), as --task-file reads it; nothing runs
+tasks new writes a task to the project's task folder (in Aqorin's data folder, never the repository) from a request and its checks (--check-command, at least one; each id generated from its command), as --task-file reads it; nothing runs
 
 ### `worktree`
 
-A workflow launched while another is unfinished in the project folder runs in a git worktree of its own (outside the repository, branch aqorin/…; worktree_setup in .aqorin/aqorin.yaml prepares it); at most 4 at once. Once its Run is over: integrate merges it into the branch it was made from (refused on another branch, with uncommitted changes, a workflow running there, or a conflict), keep leaves the branch, discard --yes removes both, undo reverts an integration; each decision is recorded on the Run. list also names Aqorin's worktrees no Run records (discard &lt;branch>)
+A workflow launched while another is unfinished in the project folder runs in a git worktree of its own (outside the repository, branch aqorin/…; aqorin projects setup &lt;project> prepares it); at most 4 at once. Once its Run is over: integrate merges it into the branch it was made from (refused on another branch, with uncommitted changes, a workflow running there, or a conflict), keep leaves the branch, discard --yes removes both, undo reverts an integration; each decision is recorded on the Run. list also names Aqorin's worktrees no Run records (discard &lt;branch>)
 
 ### `simulate`
 
@@ -195,7 +197,11 @@ Create, send to, answer, interrupt, finish, follow up and inspect a durable conv
 
 ### `projects`
 
-Your list of projects (in Aqorin's configuration folder): add puts one in (the project at or above the folder, the one you are in by default; --name names it, else the folder's name), remove takes it out and deletes nothing — its folder, Runs, worktrees and branches stay, and adding it again shows them — and is refused while one of its Runs is unfinished. list says each one's state: ok, not found (its folder is gone), changed (another folder is at its path), not initialized, invalid. A project is its folder's real path: a moved folder is a new project, and the old one keeps its history. Nothing enters the list unless you add it
+Your list of projects (in Aqorin's configuration folder): add puts one in (the project at or above the folder, the one you are in by default; --name names it, else the folder's name), remove takes it out and deletes nothing — its folder, Runs, worktrees and branches stay, and adding it again shows them — and is refused while one of its Runs is unfinished. list says each one's state: ok, not found (its folder is gone), changed (another folder is at its path), not initialized, invalid. A project is its folder's real path: a moved folder is a new project, and the old one keeps its history. Nothing enters the list unless you add it. setup &lt;project> --set &lt;command>… sets how a new worktree of it is prepared before a workflow's first step (an argv, never a shell line; --set -- before a command with flags); --clear removes it
+
+### `migrate`
+
+Import your projects' .aqorin/ (agents, workflows, assignments, skills, MCP servers, settings and tasks) into your library, once. Alone it shows what it would import and writes nothing: each entry with what can act (an agent's access class, an MCP server's command, a skill's files), every conflict (the same id with other content: the library's, then the first project's, keeps it; the others become &lt;id>-&lt;project>, with their references rewritten), each setting and whether your configuration already has one, what is never imported (sandbox: off, a runtime's path, Codex's auth) and what is skipped (a link, a file that does not validate). --yes imports it; --rename &lt;kind>:&lt;id>=&lt;new> names a conflict yourself; --with-setup &lt;project> imports that project's worktree setup; --project &lt;project> limits it to one. Nothing in a repository is written, moved or deleted; a run stopped part-way completes when run again, and a second run changes nothing. Until a project is imported, a new Run, chat or task there is refused (migration_pending)
 
 ### `help`
 

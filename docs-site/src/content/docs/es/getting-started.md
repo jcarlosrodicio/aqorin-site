@@ -33,7 +33,7 @@ cambie.
 
 2. **Home es una lista de comprobación** hasta que el proyecto está listo para ejecutar. Avanza por
    ella:
-   - configura Aqorin en este proyecto (escribe `.aqorin/` y nada más);
+   - configura Aqorin en este proyecto (escribe `.aqorin/aqorin.yaml`, la marca de que es uno de los tuyos, y nada más);
    - elige una instalación, para cualquier runtime que se encuentre más de una vez;
    - elige el **runtime por defecto**: dónde se ejecuta un paso cuando nada más lo dice.
 

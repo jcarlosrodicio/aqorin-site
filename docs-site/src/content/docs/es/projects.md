@@ -9,19 +9,21 @@ proyecto conserva sus Runs, sus worktrees, su sandbox y sus pull requests. Acept
 OpenCode y Pi en macOS 27 (Apple silicon; allí Pi con una conexión de Aqorin) y en Ubuntu 26.04 (x86_64), en macOS también tras reiniciar. Está en `master`, aún no en una versión publicada.
 
 Aqorin guarda una lista de tus proyectos —solo los que añades— para que un comando pueda nombrar un proyecto desde
-cualquier carpeta. Cada proyecto conserva su configuración, sus Runs, sus worktrees y su historial, exactamente como si
-tuviera su propio Aqorin.
+cualquier carpeta. Cada proyecto conserva sus Runs, sus chats, sus tareas, sus worktrees y su historial, exactamente como si tuviera su
+propio Aqorin; tu [configuración y tu biblioteca](../configuration/) son una sola, la misma en todos los proyectos.
 
 ```bash
 aqorin projects add [<ruta>] [--name <nombre>]   # el proyecto en la carpeta o por encima (por defecto, la tuya)
 aqorin projects                                 # cada uno con su estado y lo que hacen sus Runs
 aqorin runs --project tally                     # un proyecto por su nombre, su id o una ruta, desde cualquier carpeta
 aqorin projects remove tally                    # lo saca de la lista; no borra nada
+aqorin projects setup tally --set npm ci        # cómo se preparan sus worktrees nuevos (--clear lo quita)
+aqorin migrate                                  # el .aqorin/ antiguo de los proyectos a tu biblioteca: vista previa y luego --yes
 ```
 
 ## Qué es un proyecto
 
-Un proyecto es una carpeta con `.aqorin/aqorin.yaml` (la crea `aqorin init`), y **su identidad es la ruta real de la
+Un proyecto es una carpeta con `.aqorin/aqorin.yaml` (la crea `aqorin init`, sin nada más dentro), y **su identidad es la ruta real de la
 carpeta**: a través de un enlace simbólico, o con otras mayúsculas en macOS, es el mismo proyecto.
 
 - **Una carpeta que mueves es un proyecto nuevo.** `aqorin projects add` en su nueva ruta la añade como tal; la entrada
@@ -51,11 +53,22 @@ de línea (ningún sandbox puede nombrarla).
 | not found | su carpeta ya no está |
 | changed | hay otra carpeta en su ruta |
 | not initialized | su `.aqorin/aqorin.yaml` ya no está |
-| invalid | su configuración no es válida |
+| invalid | su `.aqorin/aqorin.yaml` no es válido |
 
-**Quitar un proyecto no borra nada** —ni su `.aqorin`, ni sus Runs, ni sus worktrees, ni sus ramas— y se rechaza
+**Quitar un proyecto no borra nada** —ni su `.aqorin`, ni sus Runs, ni sus tareas, ni sus worktrees, ni sus ramas— y se rechaza
 mientras uno de sus Runs no ha terminado o se está lanzando: cancélalo o deja que termine. Añadirlo de nuevo muestra
 todo su historial.
+
+**Lo que es de un proyecto, y guarda Aqorin**: sus Runs, chats y worktrees, sus [tareas](../new-task/) (en la carpeta
+de datos de Aqorin, nunca en el repositorio) y su **preparación de worktrees**: el comando que se ejecuta en cada
+worktree nuevo de un workflow antes de su primer paso, que se pone con `aqorin projects setup <proyecto> --set <comando>…`
+(una lista de argumentos, nunca una línea de shell; `--clear` lo quita), se guarda en tu lista y nunca se lee del
+repositorio.
+
+**Un proyecto configurado antes de esta versión** guarda sus agentes, workflows, ajustes y tareas en su propio
+`.aqorin/`, que Aqorin ya no lee para trabajo nuevo: un Run, un chat o una tarea nuevos en él se rechazan
+(`migration_pending`) hasta que `aqorin migrate` lo importa a tu biblioteca; mira
+[Configuración](../configuration/#pasar-el-aqorin-de-un-proyecto-a-tu-biblioteca). No se cambia nada en el repositorio.
 
 ## Nombrar un proyecto: `--project`
 
