@@ -51,8 +51,8 @@ If a Run failed because of it, fix the key, then retry: `R` on the Run in Attent
 The plan says who cannot run where, and why. The common causes:
 
 - **Aqorin was opened inside its own repository.** A workflow never runs on Aqorin's own repository,
-  on a folder inside it, or at, inside or around a protected folder. Open Aqorin in the project you want it to work on (`cd` there, then
-  `aqorin`).
+  on a folder inside it, or at, inside or around a protected folder. Start the task in the project you want it to work on (`n` asks which, the
+  project of the folder you opened Aqorin in first).
 - **A connection that is not configured.** `c` opens the runtime's configuration.
 - **A required skill or MCP server the runtime cannot load.** Make it optional, or assign the step
   elsewhere.

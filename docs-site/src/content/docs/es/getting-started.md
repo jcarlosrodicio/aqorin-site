@@ -24,19 +24,19 @@ cambie.
 
 ## Los primeros diez minutos
 
-1. **Abre la TUI** en tu proyecto:
+1. **Abre la TUI**, en tu proyecto o en cualquier sitio:
 
    ```bash
    cd your-project
    aqorin
    ```
 
-2. **Home es una lista de comprobación** hasta que el proyecto está listo para ejecutar. Avanza por
-   ella:
-   - añade esta carpeta a tus proyectos (`aqorin projects add`, que no escribe nada en ella; en un repositorio git
-     añade la raíz del repositorio);
+2. **Home** resume tu configuración y, debajo, es una lista de comprobación hasta que estás listo para ejecutar.
+   Avanza por ella:
    - elige una instalación, para cualquier runtime que se encuentre más de una vez;
-   - elige el **runtime por defecto**: dónde se ejecuta un paso cuando nada más lo dice.
+   - elige el **runtime por defecto**: dónde se ejecuta un paso cuando nada más lo dice;
+   - añade tu proyecto (*Add this folder to your projects* en un repositorio git, o `aqorin projects add <carpeta>`,
+     que no escribe nada en ella; en un repositorio git añade la raíz del repositorio).
 
    El panel de la derecha explica la fila resaltada. **Enter** la ejecuta.
 3. **Mira tus runtimes** (`6`). Cada uno muestra su versión, cómo inicia sesión y sus modelos.
