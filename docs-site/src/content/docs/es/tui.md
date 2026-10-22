@@ -3,17 +3,16 @@ title: La TUI
 description: Cómo está organizada la interfaz de terminal a pantalla completa de Aqorin y cómo se adapta a tu terminal.
 ---
 
-Ejecuta `aqorin` en un proyecto y se abre la TUI. Fuera de un proyecto —tu carpeta personal incluida, pero no un
-repositorio git que aún no está en tu lista, que abre Home con *Add this folder to your projects* (no se escribe nada
-en él)— se abre en **Global**, todos los proyectos de tu lista
+Ejecuta `aqorin` en cualquier sitio y se abre la TUI. Es una sola app sobre todos los proyectos de tu lista, la misma
+dondequiera que la abras: la carpeta en la que estás solo decide qué proyecto ofrecen primero New task y Free chat
 (ver [Varios proyectos](../projects/)). `aqorin --plain` da una vista de líneas en su lugar, y `--json` o una tubería
 dan la salida propia de la CLI.
 
 ## La disposición
 
-- **La cabecera** muestra la marca de Aqorin (`◈`, o `<>` en ASCII), dónde estás y el proyecto, y, en un Run o
-  un chat abierto, su estado. Si un Run es advisory lo dicen sus detalles y su Result, no la cabecera.
-- **El rail** de la izquierda lista las nueve secciones, con Global encima. `0`–`9` saltan directamente a una.
+- **La cabecera** muestra la marca de Aqorin (`◈`, o `<>` en ASCII) y dónde estás, y, en un Run o un chat abierto,
+  su proyecto, su rama y su estado. Si un Run es advisory lo dicen sus detalles y su Result, no la cabecera.
+- **El rail** de la izquierda lista las diez secciones, Projects la última. `0`–`9` saltan directamente a una.
 - **La lista** del centro contiene los elementos de la sección.
 - **El inspector** de la derecha explica el elemento seleccionado. Contiene las acciones de ese
   elemento como botones.
@@ -21,28 +20,33 @@ dan la salida propia de la CLI.
 - **La barra de estado** dice qué Run se está moviendo y qué te espera a ti. Su glifo gira mientras
   un Run trabaja.
 
-Mientras la TUI está abierta, el título de tu terminal es `◈ aqorin · <proyecto>`. Al salir (`q`, o Ctrl+C) la
+Mientras la TUI está abierta, el título de tu terminal es `◈ aqorin`, y `◈ aqorin · <proyecto>` mientras hay abierto
+un Run o un chat de ese proyecto. Al salir (`q`, o Ctrl+C) la
 terminal recupera la pantalla que tenía y se le pide su título anterior (una terminal que no guarda una pila de
 títulos mantiene el de Aqorin hasta que tu shell ponga otro).
 
 | Tecla | Sección | Qué contiene |
 |---|---|---|
-| `0` | Global | Todos los proyectos de tu lista: lo que te espera, lo que trabaja y lo que terminó, cada uno abierto en su propio proyecto. |
-| `1` | Home | La lista de comprobación del primer uso y, después, el plano de control. |
-| `2` | Runs | Todos los Runs y chats de este proyecto, en columnas: número, workflow, estado y cuándo empezó. `n` empieza una tarea nueva, `c` un Free chat. |
-| `3` | Attention | Lo que te espera: aprobaciones, preguntas y decisiones. |
+| `1` | Home | Un resumen de tu configuración y, debajo, la lista de comprobación o el plano de control sobre todos los proyectos. |
+| `2` | Runs | Todos los Runs y chats de todos los proyectos, en columnas: proyecto, número, workflow, estado y cuándo empezó. `n` empieza una tarea nueva, `c` un Free chat. |
+| `3` | Attention | Lo que te espera en todos los proyectos: aprobaciones, preguntas y decisiones, cada una con su proyecto. |
 | `4` | Agents | Los roles que usa un workflow: los integrados, las plantillas y los tuyos. |
 | `5` | Workflows | Los grafos de pasos y dónde se ejecuta cada paso. |
 | `6` | Runtimes | Los cuatro runtimes tal como se encuentran en esta máquina, y tus conexiones. |
 | `7` | Resources | Las skills y los servidores MCP que pueden usar tus agentes. |
 | `8` | Credentials | Las referencias a tus claves, nunca un valor. |
-| `9` | Settings | Añadir esta carpeta a tus proyectos (mientras no lo sea), tu runtime por defecto, la apariencia y dónde guarda Aqorin sus archivos. |
+| `9` | Settings | Tu runtime por defecto, el sandbox, la apariencia y dónde guarda Aqorin sus archivos. |
+| `0` | Projects | Tus proyectos, cada uno con su estado y sus Runs trabajando, esperando, fallidos y terminados. |
 
 ## Home
 
-Hasta que el proyecto está listo para ejecutar, Home es una lista de comprobación. Cuando está
-listo, Home es el plano de control: los cuatro runtimes, el Run que se está moviendo y los Runs
-recientes, con lo que te espera a la derecha (ese panel, solo cuando algo te espera). Cuando Aqorin tiene algo que contarte del proyecto —por ejemplo, que tu
+Home se abre con un resumen de tu configuración, una fila cada cosa —los runtimes encontrados y tu runtime por
+defecto, tus conexiones, tu biblioteca, tus proyectos—, y **Enter** en una fila abre su sección. Debajo, mientras no
+estás preparado o ningún proyecto tiene aún un Run o un chat, una **lista de comprobación**: la instalación de un
+runtime encontrado varias veces, tu **runtime por defecto**, un proyecto —en un repositorio git que no está en tu
+lista, *Add this folder to your projects* (no se escribe nada en él)— y después *Start a task* (`n`) y *Start a chat*
+(`c`). Luego, el **plano de control** sobre todos los proyectos: lo que te espera, los Runs trabajando, los chats
+abiertos, lo que falló o se paró y los Runs recientes, cada uno con su proyecto. Cuando Aqorin tiene algo que contarte —por ejemplo, que tu
 runtime por defecto ejecuta los pasos de revisión y de solo lectura con una restricción advisory—, la
 línea Status muestra `! 1 notice`; `!` lo lee y Esc lo pliega.
 

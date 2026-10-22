@@ -23,18 +23,18 @@ and a step can run on Claude Code, Codex, OpenCode or Pi without the workflow ch
 
 ## The first ten minutes
 
-1. **Open the TUI** in your project:
+1. **Open the TUI**, in your project or anywhere:
 
    ```bash
    cd your-project
    aqorin
    ```
 
-2. **Home is a checklist** until the project is ready to run. Work down it:
-   - add this folder to your projects (`aqorin projects add`, which writes nothing in it; in a git repository it adds
-     the repository's top level);
+2. **Home** sums up your setup, and under it is a checklist until you are ready to run. Work down it:
    - choose an installation, for any runtime found more than once;
-   - choose the **default runtime** — where a step runs when nothing else says so.
+   - choose the **default runtime** — where a step runs when nothing else says so;
+   - add your project (*Add this folder to your projects* in a git repository, or `aqorin projects add <folder>`,
+     which writes nothing in it; in a git repository it adds the repository's top level).
 
    The panel on the right explains the highlighted row. **Enter** does it.
 3. **Look at your runtimes** (`6`). Each one shows its version, how it signs in and its models.

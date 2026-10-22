@@ -53,8 +53,8 @@ El plan dice quién no puede ejecutarse dónde, y por qué. Las causas habituale
 
 - **Abriste Aqorin dentro de su propio repositorio.** Un workflow nunca se ejecuta sobre el
   repositorio de Aqorin, ni sobre una carpeta dentro de él, ni en, dentro o alrededor de una carpeta
-  protegida. Abre Aqorin en el proyecto en el que
-  quieres que trabaje (`cd` a él y luego `aqorin`).
+  protegida. Empieza la tarea en el proyecto en el que
+  quieres que trabaje (`n` pregunta cuál, primero el de la carpeta en la que abriste Aqorin).
 - **Una conexión que no está configurada.** `c` abre la configuración del runtime.
 - **Una skill o un servidor MCP requeridos que el runtime no puede cargar.** Hazlo opcional, o
   asigna el paso a otro sitio.

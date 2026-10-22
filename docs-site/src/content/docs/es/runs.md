@@ -51,7 +51,8 @@ se rechaza (`project_not_git`), porque sus worktrees y su entrega necesitan git.
 
 ## La pantalla Runs (`2`)
 
-Cada Run y chat de este proyecto aparece con su estado y cuándo empezó. Un chat abierto dice
+Cada Run y chat de todos los proyectos de tu lista aparece con su proyecto, su número en ese proyecto, su estado y
+cuándo empezó, el más reciente primero; `/` encuentra también el nombre del proyecto. Un chat abierto dice
 *chat open*. `/` filtra la lista, `n` empieza una [nueva tarea](../new-task/) y `c` empieza un
 [Free chat](../free-chat/).
 

@@ -3,17 +3,16 @@ title: The TUI
 description: How Aqorin's full-screen terminal interface is laid out, and how it adapts to your terminal.
 ---
 
-Run `aqorin` in a project and the TUI opens. Outside a project — your home folder included, but not a git repository
-that is not in your list yet, which opens Home with *Add this folder to your projects* (nothing is written in it) — it
-opens on **Global**, every project in your list (see
+Run `aqorin` anywhere and the TUI opens. It is one app over every project in your list, the same wherever you start
+it: the folder you are in only decides which project New task and Free chat offer first (see
 [Several projects](../projects/)). `aqorin --plain` gives a line view instead, and `--json` or a pipe give the CLI's
 own output.
 
 ## The layout
 
-- **The header** shows Aqorin's mark (`◈`, or `<>` in ASCII), where you are and the project — and, in an open
-  Run or chat, its state. Whether a Run is advisory is said in its details and its Result, not here.
-- **The rail** on the left lists the nine sections, with Global above them. `0`–`9` jump straight to one.
+- **The header** shows Aqorin's mark (`◈`, or `<>` in ASCII) and where you are — and, in an open Run or chat, its
+  project, its branch and its state. Whether a Run is advisory is said in its details and its Result, not here.
+- **The rail** on the left lists the ten sections, Projects last. `0`–`9` jump straight to one.
 - **The list** in the middle holds the section's items.
 - **The inspector** on the right explains the selected item. It holds that item's actions as
   buttons.
@@ -21,29 +20,33 @@ own output.
 - **The status bar** says which Run is moving and what waits for you. Its glyph turns while a Run
   works.
 
-While the TUI runs, your terminal's title is `◈ aqorin · <project>`. Quitting (`q`, or Ctrl+C) gives the
+While the TUI runs, your terminal's title is `◈ aqorin`, and `◈ aqorin · <project>` while a Run or chat of that
+project is open. Quitting (`q`, or Ctrl+C) gives the
 terminal back the screen it had, and asks it for its previous title (a terminal that keeps no title stack keeps
 Aqorin's until your shell sets another).
 
 | Key | Section | What it holds |
 |---|---|---|
-| `0` | Global | Every project in your list: what waits for you, what runs and what finished, each opened in its own project. |
-| `1` | Home | The first-run checklist, then the control plane. |
-| `2` | Runs | Every Run and chat of this project, in columns: number, workflow, state, when it started. `n` starts a new task, `c` a Free chat. |
-| `3` | Attention | What waits for you: approvals, questions and decisions. |
+| `1` | Home | A summary of your setup, then the checklist or the control plane over every project. |
+| `2` | Runs | Every Run and chat of every project, in columns: project, number, workflow, state, when it started. `n` starts a new task, `c` a Free chat. |
+| `3` | Attention | What waits for you in every project: approvals, questions and decisions, each naming its project. |
 | `4` | Agents | The roles a workflow uses: built-in ones, templates and your own. |
 | `5` | Workflows | The graphs of steps, and where each step runs. |
 | `6` | Runtimes | The four runtimes as found on this machine, and your connections. |
 | `7` | Resources | The skills and MCP servers your agents can use. |
 | `8` | Credentials | The references to your keys, never a value. |
-| `9` | Settings | Adding this folder to your projects (until it is one), your default runtime, appearance, and where Aqorin keeps its files. |
+| `9` | Settings | Your default runtime, the sandbox, appearance, and where Aqorin keeps its files. |
+| `0` | Projects | Your projects, each with its state and its Runs working, waiting, failed and finished. |
 
 ## Home
 
-Until the project is ready to run, Home is a checklist. Once it is ready, Home is the control
-plane: the four runtimes, the Run that is moving and the recent Runs, with what waits for you on the right —
-that pane only when something does. When Aqorin
-has something to tell you about the project — for example, that your default runtime runs review and
+Home opens with a summary of your setup, one row each — the runtimes found and your default, your connections, your
+library, your projects — and **Enter** on a row opens its section. Under it, while you are not set up or no project
+has a Run or chat yet, a **checklist**: a runtime's installation where several were found, your **default runtime**,
+a project — in a git repository not in your list, *Add this folder to your projects* (nothing is written in it) — then
+*Start a task* (`n`) and *Start a chat* (`c`). After that, the **control plane** over every project: what waits for
+you, the Runs working, the chats open, what failed or stopped and the recent Runs, each naming its project. When Aqorin
+has something to tell you — for example, that your default runtime runs review and
 read-only steps with an advisory restriction — the Status line shows `! 1 notice`; `!` reads it, Esc
 folds it.
 

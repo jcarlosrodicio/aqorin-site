@@ -111,28 +111,30 @@ esperándote, fallidos o bloqueados, terminados, y sus chats; lo que te espera, 
 puede leer —dañado, o escrito por un Aqorin más nuevo— dice *unreadable*; los demás proyectos se siguen listando.
 `--json` da lo mismo.
 
-## Global: todos los proyectos en la TUI
+## Una sola app sobre todos los proyectos
 
-`aqorin` abre el proyecto en el que estás, como antes; en un repositorio git que no está en tu lista, Home con *Add this
-folder to your projects* (su raíz; no se escribe nada en ella); en cualquier otro sitio —tu carpeta personal incluida— **Global**. En un proyecto, `0` (o `Esc` en su nivel superior)
-muestra Global; la barra lateral lo tiene encima de Home. Su cabecera dice *all projects*, no el proyecto en el que
-abriste la TUI.
+La TUI es la misma dondequiera que la abras: Home, Runs y Attention cubren todos los proyectos de tu lista, cada fila
+con el nombre de su proyecto, y **Projects** (`0`, la última sección del rail) lista los proyectos mismos —cada uno con
+su estado y sus Runs trabajando, esperando, fallidos y terminados, y al lado la carpeta del seleccionado y qué hacer—.
+Sin ningún proyecto en la lista, dice cómo añadir uno. La carpeta en la que abres Aqorin solo decide qué proyecto
+ofrecen primero New task y Free chat; en un repositorio git que no está en tu lista, Home ofrece *Add this folder to
+your projects* (no se escribe nada en él).
 
-- Global lista **primero lo que te espera, de todos los proyectos**, cada elemento con el nombre de su proyecto;
-  después los Runs trabajando, esperando, fallidos o bloqueados y terminados hace poco (los tres últimos de cada
-  proyecto); después cada proyecto con sus cuentas, o su estado y qué hacer.
-- El proyecto en el que abriste la TUI, si no está en tu lista, aparece como *not added*: `a` lo añade. Sin ningún
-  proyecto en la lista, Global dice cómo añadir uno.
-- **`Enter`** abre el elemento en su propio proyecto. Un Run del proyecto en el que estás se abre ahí; un Run o un
-  proyecto de otro cierra las pantallas de este proyecto y abre las de aquel —`Esc` y `0` vuelven a Global. Cada
-  acción allí actúa solo sobre ese proyecto.
-- Antes de salir del proyecto, Aqorin dice lo que queda en él: un turno de chat que está enviando sigue hasta su
-  final, sin que lo veas hasta que vuelvas (salir de Aqorin antes de que acabe lo avisa primero); un mensaje en cola para él no se envía; un mensaje de chat que no has
-  enviado se pierde. La misma tecla otra vez sale.
-- **`n`** en Global pregunta primero el proyecto y después abre New task en él.
-- Un proyecto que no está *ok* no se abre: su fila dice qué hacer, y Global dice por qué si dejó de estar *ok* desde que
-  se leyó. Global lee cada proyecto sin cambiarlo, y solo
-  mientras se muestra.
+- **`Enter`** en un Run o un chat de cualquier proyecto lo abre aquí, sin relanzar nada. Cada acción sobre él
+  —responder, aprobar, cancelar, reanudar, la decisión de un worktree, una entrega— actúa sobre ese proyecto, como el
+  propio comando de la CLI con `--project`. Un comando que la TUI ofrece para copiar nombra su proyecto (`--project
+  <nombre>`), así que funciona desde cualquier carpeta.
+- Un turno de chat enviado en un proyecto sigue mientras miras otro; lo que dejaste en cola para él se envía allí
+  cuando termina. Salir mientras se envía un turno lo avisa primero.
+- **`n`** y **`c`** empiezan en el único proyecto que puede aceptar una tarea, o preguntan cuál: primero el de la
+  carpeta en la que empezaste, después el último que usaste, después los demás por nombre. Un proyecto que no está
+  *ok* no se ofrece. El título del formulario y la cabecera del plan nombran el proyecto.
+- La TUI lee el registro de cada proyecto en solo lectura, cada dos segundos mientras está abierta: nunca migra ni
+  escribe uno. Un registro escrito por un Aqorin más nuevo, o por uno más antiguo, no se lee —Runs dice cuál, y qué
+  hacer (cualquier comando `aqorin` en ese proyecto pone al día uno antiguo). Una lista que no se puede leer se dice
+  en Runs, Attention y Home, nunca como que nada espera.
+- Añadir, renombrar y quitar un proyecto desde la app llegan más adelante: hoy, `aqorin projects add`, `aqorin
+  projects remove` y el *Add this folder* de Home.
 
 ## Separados
 

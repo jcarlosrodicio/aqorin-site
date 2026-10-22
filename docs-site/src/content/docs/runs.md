@@ -51,7 +51,8 @@ refused (`project_not_git`), since its worktrees and its delivery need git.
 
 ## The Runs screen (`2`)
 
-Every Run and chat of this project is listed with its state and when it started. An open chat reads
+Every Run and chat of every project in your list is listed with its project, its number in that project, its state
+and when it started, newest first; `/` matches the project's name too. An open chat reads
 *chat open*. `/` filters the list, `n` starts a [new task](../new-task/), and `c` starts a
 [Free chat](../free-chat/).
 

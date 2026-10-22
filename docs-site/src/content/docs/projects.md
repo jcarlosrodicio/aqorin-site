@@ -108,28 +108,29 @@ answers it (`--project <name>` included); and its working and failed Runs and it
 cannot read — damaged, or written by a newer Aqorin — says *unreadable*; the other projects are still listed.
 `--json` gives the same.
 
-## Global: every project in the TUI
+## One app over every project
 
-`aqorin` opens the project you are in, as before; in a git repository not in your list, Home with *Add this folder to
-your projects* (its top level; nothing is written in it); anywhere else —
-your home folder included — **Global**. In a project, `0` (or `Esc` at its top level) shows Global; the rail has it
-above Home. Its header says *all projects*, not the project you opened the TUI in.
+The TUI is the same wherever you open it: Home, Runs and Attention cover every project in your list, each row naming
+its project, and **Projects** (`0`, the last section of the rail) lists the projects themselves — each with its state
+and its Runs working, waiting, failed and finished, the selected one's folder and what to do beside it. With no project
+in the list, it says how to add one. The folder you open Aqorin in only decides which project New task and Free chat
+offer first; in a git repository not in your list, Home offers *Add this folder to your projects* (nothing is written
+in it).
 
-- Global lists **what waits for you first, across projects**, each item naming its project; then the Runs working,
-  waiting, failed or blocked and finished recently (the three newest per project); then each project with its counts,
-  or its state and what to do.
-- The project you opened the TUI in, when it is not in your list, is marked *not added*: `a` adds it. With no project
-  in the list, Global says how to add one.
-- **`Enter`** opens the item in its own project. A Run of the project you are in opens there; a Run or a project of
-  another closes this project's screens and opens that project's — `Esc` and `0` come back to Global. Every action
-  there acts on that project only.
-- Before you leave the project, Aqorin says what is held there: a chat turn it is sending goes on to its end, unseen
-  until you come back (quitting Aqorin before it ends says so first); a message queued for it is not sent; a chat message you have not sent is lost. The same key
-  again leaves.
-- **`n`** in Global asks the project first, then opens New task there.
-- A project that is not *ok* is not opened: its row says what to do, and Global says why if it stopped being *ok* since
-  it was read. Global reads each project without changing it,
-  and only while it is shown.
+- **`Enter`** on a Run or chat of any project opens it here, with no relaunch. Every action on it — answer, approve,
+  cancel, resume, a worktree's decision, a delivery — acts on that project, as the CLI's own command with `--project`
+  does. A command the TUI offers to copy names its project (`--project <name>`), so it runs from any folder.
+- A chat turn sent in one project goes on while you look at another; what you queued for it is sent there when it
+  ends. Quitting while a turn is being sent says so first.
+- **`n`** and **`c`** start in the one project that can take a task, or ask which: the project of the folder you
+  started in first, then the last one you used, then the others by name. A project that is not *ok* is not offered.
+  The form's title and the plan's header name the project.
+- The TUI reads each project's record read-only, every two seconds while it runs: it never migrates nor writes one. A
+  record written by a newer Aqorin, or by an older one, is not read — Runs says which, and what to do (any `aqorin`
+  command in that project brings an older one up to date). A list that cannot be read is said in Runs, Attention and
+  Home, never as nothing waiting.
+- Adding, renaming and removing a project in the app come later: today `aqorin projects add`, `aqorin projects
+  remove`, and Home's *Add this folder*.
 
 ## Kept apart
 
