@@ -13,7 +13,7 @@ cualquier carpeta. Cada proyecto conserva sus Runs, sus chats, sus tareas, sus w
 propio Aqorin; tu [configuración y tu biblioteca](../configuration/) son una sola, la misma en todos los proyectos.
 
 ```bash
-aqorin projects add [<ruta>] [--name <nombre>]   # el proyecto en la carpeta o por encima (por defecto, la tuya)
+aqorin projects add [<ruta>] [--name <nombre>]   # la carpeta (por defecto, la tuya); no escribe nada en ella
 aqorin projects                                 # cada uno con su estado y lo que hacen sus Runs
 aqorin runs --project tally                     # un proyecto por su nombre, su id o una ruta, desde cualquier carpeta
 aqorin projects remove tally                    # lo saca de la lista; no borra nada
@@ -23,8 +23,9 @@ aqorin migrate                                  # el .aqorin/ antiguo de los pro
 
 ## Qué es un proyecto
 
-Un proyecto es una carpeta con `.aqorin/aqorin.yaml` (la crea `aqorin init`, sin nada más dentro), y **su identidad es la ruta real de la
-carpeta**: a través de un enlace simbólico, o con otras mayúsculas en macOS, es el mismo proyecto.
+Un proyecto es una carpeta de tu lista —la añade `aqorin projects add`, que no escribe nada en ella— y **su identidad
+es la ruta real de la carpeta**: a través de un enlace simbólico, o con otras mayúsculas en macOS, es el mismo
+proyecto. Un `.aqorin/` en un repositorio no hace un proyecto; solo lo lee `aqorin migrate`.
 
 - **Una carpeta que mueves es un proyecto nuevo.** `aqorin projects add` en su nueva ruta la añade como tal; la entrada
   antigua dice *no encontrado* y conserva su historial, y devolver la carpeta a su sitio la recupera.
@@ -32,18 +33,30 @@ carpeta**: a través de un enlace simbólico, o con otras mayúsculas en macOS, 
   puede decir *ok* enseguida, si la nueva carpeta recibe el inodo de la anterior); en ambos casos su historial incluye
   los Runs de la carpeta anterior.
 - **Un repositorio clonado dos veces** son dos proyectos.
-- **Tu carpeta personal nunca es un proyecto**, ni nada por encima de ella: `aqorin init` lo rechaza, y un `.aqorin`
-  allí se ignora. `aqorin run`, `feature` y `conversation create` se rechazan allí, y en cualquier carpeta que no es
-  un proyecto pero contiene alguno de tus proyectos: un Run allí escribiría en ellos como en su propia carpeta. Lánzalo
-  en un proyecto: entra en él con `cd` o indica `--project <nombre>`.
+- **Una carpeta que no es un repositorio git** también es un proyecto, y solo admite Free chats: un workflow en ella
+  (New task, `aqorin run`, `feature`) se rechaza (`project_not_git`), porque sus worktrees y su entrega necesitan git.
+  Al añadirla se nombran los repositorios git que contiene: pasan a ser carpetas suyas, nunca proyectos propios. En
+  Linux, el primer chat con sandbox crea en ella un `.git` vacío, que se la cierra al agente (git ignora un `.git`
+  vacío, y Aqorin también).
+- **Tu carpeta personal nunca es un proyecto**, ni nada por encima de ella: `aqorin projects add` y `aqorin init` la
+  rechazan. Un comando de un proyecto lanzado allí, o en cualquier carpeta que no esté en ninguno de tus proyectos, se
+  rechaza (`project_required`). Lánzalo en un proyecto: entra en él con `cd` o indica `--project <nombre>`.
 
 ## La lista
 
-Nada entra en la lista si no lo añades. `aqorin projects add` toma el proyecto en la carpeta que indicas o por encima,
-con el nombre de la carpeta salvo que `--name` le dé otro (de 1 a 64 caracteres, sin `/`, sin empezar por `.`, `~` ni
-`-`, único sin distinguir mayúsculas; `--name` sobre un proyecto ya en la lista lo renombra). Rechaza una carpeta que no está en un proyecto (indica `aqorin init --project
-<carpeta>`), tu carpeta personal y las carpetas propias de Aqorin, una carpeta ya en la lista con otra ruta, y una ruta con un salto
-de línea (ningún sandbox puede nombrarla).
+Nada entra en la lista si no lo añades, y nada se añade solo. `aqorin projects add` toma la carpeta que indicas —por
+defecto, la tuya— y no escribe nada en ella: una carpeta dentro de uno de tus proyectos es ese proyecto; una carpeta
+dentro de un repositorio git añade la raíz del repositorio; cualquier otra se añade tal cual, y no es git. Toma el
+nombre de la carpeta salvo que `--name` le dé otro (de 1 a 64 caracteres, sin `/`, sin empezar por `.`, `~` ni `-`,
+único sin distinguir mayúsculas; `--name` sobre un proyecto ya en la lista lo renombra). Rechaza tu carpeta personal
+y lo que está por encima, las carpetas propias de Aqorin, una carpeta ya en la lista con otra ruta, una carpeta que
+contiene alguno de tus proyectos, o cuyo repositorio lo contiene (`project_nested`), y una ruta con un salto de línea (ningún sandbox
+puede nombrarla).
+
+`aqorin init` es `aqorin projects add` para la carpeta en la que estás (o `--project <ruta>`), y lo dice. Si no tienes
+runtime por defecto, además fija uno —con `--runtime`, o eligiéndolo en una terminal—; sin ninguno de los dos, añade
+la carpeta e indica `aqorin use <runtime>`. Un `init` rechazado —un runtime desconocido, una ruta que no existe— no
+añade nada.
 
 `aqorin projects` lista cada proyecto con su estado:
 
@@ -52,10 +65,8 @@ de línea (ningún sandbox puede nombrarla).
 | ok | listo para usar |
 | not found | su carpeta ya no está |
 | changed | hay otra carpeta en su ruta |
-| not initialized | su `.aqorin/aqorin.yaml` ya no está |
-| invalid | su `.aqorin/aqorin.yaml` no es válido |
 
-**Quitar un proyecto no borra nada** —ni su `.aqorin`, ni sus Runs, ni sus tareas, ni sus worktrees, ni sus ramas— y se rechaza
+**Quitar un proyecto no borra nada** —ni su carpeta, ni sus Runs, ni sus tareas, ni sus worktrees, ni sus ramas— y se rechaza
 mientras uno de sus Runs no ha terminado o se está lanzando: cancélalo o deja que termine. Añadirlo de nuevo muestra
 todo su historial.
 
@@ -72,13 +83,21 @@ repositorio.
 
 ## Nombrar un proyecto: `--project`
 
-`--project` acepta una **ruta** (cualquier cosa con `/`, o que empiece por `.` o `~`: el proyecto en ella o por
-encima) o el **nombre o id** de un proyecto que has añadido.
+Los comandos de un proyecto —`run`, `feature`, `conversation …`, `tasks`, `worktree`, `deliver`, `open`, `runs`,
+`status`, `inspect`, `logs`, `cancel`, `resume`, `answer`, `replan`, las aprobaciones…— actúan sobre `--project`; si
+no, sobre el proyecto de tu lista en la carpeta en la que estás o por encima; si no, dado el id de un Run, sobre el
+proyecto cuyos Runs lo tienen (un id que coincide con Runs de dos proyectos se rechaza, `run_ambiguous`); si no, se
+rechazan (`project_required`) e indican `aqorin projects add <carpeta>`. Tus propios comandos, los mismos en todos los
+proyectos —`agents`, `workflows`, `skills`, `mcp`, `use`, `runtimes`, `connections`, `credentials`, `config`,
+`doctor`, `capabilities`—, rechazan `--project`; `aqorin migrate --project` nombra el proyecto que importar.
+
+`--project` acepta una **ruta** (cualquier cosa con `/`, o que empiece por `.` o `~`: el proyecto de tu lista en ella
+o por encima) o el **nombre o id** de un proyecto que has añadido.
 
 - Un nombre que además es una carpeta donde estás, de otro proyecto, se rechaza: indica el id (`./<nombre>` es el
   proyecto que contiene esa carpeta).
-- Un valor vacío se rechaza; nunca se toma como la carpeta en la que estás. Igual tu carpeta personal si no hay un
-  proyecto en ella.
+- Un valor vacío se rechaza; nunca se toma como la carpeta en la que estás. Igual una ruta que no está en ninguno de
+  tus proyectos (`project_required`).
 - Un proyecto cuyo estado no es *ok* se rechaza para trabajar; sus Runs se pueden seguir listando, inspeccionando y
   cancelando por su id (`aqorin runs --project <id>`).
 - El worker de un Run arranca en la carpeta de su proyecto, con las rutas que escribiste convertidas en absolutas: desde
@@ -94,8 +113,8 @@ puede leer —dañado, o escrito por un Aqorin más nuevo— dice *unreadable*; 
 
 ## Global: todos los proyectos en la TUI
 
-`aqorin` abre el proyecto en el que estás, como antes; en un repositorio git que aún no es un proyecto, su Setup; en
-cualquier otro sitio —tu carpeta personal incluida— **Global**. En un proyecto, `0` (o `Esc` en su nivel superior)
+`aqorin` abre el proyecto en el que estás, como antes; en un repositorio git que no está en tu lista, Home con *Add this
+folder to your projects* (su raíz; no se escribe nada en ella); en cualquier otro sitio —tu carpeta personal incluida— **Global**. En un proyecto, `0` (o `Esc` en su nivel superior)
 muestra Global; la barra lateral lo tiene encima de Home. Su cabecera dice *all projects*, no el proyecto en el que
 abriste la TUI.
 
@@ -118,7 +137,8 @@ abriste la TUI.
 ## Separados
 
 - Un Run o un chat en el sandbox de Aqorin no puede escribir en tus otros proyectos (ver [Seguridad](../security/)),
-  salvo uno que añadiste dentro de su propia carpeta, que forma parte de aquello en lo que trabaja.
+  salvo uno que añadiste dentro de su propia carpeta (solo posible en una lista escrita antes de que añadir lo rechazara), que forma
+  parte de aquello en lo que trabaja.
 - Una entrega solo hace commit de la carpeta de su proyecto, nunca de un proyecto que añadiste dentro de ella, y abre
   el pull request en el repositorio que nombra su `origin`.
 - `GIT_DIR`, `GIT_WORK_TREE`, `GIT_CONFIG_*`, `GH_REPO` y las demás variables que dirigen git o `gh` a otro

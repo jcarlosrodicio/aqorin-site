@@ -105,9 +105,10 @@ A workflow Run's Claude Code, OpenCode and Pi run in Aqorin's sandbox — Seatbe
 Linux. Its agents write in the Run's own folder or worktree and anywhere outside your project. These writes
 fail (`Operation not permitted` on macOS, `Read-only file system` on Linux):
 
-- the repository's other folders, its `.git` and its `.aqorin` — so an agent cannot commit, move a
-  branch, add a hook to `.git` or turn the sandbox off; Aqorin commits when you integrate a worktree;
-- other Runs' worktrees, and Aqorin's own files — its record of your Runs included;
+- the repository's other folders and its `.git` — so an agent cannot commit, move a branch or add a hook
+  to `.git`; Aqorin commits when you integrate a worktree;
+- other Runs' worktrees, and Aqorin's own files — its record of your Runs, and your configuration and library,
+  included, so an agent cannot turn the sandbox off;
 - your other projects — each one [you added](../projects/) whose folder exists: its folder, its repository and
   its `.git` — as the list was when the Run began; the plan names them. A list that cannot be read refuses the
   Run. A file already hard-linked between two projects (a shared `node_modules` store, `cp -al`) is one file: the
@@ -137,7 +138,7 @@ agent, are not. A read-only or review step on Claude Code is advisory on Linux: 
 and files, but its `~/.claude` stays writable for its credentials. Linux is supported as demonstrated on Ubuntu 26.04
 x86_64 ([Installation](../installation/)); there, the sandbox of a Pi reviewer's live Run, replayed with an attack in
 Pi's place, refused every write outside Pi's own state and the temporary directories — the workspace, `.git`,
-`.aqorin`, your home, `~/.ssh`, systemd's user units, Aqorin's data and other worktrees — and escapes by symlink,
+`.aqorin` (closed then, open since GC2), your home, `~/.ssh`, systemd's user units, Aqorin's data and other worktrees — and escapes by symlink,
 hardlink and rename.
 
 A Free chat on Claude Code, OpenCode or Pi runs in the same sandbox, writing in your project folder: its

@@ -90,8 +90,8 @@ they report. The step's work shows what they are doing as they do it. See [Runs]
 ## One Run at a time
 
 There is one workflow Run at a time in your project folder (Free chats do not count); in a git
-repository a second workflow runs in a worktree of its own instead (see [Runs](../runs/)). Outside git,
-finish, cancel or resume the open Run (`2` Runs). A
+repository a second workflow runs in a worktree of its own instead (see [Runs](../runs/)). Outside git a new
+workflow is refused (`project_not_git`): its worktrees and its delivery need git. A
 Run whose driver died is shown as **stale**. Open it, then resume or cancel it.
 
 At most four workflows run in worktrees at once: a fifth is refused and names them — wait for one, or

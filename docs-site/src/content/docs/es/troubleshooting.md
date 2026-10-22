@@ -96,7 +96,7 @@ muestra qué están haciendo mientras lo hacen. Mira
 
 Hay un Run de workflow a la vez en la carpeta de tu proyecto (los Free chats no cuentan); en un
 repositorio git, un segundo workflow se ejecuta en un worktree propio (mira [Runs](../runs/)). Fuera de
-git, termina, cancela o reanuda el Run abierto (`2` Runs). Un
+git, un workflow nuevo se rechaza (`project_not_git`): sus worktrees y su entrega necesitan git. Un
 Run cuyo driver murió aparece como **stale**. Ábrelo, y luego reanúdalo o cancélalo.
 
 Como mucho cuatro workflows van en worktrees a la vez: un quinto se rechaza y los nombra — espera a que

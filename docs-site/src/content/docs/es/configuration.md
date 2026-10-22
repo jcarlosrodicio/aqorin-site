@@ -4,8 +4,12 @@ description: Los archivos que posee Aqorin —una configuración y una bibliotec
 ---
 
 Aqorin escribe solo sus propios archivos. Nunca escribe la configuración de tus runtimes. Todo lo
-que sigue lo escribe la TUI o la CLI a través de un único escritor qTu configuración y tu biblioteca son tuyas, no de un proyecto: todos los proyectos que añades usan las mismas.
-La carpeta de un proyecto solo guarda `.aqorin/aqorin.yaml`, la marca que escribe `aqorin init`.
+que sigue lo escribe la TUI o la CLI a través de un único escritor que conserva tus comentarios y el
+orden de las claves. También puedes editar los archivos a mano.
+
+Tu configuración y tu biblioteca son tuyas, no de un proyecto: todos los proyectos que añades usan las mismas.
+Un proyecto es una carpeta de tu [lista](../projects/): Aqorin no escribe nada suyo en ella, y un `.aqorin/` que haya
+allí solo lo lee `aqorin migrate`.
 
 ## Dónde guarda Aqorin sus archivos
 
@@ -117,8 +121,12 @@ aqorin migrate --yes --rename agent:critic-api=api-critic --with-setup api
   la limita a un proyecto.
 - **`--yes` vuelve a leer los proyectos** e importa lo que ve, y luego lo muestra todo: ejecútalo justo después de la
   vista previa, porque un `.aqorin/` que cambie entre medias se importa como esté entonces.
-- Un proyecto cuyo `.aqorin/` cambia después de importarlo (un `git pull`) se vuelve a ofrecer, y lo que cambió se
-  importa junto a lo anterior con otro nombre; nada espera por él.
+- Un proyecto cuyo `.aqorin/` cambia después de importarlo (un `git pull`, o el agente de un Run: el sandbox ya no
+  cierra `.aqorin/`) no hace esperar a nada, y solo se importa cuando lo nombras: `aqorin migrate` lo muestra
+  retenido, y `aqorin migrate --project <proyecto>` enseña lo que cambió, que `--yes` importa junto a lo anterior con
+  otro nombre. Una carpeta añadida sin nada que importar cuenta como importada, así que un `.aqorin/` escrito allí
+  después es uno de esos cambios. **No se afirma:** en un proyecto de tu lista desde antes de esta versión y sin nada
+  que importar, un `.aqorin/` escrito allí espera a `aqorin migrate`, y el trabajo nuevo de ese proyecto también.
 - Un Run creado antes de la importación se reanuda y se replanifica como antes: sus skills y servidores MCP salen de tu
   biblioteca o, si no están ahí con el mismo contenido, del `.aqorin/` del repositorio, solo si el hash coincide; si no,
   se rechaza.

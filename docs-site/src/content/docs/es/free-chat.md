@@ -72,8 +72,8 @@ está en vigor, pero no lo aplica él mismo. El chat de Codex se ejecuta en el h
 Aqorin, con tu inicio de sesión enlazado, nunca copiado, y nunca con tu configuración.
 
 En macOS y Linux, un chat de Claude Code, OpenCode o Pi se ejecuta en el sandbox de Aqorin, sea cual sea su modo:
-escribe en tu proyecto y fuera de él, nunca en el `.aqorin` del repositorio ni —en Ask— en su `.git`, en los worktrees de
-otros Runs, en los archivos de Aqorin ni en tus claves y ajustes. En Full access trabaja con git —ramas, commits,
+escribe en tu proyecto y fuera de él, nunca en los worktrees de otros Runs, en los archivos de Aqorin ni en tus claves
+y ajustes, ni —en Ask— en el `.git` del repositorio. En Full access trabaja con git —ramas, commits,
 worktrees—, pero no con lo que hace que tu git ejecute código (el config, los hooks y los modules de `.git`), y
 Aqorin nombra cualquier submódulo que añada un turno. Un chat de Pi con *Your configuration* no puede ejecutarse en
 él. Mira [Seguridad](../security/).

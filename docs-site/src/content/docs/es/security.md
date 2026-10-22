@@ -116,9 +116,10 @@ Claude Code, OpenCode y Pi en un Run de workflow se ejecutan en el sandbox de Aq
 bubblewrap en Linux. Sus agentes escriben en la carpeta o el worktree del propio Run y en cualquier sitio fuera
 de tu proyecto. Estas escrituras fallan (`Operation not permitted` en macOS, `Read-only file system` en Linux):
 
-- las demás carpetas del repositorio, su `.git` y su `.aqorin` — así un agente no puede hacer commit, mover
-  una rama, añadir un hook en `.git` ni apagar el sandbox; Aqorin hace el commit cuando integras un worktree;
-- los worktrees de otros Runs, y los ficheros del propio Aqorin — incluido su registro de tus Runs;
+- las demás carpetas del repositorio y su `.git` — así un agente no puede hacer commit, mover una rama ni
+  añadir un hook en `.git`; Aqorin hace el commit cuando integras un worktree;
+- los worktrees de otros Runs, y los ficheros del propio Aqorin — incluidos su registro de tus Runs y tu configuración
+  y tu biblioteca, así que un agente no puede apagar el sandbox;
 - tus otros proyectos —cada uno que [añadiste](../projects/) y cuya carpeta existe: su carpeta, su repositorio y su
   `.git`—, según estaba la lista cuando empezó el Run; el plan los nombra. Una lista que no se puede leer rechaza el
   Run. Un fichero ya enlazado (hard link) entre dos proyectos —un almacén de `node_modules` compartido, `cp -al`— es
@@ -149,7 +150,7 @@ de revisión en Claude Code es advisory en Linux: sus escrituras quedan fuera de
 `~/.claude` sigue escribible por sus credenciales. Linux está soportado tal como se demostró en Ubuntu 26.04 x86_64
 ([Instalación](../installation/)); allí, el sandbox del Run real de un revisor en Pi, reproducido con un ataque en
 lugar de Pi, rechazó toda escritura fuera del estado propio de Pi y los directorios temporales — el workspace, `.git`,
-`.aqorin`, tu home, `~/.ssh`, las unidades de usuario de systemd, los datos de Aqorin y otros worktrees — y las fugas
+`.aqorin` (cerrado entonces, abierto desde GC2), tu home, `~/.ssh`, las unidades de usuario de systemd, los datos de Aqorin y otros worktrees — y las fugas
 por symlink, hardlink y rename.
 
 Un Free chat en Claude Code, OpenCode o Pi se ejecuta en el mismo sandbox y escribe en la carpeta de tu
