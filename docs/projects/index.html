@@ -172,8 +172,9 @@ cannot read — damaged, or written by a newer Aqorin — says <em>unreadable</e
 <div class="sl-heading-wrapper level-h2"><h2 id="one-app-over-every-project">One app over every project</h2><a class="sl-anchor-link" href="#one-app-over-every-project"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “One app over every project”</span></a></div>
 <p>The TUI is the same wherever you open it: Home, Runs and Attention cover every project in your list, each row naming
 its project, and <strong>Projects</strong> (<code dir="auto">0</code>, the last section of the rail) lists the projects themselves — each with its state
-and its Runs working, waiting, failed and finished, the selected one’s folder and what to do beside it. With no project
-in the list, it says how to add one. The folder you open Aqorin in only decides which project New task and Free chat
+and its Runs working, waiting, failed and finished (<code dir="auto">no git</code> for a folder that is not a git repository), and beside the
+selected one its folder, id, state, whether it is git, its Runs and its worktree setup, or what to do. With no project
+in the list, it says how to add one, and <code dir="auto">Enter</code> adds one. The folder you open Aqorin in only decides which project New task and Free chat
 offer first; in a git repository not in your list, Home offers <em>Add this folder to your projects</em> (nothing is written
 in it).</p>
 <ul>
@@ -189,7 +190,28 @@ The form’s title and the plan’s header name the project.</li>
 record written by a newer Aqorin, or by an older one, is not read — Runs says which, and what to do (any <code dir="auto">aqorin</code>
 command in that project brings an older one up to date). A list that cannot be read is said in Runs, Attention and
 Home, never as nothing waiting.</li>
-<li>Adding, renaming and removing a project in the app come later: today <code dir="auto">aqorin projects add</code>, <code dir="auto">aqorin projects remove</code>, and Home’s <em>Add this folder</em>.</li>
+<li><strong>Projects changes the list too</strong>, each change <code dir="auto">aqorin projects</code>’ own command, so it says and refuses exactly what
+the CLI does:
+<ul>
+<li><strong><code dir="auto">a</code> — Add project.</strong> Type a folder: <code dir="auto">~</code> is your home folder, a relative path starts in the folder you opened
+Aqorin in, and <code dir="auto">Tab</code> completes a folder’s name (twice, it lists the ones that match; in a folder of more than 200 entries it says
+only the first 200 were read). Under the line Aqorin says
+what <code dir="auto">Enter</code> would add — the git repository’s top level for a folder in one, the real folder through a link — or
+why not: your home folder or above, Aqorin’s own folders, already your project, inside one of your projects, not a
+folder. A refusal stays on the line with what you typed. Under it, at most 20 suggestions: the git repository you
+opened Aqorin in when it is none of your projects, the git repositories beside your projects’ folders, and the
+folders you removed since you opened it; <code dir="auto">↑</code>/<code dir="auto">↓</code> choose one and <code dir="auto">Enter</code> puts it on the line.</li>
+<li><strong><code dir="auto">e</code> — Rename</strong> a project that is <em>ok</em>; one whose folder is gone cannot be renamed: remove it, or add the folder
+where it is now.</li>
+<li><strong><code dir="auto">x</code> — Remove</strong> asks once, naming the project and what stays: its folder, Runs and worktrees. Its worktree setup
+is forgotten with it. A project with an unfinished Run is not removed: Projects says which Runs keep it and how to
+move each on.</li>
+<li><strong><code dir="auto">s</code> — Worktree setup</strong>: the one command run in each new worktree of a git project before a workflow’s first
+step, typed on one line — words and quotes, never a shell, so <code dir="auto">&amp;&amp;</code>, <code dir="auto">|</code> or <code dir="auto">$</code> are refused unless quoted (put
+several commands in a script). An empty line clears it. A setup set with <code dir="auto">aqorin projects setup</code> holding what one line
+cannot show — a line break, a tab — is not offered on the line, so saving can never change it.</li>
+</ul>
+</li>
 </ul>
 <div class="sl-heading-wrapper level-h2"><h2 id="kept-apart">Kept apart</h2><a class="sl-anchor-link" href="#kept-apart"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Kept apart”</span></a></div>
 <ul>

@@ -112,8 +112,9 @@ cannot read — damaged, or written by a newer Aqorin — says *unreadable*; the
 
 The TUI is the same wherever you open it: Home, Runs and Attention cover every project in your list, each row naming
 its project, and **Projects** (`0`, the last section of the rail) lists the projects themselves — each with its state
-and its Runs working, waiting, failed and finished, the selected one's folder and what to do beside it. With no project
-in the list, it says how to add one. The folder you open Aqorin in only decides which project New task and Free chat
+and its Runs working, waiting, failed and finished (`no git` for a folder that is not a git repository), and beside the
+selected one its folder, id, state, whether it is git, its Runs and its worktree setup, or what to do. With no project
+in the list, it says how to add one, and `Enter` adds one. The folder you open Aqorin in only decides which project New task and Free chat
 offer first; in a git repository not in your list, Home offers *Add this folder to your projects* (nothing is written
 in it).
 
@@ -129,8 +130,25 @@ in it).
   record written by a newer Aqorin, or by an older one, is not read — Runs says which, and what to do (any `aqorin`
   command in that project brings an older one up to date). A list that cannot be read is said in Runs, Attention and
   Home, never as nothing waiting.
-- Adding, renaming and removing a project in the app come later: today `aqorin projects add`, `aqorin projects
-  remove`, and Home's *Add this folder*.
+- **Projects changes the list too**, each change `aqorin projects`' own command, so it says and refuses exactly what
+  the CLI does:
+  - **`a` — Add project.** Type a folder: `~` is your home folder, a relative path starts in the folder you opened
+    Aqorin in, and `Tab` completes a folder's name (twice, it lists the ones that match; in a folder of more than 200 entries it says
+    only the first 200 were read). Under the line Aqorin says
+    what `Enter` would add — the git repository's top level for a folder in one, the real folder through a link — or
+    why not: your home folder or above, Aqorin's own folders, already your project, inside one of your projects, not a
+    folder. A refusal stays on the line with what you typed. Under it, at most 20 suggestions: the git repository you
+    opened Aqorin in when it is none of your projects, the git repositories beside your projects' folders, and the
+    folders you removed since you opened it; `↑`/`↓` choose one and `Enter` puts it on the line.
+  - **`e` — Rename** a project that is *ok*; one whose folder is gone cannot be renamed: remove it, or add the folder
+    where it is now.
+  - **`x` — Remove** asks once, naming the project and what stays: its folder, Runs and worktrees. Its worktree setup
+    is forgotten with it. A project with an unfinished Run is not removed: Projects says which Runs keep it and how to
+    move each on.
+  - **`s` — Worktree setup**: the one command run in each new worktree of a git project before a workflow's first
+    step, typed on one line — words and quotes, never a shell, so `&&`, `|` or `$` are refused unless quoted (put
+    several commands in a script). An empty line clears it. A setup set with `aqorin projects setup` holding what one line
+    cannot show — a line break, a tab — is not offered on the line, so saving can never change it.
 
 ## Kept apart
 

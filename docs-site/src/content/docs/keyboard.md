@@ -70,6 +70,15 @@ the help are keys only.
 | `c` `c` | Cancel the Run. |
 | `I` `K` `X` `U` | A finished Run in a worktree of its own: integrate it, keep the branch, discard it, or undo an integration — each asked first, and offered only when it can be done. See [Runs](../runs/). |
 
+## In Projects
+
+| Key | Does |
+|---|---|
+| `a` | Add project: a folder typed (`~` your home folder), `Tab` completes a folder's name, the line under it says what `Enter` would add or why not; `↑`/`↓` choose a suggestion. `Enter` in an empty list does the same. |
+| `e` | Rename the selected project (one that is *ok*). |
+| `x` | Remove it from your list, asked once: nothing of it is deleted. |
+| `s` | Its worktree setup: one command, on one line. |
+
 ## In an editor
 
 | Key | Does |

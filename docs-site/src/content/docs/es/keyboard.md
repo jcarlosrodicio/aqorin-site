@@ -72,6 +72,15 @@ nodos de un editor, las entradas de Trace, el compositor del chat y la ayuda son
 | `c` `c` | Cancelar el Run. |
 | `I` `K` `X` `U` | Un Run terminado en un worktree propio: integrarlo, conservar la rama, descartarlo o deshacer una integración — cada una tras preguntar, y solo cuando se puede hacer. Mira [Runs](../runs/). |
 
+## En Projects
+
+| Tecla | Hace |
+|---|---|
+| `a` | Add project: escribes una carpeta (`~` es tu carpeta personal), `Tab` completa el nombre de una carpeta y la línea de debajo dice qué añadiría `Enter` o por qué no; `↑`/`↓` eligen una sugerencia. `Enter` en una lista vacía hace lo mismo. |
+| `e` | Renombra el proyecto seleccionado (uno que está *ok*). |
+| `x` | Lo quita de tu lista, preguntando una vez: no se borra nada de él. |
+| `s` | Su preparación de worktrees: un comando, en una línea. |
+
 ## En un editor
 
 | Tecla | Hace |
