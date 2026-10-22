@@ -39,7 +39,7 @@ Sus acciones:
 
 - **New** y **Duplicate** abren un formulario. Un agente integrado no se puede editar, así que
   duplícalo para hacer tu propia versión.
-- **Edit** abre los campos de un agente del proyecto y los edita en su sitio. El archivo conserva
+- **Edit** abre los campos de uno de tus agentes (de tu biblioteca) y los edita en su sitio. El archivo conserva
   tus comentarios.
 - **Delete** pregunta primero, y dice qué usa el agente.
 

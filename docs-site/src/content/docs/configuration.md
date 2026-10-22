@@ -134,10 +134,6 @@ leaves the row. A project held (below), or one whose folder is gone, is named th
   when they are not there with the same content, from the repository's `.aqorin/` on a matching hash only — otherwise
   it is refused.
 
-   credential_ref: { env: EXAMPLE_API_KEY }
-    default_model: some-model
-```
-
 ## Environment variables
 
 | Variable | Effect |
@@ -153,5 +149,5 @@ leaves the row. A project held (below), or one whose folder is gone, is named th
 Aqorin refuses to write through a symlinked `AQORIN_CONFIG_HOME` or `AQORIN_DATA_HOME`.
 
 ```bash
-aqorin config effective     # the configuration in effect here
+aqorin config effective     # the configuration in effect, the same in every project
 ```

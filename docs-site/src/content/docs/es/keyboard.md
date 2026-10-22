@@ -64,7 +64,7 @@ nodos de un editor, las entradas de Trace, el compositor del chat y la ayuda son
 | PgUp / PgDn | Desplazar la actividad. Ctrl+End vuelve a seguir su final. |
 | `t` | Mostrar cada llamada a herramienta, o volver a plegarlas entre los mensajes. |
 | `d` | Mostrar u ocultar, a la derecha, los detalles del paso seleccionado y los motivos de un Run orientativo. |
-| `!` | Mostrar los notices (lo que Aqorin quiere que sepas del Run, del plan o, en Home, del proyecto) en lugar del panel; `!` otra vez vuelve. |
+| `!` | Mostrar los notices (lo que Aqorin quiere que sepas del Run, del plan o, en Home, de tu configuración) en lugar del panel; `!` otra vez vuelve. |
 | `z` | Mostrar solo el panel enfocado, para que una selección con el ratón coja solo sus líneas; `z` otra vez los muestra todos. |
 | `y` | Enviar los mensajes del paso seleccionado al portapapeles de la terminal, si la terminal lo permite (no puede confirmarlo). |
 | Ctrl+T | [Trace](../trace/): Activity, Flow, Trace y Raw. |

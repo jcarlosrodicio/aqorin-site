@@ -139,11 +139,6 @@ se nombra allí con su comando.
   biblioteca o, si no están ahí con el mismo contenido, del `.aqorin/` del repositorio, solo si el hash coincide; si no,
   se rechaza.
 
-pi.example.com/v1
-    credential_ref: { env: EXAMPLE_API_KEY }
-    default_model: some-model
-```
-
 ## Variables de entorno
 
 | Variable | Efecto |
@@ -160,5 +155,5 @@ Aqorin se niega a escribir a través de un `AQORIN_CONFIG_HOME` o un `AQORIN_DAT
 enlace simbólico.
 
 ```bash
-aqorin config effective     # the configuration in effect here
+aqorin config effective     # la configuración en vigor, la misma en todos los proyectos
 ```

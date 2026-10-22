@@ -37,7 +37,7 @@ Its actions:
 
 - **New** and **Duplicate** open a form. A built-in agent cannot be edited, so duplicate it to make
   your own version.
-- **Edit** opens a project agent's fields and edits them in place. The file keeps your comments.
+- **Edit** opens one of your own agents' fields (in your library) and edits them in place. The file keeps your comments.
 - **Delete** asks first, and says what uses the agent.
 
 ## Default execution
