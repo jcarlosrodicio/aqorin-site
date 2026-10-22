@@ -3,13 +3,16 @@ title: Nueva tarea
 description: Un formulario que va de una petición a un plan, y nada se ejecuta hasta que pulsas Enter.
 ---
 
-**New task** (`n` en Runs) es un formulario, que se rellena en este orden:
+**New task** (`n` en Home, Runs o Projects) es un formulario, que se rellena en este orden:
 
-1. **What to do:** un [Free chat](../free-chat/), o un workflow.
-2. **Which workflow, and where it runs.** Cada uno aparece por su nombre, con su flujo y para qué
+1. **Project:** el proyecto de la carpeta en la que abriste Aqorin, ya elegido; escribe para acotar tus proyectos por
+   nombre o carpeta. Un proyecto que no está *ok* aparece en gris; uno sin git solo admite un Free chat. **Add a
+   folder…** añade uno y vuelve con el formulario como lo dejaste ([Varios proyectos](../projects/)).
+2. **What to do:** un [Free chat](../free-chat/), o un workflow.
+3. **Which workflow, and where it runs.** Cada uno aparece por su nombre, con su flujo y para qué
    sirve; [Engineering change](../workflows/#los-workflows-integrados) va el primero.
-3. **What the agents are asked to do:** tu petición.
-4. **Checked by:** **Nothing** (por defecto), **Commands**, **The agent** o **Commands and the
+4. **What the agents are asked to do:** tu petición.
+5. **Checked by:** **Nothing** (por defecto), **Commands**, **The agent** o **Commands and the
    agent**. Los campos de comandos solo aparecen con comandos: cada uno debe pasar, como `npm test`,
    y se ejecuta sin shell; un `&&`, `|` o `>` sin comillas se rechaza allí donde lo escribes.
 

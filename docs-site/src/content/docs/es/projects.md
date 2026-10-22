@@ -118,8 +118,8 @@ con el nombre de su proyecto, y **Projects** (`0`, la última sección del rail)
 su estado y sus Runs trabajando, esperando, fallidos y terminados (`no git` para una carpeta que no es un repositorio
 git), y al lado del seleccionado su carpeta, id, estado, si es git, sus Runs y su preparación de worktrees, o qué
 hacer—. Sin ningún proyecto en la lista, dice cómo añadir uno, y `Enter` añade uno. La carpeta en la que abres Aqorin solo decide qué proyecto
-ofrecen primero New task y Free chat; en un repositorio git que no está en tu lista, Home ofrece *Add this folder to
-your projects* (no se escribe nada en él).
+ofrecen primero New task y Free chat; en un repositorio git que no está en tu lista, Home ofrece *Add ~/esa/carpeta*,
+que `a` añade (no se escribe nada en él).
 
 - **`Enter`** en un Run o un chat de cualquier proyecto lo abre aquí, sin relanzar nada. Cada acción sobre él
   —responder, aprobar, cancelar, reanudar, la decisión de un worktree, una entrega— actúa sobre ese proyecto, como el
@@ -127,9 +127,14 @@ your projects* (no se escribe nada en él).
   <nombre>`), así que funciona desde cualquier carpeta.
 - Un turno de chat enviado en un proyecto sigue mientras miras otro; lo que dejaste en cola para él se envía allí
   cuando termina. Salir mientras se envía un turno lo avisa primero.
-- **`n`** y **`c`** empiezan en el único proyecto que puede aceptar una tarea, o preguntan cuál: primero el de la
-  carpeta en la que empezaste, después el último que usaste, después los demás por nombre. Un proyecto que no está
-  *ok* no se ofrece. El título del formulario y la cabecera del plan nombran el proyecto.
+- **`n`** y **`c`** preguntan primero el proyecto, como primer paso del formulario: primero el de la carpeta en la que
+  empezaste, ya elegido, después el último que usaste, después los demás por nombre. Escribe para acotarlo por nombre
+  o por carpeta (`work/no`); la línea dice cuántos coinciden. Un proyecto que no está *ok* aparece en gris, con su
+  estado, y no se puede elegir. Uno que no es un repositorio git sí: el Free chat funciona allí, y *Run a workflow*
+  dice que un workflow necesita git antes de planificar nada. La última entrada es **Add a folder…**: abre Add project
+  y vuelve al formulario con todo lo que rellenaste, la carpeta añadida elegida; `Esc` vuelve sin cambiar nada. Sin
+  ningún proyecto en tu lista, `n` y `c` se abren en Add a folder…. El título del formulario y la cabecera del plan
+  nombran el proyecto.
 - La TUI lee el registro de cada proyecto en solo lectura, cada dos segundos mientras está abierta: nunca migra ni
   escribe uno. Un registro escrito por un Aqorin más nuevo, o por uno más antiguo, no se lee —Runs dice cuál, y qué
   hacer (cualquier comando `aqorin` en ese proyecto pone al día uno antiguo). Una lista que no se puede leer se dice
