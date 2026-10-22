@@ -36,7 +36,7 @@ títulos mantiene el de Aqorin hasta que tu shell ponga otro).
 | `7` | Resources | Las skills y los servidores MCP que pueden usar tus agentes. |
 | `8` | Credentials | Las referencias a tus claves, nunca un valor. |
 | `9` | Settings | Tu runtime por defecto, el sandbox, la apariencia y dónde guarda Aqorin sus archivos. |
-| `0` | Projects | Tus proyectos, cada uno con su estado y sus Runs trabajando, esperando, fallidos y terminados. |
+| `0` | Projects | Tus proyectos, cada uno con su estado y sus Runs trabajando, esperando, fallidos y terminados. `a` añade uno, `e` lo renombra, `x` lo quita, `s` fija su preparación de worktrees. |
 
 ## Home
 

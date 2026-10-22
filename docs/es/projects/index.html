@@ -175,8 +175,9 @@ puede leer —dañado, o escrito por un Aqorin más nuevo— dice <em>unreadable
 <div class="sl-heading-wrapper level-h2"><h2 id="una-sola-app-sobre-todos-los-proyectos">Una sola app sobre todos los proyectos</h2><a class="sl-anchor-link" href="#una-sola-app-sobre-todos-los-proyectos"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Sección titulada «Una sola app sobre todos los proyectos»</span></a></div>
 <p>La TUI es la misma dondequiera que la abras: Home, Runs y Attention cubren todos los proyectos de tu lista, cada fila
 con el nombre de su proyecto, y <strong>Projects</strong> (<code dir="auto">0</code>, la última sección del rail) lista los proyectos mismos —cada uno con
-su estado y sus Runs trabajando, esperando, fallidos y terminados, y al lado la carpeta del seleccionado y qué hacer—.
-Sin ningún proyecto en la lista, dice cómo añadir uno. La carpeta en la que abres Aqorin solo decide qué proyecto
+su estado y sus Runs trabajando, esperando, fallidos y terminados (<code dir="auto">no git</code> para una carpeta que no es un repositorio
+git), y al lado del seleccionado su carpeta, id, estado, si es git, sus Runs y su preparación de worktrees, o qué
+hacer—. Sin ningún proyecto en la lista, dice cómo añadir uno, y <code dir="auto">Enter</code> añade uno. La carpeta en la que abres Aqorin solo decide qué proyecto
 ofrecen primero New task y Free chat; en un repositorio git que no está en tu lista, Home ofrece <em>Add this folder to
 your projects</em> (no se escribe nada en él).</p>
 <ul>
@@ -192,7 +193,27 @@ carpeta en la que empezaste, después el último que usaste, después los demás
 escribe uno. Un registro escrito por un Aqorin más nuevo, o por uno más antiguo, no se lee —Runs dice cuál, y qué
 hacer (cualquier comando <code dir="auto">aqorin</code> en ese proyecto pone al día uno antiguo). Una lista que no se puede leer se dice
 en Runs, Attention y Home, nunca como que nada espera.</li>
-<li>Añadir, renombrar y quitar un proyecto desde la app llegan más adelante: hoy, <code dir="auto">aqorin projects add</code>, <code dir="auto">aqorin projects remove</code> y el <em>Add this folder</em> de Home.</li>
+<li><strong>Projects también cambia la lista</strong>, cada cambio con el propio comando <code dir="auto">aqorin projects</code>, así que dice y rechaza
+exactamente lo mismo que la CLI:
+<ul>
+<li><strong><code dir="auto">a</code> — Add project.</strong> Escribe una carpeta: <code dir="auto">~</code> es tu carpeta personal, una ruta relativa parte de la carpeta en la
+que abriste Aqorin, y <code dir="auto">Tab</code> completa el nombre de una carpeta (dos veces, lista las que coinciden). Bajo la línea,
+Aqorin dice qué añadiría <code dir="auto">Enter</code> —la raíz del repositorio git para una carpeta dentro de uno, la carpeta real a
+través de un enlace— o por qué no: tu carpeta personal o algo por encima, las carpetas propias de Aqorin, ya es un
+proyecto tuyo, está dentro de uno de tus proyectos, no es una carpeta. Un rechazo se queda en la línea con lo que
+escribiste. Debajo, como mucho 20 sugerencias: el repositorio git en el que abriste Aqorin cuando no es ninguno de
+tus proyectos, los repositorios git junto a las carpetas de tus proyectos y las carpetas que quitaste desde que lo
+abriste; <code dir="auto">↑</code>/<code dir="auto">↓</code> eligen una y <code dir="auto">Enter</code> la pone en la línea.</li>
+<li><strong><code dir="auto">e</code> — Rename</strong> renombra un proyecto <em>ok</em>; uno cuya carpeta ya no está no se puede renombrar: quítalo, o añade la
+carpeta donde esté ahora.</li>
+<li><strong><code dir="auto">x</code> — Remove</strong> pregunta una vez, nombrando el proyecto y lo que se queda: su carpeta, sus Runs y sus worktrees.
+Su preparación de worktrees se olvida con él. Un proyecto con un Run sin terminar no se quita: Projects dice qué
+Runs lo retienen y cómo hacer avanzar cada uno.</li>
+<li><strong><code dir="auto">s</code> — Worktree setup</strong>: el único comando que se ejecuta en cada worktree nuevo de un proyecto git antes del
+primer paso de un workflow, escrito en una línea —palabras y comillas, nunca un shell, así que <code dir="auto">&amp;&amp;</code>, <code dir="auto">|</code> o <code dir="auto">$</code> se
+rechazan salvo entre comillas (pon varios comandos en un script). Una línea vacía lo borra.</li>
+</ul>
+</li>
 </ul>
 <div class="sl-heading-wrapper level-h2"><h2 id="separados">Separados</h2><a class="sl-anchor-link" href="#separados"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Sección titulada «Separados»</span></a></div>
 <ul>

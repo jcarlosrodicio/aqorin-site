@@ -115,8 +115,9 @@ puede leer —dañado, o escrito por un Aqorin más nuevo— dice *unreadable*; 
 
 La TUI es la misma dondequiera que la abras: Home, Runs y Attention cubren todos los proyectos de tu lista, cada fila
 con el nombre de su proyecto, y **Projects** (`0`, la última sección del rail) lista los proyectos mismos —cada uno con
-su estado y sus Runs trabajando, esperando, fallidos y terminados, y al lado la carpeta del seleccionado y qué hacer—.
-Sin ningún proyecto en la lista, dice cómo añadir uno. La carpeta en la que abres Aqorin solo decide qué proyecto
+su estado y sus Runs trabajando, esperando, fallidos y terminados (`no git` para una carpeta que no es un repositorio
+git), y al lado del seleccionado su carpeta, id, estado, si es git, sus Runs y su preparación de worktrees, o qué
+hacer—. Sin ningún proyecto en la lista, dice cómo añadir uno, y `Enter` añade uno. La carpeta en la que abres Aqorin solo decide qué proyecto
 ofrecen primero New task y Free chat; en un repositorio git que no está en tu lista, Home ofrece *Add this folder to
 your projects* (no se escribe nada en él).
 
@@ -133,8 +134,24 @@ your projects* (no se escribe nada en él).
   escribe uno. Un registro escrito por un Aqorin más nuevo, o por uno más antiguo, no se lee —Runs dice cuál, y qué
   hacer (cualquier comando `aqorin` en ese proyecto pone al día uno antiguo). Una lista que no se puede leer se dice
   en Runs, Attention y Home, nunca como que nada espera.
-- Añadir, renombrar y quitar un proyecto desde la app llegan más adelante: hoy, `aqorin projects add`, `aqorin
-  projects remove` y el *Add this folder* de Home.
+- **Projects también cambia la lista**, cada cambio con el propio comando `aqorin projects`, así que dice y rechaza
+  exactamente lo mismo que la CLI:
+  - **`a` — Add project.** Escribe una carpeta: `~` es tu carpeta personal, una ruta relativa parte de la carpeta en la
+    que abriste Aqorin, y `Tab` completa el nombre de una carpeta (dos veces, lista las que coinciden). Bajo la línea,
+    Aqorin dice qué añadiría `Enter` —la raíz del repositorio git para una carpeta dentro de uno, la carpeta real a
+    través de un enlace— o por qué no: tu carpeta personal o algo por encima, las carpetas propias de Aqorin, ya es un
+    proyecto tuyo, está dentro de uno de tus proyectos, no es una carpeta. Un rechazo se queda en la línea con lo que
+    escribiste. Debajo, como mucho 20 sugerencias: el repositorio git en el que abriste Aqorin cuando no es ninguno de
+    tus proyectos, los repositorios git junto a las carpetas de tus proyectos y las carpetas que quitaste desde que lo
+    abriste; `↑`/`↓` eligen una y `Enter` la pone en la línea.
+  - **`e` — Rename** renombra un proyecto *ok*; uno cuya carpeta ya no está no se puede renombrar: quítalo, o añade la
+    carpeta donde esté ahora.
+  - **`x` — Remove** pregunta una vez, nombrando el proyecto y lo que se queda: su carpeta, sus Runs y sus worktrees.
+    Su preparación de worktrees se olvida con él. Un proyecto con un Run sin terminar no se quita: Projects dice qué
+    Runs lo retienen y cómo hacer avanzar cada uno.
+  - **`s` — Worktree setup**: el único comando que se ejecuta en cada worktree nuevo de un proyecto git antes del
+    primer paso de un workflow, escrito en una línea —palabras y comillas, nunca un shell, así que `&&`, `|` o `$` se
+    rechazan salvo entre comillas (pon varios comandos en un script). Una línea vacía lo borra.
 
 ## Separados
 
