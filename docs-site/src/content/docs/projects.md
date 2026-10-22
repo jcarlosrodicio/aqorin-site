@@ -112,7 +112,8 @@ cannot read — damaged, or written by a newer Aqorin — says *unreadable*; the
 
 The TUI is the same wherever you open it: Home, Runs and Attention cover every project in your list, each row naming
 its project, and **Projects** (`0`, the last section of the rail) lists the projects themselves — each with its state
-and its Runs working, waiting, failed and finished (`no git` for a folder that is not a git repository), and beside the
+and its Runs working, waiting, failed and finished, its chats open and ended (`no Runs yet` with neither; `no git` for a
+folder that is not a git repository), and beside the
 selected one its folder, id, state, whether it is git, its Runs and its worktree setup, or what to do. With no project
 in the list, it says how to add one, and `Enter` adds one. The folder you open Aqorin in only decides which project New task and Free chat
 offer first; in a git repository not in your list, Home offers *Add ~/that/folder*, which `a` adds (nothing is written
@@ -124,7 +125,7 @@ in it).
 - A chat turn sent in one project goes on while you look at another; what you queued for it is sent there when it
   ends. Quitting while a turn is being sent says so first.
 - **`n`** and **`c`** ask the project first, as the form's first step: the project of the folder you started in first
-  and chosen, then the last one you used, then the others by name. Type to narrow it by name or by folder (`work/no`);
+  and chosen (once Home's `a` added it, too), then the last one you used, then the others by name. Type to narrow it by name or by folder (`work/no`);
   the line says how many match. A project that is not *ok* is listed greyed, with its state, and cannot be chosen. One
   that is not a git repository can be: Free chat works there, and *Run a workflow* says that a workflow needs git
   before anything is planned. The last entry is **Add a folder…**: it opens Add project and comes back to the form with

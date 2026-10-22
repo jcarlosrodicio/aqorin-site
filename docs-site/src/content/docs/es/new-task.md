@@ -10,7 +10,9 @@ description: Un formulario que va de una petición a un plan, y nada se ejecuta 
    folder…** añade uno y vuelve con el formulario como lo dejaste ([Varios proyectos](../projects/)).
 2. **What to do:** un [Free chat](../free-chat/), o un workflow.
 3. **Which workflow, and where it runs.** Cada uno aparece por su nombre, con su flujo y para qué
-   sirve; [Engineering change](../workflows/#los-workflows-integrados) va el primero.
+   sirve; [Engineering change](../workflows/#los-workflows-integrados) va el primero. Se ejecuta como está guardado,
+   con una asignación tuya, o con *Every step on <runtime>* para cada runtime instalado —`aqorin run <workflow>
+   --runtime <runtime>`: sin la asignación guardada, y los valores por defecto de los agentes ceden ante él—.
 4. **What the agents are asked to do:** tu petición.
 5. **Checked by:** **Nothing** (por defecto), **Commands**, **The agent** o **Commands and the
    agent**. Los campos de comandos solo aparecen con comandos: cada uno debe pasar, como `npm test`,
@@ -39,7 +41,7 @@ texto completo (lo que imprime `--plan-only`), y `!` los **notices**: lo que Aqo
 comprueba), dicho solo cuando lo pides. Un paso que puede ejecutar comandos (el Bash de Claude Code) se
 dice en el propio plan. Nada se ejecuta hasta que pulsas `Enter`.
 
-- `w` cambia dónde se ejecuta la tarea: una asignación guardada, o **New assignment…**, que abre el
+- `w` cambia dónde se ejecuta la tarea: una asignación guardada, todos los pasos en un runtime, o **New assignment…**, que abre el
   editor para este workflow. Cuando la guardas (`s`), Esc vuelve al plan con ella; tu tarea se
   conserva.
 - Cuando un paso no puede ejecutarse donde está asignado (por ejemplo, una conexión sin

@@ -98,7 +98,7 @@ aqorin migrate --yes                            # imports it
 aqorin migrate --yes --rename agent:critic-api=api-critic --with-setup api
 ```
 
-**In the app**, Home's first row is then *Import your configuration*: **Enter** opens the same preview, one step per
+**In the app**, Home's first row under the summary is then *Import your configuration*, the cursor on it: **Enter** opens the same preview, one step per
 project waiting for it — what it imports and what can act, each conflict's name in a field (empty, it takes the name
 the preview gives, said beside it; a name you type is checked as you type it, and refused when taken as you go on), and
 its worktree setup, *Not imported* unless you choose *Imported*. Each step plans again; **Import** writes the plan on the

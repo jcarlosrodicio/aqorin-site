@@ -49,7 +49,8 @@ lista, *Add ~/esa/carpeta* (`a`; no se escribe nada en él), en otro sitio *Add 
 trabajando, los chats abiertos, lo que falló o se paró y los Runs recientes, cada uno con su proyecto. Encima de
 ambos, mientras el `.aqorin/` antiguo de un proyecto espera a importarse, va *Import your configuration*
 ([Configuración](../configuration/#pasar-el-aqorin-de-un-proyecto-a-tu-biblioteca)), y después *Add ~/esa/carpeta*
-cuando corresponde. Cuando Aqorin tiene algo que contarte —por ejemplo, que tu
+cuando corresponde; Home se abre con el cursor en la primera de ellas, así que **Enter** la hace, hasta que lo muevas
+(en la lista de comprobación, *Add ~/esa/carpeta* conserva su sitio, después de los runtimes). Cuando Aqorin tiene algo que contarte —por ejemplo, que tu
 runtime por defecto ejecuta los pasos de revisión y de solo lectura con una restricción advisory—, la
 línea Status muestra `! 1 notice`; `!` lo lee y Esc lo pliega.
 

@@ -48,7 +48,8 @@ a project — in a git repository not in your list, *Add ~/that/folder* (`a`; no
 project: what waits for you, the Runs working, the chats open, what failed or stopped and the recent Runs, each naming
 its project. Above both, while a project's old `.aqorin/` waits to be imported, comes *Import your configuration*
 ([Configuration](../configuration/#moving-a-projects-aqorin-into-your-library)), and then *Add ~/that/folder* when it
-applies. When Aqorin
+applies; Home opens with the cursor on the first of them, so **Enter** does it, until you move it (in the checklist,
+*Add ~/that/folder* keeps its place after the runtimes). When Aqorin
 has something to tell you — for example, that your default runtime runs review and
 read-only steps with an advisory restriction — the Status line shows `! 1 notice`; `!` reads it, Esc
 folds it.

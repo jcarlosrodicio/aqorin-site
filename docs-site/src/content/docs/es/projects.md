@@ -115,8 +115,8 @@ puede leer —dañado, o escrito por un Aqorin más nuevo— dice *unreadable*; 
 
 La TUI es la misma dondequiera que la abras: Home, Runs y Attention cubren todos los proyectos de tu lista, cada fila
 con el nombre de su proyecto, y **Projects** (`0`, la última sección del rail) lista los proyectos mismos —cada uno con
-su estado y sus Runs trabajando, esperando, fallidos y terminados (`no git` para una carpeta que no es un repositorio
-git), y al lado del seleccionado su carpeta, id, estado, si es git, sus Runs y su preparación de worktrees, o qué
+su estado y sus Runs trabajando, esperando, fallidos y terminados, sus chats abiertos y terminados (`no Runs yet` sin
+ninguno; `no git` para una carpeta que no es un repositorio git), y al lado del seleccionado su carpeta, id, estado, si es git, sus Runs y su preparación de worktrees, o qué
 hacer—. Sin ningún proyecto en la lista, dice cómo añadir uno, y `Enter` añade uno. La carpeta en la que abres Aqorin solo decide qué proyecto
 ofrecen primero New task y Free chat; en un repositorio git que no está en tu lista, Home ofrece *Add ~/esa/carpeta*,
 que `a` añade (no se escribe nada en él).
@@ -128,7 +128,7 @@ que `a` añade (no se escribe nada en él).
 - Un turno de chat enviado en un proyecto sigue mientras miras otro; lo que dejaste en cola para él se envía allí
   cuando termina. Salir mientras se envía un turno lo avisa primero.
 - **`n`** y **`c`** preguntan primero el proyecto, como primer paso del formulario: primero el de la carpeta en la que
-  empezaste, ya elegido, después el último que usaste, después los demás por nombre. Escribe para acotarlo por nombre
+  empezaste, ya elegido (también una vez que la `a` de Home la añadió), después el último que usaste, después los demás por nombre. Escribe para acotarlo por nombre
   o por carpeta (`work/no`); la línea dice cuántos coinciden. Un proyecto que no está *ok* aparece en gris, con su
   estado, y no se puede elegir. Uno que no es un repositorio git sí: el Free chat funciona allí, y *Run a workflow*
   dice que un workflow necesita git antes de planificar nada. La última entrada es **Add a folder…**: abre Add project

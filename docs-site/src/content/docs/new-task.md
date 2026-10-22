@@ -10,7 +10,9 @@ description: One form from a request to a plan, and nothing runs until you press
    comes back with the form as you left it ([Several projects](../projects/)).
 2. **What to do:** a [Free chat](../free-chat/), or a workflow.
 3. **Which workflow, and where it runs.** Each is offered by name with its flow and what it is for;
-   [Engineering change](../workflows/#the-built-in-workflows) comes first.
+   [Engineering change](../workflows/#the-built-in-workflows) comes first. It runs as saved, on an assignment of
+   yours, or with *Every step on <runtime>* for each runtime installed — `aqorin run <workflow> --runtime <runtime>`:
+   no saved assignment, and the agents' defaults yield to it.
 4. **What the agents are asked to do:** your request.
 5. **Checked by:** **Nothing** (the default), **Commands**, **The agent**, or **Commands and the
    agent**. The command fields appear only with commands: each must pass, such as `npm test`, and
@@ -38,7 +40,7 @@ only told to read, a runtime version not verified yet, work nothing checks — s
 step that may run commands (Claude Code's Bash) is said on the plan itself. Nothing runs until you press
 `Enter`.
 
-- `w` changes where the task runs: a saved assignment, or **New assignment…**, which opens the
+- `w` changes where the task runs: a saved assignment, every step on one runtime, or **New assignment…**, which opens the
   editor for this workflow. Once you save it (`s`), Esc goes back to the plan with it; your task is
   kept.
 - When a step cannot run where it is assigned — for example, a connection that is not configured —

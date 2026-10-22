@@ -172,7 +172,8 @@ cannot read — damaged, or written by a newer Aqorin — says <em>unreadable</e
 <div class="sl-heading-wrapper level-h2"><h2 id="one-app-over-every-project">One app over every project</h2><a class="sl-anchor-link" href="#one-app-over-every-project"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “One app over every project”</span></a></div>
 <p>The TUI is the same wherever you open it: Home, Runs and Attention cover every project in your list, each row naming
 its project, and <strong>Projects</strong> (<code dir="auto">0</code>, the last section of the rail) lists the projects themselves — each with its state
-and its Runs working, waiting, failed and finished (<code dir="auto">no git</code> for a folder that is not a git repository), and beside the
+and its Runs working, waiting, failed and finished, its chats open and ended (<code dir="auto">no Runs yet</code> with neither; <code dir="auto">no git</code> for a
+folder that is not a git repository), and beside the
 selected one its folder, id, state, whether it is git, its Runs and its worktree setup, or what to do. With no project
 in the list, it says how to add one, and <code dir="auto">Enter</code> adds one. The folder you open Aqorin in only decides which project New task and Free chat
 offer first; in a git repository not in your list, Home offers <em>Add ~/that/folder</em>, which <code dir="auto">a</code> adds (nothing is written
@@ -184,7 +185,7 @@ does. A command the TUI offers to copy names its project (<code dir="auto">--pro
 <li>A chat turn sent in one project goes on while you look at another; what you queued for it is sent there when it
 ends. Quitting while a turn is being sent says so first.</li>
 <li><strong><code dir="auto">n</code></strong> and <strong><code dir="auto">c</code></strong> ask the project first, as the form’s first step: the project of the folder you started in first
-and chosen, then the last one you used, then the others by name. Type to narrow it by name or by folder (<code dir="auto">work/no</code>);
+and chosen (once Home’s <code dir="auto">a</code> added it, too), then the last one you used, then the others by name. Type to narrow it by name or by folder (<code dir="auto">work/no</code>);
 the line says how many match. A project that is not <em>ok</em> is listed greyed, with its state, and cannot be chosen. One
 that is not a git repository can be: Free chat works there, and <em>Run a workflow</em> says that a workflow needs git
 before anything is planned. The last entry is <strong>Add a folder…</strong>: it opens Add project and comes back to the form with
