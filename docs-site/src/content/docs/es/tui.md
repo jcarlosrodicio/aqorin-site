@@ -4,7 +4,8 @@ description: Cómo está organizada la interfaz de terminal a pantalla completa 
 ---
 
 Ejecuta `aqorin` en un proyecto y se abre la TUI. Fuera de un proyecto —tu carpeta personal incluida, pero no un
-repositorio git que aún no es un proyecto, que abre su Setup— se abre en **Global**, todos los proyectos de tu lista
+repositorio git que aún no está en tu lista, que abre Home con *Add this folder to your projects* (no se escribe nada
+en él)— se abre en **Global**, todos los proyectos de tu lista
 (ver [Varios proyectos](../projects/)). `aqorin --plain` da una vista de líneas en su lugar, y `--json` o una tubería
 dan la salida propia de la CLI.
 
@@ -35,7 +36,7 @@ títulos mantiene el de Aqorin hasta que tu shell ponga otro).
 | `6` | Runtimes | Los cuatro runtimes tal como se encuentran en esta máquina, y tus conexiones. |
 | `7` | Resources | Las skills y los servidores MCP que pueden usar tus agentes. |
 | `8` | Credentials | Las referencias a tus claves, nunca un valor. |
-| `9` | Settings | La configuración del proyecto, tu runtime por defecto, la apariencia y dónde guarda Aqorin sus archivos. |
+| `9` | Settings | Añadir esta carpeta a tus proyectos (mientras no lo sea), tu runtime por defecto, la apariencia y dónde guarda Aqorin sus archivos. |
 
 ## Home
 

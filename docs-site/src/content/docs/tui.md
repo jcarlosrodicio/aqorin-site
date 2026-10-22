@@ -4,7 +4,8 @@ description: How Aqorin's full-screen terminal interface is laid out, and how it
 ---
 
 Run `aqorin` in a project and the TUI opens. Outside a project — your home folder included, but not a git repository
-that is not a project yet, which opens its Setup — it opens on **Global**, every project in your list (see
+that is not in your list yet, which opens Home with *Add this folder to your projects* (nothing is written in it) — it
+opens on **Global**, every project in your list (see
 [Several projects](../projects/)). `aqorin --plain` gives a line view instead, and `--json` or a pipe give the CLI's
 own output.
 
@@ -35,7 +36,7 @@ Aqorin's until your shell sets another).
 | `6` | Runtimes | The four runtimes as found on this machine, and your connections. |
 | `7` | Resources | The skills and MCP servers your agents can use. |
 | `8` | Credentials | The references to your keys, never a value. |
-| `9` | Settings | The project's set-up, your default runtime, appearance, and where Aqorin keeps its files. |
+| `9` | Settings | Adding this folder to your projects (until it is one), your default runtime, appearance, and where Aqorin keeps its files. |
 
 ## Home
 

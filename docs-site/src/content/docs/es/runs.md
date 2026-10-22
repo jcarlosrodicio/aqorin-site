@@ -46,7 +46,8 @@ Un worktree separa los checks, la revisión y los cambios de cada Run. En macOS 
 mantiene a sus agentes fuera de la carpeta de tu proyecto y de los worktrees de otros Runs — mira
 [Seguridad](../security/). Con `sandbox: off` no es un muro: un agente puede escribir donde puedas tú.
 
-Un proyecto que no es un repositorio git ejecuta un workflow cada vez. Los Free chats nunca cuentan.
+Un proyecto que no es un repositorio git solo admite Free chats: un workflow en él (New task, `aqorin run`, `feature`)
+se rechaza (`project_not_git`), porque sus worktrees y su entrega necesitan git.
 
 ## La pantalla Runs (`2`)
 

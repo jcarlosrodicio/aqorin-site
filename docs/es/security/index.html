@@ -218,9 +218,10 @@ como una garantía.</p>
 bubblewrap en Linux. Sus agentes escriben en la carpeta o el worktree del propio Run y en cualquier sitio fuera
 de tu proyecto. Estas escrituras fallan (<code dir="auto">Operation not permitted</code> en macOS, <code dir="auto">Read-only file system</code> en Linux):</p>
 <ul>
-<li>las demás carpetas del repositorio, su <code dir="auto">.git</code> y su <code dir="auto">.aqorin</code> — así un agente no puede hacer commit, mover
-una rama, añadir un hook en <code dir="auto">.git</code> ni apagar el sandbox; Aqorin hace el commit cuando integras un worktree;</li>
-<li>los worktrees de otros Runs, y los ficheros del propio Aqorin — incluido su registro de tus Runs;</li>
+<li>las demás carpetas del repositorio y su <code dir="auto">.git</code> — así un agente no puede hacer commit, mover una rama ni
+añadir un hook en <code dir="auto">.git</code>; Aqorin hace el commit cuando integras un worktree;</li>
+<li>los worktrees de otros Runs, y los ficheros del propio Aqorin — incluidos su registro de tus Runs y tu configuración
+y tu biblioteca, así que un agente no puede apagar el sandbox;</li>
 <li>tus otros proyectos —cada uno que <a href="../projects/">añadiste</a> y cuya carpeta existe: su carpeta, su repositorio y su
 <code dir="auto">.git</code>—, según estaba la lista cuando empezó el Run; el plan los nombra. Una lista que no se puede leer rechaza el
 Run. Un fichero ya enlazado (hard link) entre dos proyectos —un almacén de <code dir="auto">node_modules</code> compartido, <code dir="auto">cp -al</code>— es
@@ -250,7 +251,7 @@ de revisión en Claude Code es advisory en Linux: sus escrituras quedan fuera de
 <code dir="auto">~/.claude</code> sigue escribible por sus credenciales. Linux está soportado tal como se demostró en Ubuntu 26.04 x86_64
 (<a href="../installation/">Instalación</a>); allí, el sandbox del Run real de un revisor en Pi, reproducido con un ataque en
 lugar de Pi, rechazó toda escritura fuera del estado propio de Pi y los directorios temporales — el workspace, <code dir="auto">.git</code>,
-<code dir="auto">.aqorin</code>, tu home, <code dir="auto">~/.ssh</code>, las unidades de usuario de systemd, los datos de Aqorin y otros worktrees — y las fugas
+<code dir="auto">.aqorin</code> (cerrado entonces, abierto desde GC2), tu home, <code dir="auto">~/.ssh</code>, las unidades de usuario de systemd, los datos de Aqorin y otros worktrees — y las fugas
 por symlink, hardlink y rename.</p>
 <p>Un Free chat en Claude Code, OpenCode o Pi se ejecuta en el mismo sandbox y escribe en la carpeta de tu
 proyecto: su sandbox se decide al empezar (o continuar) el chat, y cada turno se ejecuta en ese. Un chat

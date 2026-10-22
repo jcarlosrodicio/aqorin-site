@@ -91,13 +91,13 @@ agents, workflows, assignments, skills and MCP servers are your library (library
 
 In a terminal, aqorin alone opens the TUI: this project's Runs (n launches a new one as aqorin run does; open one to follow it, inspect each node, cancel it), the four runtimes, the agent and workflow editors, each node's assignment and its preflight, Skills and MCP servers, and the credential references — each the CLI's own files and verbs. Quitting (q) leaves every Run going. --plain, --json or a pipe give the line view instead. NO_COLOR turns color off; AQORIN_TUI_ASCII=1 uses ASCII glyphs; AQORIN_TUI_BELL=0 silences the bell that rings when something starts waiting for you.
 
-feature, run and resume drive their Run in a detached worker: closing the terminal leaves it running (aqorin logs &lt;run> --follow, or aqorin, reattaches); Ctrl+C interrupts it resumably at its next step boundary, and a second Ctrl+C stops waiting (the interruption still happens). One Run at a time per working tree: a new Run or conversation is refused while another is unfinished — a Free chat excepted, which neither waits nor holds the tree, and a workflow, which then runs in a git worktree of its own (aqorin worktree). A Run's Claude Code, OpenCode and Pi — a workflow's and its checks, or a Free chat's — run in Aqorin's sandbox (Seatbelt on macOS, bubblewrap on Linux): writes refused in the repository outside the Run's own folder, its .git (a Full access Free chat writes it, but for its config, hooks, modules, commondir and what points its worktrees at it — on Linux one that does not exist yet is said not closed —, is told after a turn what it added that your git runs code from, and the aqorin/\* branches of workflows are not protected from it) and .aqorin, other worktrees, your other projects (aqorin projects), Aqorin's files, your keys, credentials, shell and git configuration, the agents' own settings and the executables on your PATH; reads and the network are not limited; Codex keeps its own sandbox. On Linux no new name is made at the top of your home or of a folder holding a protected path while a step runs, and your session's services (bus, systemd, Docker) are out of its reach. Refused where it cannot be set up (aqorin doctor says why); sandbox: off in your config.yaml runs without it (said on every Run).
+feature, run and resume drive their Run in a detached worker: closing the terminal leaves it running (aqorin logs &lt;run> --follow, or aqorin, reattaches); Ctrl+C interrupts it resumably at its next step boundary, and a second Ctrl+C stops waiting (the interruption still happens). One Run at a time per working tree: a new Run or conversation is refused while another is unfinished — a Free chat excepted, which neither waits nor holds the tree, and a workflow, which then runs in a git worktree of its own (aqorin worktree). A Run's Claude Code, OpenCode and Pi — a workflow's and its checks, or a Free chat's — run in Aqorin's sandbox (Seatbelt on macOS, bubblewrap on Linux): writes refused in the repository outside the Run's own folder, its .git (a Full access Free chat writes it, but for its config, hooks, modules, commondir and what points its worktrees at it — on Linux one that does not exist yet is said not closed —, is told after a turn what it added that your git runs code from, and the aqorin/\* branches of workflows are not protected from it), other worktrees, your other projects (aqorin projects), Aqorin's files, your keys, credentials, shell and git configuration, the agents' own settings and the executables on your PATH; reads and the network are not limited; Codex keeps its own sandbox. On Linux no new name is made at the top of your home or of a folder holding a protected path while a step runs, and your session's services (bus, systemd, Docker) are out of its reach. Refused where it cannot be set up (aqorin doctor says why); sandbox: off in your config.yaml runs without it (said on every Run).
 
 ## Commands
 
 ### `init`
 
-Mark this folder as an Aqorin project (.aqorin/aqorin.yaml, with nothing else in it); with no default runtime yet, it chooses yours
+aqorin projects add for this folder (or --project): it writes nothing in it; with no default runtime yet, --runtime (or a terminal) chooses yours
 
 ### `use`
 
@@ -197,7 +197,7 @@ Create, send to, answer, interrupt, finish, follow up and inspect a durable conv
 
 ### `projects`
 
-Your list of projects (in Aqorin's configuration folder): add puts one in (the project at or above the folder, the one you are in by default; --name names it, else the folder's name), remove takes it out and deletes nothing — its folder, Runs, worktrees and branches stay, and adding it again shows them — and is refused while one of its Runs is unfinished. list says each one's state: ok, not found (its folder is gone), changed (another folder is at its path), not initialized, invalid. A project is its folder's real path: a moved folder is a new project, and the old one keeps its history. Nothing enters the list unless you add it. setup &lt;project> --set &lt;command>… sets how a new worktree of it is prepared before a workflow's first step (an argv, never a shell line; --set -- before a command with flags); --clear removes it
+Your list of projects (in Aqorin's configuration folder): add puts a folder in (the one you are in by default) and writes nothing in it — a folder in a listed project is that project, one in a git repository adds the repository's top level, any other is added as it is and takes Free chats, not workflows (they need git); --name names it, else the folder's name. remove takes it out and deletes nothing — its folder, Runs, worktrees and branches stay, and adding it again shows them — and is refused while one of its Runs is unfinished. list says each one's state: ok, not found (its folder is gone), changed (another folder is at its path). A project is its folder's real path: a moved folder is a new project, and the old one keeps its history. Nothing enters the list unless you add it. setup &lt;project> --set &lt;command>… sets how a new worktree of it is prepared before a workflow's first step (an argv, never a shell line; --set -- before a command with flags); --clear removes it
 
 ### `migrate`
 
@@ -209,7 +209,7 @@ Show this help
 
 ## No command
 
-If project configuration exists, print project status. If not, and a global default runtime exists, print global status. If neither exists, start initialization (interactive TTY only).
+In a terminal, open the TUI. Otherwise print the status of the project you added at or above this folder, else your own status; with no default runtime it says so (aqorin use &lt;runtime>). It never adds a project.
 
 ## Global options
 
@@ -235,7 +235,7 @@ Extra diagnostic detail on stderr
 
 ### `--project`
 
-The project: a path (the project at or above it), or the name or id of a project you added (aqorin projects)
+The project: a path (the project you added at or above it), or the name or id of a project you added (aqorin projects). A project's commands (run, feature, conversation, tasks, status, logs, …) without it act on the project you added at or above the folder you are in, else the one a Run id names; elsewhere they are refused (project_required). Your own commands (agents, workflows, skills, mcp, use, runtimes, connections, credentials, config, doctor, capabilities) refuse it: they are the same in every project
 
 ### `--runtime`
 

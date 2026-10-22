@@ -208,9 +208,10 @@ guarantee.</p>
 Linux. Its agents write in the Run’s own folder or worktree and anywhere outside your project. These writes
 fail (<code dir="auto">Operation not permitted</code> on macOS, <code dir="auto">Read-only file system</code> on Linux):</p>
 <ul>
-<li>the repository’s other folders, its <code dir="auto">.git</code> and its <code dir="auto">.aqorin</code> — so an agent cannot commit, move a
-branch, add a hook to <code dir="auto">.git</code> or turn the sandbox off; Aqorin commits when you integrate a worktree;</li>
-<li>other Runs’ worktrees, and Aqorin’s own files — its record of your Runs included;</li>
+<li>the repository’s other folders and its <code dir="auto">.git</code> — so an agent cannot commit, move a branch or add a hook
+to <code dir="auto">.git</code>; Aqorin commits when you integrate a worktree;</li>
+<li>other Runs’ worktrees, and Aqorin’s own files — its record of your Runs, and your configuration and library,
+included, so an agent cannot turn the sandbox off;</li>
 <li>your other projects — each one <a href="../projects/">you added</a> whose folder exists: its folder, its repository and
 its <code dir="auto">.git</code> — as the list was when the Run began; the plan names them. A list that cannot be read refuses the
 Run. A file already hard-linked between two projects (a shared <code dir="auto">node_modules</code> store, <code dir="auto">cp -al</code>) is one file: the
@@ -239,7 +240,7 @@ agent, are not. A read-only or review step on Claude Code is advisory on Linux: 
 and files, but its <code dir="auto">~/.claude</code> stays writable for its credentials. Linux is supported as demonstrated on Ubuntu 26.04
 x86_64 (<a href="../installation/">Installation</a>); there, the sandbox of a Pi reviewer’s live Run, replayed with an attack in
 Pi’s place, refused every write outside Pi’s own state and the temporary directories — the workspace, <code dir="auto">.git</code>,
-<code dir="auto">.aqorin</code>, your home, <code dir="auto">~/.ssh</code>, systemd’s user units, Aqorin’s data and other worktrees — and escapes by symlink,
+<code dir="auto">.aqorin</code> (closed then, open since GC2), your home, <code dir="auto">~/.ssh</code>, systemd’s user units, Aqorin’s data and other worktrees — and escapes by symlink,
 hardlink and rename.</p>
 <p>A Free chat on Claude Code, OpenCode or Pi runs in the same sandbox, writing in your project folder: its
 sandbox is chosen when you start (or follow up) the chat, and every turn runs in that one. A chat started

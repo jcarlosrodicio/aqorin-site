@@ -67,8 +67,8 @@ enforce it itself. Codex's chat runs in Aqorin's own Codex home, with your sign-
 copied — never with your configuration.
 
 On macOS and Linux, a Claude Code, OpenCode or Pi chat runs in Aqorin's sandbox, whatever its mode: it writes in
-your project and outside it, never in the repository's `.aqorin` or — in Ask — its `.git`, other Runs' worktrees,
-Aqorin's own files, or your keys and settings. In Full access it works with git — branches, commits,
+your project and outside it, never in other Runs' worktrees, Aqorin's own files, or your keys and settings, nor —
+in Ask — in the repository's `.git`. In Full access it works with git — branches, commits,
 worktrees — but not with what makes your git run code (`.git`'s config, hooks and modules), and Aqorin names any
 submodule a turn adds. A Pi chat on *Your configuration* cannot run in it. See [Security](../security/).
 

@@ -4,8 +4,12 @@ description: The files Aqorin owns — one configuration and one library for eve
 ---
 
 Aqorin writes only its own files. It never writes your runtimes' configuration. Everything below is
-written by the TUI or the CLI through one writerYour settings and your library are yours, not a project's: every project you add uses the same ones.
-A project's folder holds only `.aqorin/aqorin.yaml`, the mark `aqorin init` writes.
+written by the TUI or the CLI through one writer that keeps your comments and key order. You can
+also edit the files by hand.
+
+Your settings and your library are yours, not a project's: every project you add uses the same ones.
+A project is a folder in your [list](../projects/): nothing of Aqorin's is written in it, and a `.aqorin/` there is
+read only by `aqorin migrate`.
 
 ## Where Aqorin keeps its files
 
@@ -113,8 +117,12 @@ aqorin migrate --yes --rename agent:critic-api=api-critic --with-setup api
   part-way completes when run again; a second run changes nothing. `--project <project>` limits it to one project.
 - **`--yes` reads the projects again** and imports what it shows, then prints all of it: run it right after the
   preview, since a `.aqorin/` changed in between is imported as it is then.
-- A project whose `.aqorin/` changes after it was imported (a `git pull`) is offered again, what changed imported
-  beside what was under a new name; nothing waits for it.
+- A project whose `.aqorin/` changes after it was imported (a `git pull`, or a Run's agent: the sandbox no longer
+  closes `.aqorin/`) waits for nothing, and is imported only when you name it: `aqorin migrate` shows it held, and
+  `aqorin migrate --project <project>` previews what changed, imported with `--yes` beside what was under a new name.
+  A folder added with nothing to import counts as imported, so a `.aqorin/` written there later is such a change.
+  **Not claimed:** in a project listed since before this version with nothing to import, a `.aqorin/` written there
+  waits for `aqorin migrate`, and so does that project's new work.
 - A Run made before the import resumes and replans as before: its skills and MCP servers come from your library, or,
   when they are not there with the same content, from the repository's `.aqorin/` on a matching hash only — otherwise
   it is refused.
