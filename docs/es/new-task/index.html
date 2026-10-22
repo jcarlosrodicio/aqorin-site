@@ -77,7 +77,8 @@ nombre o carpeta. Un proyecto que no está <em>ok</em> aparece en gris; uno sin 
 folder…</strong> añade uno y vuelve con el formulario como lo dejaste (<a href="../projects/">Varios proyectos</a>).</li>
 <li><strong>What to do:</strong> un <a href="../free-chat/">Free chat</a>, o un workflow.</li>
 <li><strong>Which workflow, and where it runs.</strong> Cada uno aparece por su nombre, con su flujo y para qué
-sirve; <a href="../workflows/#los-workflows-integrados">Engineering change</a> va el primero.</li>
+sirve; <a href="../workflows/#los-workflows-integrados">Engineering change</a> va el primero. Se ejecuta como está guardado,
+con una asignación tuya, o con <em>Every step on <runtime></em> para cada runtime instalado —<code dir="auto">aqorin run &lt;workflow&gt; --runtime &lt;runtime&gt;</code>: sin la asignación guardada, y los valores por defecto de los agentes ceden ante él—.</li>
 <li><strong>What the agents are asked to do:</strong> tu petición.</li>
 <li><strong>Checked by:</strong> <strong>Nothing</strong> (por defecto), <strong>Commands</strong>, <strong>The agent</strong> o <strong>Commands and the
 agent</strong>. Los campos de comandos solo aparecen con comandos: cada uno debe pasar, como <code dir="auto">npm test</code>,
@@ -105,7 +106,7 @@ texto completo (lo que imprime <code dir="auto">--plan-only</code>), y <code dir
 comprueba), dicho solo cuando lo pides. Un paso que puede ejecutar comandos (el Bash de Claude Code) se
 dice en el propio plan. Nada se ejecuta hasta que pulsas <code dir="auto">Enter</code>.</p>
 <ul>
-<li><code dir="auto">w</code> cambia dónde se ejecuta la tarea: una asignación guardada, o <strong>New assignment…</strong>, que abre el
+<li><code dir="auto">w</code> cambia dónde se ejecuta la tarea: una asignación guardada, todos los pasos en un runtime, o <strong>New assignment…</strong>, que abre el
 editor para este workflow. Cuando la guardas (<code dir="auto">s</code>), Esc vuelve al plan con ella; tu tarea se
 conserva.</li>
 <li>Cuando un paso no puede ejecutarse donde está asignado (por ejemplo, una conexión sin

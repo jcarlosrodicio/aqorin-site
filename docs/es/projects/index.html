@@ -175,8 +175,8 @@ puede leer —dañado, o escrito por un Aqorin más nuevo— dice <em>unreadable
 <div class="sl-heading-wrapper level-h2"><h2 id="una-sola-app-sobre-todos-los-proyectos">Una sola app sobre todos los proyectos</h2><a class="sl-anchor-link" href="#una-sola-app-sobre-todos-los-proyectos"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Sección titulada «Una sola app sobre todos los proyectos»</span></a></div>
 <p>La TUI es la misma dondequiera que la abras: Home, Runs y Attention cubren todos los proyectos de tu lista, cada fila
 con el nombre de su proyecto, y <strong>Projects</strong> (<code dir="auto">0</code>, la última sección del rail) lista los proyectos mismos —cada uno con
-su estado y sus Runs trabajando, esperando, fallidos y terminados (<code dir="auto">no git</code> para una carpeta que no es un repositorio
-git), y al lado del seleccionado su carpeta, id, estado, si es git, sus Runs y su preparación de worktrees, o qué
+su estado y sus Runs trabajando, esperando, fallidos y terminados, sus chats abiertos y terminados (<code dir="auto">no Runs yet</code> sin
+ninguno; <code dir="auto">no git</code> para una carpeta que no es un repositorio git), y al lado del seleccionado su carpeta, id, estado, si es git, sus Runs y su preparación de worktrees, o qué
 hacer—. Sin ningún proyecto en la lista, dice cómo añadir uno, y <code dir="auto">Enter</code> añade uno. La carpeta en la que abres Aqorin solo decide qué proyecto
 ofrecen primero New task y Free chat; en un repositorio git que no está en tu lista, Home ofrece <em>Add ~/esa/carpeta</em>,
 que <code dir="auto">a</code> añade (no se escribe nada en él).</p>
@@ -187,7 +187,7 @@ propio comando de la CLI con <code dir="auto">--project</code>. Un comando que l
 <li>Un turno de chat enviado en un proyecto sigue mientras miras otro; lo que dejaste en cola para él se envía allí
 cuando termina. Salir mientras se envía un turno lo avisa primero.</li>
 <li><strong><code dir="auto">n</code></strong> y <strong><code dir="auto">c</code></strong> preguntan primero el proyecto, como primer paso del formulario: primero el de la carpeta en la que
-empezaste, ya elegido, después el último que usaste, después los demás por nombre. Escribe para acotarlo por nombre
+empezaste, ya elegido (también una vez que la <code dir="auto">a</code> de Home la añadió), después el último que usaste, después los demás por nombre. Escribe para acotarlo por nombre
 o por carpeta (<code dir="auto">work/no</code>); la línea dice cuántos coinciden. Un proyecto que no está <em>ok</em> aparece en gris, con su
 estado, y no se puede elegir. Uno que no es un repositorio git sí: el Free chat funciona allí, y <em>Run a workflow</em>
 dice que un workflow necesita git antes de planificar nada. La última entrada es <strong>Add a folder…</strong>: abre Add project

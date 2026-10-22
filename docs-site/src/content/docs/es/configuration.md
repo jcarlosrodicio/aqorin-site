@@ -101,7 +101,7 @@ aqorin migrate --yes                            # lo importa
 aqorin migrate --yes --rename agent:critic-api=api-critic --with-setup api
 ```
 
-**En la app**, la primera fila de Home es entonces *Import your configuration*: **Enter** abre la misma vista previa,
+**En la app**, la primera fila de Home bajo el resumen es entonces *Import your configuration*, con el cursor en ella: **Enter** abre la misma vista previa,
 un paso por cada proyecto que la espera —lo que importa y lo que puede actuar, el nombre de cada conflicto en un campo
 (vacío, toma el nombre que da la vista previa, dicho a su lado; un nombre que escribes se comprueba mientras lo
 escribes, y se rechaza si está ocupado al seguir) y su preparación de worktrees, *Not imported* salvo que elijas *Imported*—. Cada paso vuelve

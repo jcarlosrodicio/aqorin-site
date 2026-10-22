@@ -77,7 +77,9 @@ folder. A project that is not <em>ok</em> is greyed; one with no git takes a Fre
 comes back with the form as you left it (<a href="../projects/">Several projects</a>).</li>
 <li><strong>What to do:</strong> a <a href="../free-chat/">Free chat</a>, or a workflow.</li>
 <li><strong>Which workflow, and where it runs.</strong> Each is offered by name with its flow and what it is for;
-<a href="../workflows/#the-built-in-workflows">Engineering change</a> comes first.</li>
+<a href="../workflows/#the-built-in-workflows">Engineering change</a> comes first. It runs as saved, on an assignment of
+yours, or with <em>Every step on <runtime></em> for each runtime installed — <code dir="auto">aqorin run &lt;workflow&gt; --runtime &lt;runtime&gt;</code>:
+no saved assignment, and the agents’ defaults yield to it.</li>
 <li><strong>What the agents are asked to do:</strong> your request.</li>
 <li><strong>Checked by:</strong> <strong>Nothing</strong> (the default), <strong>Commands</strong>, <strong>The agent</strong>, or <strong>Commands and the
 agent</strong>. The command fields appear only with commands: each must pass, such as <code dir="auto">npm test</code>, and
@@ -104,7 +106,7 @@ only told to read, a runtime version not verified yet, work nothing checks — s
 step that may run commands (Claude Code’s Bash) is said on the plan itself. Nothing runs until you press
 <code dir="auto">Enter</code>.</p>
 <ul>
-<li><code dir="auto">w</code> changes where the task runs: a saved assignment, or <strong>New assignment…</strong>, which opens the
+<li><code dir="auto">w</code> changes where the task runs: a saved assignment, every step on one runtime, or <strong>New assignment…</strong>, which opens the
 editor for this workflow. Once you save it (<code dir="auto">s</code>), Esc goes back to the plan with it; your task is
 kept.</li>
 <li>When a step cannot run where it is assigned — for example, a connection that is not configured —

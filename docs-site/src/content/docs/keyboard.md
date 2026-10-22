@@ -14,7 +14,7 @@ or a command in the palette.
 | `←` `→` or `Tab` | Move between the rail, the list, and the inspector and its buttons. |
 | `Enter` | Open the item, or do the focused button. |
 | `Esc` | Go back one level. It never quits; on the rail, the top level, it does nothing. |
-| `Tab` or `↓`, `←` `→` | In a form (New task, a connection): `Tab` or `↓` the next field; on a choice `←` `→` choose, and the form's last line says so while it has the focus (a long, searched choice says it on its search line). |
+| `Tab` or `↓`, `←` `→` | In a form (New task, a connection): `Tab` or `↓` the next field; on a choice `←` `→` choose, and the form's last line says so while it has the focus (a long, searched choice says it on its search line). `Tab` and `Shift+Tab` go round a step, from its last button to its first field and back; `↓` `↑` stop at its ends. `Enter` on a field before a step's last goes to the next field (the last line says `Enter next`); elsewhere it does what the last line says. |
 | `1`–`9`, `0` | Home, Runs, Attention, Agents, Workflows, Runtimes, Resources, Credentials, Settings, and `0` Projects (see [Several projects](../projects/)). From an open workflow Run too: it closes as `Esc` would. In a chat, an editor, New task or a form a digit is text or a choice: `Esc` first. |
 | `/` | Filter the list: Runs, Agents, Workflows and Resources. `Esc` clears the filter. |
 | `:` or Ctrl+P | The command palette. |
