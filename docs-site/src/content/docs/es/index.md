@@ -17,7 +17,8 @@ todo lo que hace la TUI.
 
 - **Plataforma:** **macOS con Apple silicon (Darwin arm64)** y **Linux** — Linux demostrado en Ubuntu 26.04 en
   x86_64 con bubblewrap, desde la 0.4.0 (ver [Instalación](../installation/)). Windows no se declara.
-- **Disponibilidad:** en npm como `@aqorin/cli` 0.5.0 (`npm install -g @aqorin/cli`). La 0.4.0 trajo Linux; la
+- **Disponibilidad:** en npm como `@aqorin/cli` 0.6.0 (`npm install -g @aqorin/cli`). La 0.6.0 trajo varios proyectos y una
+  sola configuración (`aqorin migrate` importa el `.aqorin/` antiguo de un proyecto); la 0.4.0 trajo Linux; la
   0.3.0 es solo de macOS; la 0.1.0 y la 0.2.0 no tienen TUI.
 :::
 

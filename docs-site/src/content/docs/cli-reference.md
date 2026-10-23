@@ -3,11 +3,11 @@ title: CLI reference
 description: Every aqorin command and option of the Terminal Alpha, generated from aqorin help.
 ---
 
-Generated from `aqorin help` of the Terminal Alpha build, which reports version 0.5.0 — the product's own text. In a terminal, `aqorin help` prints the same.
+Generated from `aqorin help` of the Terminal Alpha build, which reports version 0.6.0 — the product's own text. In a terminal, `aqorin help` prints the same.
 
 :::note[Added on this site]
-- This is the CLI of `@aqorin/cli` 0.5.0 on npm, the Terminal Alpha (macOS and Linux). 0.4.0 before it
-  brought Linux; 0.3.0 is the same CLI on macOS only; 0.1.0 and 0.2.0 are an earlier CLI that lacks many of these commands.
+- This is the CLI of `@aqorin/cli` 0.6.0 on npm, the Terminal Alpha (macOS and Linux). 0.6.0 brought several
+  projects and one configuration (`aqorin projects`, `aqorin migrate`); 0.4.0 brought Linux; 0.3.0 is the same CLI on macOS only; 0.1.0 and 0.2.0 are an earlier CLI that lacks many of these commands.
 - The help still names **jcode**, a runtime the code knows. It is not one of the Terminal Alpha's
   runtimes: those are Claude Code, Codex, OpenCode and Pi.
 :::

@@ -9,7 +9,7 @@ description: Lo que la Terminal Alpha no hace, y lo que no afirma.
   desde la 0.4.0 (la 0.3.0 es anterior). No demostrado: Linux en arm64, otras distribuciones, macOS en
   Intel. Windows no se declara. En Linux un paso de solo lectura o de revisión en Claude Code es advisory, y unos
   pocos nombres protegidos de `~/.claude` que aún no existen no se pueden cerrar.
-- **Distribución:** solo npm (`@aqorin/cli` 0.5.0); ningún otro gestor de paquetes ni descarga.
+- **Distribución:** solo npm (`@aqorin/cli` 0.6.0); ningún otro gestor de paquetes ni descarga.
   La 0.4.0 trajo Linux; la 0.3.0 es solo de macOS; la 0.1.0 y la 0.2.0 son una CLI anterior, sin la TUI.
 - **Runtimes:** Claude Code, Codex, OpenCode y Pi. Otros runtimes que el código de Aqorin conoce,
   como jcode, no forman parte de la Alpha.
