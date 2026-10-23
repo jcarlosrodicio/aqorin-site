@@ -93,7 +93,8 @@ Los proyectos configurados antes de esta versión guardaban sus agentes, workflo
 MCP, ajustes y tareas en su propio `.aqorin/`. Aqorin ya no los lee para trabajo nuevo: hasta que se importan los de un
 proyecto, un Run, un chat o una tarea nuevos en él se rechazan (`migration_pending`), Home lo dice, los comandos de la
 biblioteca dicen cuántos proyectos esperan y `aqorin projects add` lo dice al añadir uno. Lo que ya está en marcha o
-esperando sigue.
+esperando sigue. Un `.aqorin/` que no aporta nada —solo ajustes que tu `config.yaml` ya fija, o `sandbox` y `runtimes`,
+que nunca se importan— no espera nada: *nothing to import*.
 
 ```bash
 aqorin migrate                                  # lo que importaría; no escribe nada
@@ -111,7 +112,7 @@ se nombra allí con su comando.
 
 - **La vista previa** muestra cada entrada con lo que puede actuar (la clase de acceso de un agente, el comando de un
   servidor MCP y los secretos que recibiría —qué variable o qué elemento del llavero, nunca un valor—, los archivos de
-  una skill), cada ajuste con su valor y si tu `config.yaml` ya tiene uno, las tareas y lo que se omite (un enlace, un
+  una skill), cada ajuste con su valor, en palabras, y si tu `config.yaml` ya tiene uno, las tareas y lo que se omite (un enlace, un
   archivo o carpeta que no se puede leer o no valida, y un ajuste que nombra algo omitido). Una carpeta suya (`skills/`,
   `tasks/`…) con más de 512 archivos no se lee, y se dice.
 - **Un conflicto** —el mismo id con otro contenido en dos proyectos, o en un proyecto y tu biblioteca— conserva el id

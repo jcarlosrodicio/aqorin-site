@@ -90,7 +90,9 @@ read from the repository.
 Projects set up before this version kept their agents, workflows, assignments, skills, MCP servers, settings and
 tasks in their own `.aqorin/`. Aqorin no longer reads them for new work: until a project's are imported, a new Run,
 chat or task there is refused (`migration_pending`), Home says so, the library commands say how many projects wait,
-and so does `aqorin projects add` when it adds one. What is already running or waiting goes on.
+and so does `aqorin projects add` when it adds one. What is already running or waiting goes on. A `.aqorin/` that
+brings nothing — only settings your `config.yaml` already sets, or `sandbox` and `runtimes`, which are never imported —
+waits for nothing: *nothing to import*.
 
 ```bash
 aqorin migrate                                  # what it would import; writes nothing
@@ -107,7 +109,7 @@ leaves the row. A project held (below), or one whose folder is gone, is named th
 
 - **The preview** shows every entry with what can act (an agent's access class, an MCP server's command and the
   secrets it would be given — which variable or keychain item, never a value —, a skill's files), each setting with its
-  value and whether your `config.yaml` already has one, the tasks, and what is skipped (a link, a file or folder that
+  value, in words, and whether your `config.yaml` already has one, the tasks, and what is skipped (a link, a file or folder that
   cannot be read or does not validate, and a setting that names something skipped). A folder of it (`skills/`, `tasks/`…)
   holding more than 512 files is not read, and said.
 - **A conflict** — the same id with other content in two projects, or in a project and your library — keeps the id for
